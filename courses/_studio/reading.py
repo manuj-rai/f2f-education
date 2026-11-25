@@ -16,7 +16,7 @@ from pathlib import Path
 
 STUDIO = Path(__file__).resolve().parent
 COURSES = STUDIO.parent
-CATEGORIES = {'fibre-fundamentals', 'technical-textiles', 'sustainable-textiles', 'apparel-production', 'fashion-design'}
+CATEGORIES = {'fibre-fundamentals', 'technical-textiles', 'sustainable-textiles', 'apparel-manufacturing', 'fashion-design', 'sourcing', 'merchandising'}
 ICONS = set((STUDIO / 'icons.txt').read_text(encoding='utf-8').split())
 BLUE, INK, MUTED, TINT = '1B5FA8', '111111', '5B6472', 'EEF4FB'
 WPM = 200          # reading speed used for lesson times

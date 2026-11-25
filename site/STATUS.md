@@ -39,10 +39,18 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 - University Partners (`/universities`): from 1280px down, its content now has the same 48px side margins as the header and footer.
 - Course pages and Online Courses were already fine.
 
-**Institutions: F2F University (25 Nov 2026).** At the user's request, **F2F University** replaced the four "Test …" placeholder institutions as the author of all 16 courses (LearnWorlds course settings: Author's name and avatar). The avatar is an "F2F" monogram on navy, `courses/_universities/f2f-university.png`; swap it for a real logo when there is one.
-- University Partners lists F2F University with all 16 courses. The Online Courses Institution filter has that one option.
-- The home partner strip now shows from one institution (it used to need two), so F2F University appears there. The "Partner institutions" figure still needs two, so home shows two figures.
-- New courses get F2F University by default (`lw_publish_js.py`, `content.json` "author_name").
+**Institutions (25 Nov 2026, the user's list).** Course authors in LearnWorlds (course settings: Author's name and avatar); the "Test …" placeholders are gone.
+The user asked for 5 courses each for AMFI and Sustainable Fashion School, and the rest for Fibre2Fashion Education; the split by subject is Claude's choice.
+- **Fibre2Fashion Education** (6): Staple Yarn Spinning, Fibre Testing Essentials, Yarn Testing Essentials, Yarn Types and Spinning Systems, Man-Made Fibre Spinning, Space Textiles. The avatar is the user's F2F logo (cap, F2F, book), `courses/_universities/fibre2fashion-education.png`.
+- **AMFI (Amsterdam Fashion Institute)** (5): the 3 Fashion Design courses, From Forecast to Order, Controlling Midseason Hanger Substitutions. The avatar is the square AMFI logo, `courses/_universities/amfi.png`; the home band uses the wide AMFI logo (`partnerLogos` in `pages/home/page.html`).
+- **Sustainable Fashion School** (5): AI and Sustainability in Apparel Manufacturing, Clothes People Keep Wearing, Getting Whites Right with Optical Brighteners, Cosmetotextiles, Woven Intelligence. The avatar is the logo the user sent (it reads "Sustainable Fashion Academy"; the user chose the name "Sustainable Fashion School"), `courses/_universities/sustainable-fashion-academy.png`. Its own course "Fashion Policy Masterclass Series" isn't in LearnWorlds; it was not created, because its 5 courses already show it.
+- Home band: logos only, no names (the name is the alt text), on one line that scrolls sideways when needed. Shown from one institution.
+- University Partners: each institution lists its first 5 courses, then "View all N courses", which opens Online Courses filtered to it (`/courses?institution=<name>`).
+- New courses get Fibre2Fashion Education by default (`lw_publish_js.py`, `content.json` "author_name").
+
+**Categories (25 Nov 2026).** "apparel-production" was renamed "apparel-manufacturing" (LearnWorlds category manager, so all 4 courses changed at once). New: **sourcing** (Controlling Midseason Hanger Substitutions) and **merchandising** (From Forecast to Order), each as the course's second category: they show in Explore by topic, the Trending filters and the Online Courses subject filter. On home every category has its own section (the user's request): a category that would have no section takes one of its courses from a section that keeps another one, so Hanger Substitutions shows under Sourcing and From Forecast to Order under Merchandising, and Apparel Manufacturing shows Optical Brighteners. Each section's "View all courses" opens Online Courses filtered to that category.
+
+**Course order.** LearnWorlds lists courses A–Z by title and has no order setting. `SITE.featured` in `body.html` (now `staple-yarn-spinning`) puts courses first on home, Online Courses ("Featured") and University Partners.
 
 **Home.** Hero changed at the user's request (25 Nov 2026):
 - Title: "Practical industry-led courses for the textiles, apparel & fashion industry."

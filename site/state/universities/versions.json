@@ -1,12 +1,9 @@
 {
   "note": "Slot code these tools generated, or live code accepted after its admin edits were copied into the project (--accept). A publish only overwrites a slot whose live code is one of these. See README \"Edits made in the LearnWorlds admin\".",
   "hashes": [
-    "1244fbaac8b71281",
-    "3a0d701c3bd5b95d",
-    "3d5e21a4fe4064bc",
-    "be4e4cc11bba467d",
-    "d661508e1655e5b5",
+    "6175ddd9567178cc",
     "bd79983bfc4c67ef",
-    "973f858208961c28"
+    "7c5a34b5a34f21fd",
+    "e31e5980dbdd5217"
   ]
 }

@@ -141,6 +141,13 @@
   // Skeleton cards while the catalogue loads
   grid.innerHTML = new Array(5).join('<div class="e-card e-card--skel" aria-hidden="true"><div class="e-card-media"></div><div class="e-card-body"><span></span><span></span><span></span></div></div>');
 
+  // Courses in SITE.featured (site/custom-code/body.html) come first, in that order; the rest keep LearnWorlds' order (A–Z)
+  function featuredFirst(list) {
+    var f = (window.F2FSite && window.F2FSite.featured) || [];
+    function rank(c) { var i = f.indexOf(c.titleId); return i < 0 ? f.length : i; }
+    return list.map(function (c, i) { return [c, i]; }).sort(function (a, b) { return rank(a[0]) - rank(b[0]) || a[1] - b[1]; }).map(function (x) { return x[0]; });
+  }
+
   function load() {
     var meta = document.querySelector('meta[name="csrf-token"]');
     return fetch('/api/learner/products', {
@@ -349,7 +356,7 @@
   if (window.matchMedia('(max-width: 1023px)').matches) root.querySelector('[data-e-panel]').removeAttribute('open');
 
   readUrl();
-  Promise.all([load(), enrolments()]).then(function (r) { courses = prepare(r[0], r[1]); heroCounts(); render(); }, function () {
+  Promise.all([load(), enrolments()]).then(function (r) { courses = prepare(featuredFirst(r[0]), r[1]); heroCounts(); render(); }, function () {
     count.textContent = '';
     grid.innerHTML = '<p class="e-empty">Courses couldn’t load just now. Please refresh the page in a moment.</p>';
   });

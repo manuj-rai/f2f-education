@@ -45,7 +45,7 @@ Fetch articles first: they are in `articles/<id>-<slug>.json` (`markdown` holds 
   "glossary": [ { "term": "Micronaire", "def": "3-25 words" } ]
 }
 ```
-* `categories`: from `fibre-fundamentals`, `technical-textiles`, `sustainable-textiles`, `apparel-production`, `fashion-design`.
+* `categories`: from `fibre-fundamentals`, `technical-textiles`, `sustainable-textiles`, `apparel-manufacturing`, `fashion-design`, `sourcing`, `merchandising`.
   The first one decides where the course shows on the home page.
 * `card_icon`: a name from `courses/_studio/icons.txt`. `card_topic`: 1-3 words printed on the card.
 * 3-5 lessons (set `"micro": true` for a short article: then 2-3 lessons, 250+ words each, 5-6 questions).

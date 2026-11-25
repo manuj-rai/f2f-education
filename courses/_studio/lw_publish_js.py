@@ -2,8 +2,8 @@
 
   python courses/_studio/lw_publish_js.py <slug> ["Author name" <avatar.png>]
 
-  With no author given, the course gets the one every live course has: "F2F University" with
-  courses/_universities/f2f-university.png (since 25 Nov 2026).
+  With no author given, the course gets "Fibre2Fashion Education" with
+  courses/_universities/fibre2fashion-education.png. AMFI: "AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png.
 
 -> .scratch/lw/<slug>-1-create.js    create course (wizard, Staple Yarn page layout), Upload & convert the .docx lessons,
                                      section "Lessons" (Public), "Lesson N: Title" names, section 2, blank exam -> exam editor
@@ -205,8 +205,8 @@ return log.join('\n');
 
 def main():
     slug = sys.argv[1]
-    author = sys.argv[2] if len(sys.argv) > 2 else 'F2F University'
-    avatar = sys.argv[3] if len(sys.argv) > 3 else (STUDIO.parent / '_universities' / 'f2f-university.png' if author == 'F2F University' else None)
+    author = sys.argv[2] if len(sys.argv) > 2 else 'Fibre2Fashion Education'
+    avatar = sys.argv[3] if len(sys.argv) > 3 else (STUDIO.parent / '_universities' / 'fibre2fashion-education.png' if author == 'Fibre2Fashion Education' else None)
     avatar = str(Path(avatar).resolve()).replace('\\', '/') if avatar else None
     c = reading.load(slug)
     d = (STUDIO.parent / slug).resolve()
