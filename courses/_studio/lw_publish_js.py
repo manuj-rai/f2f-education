@@ -2,6 +2,9 @@
 
   python courses/_studio/lw_publish_js.py <slug> ["Author name" <avatar.png>]
 
+  With no author given, the course gets the one every live course has: "F2F University" with
+  courses/_universities/f2f-university.png (since 25 Nov 2026).
+
 -> .scratch/lw/<slug>-1-create.js    create course (wizard, Staple Yarn page layout), Upload & convert the .docx lessons,
                                      section "Lessons" (Public), "Lesson N: Title" names, section 2, blank exam -> exam editor
    .scratch/lw/<slug>-2-quiz.js      import knowledge-check.xlsx, pass mark 70 %, certificate of completion
@@ -202,8 +205,9 @@ return log.join('\n');
 
 def main():
     slug = sys.argv[1]
-    author = sys.argv[2] if len(sys.argv) > 2 else None
-    avatar = str(Path(sys.argv[3]).resolve()).replace('\\', '/') if len(sys.argv) > 3 else None
+    author = sys.argv[2] if len(sys.argv) > 2 else 'F2F University'
+    avatar = sys.argv[3] if len(sys.argv) > 3 else (STUDIO.parent / '_universities' / 'f2f-university.png' if author == 'F2F University' else None)
+    avatar = str(Path(avatar).resolve()).replace('\\', '/') if avatar else None
     c = reading.load(slug)
     d = (STUDIO.parent / slug).resolve()
     C = {

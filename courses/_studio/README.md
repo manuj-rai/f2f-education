@@ -13,7 +13,7 @@ For most new courses, use text lessons instead of videos. One article becomes a 
 3. `python courses/_studio/reading.py <slug>` (set `TEMP`/`TMP` to a folder on F: if C: is full). It writes
    `upload/Lesson N - <title>.docx`, `assessments/knowledge-check.xlsx`, `course-card.jpg` and `learnworlds-setup.md`.
 4. Put it into LearnWorlds with scripts (about 6 minutes a course):
-   `python courses/_studio/lw_publish_js.py <slug> "<Author name>" <avatar.png>` writes three Playwright scripts to
+   `python courses/_studio/lw_publish_js.py <slug>` writes three Playwright scripts to
    `.scratch/lw/`. Run them in order in the signed-in admin browser (Playwright MCP `browser_run_code_unsafe` with `filename`):
    * `<slug>-1-create.js`: Create-course wizard (copies Staple Yarn's clean page), Upload & convert of the `.docx` lessons
      (each becomes an Ebook activity), activities renamed "Lesson N: Title", the "Lessons" section set to Public, and a second
@@ -23,7 +23,9 @@ For most new courses, use text lessons instead of videos. One article becomes a 
      then reads the settings back. It is safe to run again if it stops partway (categories and pricing are skipped when already there).
 
    The manual route is "Putting a course into LearnWorlds" below; in its step 4, upload the `.docx` files instead of videos.
-   The label is "N min · Reading". The author is the institution shown on /universities (course settings → Author's name and avatar).
+   The label is "N min · Reading". The author is the institution shown on University Partners (`/universities`; course settings →
+   Author's name and avatar). Every course has **F2F University** with `courses/_universities/f2f-university.png`; that's also the
+   script's default. Pass `"<Author name>" <avatar.png>` after the slug only for a different institution.
 
 ## Video courses
 
@@ -53,7 +55,7 @@ falls back to Microsoft PowerPoint (`make_video.ps1`), which is much slower. A f
 1. Courses → **Create course** → Build it yourself: title, card description, URL slug, keep **Draft**, and under
    *Pick a page template* choose **"Select a page layout used in another course" → Staple Yarn Spinning**. The new course page then
    copies the clean F2F layout and needs no clean-up.
-2. Course settings → General: Label, Author "Fibre2Fashion Institute", categories, course image (`course-card.jpg`, crop to the
+2. Course settings → General: Label, Author "F2F University" (avatar `courses/_universities/f2f-university.png`), categories, course image (`course-card.jpg`, crop to the
    full image). Turn **Automatically extract Course SEO** off and write an SEO description under 160 characters; the course page
    hero shows it.
 3. Pricing → Add pricing option → **Free**, status **Public**.

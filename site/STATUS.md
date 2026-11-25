@@ -27,17 +27,22 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 **Header and footer.** Done on every site page, including LearnWorlds' built-in pages (`/account`, `/inbox`, `/social`, apps), which get the site styles through the 6th site slot:
 - Strip, logo, menu, search, and Log in (opens LearnWorlds' sign-in). The menu is Online Courses (`/courses`), Residential Courses, University Partners (`/universities`) and Resources. Residential Courses and Resources are greyed out with no link: LearnWorlds has no residential courses yet, and there's no resources page yet.
 - On narrow desktops (1180px and below), the menu gaps are tighter and a long signed-in name is shortened with "…" so the four menu items don't run into the account button. Checked from 991px to 1366px, signed out and signed in.
-
-**1260px screens (demo laptop), fixed 25 Nov 2026.** Every page was checked at 1260px wide.
-- Home: from 1280px down, the hero lost its top and bottom spacing and the "Find your next step" bar collapsed. The side-margin rule reset all padding; it now sets only the sides.
-- University Partners (`/universities`): from 1280px down, its content now has the same 48px side margins as the header and footer.
-- Course pages and Online Courses were already fine.
 - Signed in: the account button shows the learner's name, and its menu has My learning, My certificates, Profile, Inbox, Account settings and Sign out.
 - Phone menu, "Skip to content" for keyboard users, and the footer. In the footer, Privacy policy and Terms of use are shown greyed out and not clickable until the real policies exist.
 - Height: 104px (32px strip plus 72px bar), shorter than Figma's 132px at the user's request; 88px on phones.
 - The "My learning · My certificates · Account settings" bar was removed at the user's request (the links are in the account menu).
 - Left out: "Saved courses" (LearnWorlds has no saved-courses feature).
-- Not covered: the course player, which loads neither the site styles nor the built-in-pages slot.
+- Not covered: the course player. It keeps LearnWorlds' original style; `head.html` switches the site styles off there (25 Nov 2026).
+
+**1260px screens (demo laptop), fixed 25 Nov 2026.** Every page was checked at 1260px wide.
+- Home: from 1280px down, the hero lost its top and bottom spacing and the "Find your next step" bar collapsed. The side-margin rule reset all padding; it now sets only the sides.
+- University Partners (`/universities`): from 1280px down, its content now has the same 48px side margins as the header and footer.
+- Course pages and Online Courses were already fine.
+
+**Institutions: F2F University (25 Nov 2026).** At the user's request, **F2F University** replaced the four "Test …" placeholder institutions as the author of all 16 courses (LearnWorlds course settings: Author's name and avatar). The avatar is an "F2F" monogram on navy, `courses/_universities/f2f-university.png`; swap it for a real logo when there is one.
+- University Partners lists F2F University with all 16 courses. The Online Courses Institution filter has that one option.
+- The home partner strip now shows from one institution (it used to need two), so F2F University appears there. The "Partner institutions" figure still needs two, so home shows two figures.
+- New courses get F2F University by default (`lw_publish_js.py`, `content.json` "author_name").
 
 **Home.** Hero changed at the user's request (25 Nov 2026):
 - Title: "Practical industry-led courses for the textiles, apparel & fashion industry."

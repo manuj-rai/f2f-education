@@ -8,14 +8,38 @@
   removed again, so LearnWorlds' own header and footer show instead of none.
 -->
 <script>
-document.documentElement.setAttribute('data-theme', 'light');
-document.documentElement.classList.add('f2f-chrome');
-// Course pages: body.html draws one layout for every course; LearnWorlds' own sections stay hidden meanwhile
-if (/^\/course\/[^\/]+\/?$/.test(location.pathname)) document.documentElement.classList.add('f2f-coursepage');
-window.addEventListener('load', function () {
-  if (!document.querySelector('.f2f-header')) document.documentElement.classList.remove('f2f-chrome');
-  if (!document.getElementById('f2f-course')) document.documentElement.classList.remove('f2f-coursepage');
-});
+(function () {
+  // Course player and the lesson pages it frames (ebook, video, PDF, exam players) keep LearnWorlds' original look
+  // (the user's request, 25 Nov 2026). LearnWorlds loads the site stylesheet there too, so it is switched off and no
+  // site classes are set; body.html draws no header or footer there either.
+  var player = /^\/(path-player|ebook|videoplayer|pdfplayer|assessmentplayer)/.test(location.pathname);
+  try { if (window.top !== window.self && /^\/path-player/.test(window.top.location.pathname)) player = true; } catch (e) {}
+  if (player) {
+    // Some lesson frames (the video player) load the stylesheet without running this code, so the player page also
+    // switches it off inside its own frames.
+    var offIn = function (doc) {
+      [].forEach.call(doc.querySelectorAll('style'), function (s) {
+        if (s.media !== 'not all' && s.textContent.indexOf('F2F EDUCATION') > -1 && /SITE-WIDE STYLES|BUILT-IN PAGES/.test(s.textContent)) s.media = 'not all';
+      });
+      [].forEach.call(doc.querySelectorAll('iframe'), function (f) { try { if (f.contentDocument) offIn(f.contentDocument); } catch (e) {} });
+    };
+    var off = function () { offIn(document); };
+    off();
+    var mo = new MutationObserver(off); mo.observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener('DOMContentLoaded', off);
+    window.addEventListener('load', function () { off(); mo.disconnect(); });
+    if (window.top === window.self) setInterval(off, 1000);
+    return;
+  }
+  document.documentElement.setAttribute('data-theme', 'light');
+  document.documentElement.classList.add('f2f-chrome');
+  // Course pages: body.html draws one layout for every course; LearnWorlds' own sections stay hidden meanwhile
+  if (/^\/course\/[^\/]+\/?$/.test(location.pathname)) document.documentElement.classList.add('f2f-coursepage');
+  window.addEventListener('load', function () {
+    if (!document.querySelector('.f2f-header')) document.documentElement.classList.remove('f2f-chrome');
+    if (!document.getElementById('f2f-course')) document.documentElement.classList.remove('f2f-coursepage');
+  });
+})();
 </script>
 
 <!-- /F2F Education · Site custom code · HEAD -->

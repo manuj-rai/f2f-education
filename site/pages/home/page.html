@@ -5,7 +5,7 @@
     categories        = each course's Categories (Course settings). A section per category, in catalogue order;
                         each course shows once, under its first category. Name = the category text
                         ("fibre-fundamentals" shows as "Fibre Fundamentals"; a category typed with spaces shows as typed).
-    partner strip     = the institutions set as course authors (name + profile picture); shown from 2 institutions.
+    partner strip     = the institutions set as course authors (name + profile picture); shown from 1 institution (F2F University is the author of every course).
     stats             = counted from the courses.
     blog              = the JSON feed in data-feed on the blog section; hidden while there is none.
   Topic icons are picked by keywords in the category name (rules below), with a default.
@@ -302,11 +302,11 @@
     }).join('');
     topics.addEventListener('click', function (e) { var a = e.target.closest('[data-filter]'); if (a) showTrend(a.getAttribute('data-filter')); });
 
-    // Partner strip: the institutions set as course authors, shown once there are at least two
+    // Partner strip: the institutions set as course authors, shown once there is one
     var seen = {}, institutions = [];
     courses.forEach(function (c) { authors(c).forEach(function (a) { if (!seen[a.name]) { seen[a.name] = 1; institutions.push(a); } }); });
     var partners = root.querySelector('[data-w-partners]');
-    if (institutions.length >= 2) {
+    if (institutions.length >= 1) {
       var list = partners.querySelector('[data-w-partner-list]');
       list.innerHTML = institutions.map(function (a) {
         var img = imageUrl(a.image), id = 'uni-' + a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

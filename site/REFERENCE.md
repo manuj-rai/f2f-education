@@ -146,7 +146,7 @@ How a page works on the live site:
 * **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
   * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order.
-  * Partner strip: the institutions set as course authors.
+  * Partner strip: the institutions set as course authors, shown from one institution (now F2F University).
   * Figures: counted from the courses.
   * No prices on home (no "Free" on cards or headings); the course page shows free or paid.
   * Blog: the JSON feed in the blog section's `data-feed`, hidden while empty.
@@ -155,7 +155,7 @@ How a page works on the live site:
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
   * Results: sort, 6 courses per page.
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
-* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar) with its courses. The four "Test …" institutions are placeholders.
+* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar) with its courses. Since 25 Nov 2026 every course's author is **F2F University** (it replaced the "Test …" placeholders), so it lists one institution. To add a real partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
 * Contact details (fibre2fashion.com/aboutus/contact): +91-2717-429555, inquiry@fibre2fashion.com, B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India.
 
 ## Edits made in the LearnWorlds admin are kept
@@ -181,7 +181,7 @@ Custom code is also edited directly in LearnWorlds, and a publish must never wip
 
 ## Known limits
 
-* The **course player** (`/path-player`) loads no site code, so the video and lesson screens keep LearnWorlds' look (theme colours and fonts still apply).
+* The **course player** (`/path-player`) keeps LearnWorlds' original look (the user's request, 25 Nov 2026). LearnWorlds loads the site stylesheet there and in the lesson frames (`/ebook`, `/videoplayer`, `/pdfplayer`, `/assessmentplayer`), so `head.html` switches it off (also inside the frames, from the player page) and `body.html` draws no header or footer there.
 * LearnWorlds' **sign-in window** keeps its own look (the user's decision).
 * "Created with LearnWorlds" goes away only on the Learning Center plan.
 * The school is on the LearnWorlds **trial**.

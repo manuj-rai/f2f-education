@@ -46,8 +46,12 @@
   var MENU = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
   if (document.querySelector('.f2f-header')) return;
-  // Only where the site styles load: the course player (/path-player) runs this code but not style.css, so it keeps
-  // LearnWorlds' own player layout and no unstyled header is added there.
+  // Never in the course player or the activity pages it frames (ebook, video, PDF and exam players): LearnWorlds shows
+  // its own player bar there. The style check below is not enough on its own, because the player now loads style.css.
+  var inPlayer = /^\/(path-player|ebook|videoplayer|pdfplayer|assessmentplayer)/.test(location.pathname);
+  try { if (window.top !== window.self && /^\/path-player/.test(window.top.location.pathname)) inPlayer = true; } catch (e) {}
+  if (inPlayer) { document.documentElement.classList.remove('f2f-chrome'); return; }
+  // Only where the site styles load, so no unstyled header is added anywhere else.
   if (!getComputedStyle(document.documentElement).getPropertyValue('--f2f-blue').trim()) { document.documentElement.classList.remove('f2f-chrome'); return; }
   document.documentElement.classList.add('f2f-chrome');
 

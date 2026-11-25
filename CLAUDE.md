@@ -47,7 +47,7 @@ Typical change, as Claude:
 | Local | LearnWorlds slot | Runs on |
 |---|---|---|
 | `site/custom-code/head.html` | Site custom code `<head>` logged in + out | every site page |
-| `site/custom-code/body.html` (6 scripts) | `<body>` logged in + out | every site page, built-in pages, and the course player (no CSS there) |
+| `site/custom-code/body.html` (6 scripts) | `<body>` logged in + out | every site page and built-in pages (skipped in the course player) |
 | `site/custom-code/style.css` | `<style> Dynamic (css)` | site pages only |
 | `style.css` + `builtin.css` | `<style> (css) for built in pages (i.e social, profile, workpad, my account)` | `/account`, `/inbox`, `/social`, apps |
 | `site/pages/<name>/` | that page's Page custom code (body + style, per audience) | one page |
@@ -69,7 +69,7 @@ Typical change, as Claude:
 - `head.html` and `body.html` start with banner comments and end with `<!-- /F2F Education · Site custom code · HEAD|BODY -->`. `style.css` starts with the "F2F EDUCATION · SITE-WIDE STYLES" banner and `builtin.css` with "F2F EDUCATION · BUILT-IN PAGES". `dev.js` and `status` find the live code by these. Keep them.
 
 **Where code runs and what it can touch**
-- Built-in pages (`/account`, `/inbox`, `/social`) run body code but NOT the Dynamic CSS; they get the built-in slot only. The course player (`/path-player`) runs body code but loads no site CSS. The header script draws only when the CSS var `--f2f-blue` is set.
+- Built-in pages (`/account`, `/inbox`, `/social`) run body code but NOT the Dynamic CSS; they get the built-in slot only. The course player (`/path-player`) and its lesson frames (`/ebook`, `/videoplayer`, `/pdfplayer`, `/assessmentplayer`) DO load the site CSS now; the user wants the player in LearnWorlds' original style, so `head.html` switches the site stylesheets off there (also inside the frames) and `body.html` draws no header or footer there. The header script also draws only when the CSS var `--f2f-blue` is set.
 - `/account` is a Vue app inside a fixed-height `#account-app` box. `builtin.css` makes it scroll with the page, so `body.html` marks the sidebar section itself (`is-current`).
 - Body classes: `slug-error`, `slug-about`, `slug-privacy`, `slug-terms`, `slug-profile`, `slug-account`, `slug-inbox`, `slug-social`. Built-in pages lack `lw-page`.
 - Page custom code lands at the end of `<body>`; the RUNTIME in `site/tools/lib.js` moves `#f2f-page` before `<main>`. LearnWorlds widgets (course cards) only start while their section sits untouched in `<main>`, so slots fill after `load`, and whole sections move (`data-lw-section`).

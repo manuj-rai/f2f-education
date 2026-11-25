@@ -79,7 +79,13 @@ a.w-btn--line:hover { background: rgba(255, 255, 255, .1); border-color: #ffffff
 /* ---------- University partners ---------- */
 .w-partners { background: var(--w-bg); padding: 36px 0 40px; text-align: center; }
 .w-partners-label { font-size: 12px; font-weight: 600; line-height: normal; color: var(--w-muted); letter-spacing: 0; }
-.w-partners-logos { display: flex; align-items: center; justify-content: center; gap: 30px 75px; flex-wrap: wrap; margin-top: 30px !important; }
+/* One line; scrolls sideways when the institutions don't fit (the user's request). The auto margins centre the row when it
+   fits; justify-content: center would make the start of an overflowing row unreachable. */
+.w-partners-logos { display: flex; align-items: center; gap: 75px; flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain;
+  scrollbar-width: thin; margin-top: 30px !important; padding: 2px 2px 8px; }
+.w-partners-logos > li { flex: none; }
+.w-partners-logos > li:first-child { margin-left: auto; }
+.w-partners-logos > li:last-child { margin-right: auto; }
 .w-partners-logos img { height: 40px; width: auto; }
 .w-partner { display: flex; align-items: center; gap: 12px; color: var(--w-ink) !important; }
 .w-partner-name { font-size: 16px; font-weight: 700; line-height: 1.2; color: var(--w-ink); white-space: nowrap; }
@@ -249,7 +255,7 @@ html[data-theme="dark"] .w-article-tag { color: var(--w-link); }
   .w-h2 { font-size: 30px; }
   .w-grid, .w-grid--n2, .w-articles, .w-topic-grid { grid-template-columns: 1fr; }
   .w-card-title, .w-article-title, .w-article-text { min-height: 0; }
-  .w-partners-logos { gap: 20px 32px; }
+  .w-partners-logos { gap: 32px; }
   .w-partners-logos img { height: 32px; }
   .w-impact, .w-enterprise { padding: 56px 0; }
   .w-impact-title, .w-enterprise-title { font-size: 30px; }
