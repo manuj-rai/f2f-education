@@ -13,7 +13,7 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 * [Course pages](#course-pages-coursesslug)
 * [Signed-in pages](#signed-in-pages)
 * [Locally designed pages](#locally-designed-pages-sitepages)
-* [Home, Explore programs, Universities](#home-explore-programs-universities)
+* [Home, Explore courses, Universities](#home-explore-courses-universities)
 * [Edits made in the LearnWorlds admin are kept](#edits-made-in-the-learnworlds-admin-are-kept)
 * [Courses in LearnWorlds](#courses-in-learnworlds)
 * [Known limits](#known-limits)
@@ -103,7 +103,7 @@ If the course can't be read within 15 s, LearnWorlds' own (hidden) sections come
 ## Signed-in pages
 
 * **My learning** (`/start`, [pages/my-learning/](pages/my-learning/), members only):
-  * Shows: counts, Continue learning, programs with tabs and search, achievements, recommendations.
+  * Shows: counts, Continue learning, courses with tabs and search, achievements, recommendations.
   * Data: `/api/user_stats` (`userCourses`, `earnedCertificates`, `me`) and `/api/learner/products` (progress fields and `unitProgress`).
 * **Profile** (`/profile`, `body.html` "Profile" script, `style.css` sections 10 and 14):
   * **My courses:** All / In progress / Not started / Completed tabs with counts, search, and progress cards.
@@ -113,7 +113,7 @@ If the course can't be read within 15 s, LearnWorlds' own (hidden) sections come
   * Buttons and values: outline Edit / Save / Cancel, "Not added" for empty values, framed tables, and the payment status as a tag.
   * Scrolling: the account scrolls as one page; LearnWorlds scrolled it inside a fixed-height box. So the page marks the sidebar item in view itself (`is-current`). `#security` / `#payments` open at that section; `#personal-details` opens at the top.
 * **Inbox, Community, apps** (`/inbox`, `/social` …): the site header, footer and fields via `builtin.css`.
-* **404 page:** `body.html` draws it on `body.slug-error`: a message, a program search, and links back in.
+* **404 page:** `body.html` draws it on `body.slug-error`: a message, a course search, and links back in.
 * **Privacy and Terms** (`/privacy`, `/terms`): the title band and a readable column (`style.css` section 11). The text is still LearnWorlds' template, so the footer links are disabled until real policies exist.
 * **About** (`/about`): LearnWorlds' invented instructors, figures and testimonials are hidden (`style.css` section 12). A real page is drafted in [pages/about/](pages/about/), not published.
 
@@ -141,7 +141,7 @@ How a page works on the live site:
   * `data-show="visitors"` or `"members"` shows content to one audience. The build makes one body per audience.
 * **New page:** `npm run new-page -- about-us --path /about-us`, then create the page in the Site Builder (Pages → Create page → Blank, same slug).
 
-## Home, Explore programs, Universities
+## Home, Explore courses, Universities
 
 * **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
@@ -151,9 +151,9 @@ How a page works on the live site:
   * No prices on home (no "Free" on cards or headings); the course page shows free or paid.
   * Blog: the JSON feed in the blog section's `data-feed`, hidden while empty.
   * Photos are hosted on LearnWorlds and listed in `pages/home/assets.json`.
-* **Explore programs** (`/courses`, "Online Courses" in the header): the visitor design (199:2) and the signed-in design (184:219).
+* **Explore courses** (`/courses`, "Online Courses" in the header): the visitor design (199:2) and the signed-in design (184:219).
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
-  * Results: sort, 6 programs per page.
+  * Results: sort, 6 courses per page.
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
 * **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar) with its courses. The four "Test …" institutions are placeholders.
 * Contact details (fibre2fashion.com/aboutus/contact): +91-2717-429555, inquiry@fibre2fashion.com, B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India.

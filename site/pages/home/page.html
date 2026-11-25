@@ -71,9 +71,9 @@
     <div class="w-intro">
       <div class="w-intro-text">
         <p class="w-eyebrow">Skills for textile and fashion</p>
-        <h2 id="w-trending-title" class="w-h2">Trending Textile &amp; Fashion Programs</h2>
+        <h2 id="w-trending-title" class="w-h2">Trending Textile &amp; Fashion Courses</h2>
       </div>
-      <a class="w-more" href="/courses">View all textile programs <img src="assets/icon-arrow-right-blue-20.svg" width="20" height="20" alt=""></a>
+      <a class="w-more" href="/courses">View all textile courses <img src="assets/icon-arrow-right-blue-20.svg" width="20" height="20" alt=""></a>
     </div>
     <div class="w-pills" role="tablist" aria-label="Filter by topic" data-w-pills></div>
     <div class="w-grid w-grid--n3" data-w-trending data-w-skeleton="3"></div>
@@ -85,7 +85,7 @@
     <div class="w-intro">
       <div class="w-intro-text">
         <p class="w-eyebrow">Follow your curiosity</p>
-        <h2 id="w-topics-title" class="w-h2">Explore Programs by Topic</h2>
+        <h2 id="w-topics-title" class="w-h2">Explore Courses by Topic</h2>
         <p class="w-lede">Find the expertise you need for the future you want.</p>
       </div>
     </div>
@@ -102,7 +102,7 @@
         <h2 id="w-impact-title" class="w-impact-title">The F2F Education Impact</h2>
         <ul class="w-benefits">
           <li><img src="assets/icon-check-light.svg" width="19" height="19" alt=""><div><h3>Outcome-Based Learning</h3><p>Courses are curated and designed to meet specific learning outcomes, based on career goals.</p></div></li>
-          <li><img src="assets/icon-check-light.svg" width="19" height="19" alt=""><div><h3>Develop Future-Ready Skills</h3><p>Our programs help learners build skills they can apply immediately in their jobs and prepare for future opportunities.</p></div></li>
+          <li><img src="assets/icon-check-light.svg" width="19" height="19" alt=""><div><h3>Develop Future-Ready Skills</h3><p>Our courses help learners build skills they can apply immediately in their jobs and prepare for future opportunities.</p></div></li>
           <li><img src="assets/icon-check-light.svg" width="19" height="19" alt=""><div><h3>Immersive Learning Experience</h3><p>Interactive exercises and cohort-based learning create connections that extend beyond the classroom.</p></div></li>
         </ul>
       </div>
@@ -216,7 +216,7 @@
         '<h3 class="w-card-title"><a href="/course/' + encodeURIComponent(c.titleId) + '">' + esc(c.title) + '</a></h3>' +
         '<p class="w-card-meta">' + (parts[0] ? '<span class="w-card-dur"><img src="' + ICONS.clock + '" width="14" height="14" alt="">' + esc(parts[0]) + '</span>' : '') +
           (parts[1] ? '<span>' + esc(parts.slice(1).join(' · ')) + '</span>' : '') + '</p>' +
-        '<p class="w-card-actions"><span class="w-card-cta">View program →</span></p>' +
+        '<p class="w-card-actions"><span class="w-card-cta">View course →</span></p>' +
       '</div></article>';
   }
   function grid(el, list, max) {
@@ -274,7 +274,7 @@
         '<div class="w-wrap"><div class="w-intro"><div class="w-intro-text">' +
           '<p class="w-eyebrow">' + plural(byTag[c.tag].length, 'course', 'courses') + '</p>' +
           '<h2 class="w-h2" id="' + c.id + '-title">' + esc(c.name) + '</h2>' +
-        '</div><a class="w-more" href="/courses">View all programs <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
+        '</div><a class="w-more" href="/courses">View all courses <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
         '<div class="w-grid" data-w-cat-grid="' + c.id + '"></div></div></section>';
     }).join('');
     sections.forEach(function (c) { grid(root.querySelector('[data-w-cat-grid="' + c.id + '"]'), home[c.tag], 3); });

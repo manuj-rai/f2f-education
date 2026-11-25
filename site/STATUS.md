@@ -7,8 +7,8 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 |---|---|---|---|
 | Header and footer | Public navigation / Student header / Learning navigation / Public footer | Every site page (`site/custom-code/`) | **Done** |
 | Home | 36:2 | `/` (`site/pages/home/`) | **Done** |
-| Explore programmes, signed out | 199:2 | `/courses` (`site/pages/courses/`) | **Done** |
-| Explore programs, signed in | 184:219 | `/courses` | **Done** |
+| Explore courses, signed out | 199:2 | `/courses` (`site/pages/courses/`) | **Done** |
+| Explore courses, signed in | 184:219 | `/courses` | **Done** |
 | Public course details | 195:3 | Every `/course/<slug>` (site-wide code) | **Done** |
 | Course details, signed in | 192:2 | Every `/course/<slug>`, for enrolled learners | **Done** |
 | My learning | 184:2 | `/start` (`site/pages/my-learning/`), signed-in only | **Done** |
@@ -36,7 +36,7 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 - Phone menu, "Skip to content" for keyboard users, and the footer. In the footer, Privacy policy and Terms of use are shown greyed out and not clickable until the real policies exist.
 - Height: 104px (32px strip plus 72px bar), shorter than Figma's 132px at the user's request; 88px on phones.
 - The "My learning · My certificates · Account settings" bar was removed at the user's request (the links are in the account menu).
-- Left out: "Saved programs" (LearnWorlds has no saved-programs feature).
+- Left out: "Saved courses" (LearnWorlds has no saved-courses feature).
 - Not covered: the course player, which loads neither the site styles nor the built-in-pages slot.
 
 **Home.** Hero changed at the user's request (25 Nov 2026):
@@ -46,16 +46,16 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 - No prices anywhere on the home page (cards, category headings, figures), at the user's request: visitors open the course page to see whether it's free or paid.
 - Open: Residential Courses needs a destination, either a LearnWorlds page or residential courses. When it has one, put the address in `SITE.nav` (`body.html`) and turn the hero's greyed-out button into a link (`site/pages/home/page.html`).
 
-**Explore programmes.** The header link to this page is now "Online Courses"; the page itself still says "Explore programs". Done for visitors (199:2): hero, search, Subject and Institution filters with counts, sort, 6 per page with pagination, address keeps filters, help band.
-- Done for signed-in learners (184:219): hero with live program and institution counts and search, topic pills, Institution and Learning status (Not enrolled / Already enrolled) filters, 3 cards per row, and on enrolled cards "Enrolled · N% complete" with "Go to my learning".
-- Left out: Duration filter (no structured duration, only the free-text Label), the "Recommended" label (no LearnWorlds data), "Save program" (no LearnWorlds feature), the "Learn from anywhere" note (static copy).
+**Explore courses.** The header link to this page is "Online Courses"; the page says "Explore courses" (all "program" wording became "course", 25 Nov 2026, the user's request). Done for visitors (199:2): hero, search, Subject and Institution filters with counts, sort, 6 per page with pagination, address keeps filters, help band.
+- Done for signed-in learners (184:219): hero with live course and institution counts and search, topic pills, Institution and Learning status (Not enrolled / Already enrolled) filters, 3 cards per row, and on enrolled cards "Enrolled · N% complete" with "Go to my learning".
+- Left out: Duration filter (no structured duration, only the free-text Label), the "Recommended" label (no LearnWorlds data), "Save course" (no LearnWorlds feature), the "Learn from anywhere" note (static copy).
 
 **Course details.** Done for visitors: hero, curriculum, price and LearnWorlds' enrol button, "Learn by doing", "Course at a glance", resources.
 - Done for enrolled learners: progress card with "Resume learning" to the next lesson, module status (Completed / Up next / Not started), next lesson.
 - Left out (no LearnWorlds data): What you'll learn, Level, Language, a separate About text, enquiry copy, certificate card, help band, assignment due dates ("Coming up next").
 
-**My learning.** Done: active / completed / certificate counts, Continue learning (most recent course, resumes at the next lesson), My programs with Active / Completed / All tabs and search, achievements, recommended programs.
-- Left out (no LearnWorlds data): weekly goal, assignment due dates, saved programs, support panel.
+**My learning.** Done: active / completed / certificate counts, Continue learning (most recent course, resumes at the next lesson), My courses with Active / Completed / All tabs and search, achievements, recommended courses.
+- Left out (no LearnWorlds data): weekly goal, assignment due dates, saved courses, support panel.
 
 **Log in (skipped).** The user decided to keep LearnWorlds' own sign-in window. The header's "Log in" opens it.
 

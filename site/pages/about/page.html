@@ -2,15 +2,15 @@
   About (/about). DRAFT for the user's approval (25 Nov 2026); not published. Replaces LearnWorlds' template page
   (invented instructors, figures and testimonials).
   Company facts are quoted or condensed from fibre2fashion.com/aboutus (read 25 Nov 2026); contact details are from
-  the README. The programs / institutions / topics figures are counted live from the LearnWorlds catalogue.
+  the README. The courses / institutions / topics figures are counted live from the LearnWorlds catalogue.
 -->
 <section class="a-hero" aria-labelledby="a-title">
   <div class="a-wrap">
     <p class="a-eyebrow a-eyebrow--light">ABOUT F2F EDUCATION</p>
     <h1 id="a-title" class="a-title">Practical learning for the textile, apparel and fashion industry</h1>
-    <p class="a-lede">F2F Education is the learning platform of Fibre2Fashion: industry-led online programs, taught with partner institutions, for people who make, source and sell textiles and fashion.</p>
+    <p class="a-lede">F2F Education is the learning platform of Fibre2Fashion: industry-led online courses, taught with partner institutions, for people who make, source and sell textiles and fashion.</p>
     <dl class="a-live" data-a-live hidden>
-      <div><dd data-a-n="programs"></dd><dt>Programs</dt></div>
+      <div><dd data-a-n="courses"></dd><dt>Courses</dt></div>
       <div><dd data-a-n="institutions"></dd><dt>Partner institutions</dt></div>
       <div><dd data-a-n="topics"></dd><dt>Topics</dt></div>
     </dl>
@@ -50,10 +50,10 @@
 <section class="a-cta" aria-labelledby="a-cta-title">
   <div class="a-wrap a-cta-row">
     <div>
-      <h2 id="a-cta-title" class="a-cta-title">Find your next program</h2>
-      <p class="a-cta-text">Browse every program, or see the institutions that teach them.</p>
+      <h2 id="a-cta-title" class="a-cta-title">Find your next course</h2>
+      <p class="a-cta-text">Browse every course, or see the institutions that teach them.</p>
     </div>
-    <p class="a-actions"><a class="a-btn" href="/courses">Explore programs</a><a class="a-btn a-btn--line" href="/universities">Our universities</a></p>
+    <p class="a-actions"><a class="a-btn" href="/courses">Explore courses</a><a class="a-btn a-btn--line" href="/universities">Our universities</a></p>
   </div>
 </section>
 
@@ -89,7 +89,7 @@
         ((c.settings || {}).tags || []).forEach(function (t) { if (t) topics[t] = 1; });
       });
       if (!list.length) return;
-      box.querySelector('[data-a-n="programs"]').textContent = list.length;
+      box.querySelector('[data-a-n="courses"]').textContent = list.length;
       box.querySelector('[data-a-n="institutions"]').textContent = Object.keys(inst).length;
       box.querySelector('[data-a-n="topics"]').textContent = Object.keys(topics).length;
       box.hidden = false;

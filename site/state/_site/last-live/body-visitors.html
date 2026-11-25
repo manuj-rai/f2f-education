@@ -347,7 +347,7 @@
       '<section class="c-hero" aria-labelledby="c-title"><div class="c-wrap">' +
         (progress
           ? '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/start">My learning</a><span aria-hidden="true">/</span><span aria-current="page">Course details</span></nav>'
-          : '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/courses">Explore programs</a>' +
+          : '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/courses">Explore courses</a>' +
             (tags[0] ? '<span aria-hidden="true">/</span><a href="/courses?subject=' + encodeURIComponent(tags[0]) + '">' + esc(categoryName(tags[0])) + '</a>' : '') + '</nav>') +
         '<div class="c-hero-row"><div class="c-hero-copy">' +
           (author ? '<p class="c-eyebrow c-eyebrow--light">' + esc(author.name) + '</p>' : '') +
@@ -566,7 +566,7 @@
     var all = list.map(summarise), tab = 'all', words = [];
     var body = courses.querySelector('.p-wrap');
     if (!all.length) {
-      body.innerHTML = '<div class="p-head"><h2 class="p-h2">My courses</h2></div><div class="p-empty"><p>You haven’t enrolled in a program yet.</p><a class="p-btn p-btn--solid" href="/courses">Explore programs</a></div>';
+      body.innerHTML = '<div class="p-head"><h2 class="p-h2">My courses</h2></div><div class="p-empty"><p>You haven’t enrolled in a course yet.</p><a class="p-btn p-btn--solid" href="/courses">Explore courses</a></div>';
       return;
     }
     var counts = { all: all.length, active: 0, new: 0, completed: 0 };
@@ -617,7 +617,7 @@
 </script>
 <script>
 /* ---------- 404 page ----------
-   LearnWorlds' error page (body.slug-error) gets the site's look: what happened, a program search and the main ways
+   LearnWorlds' error page (body.slug-error) gets the site's look: what happened, a course search and the main ways
    back in. LearnWorlds' own error section stays in the page, hidden (style.css section 13). */
 (function () {
   'use strict';
@@ -633,10 +633,10 @@
   box.innerHTML = '<div class="x-wrap">' +
     '<p class="x-eyebrow">Error 404</p>' +
     '<h1 id="x-title" class="x-title">We couldn’t find that page</h1>' +
-    '<p class="x-text">The link may be out of date, or the page may have moved. Search for a program, or pick up from one of these pages.</p>' +
-    '<form class="x-search" role="search"><input type="search" name="q" placeholder="Search by program, topic, or institution" aria-label="Search programs" autocomplete="off"><button type="submit">Search programs</button></form>' +
-    '<p class="x-actions">' + (member ? '<a class="x-btn" href="/start">Go to my learning</a><a class="x-btn x-btn--line" href="/courses">Explore programs</a>'
-      : '<a class="x-btn" href="/courses">Explore programs</a><a class="x-btn x-btn--line" href="/">Go to the home page</a>') + '</p>' +
+    '<p class="x-text">The link may be out of date, or the page may have moved. Search for a course, or pick up from one of these pages.</p>' +
+    '<form class="x-search" role="search"><input type="search" name="q" placeholder="Search by course, topic, or institution" aria-label="Search courses" autocomplete="off"><button type="submit">Search courses</button></form>' +
+    '<p class="x-actions">' + (member ? '<a class="x-btn" href="/start">Go to my learning</a><a class="x-btn x-btn--line" href="/courses">Explore courses</a>'
+      : '<a class="x-btn" href="/courses">Explore courses</a><a class="x-btn x-btn--line" href="/">Go to the home page</a>') + '</p>' +
   '</div>';
   main.parentNode.insertBefore(box, main);
   box.querySelector('form').addEventListener('submit', function (e) {

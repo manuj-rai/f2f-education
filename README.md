@@ -53,7 +53,7 @@ It needs internet. The site is hosted by LearnWorlds, so "local" means the real 
 | Colours, spacing, any style on any page | [site/custom-code/style.css](site/custom-code/style.css), in numbered sections: header and footer, course pages, profile, 404 … |
 | Account, Inbox, Community pages | [site/custom-code/builtin.css](site/custom-code/builtin.css) |
 | Course pages, Profile, 404, search (all pages) | the matching script in [site/custom-code/body.html](site/custom-code/body.html) |
-| Home, Explore programs (Online Courses), My learning, Universities, About | [site/pages/&lt;name&gt;/](site/pages/): `page.html` and `page.css` |
+| Home, Explore courses (Online Courses), My learning, Universities, About | [site/pages/&lt;name&gt;/](site/pages/): `page.html` and `page.css` |
 | A course, its price, category or picture | the LearnWorlds admin, not this repo |
 
 ## Rules
@@ -80,7 +80,7 @@ It needs internet. The site is hosted by LearnWorlds, so "local" means the real 
 | Path | What it is |
 |---|---|
 | `site/custom-code/` | Code on every page: `head.html`, `body.html`, `style.css`, `builtin.css` |
-| `site/pages/` | Pages designed here: `home`, `courses` (Explore programs, "Online Courses" in the header), `my-learning` (`/start`), `universities`, `about` (draft) |
+| `site/pages/` | Pages designed here: `home`, `courses` (Explore courses, "Online Courses" in the header), `my-learning` (`/start`), `universities`, `about` (draft) |
 | `site/tools/` | The commands above |
 | `site/state/` | What the tools remember about the live site (how they spot admin edits). **Commit it**; don't edit it |
 | `site/brand/` | Logo and hero illustration |

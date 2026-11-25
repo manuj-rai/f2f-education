@@ -192,7 +192,7 @@ html.f2f-search-open, html.f2f-search-open body { overflow: hidden !important; }
 .f2f-search .f2f-search-input::-webkit-search-cancel-button,
 .f2f-search .f2f-search-input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; display: none; }
 
-/* Every search box on the site (home hero, Explore programs, My learning, Profile, 404, this panel): clicking in shows
+/* Every search box on the site (home hero, Online Courses, My learning, Profile, 404, this panel): clicking in shows
    focus on the whole box, not a partial outline around the bare text field (the user's report, 25 Nov 2026) */
 :is(.w-hero-search, .e-search-box, .e-msearch, .l-search, .p-search, .x-search, .f2f-search-field) input:is(:focus, :focus-visible) {
   outline: none !important; box-shadow: none !important; }

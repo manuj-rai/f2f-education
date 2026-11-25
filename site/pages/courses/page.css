@@ -1,4 +1,4 @@
-/* Explore programmes (/courses) · Figma frame 199:2. Sizes and colours are the design's. */
+/* Explore courses (/courses) · Figma frame 199:2. Sizes and colours are the design's. */
 .f2f-page--courses {
   --e-ink: #0d1b3e;
   --e-blue: #1b5fa8;
@@ -95,7 +95,7 @@
 .e-card-inst { font-size: 10px; font-weight: 700; color: var(--e-blue); text-transform: uppercase; }
 .e-card-title { font-size: 20px; font-weight: 600; line-height: 1.45; min-height: 58px; }
 .e-card-title a { color: var(--e-ink) !important; text-decoration: none; }
-.e-card-title a::after { content: ""; position: absolute; inset: 0; } /* the whole card opens the programme */
+.e-card-title a::after { content: ""; position: absolute; inset: 0; } /* the whole card opens the course */
 .e-card:hover .e-card-title a { text-decoration: underline; }
 .e-card-meta { font-size: 13px; color: var(--e-muted); }
 .e-card-cta { margin-top: auto; padding-top: 6px; font-size: 13px; font-weight: 600; color: var(--e-blue); }
@@ -171,7 +171,7 @@
   .e-pager-text { flex-basis: 100%; }
 }
 
-/* ---------- Signed-in learners ("Explore programs", frame 184:219) ---------- */
+/* ---------- Signed-in learners ("Explore courses", frame 184:219) ---------- */
 .e-hero--member { padding: 36px 0 40px; }
 .e-mhero-row { display: flex; align-items: center; gap: 48px; }
 .e-mhero-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; line-height: 1.4; }
