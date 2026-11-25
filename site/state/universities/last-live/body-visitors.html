@@ -37,7 +37,7 @@
   var root = document.querySelector('.f2f-page--universities') || document;
   var ICONS = JSON.parse(document.getElementById('u-icons').textContent);
   var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
-  var TOP = 5; // courses listed per institution; "View all" opens the rest on /courses
+  var TOP = 3; // courses listed per institution (one row of cards); "View all" opens the rest on /courses
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return m ? m[1] : FILES; }

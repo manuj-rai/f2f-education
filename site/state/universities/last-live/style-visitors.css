@@ -78,7 +78,7 @@ html[data-theme="dark"] .f2f-page--universities {
 @media (max-width: 1024px) {
   .u-card { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .u-card-head .u-all { width: auto; padding: 0 24px; }
-  .u-courses { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .u-courses { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 }
 @media (max-width: 720px) {
   .u-wrap { padding: 0 20px; }

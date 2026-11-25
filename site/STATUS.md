@@ -46,7 +46,7 @@ The user's final split: one course each for Sustainable Fashion School and AMFI,
 - **Sustainable Fashion School** (1): **Fashion Policy Masterclass Series**, a **Coming soon** course created for it (no lessons yet; card image made with the studio's card.py, see `courses/fashion-policy-masterclass-series/README.md`). Logo: the wide black logo the user sent, `courses/_universities/sustainable-fashion-school.png`. It has no category yet, so on home it is in Trending, not in a category section.
 - Logos are uploaded uncropped, so wide logos stay wide (LearnWorlds keeps the avatar's shape).
 - Home band: logos only, no names (the name is the alt text), on one line that scrolls sideways when needed. Shown from one institution. All three logos come from LearnWorlds (`partnerLogos` is empty).
-- University Partners: one row per institution. Left: logo, name below it, "View all N courses" (opens Online Courses filtered to it, `/courses?institution=<name>`); no course count. Right: its first 5 courses as picture cards (image, title, duration and format, or "Coming soon"), no prices. Stacks on tablets and phones.
+- University Partners: one row per institution. Left: logo, name below it, "View all N courses" (opens Online Courses filtered to it, `/courses?institution=<name>`); no course count. Right: its first 3 courses as picture cards, one row (image, title, duration and format, or "Coming soon"), no prices. Stacks on tablets and phones.
 - Course pages: a course with no lessons yet shows "Coming soon" instead of "0 modules · 0 lessons", and a short note in Course content.
 - New courses get Fibre2Fashion Education by default (`lw_publish_js.py`, `content.json` "author_name").
 
