@@ -43,6 +43,7 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 - Title: "Practical industry-led courses for the textiles, apparel & fashion industry."
 - Two buttons, the same as the menu: Online Courses (`/courses`) and Residential Courses. Residential Courses is greyed out until it has an address (see below).
 - The hero search box is removed. The header search stays.
+- No prices anywhere on the home page (cards, category headings, figures), at the user's request: visitors open the course page to see whether it's free or paid.
 - Open: Residential Courses needs a destination, either a LearnWorlds page or residential courses. When it has one, put the address in `SITE.nav` (`body.html`) and turn the hero's greyed-out button into a link (`site/pages/home/page.html`).
 
 **Explore programmes.** The header link to this page is now "Online Courses"; the page itself still says "Explore programs". Done for visitors (199:2): hero, search, Subject and Institution filters with counts, sort, 6 per page with pagination, address keeps filters, help band.

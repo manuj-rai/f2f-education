@@ -70,15 +70,11 @@ html[data-theme="dark"] .w-eyebrow { color: var(--w-link); }
 .w-hero-copy { position: relative; display: flex; flex-direction: column; gap: 34px; align-items: flex-start; width: max-content; max-width: 100%; }
 .w-hero-title { font-size: 63px; font-weight: 600; line-height: 1.06; letter-spacing: 0; color: #ffffff; }
 .w-hero-rule { width: 100%; height: 1px; margin: 0; border: 0; background: rgba(255, 255, 255, .2); }
-.w-hero-search { position: relative; display: flex; align-items: center; gap: 16px; height: 60px; padding: 0 8px 0 20px; background: #ffffff; border-radius: 4px; }
-.w-hero-search input {
-  flex: 1; min-width: 0; height: 100%; border: 0 !important; outline: 0; background: transparent !important; box-shadow: none !important;
-  font-family: inherit; font-size: 14px; color: #0d1b3e !important; padding: 0; margin: 0; -webkit-appearance: none; appearance: none;
-}
-.w-hero-search input::placeholder { color: #3d5066 !important; opacity: 1; }
-.w-hero-search input::-webkit-search-cancel-button { display: none; }
-.w-hero-search button { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: none; padding: 0; border: 0; border-radius: 4px; background: #f0f4fa; cursor: pointer; }
-.w-hero-search button:hover { background: #e1e9f8; }
+.w-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Second hero button: outline on the navy band. Disabled (no address yet) = greyed, like the header's disabled items. */
+.w-btn--line { background: transparent; border-color: rgba(255, 255, 255, .6); color: #ffffff !important; }
+a.w-btn--line:hover { background: rgba(255, 255, 255, .1); border-color: #ffffff; }
+.w-btn--line.is-disabled { border-color: rgba(255, 255, 255, .25); color: rgba(255, 255, 255, .5) !important; cursor: default; }
 
 /* ---------- University partners ---------- */
 .w-partners { background: var(--w-bg); padding: 36px 0 40px; text-align: center; }
@@ -119,7 +115,6 @@ html[data-theme="dark"] .w-card-inst { color: var(--w-link); }
 .w-card-dur { display: inline-flex; align-items: center; gap: 6px; }
 .w-card-actions { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--w-line); }
 .w-card-cta { font-size: 13px; font-weight: 700; color: var(--w-link); }
-.w-card-price { font-size: 12px; font-weight: 600; color: var(--w-text); }
 .w-card--skel .w-card-media, .w-card--skel .w-card-body span {
   background: linear-gradient(90deg, rgba(127, 127, 127, .08), rgba(127, 127, 127, .16), rgba(127, 127, 127, .08)); background-size: 200% 100%;
   animation: w-shimmer 1.2s linear infinite;
@@ -222,8 +217,9 @@ html[data-theme="dark"] .w-article-tag { color: var(--w-link); }
 .w-news-status { font-size: 13px; color: #ffffff; }
 
 /* ---------- Smaller screens (the design is desktop-only; these keep its look) ---------- */
+/* .w-wrap media rules set only the sides: the hero and category bar have their own top/bottom padding on the same element */
 @media (max-width: 1280px) {
-  .w-wrap { padding: 0 48px; }
+  .w-wrap { padding-left: 48px; padding-right: 48px; }
   .w-hero-art { right: 24px; width: 430px; height: 354px; }
   .w-hero-title { font-size: 54px; }
   .w-enterprise-copy, .w-news-copy { width: auto; flex: 1; }
@@ -242,7 +238,7 @@ html[data-theme="dark"] .w-article-tag { color: var(--w-link); }
   .w-stats { gap: 32px; }
 }
 @media (max-width: 720px) {
-  .w-wrap { padding: 0 20px; }
+  .w-wrap { padding-left: 20px; padding-right: 20px; }
   .w-hero-inner { gap: 28px; padding-top: 40px; padding-bottom: 40px; }
   .w-hero-art { display: none; }
   .w-hero-copy { width: 100%; gap: 24px; }

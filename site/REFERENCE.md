@@ -148,6 +148,7 @@ How a page works on the live site:
   * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order.
   * Partner strip: the institutions set as course authors.
   * Figures: counted from the courses.
+  * No prices on home (no "Free" on cards or headings); the course page shows free or paid.
   * Blog: the JSON feed in the blog section's `data-feed`, hidden while empty.
   * Photos are hosted on LearnWorlds and listed in `pages/home/assets.json`.
 * **Explore programs** (`/courses`, "Online Courses" in the header): the visitor design (199:2) and the signed-in design (184:219).
