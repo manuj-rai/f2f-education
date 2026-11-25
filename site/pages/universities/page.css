@@ -22,8 +22,15 @@ html[data-theme="dark"] .f2f-page--universities {
 
 /* Institution cards */
 .u-list { padding: 56px 0 80px; }
-.u-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
-.u-card { background: var(--u-card); border: 1px solid var(--u-line); border-radius: 8px; padding: 24px; scroll-margin-top: 120px; }
+.u-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.u-card { display: flex; flex-direction: column; background: var(--u-card); border: 1px solid var(--u-line); border-radius: 8px; padding: 24px; scroll-margin-top: 120px; }
+.u-card--skel { display: block; }
+/* "View all": opens /courses filtered to this institution; sits at the bottom so the cards' buttons line up */
+.u-all { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto; height: 44px; border: 1px solid var(--u-link);
+  border-radius: 4px; font-size: 14px; font-weight: 600; color: var(--u-link) !important; }
+.u-courses { margin-bottom: 20px !important; }
+.u-all:hover { background: rgba(27, 95, 168, .08); }
+.u-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .u-card.is-target { border-color: var(--u-blue); box-shadow: 0 0 0 2px var(--u-blue); }
 .u-card-head { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--u-line); }
 .u-logo { width: 64px; height: 64px; flex: none; display: flex; align-items: center; justify-content: center; border: 1px solid var(--u-line);

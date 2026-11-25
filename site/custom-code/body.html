@@ -39,9 +39,14 @@
     footerName: 'F2F EDUCATION', footerOwner: 'Fibre2Fashion',
     // Privacy policy and Terms of use are disabled (shown, not clickable) until the real policies are written
     // (the user's request, 25 Nov 2026). To turn them on again: '/privacy' and '/terms'.
-    footerLinks: [['Help center', 'mailto:inquiry@fibre2fashion.com'], ['Privacy policy', ''], ['Terms of use', '']]
+    footerLinks: [['Help center', 'mailto:inquiry@fibre2fashion.com'], ['Privacy policy', ''], ['Terms of use', '']],
+    // Courses listed first everywhere (home, Online Courses "Featured", University Partners), in this order, by their
+    // address name (/course/<name>). LearnWorlds itself lists courses A–Z by title and has no order setting.
+    featured: ['staple-yarn-spinning']
   };
-  var SEARCH = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17.5001 17.5001L13.8835 13.8835M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke-linecap="round" stroke="#102044"/></svg>';
+  // For the pages' own code (site/pages/*), which runs after this
+  window.F2FSite = { featured: SITE.featured.slice() };
+  var SEARCH ='<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17.5001 17.5001L13.8835 13.8835M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke-linecap="round" stroke="#102044"/></svg>';
   var CHEVRON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.25L7 8.75L10.5 5.25" stroke-linecap="round" stroke="#5B687C"/></svg>';
   var MENU = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
 
