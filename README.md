@@ -36,6 +36,7 @@ For the course studio only: Python 3 and `pip install -r courses/_studio/require
 * `npm run dev -- courses` opens a page by name.
 * `npm run dev -- /account` or `npm run dev -- course/staple-yarn-spinning` opens an address.
 * `--phone` gives a phone-sized window.
+* `--width=1260` makes the page that many pixels wide, e.g. to check a demo laptop's screen.
 * `--signed-out` opens a fresh window as a visitor.
 
 To see learner pages (My learning, Profile, Account), click **Log in** in that window with a learner account. The window remembers the sign-in. A label in the bottom-left corner, **LOCAL PREVIEW · not published**, shows you're looking at your own files.
@@ -48,11 +49,11 @@ It needs internet. The site is hosted by LearnWorlds, so "local" means the real 
 
 | To change | Edit |
 |---|---|
-| Header and footer links, menu, wording | `SITE` at the top of [site/custom-code/body.html](site/custom-code/body.html). An empty address shows the item greyed out and not clickable (Resources, Privacy policy and Terms of use are like that for now). |
+| Header and footer links, menu, wording | `SITE` at the top of [site/custom-code/body.html](site/custom-code/body.html). An empty address shows the item greyed out and not clickable (Residential Courses, Resources, Privacy policy and Terms of use are like that for now). |
 | Colours, spacing, any style on any page | [site/custom-code/style.css](site/custom-code/style.css), in numbered sections: header and footer, course pages, profile, 404 … |
 | Account, Inbox, Community pages | [site/custom-code/builtin.css](site/custom-code/builtin.css) |
 | Course pages, Profile, 404, search (all pages) | the matching script in [site/custom-code/body.html](site/custom-code/body.html) |
-| Home, Explore programs, My learning, Universities, About | [site/pages/&lt;name&gt;/](site/pages/): `page.html` and `page.css` |
+| Home, Explore programs (Online Courses), My learning, Universities, About | [site/pages/&lt;name&gt;/](site/pages/): `page.html` and `page.css` |
 | A course, its price, category or picture | the LearnWorlds admin, not this repo |
 
 ## Rules
@@ -79,7 +80,7 @@ It needs internet. The site is hosted by LearnWorlds, so "local" means the real 
 | Path | What it is |
 |---|---|
 | `site/custom-code/` | Code on every page: `head.html`, `body.html`, `style.css`, `builtin.css` |
-| `site/pages/` | Pages designed here: `home`, `courses` (Explore programs), `my-learning` (`/start`), `universities`, `about` (draft) |
+| `site/pages/` | Pages designed here: `home`, `courses` (Explore programs, "Online Courses" in the header), `my-learning` (`/start`), `universities`, `about` (draft) |
 | `site/tools/` | The commands above |
 | `site/state/` | What the tools remember about the live site (how they spot admin edits). **Commit it**; don't edit it |
 | `site/brand/` | Logo and hero illustration |

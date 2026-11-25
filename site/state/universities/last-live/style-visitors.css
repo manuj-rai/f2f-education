@@ -59,7 +59,9 @@ html[data-theme="dark"] .f2f-page--universities {
 @keyframes u-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 @media (prefers-reduced-motion: reduce) { .u-card--skel span { animation: none; } }
 
-@media (max-width: 1024px) { .u-wrap { padding: 0 48px; } .u-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 48px sides from 1280px down, the same as the header, footer and other pages */
+@media (max-width: 1280px) { .u-wrap { padding: 0 48px; } }
+@media (max-width: 1024px) { .u-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {
   .u-wrap { padding: 0 20px; }
   .u-head { padding: 44px 0 40px; }

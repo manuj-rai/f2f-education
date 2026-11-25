@@ -28,9 +28,10 @@
     strip: 'WORLD-CLASS EDUCATION. REAL-WORLD IMPACT.',
     stripLinks: [['For organizations', '/#w-enterprise-title'], ['Global / English', '']],
     logo: 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/bdfd3459584429eb633dc5fead3fa06d.webp',
-    // "Resources" shows but is disabled (no link) until there's a real resources page. An item with an empty address
-    // is drawn as greyed-out text with a "Coming soon" hint.
-    nav: [['Explore programs', '/courses'], ['Universities', '/universities'], ['Resources', '']],
+    // An item with an empty address is drawn as greyed-out text with a "Coming soon" hint. "Residential Courses" is like
+    // that until LearnWorlds has residential courses or a page for them (put its address here); "Resources" until there's
+    // a real resources page. The home hero has the same two course buttons (site/pages/home/page.html).
+    nav: [['Online Courses', '/courses'], ['Residential Courses', ''], ['University Partners', '/universities'], ['Resources', '']],
     // Signed in: the account menu. (The "My learning · My certificates · Account settings" bar under the header was
     // removed on 25 Nov 2026 at the user's request; these links live in this menu instead.)
     account: [['My learning', '/start'], ['Profile', '/profile'], ['Inbox', '/inbox'], ['Account settings', '/account'], ['Sign out', '/signout']],

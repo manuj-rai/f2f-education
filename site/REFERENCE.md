@@ -59,11 +59,12 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 
 Drawn by `body.html` ("Header and footer" script) on every site page and styled by `style.css` section 6. They follow the Figma "Public navigation", "Student header" and "Public footer" designs. LearnWorlds' own top bar and footer stay in the page, hidden.
 
-* **Change links and wording in `SITE`** at the top of that script: strip text, logo, menu, account menu and footer links. An item with an empty address is shown greyed out and not clickable ("Coming soon"). That's how **Resources** (menu) and **Privacy policy** / **Terms of use** (footer) are shown for now. To enable one, give it its address (`/privacy`, `/terms`).
-* Signed out: strip, logo, Explore programs / Universities / Resources, search, **Log in**. Log in clicks LearnWorlds' own hidden Sign in link, so keep that item in the Site Builder's Topbar navigation.
+* **Change links and wording in `SITE`** at the top of that script: strip text, logo, menu, account menu and footer links. An item with an empty address is shown greyed out and not clickable ("Coming soon"). That's how **Residential Courses** and **Resources** (menu) and **Privacy policy** / **Terms of use** (footer) are shown for now. To enable one, give it its address (`/privacy`, `/terms`).
+* Signed out: strip, logo, Online Courses (`/courses`) / Residential Courses / University Partners (`/universities`) / Resources, search, **Log in**. Log in clicks LearnWorlds' own hidden Sign in link, so keep that item in the Site Builder's Topbar navigation.
 * Signed in: the same with an account button showing the learner's name (from `/api/user_stats`). Its menu has My learning, Profile, Inbox, Account settings and Sign out.
 * Who is signed in: LearnWorlds' hidden header has a Sign in link only for visitors.
-* Size: 104px (a 32px strip that scrolls away, then a sticky 72px bar), 88px on phones. Phones and tablets (990px and narrower) get a menu button. The bar sits below LearnWorlds' own windows (z-index 199).
+* Size: 104px (a 32px strip that scrolls away, then a sticky 72px bar), 88px on phones. Phones and tablets (990px and narrower) get a menu button. From 991px to 1180px the menu gaps are tighter, and the signed-in name is cut with "…" (at 160px, and at 120px from 1100px down). The full name is in its tooltip.
+* Page side margins: 80px, then 48px from 1280px down (header, footer and every page), then 20px on phones. In page CSS, set only `padding-left` / `padding-right` in those media rules: some wrappers also carry their own top and bottom padding, and a `padding: 0 48px` shorthand wipes it. The bar sits below LearnWorlds' own windows (z-index 199).
 * Footer: "F2F EDUCATION", © year Fibre2Fashion, Help center (e-mail), Privacy policy and Terms of use (both disabled for now). LearnWorlds adds "Created with LearnWorlds" below it; only the Learning Center plan removes it.
 * **E-mail links:** every `mailto:` link also opens a small "Email us" window with the address, Copy address, Gmail and Outlook. On a computer with no e-mail app set up, the link alone does nothing visible.
 * "Skip to content" is the first keyboard stop.
@@ -142,17 +143,18 @@ How a page works on the live site:
 
 ## Home, Explore programs, Universities
 
+* **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
   * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order.
   * Partner strip: the institutions set as course authors.
   * Figures: counted from the courses.
   * Blog: the JSON feed in the blog section's `data-feed`, hidden while empty.
   * Photos are hosted on LearnWorlds and listed in `pages/home/assets.json`.
-* **Explore programs** (`/courses`): the visitor design (199:2) and the signed-in design (184:219).
+* **Explore programs** (`/courses`, "Online Courses" in the header): the visitor design (199:2) and the signed-in design (184:219).
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
   * Results: sort, 6 programs per page.
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
-* **Universities** (`/universities`): every institution live (a course's author name and avatar) with its courses. The four "Test …" institutions are placeholders.
+* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar) with its courses. The four "Test …" institutions are placeholders.
 * Contact details (fibre2fashion.com/aboutus/contact): +91-2717-429555, inquiry@fibre2fashion.com, B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India.
 
 ## Edits made in the LearnWorlds admin are kept

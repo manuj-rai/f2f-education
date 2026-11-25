@@ -13,6 +13,7 @@
 //   npm run dev -- courses       opens site/pages/courses at its address (/courses)
 //   npm run dev -- /account      opens any address
 //   --phone       phone-sized window (390 x 844, touch)
+//   --width=1260  page this many pixels wide (e.g. to check a demo laptop's screen); works with --shot too
 //   --signed-out  a fresh window with no sign-in (the visitor view), forgotten when it closes
 //   --shot=x.png  no window: save one full-page screenshot of the visitor view and exit
 'use strict';
@@ -33,6 +34,9 @@ const target = args.find(a => !a.startsWith('--'));
 const phone = args.includes('--phone');
 const shotArg = args.find(a => a.startsWith('--shot='));
 const shot = shotArg ? shotArg.slice(7) : null;
+const widthArg = args.find(a => a.startsWith('--width='));
+const width = widthArg ? parseInt(widthArg.slice(8), 10) : 0;
+if (widthArg && !(width >= 320 && width <= 3840)) { console.error('--width needs a number of pixels, e.g. --width=1260'); process.exit(1); }
 const signedOut = args.includes('--signed-out') || !!shot;
 if (args.includes('--member')) console.log('Note: --member is no longer needed. Sign in with "Log in" in the window to see the signed-in pages.');
 
@@ -126,8 +130,9 @@ function startPath() {
   const startUrl = SITE + startPath();
   let code = siteCode(), pages = localPages();
   const view = phone ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }
+    : width ? { viewport: { width, height: 800 } }
     : (shot ? { viewport: { width: 1366, height: 900 } } : { viewport: null });
-  const launch = { channel: 'chrome', headless: !!shot || !!process.env.F2F_DEV_HEADLESS, args: shot || phone ? [] : ['--start-maximized'] };
+  const launch = { channel: 'chrome', headless: !!shot || !!process.env.F2F_DEV_HEADLESS, args: shot || phone || width ? [] : ['--start-maximized'] };
   let browser = null, ctx;
   if (signedOut) { browser = await pw.chromium.launch(launch); ctx = await browser.newContext({ ...view, ...(shot ? { reducedMotion: 'reduce' } : {}) }); }
   else {

@@ -352,6 +352,16 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
   .f2f-strip-in, .f2f-bar-in, .f2f-learning-in, .f2f-footer-in { padding-left: 48px; padding-right: 48px; }
   .f2f-logo { width: auto; padding-left: 0; }
 }
+/* Four menu items next to a signed-in name: tighter gaps on narrow desktops so they don't run into the account button */
+@media (max-width: 1180px) {
+  .f2f-bar-in { gap: 24px; }
+  .f2f-nav { gap: 20px; }
+  .f2f-acct-name b { max-width: 160px; overflow: hidden; text-overflow: ellipsis; } /* full name in its title */
+}
+@media (max-width: 1100px) {
+  .f2f-nav { gap: 16px; }
+  .f2f-acct-name b { max-width: 120px; }
+}
 /* Tablet and phone: links and account go into the menu button */
 @media (max-width: 990px) {
   html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { height: 88px; }

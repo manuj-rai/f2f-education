@@ -35,15 +35,15 @@
   <div class="w-wrap w-hero-inner">
     <img class="w-hero-art" src="assets/hero-illustration.png" width="537" height="442" alt="">
     <div class="w-hero-copy">
-      <h1 id="w-hero-title" class="w-hero-title">Practical industry-led <br class="w-br">courses for textiles, <br class="w-br">apparel &amp; fashion industry.</h1>
+      <h1 id="w-hero-title" class="w-hero-title">Practical industry-led <br class="w-br">courses for the textiles, <br class="w-br">apparel &amp; fashion industry.</h1>
       <hr class="w-hero-rule">
-      <a class="w-btn w-btn--primary" href="/courses">Explore the Courses <img src="assets/icon-arrow-up-right-white.svg" width="18" height="18" alt=""></a>
+      <!-- Same two links as the header (SITE.nav in site/custom-code/body.html). Residential Courses has no address yet:
+           LearnWorlds has no residential courses. When there's a page, make it <a class="w-btn w-btn--line" href="…">. -->
+      <div class="w-hero-actions">
+        <a class="w-btn w-btn--primary" href="/courses">Online Courses <img src="assets/icon-arrow-up-right-white.svg" width="18" height="18" alt=""></a>
+        <span class="w-btn w-btn--line is-disabled" aria-disabled="true" title="Coming soon">Residential Courses</span>
+      </div>
     </div>
-    <form class="w-hero-search" role="search" data-w-search>
-      <img class="w-hero-search-icon" src="assets/icon-search.svg" width="20" height="20" alt="">
-      <input type="search" name="q" placeholder="What would you like to learn?" aria-label="What would you like to learn?" autocomplete="off">
-      <button type="submit" aria-label="Search courses"><img src="assets/icon-arrow-right-search.svg" width="20" height="20" alt=""></button>
-    </form>
   </div>
 </section>
 
@@ -370,14 +370,6 @@
       blog.hidden = false;
     }).catch(function () { /* keep the section hidden */ });
   }
-
-  // Hero search box: opens the site-wide course search panel with what was typed
-  var form = root.querySelector('[data-w-search]');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var q = form.q.value.trim();
-    if (window.F2FSearch) window.F2FSearch.open(q); else location.href = '/courses';
-  });
 
   // Newsletter: LearnWorlds' own newsletter endpoint (the same one the footer form uses)
   var news = root.querySelector('[data-w-newsletter]');
