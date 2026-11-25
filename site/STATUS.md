@@ -39,10 +39,17 @@ Rule for every page: content comes live from LearnWorlds; parts LearnWorlds has 
 - University Partners (`/universities`): from 1280px down, its content now has the same 48px side margins as the header and footer.
 - Course pages and Online Courses were already fine.
 
-**Institutions: F2F University (25 Nov 2026).** At the user's request, **F2F University** replaced the four "Test …" placeholder institutions as the author of all 16 courses (LearnWorlds course settings: Author's name and avatar). The avatar is an "F2F" monogram on navy, `courses/_universities/f2f-university.png`; swap it for a real logo when there is one.
-- University Partners lists F2F University with all 16 courses. The Online Courses Institution filter has that one option.
-- The home partner strip now shows from one institution (it used to need two), so F2F University appears there. The "Partner institutions" figure still needs two, so home shows two figures.
-- New courses get F2F University by default (`lw_publish_js.py`, `content.json` "author_name").
+**Institutions (25 Nov 2026, the user's list).** Course authors in LearnWorlds (course settings: Author's name and avatar); the "Test …" placeholders are gone.
+- **Fibre2Fashion Education**: 13 courses. The avatar is the user's F2F logo (cap, F2F, book), `courses/_universities/fibre2fashion-education.png`.
+- **AMFI (Amsterdam Fashion Institute)**: the 3 Fashion Design courses. The avatar is the square AMFI logo, `courses/_universities/amfi.png`; the home band uses the wide AMFI logo (`partnerLogos` in `pages/home/page.html`).
+- **Sustainable Fashion School**: not shown yet. Partners come only from course authors (the user's choice), and its course "Fashion Policy Masterclass Series" isn't in LearnWorlds. The logo the user sent says "Sustainable Fashion Academy" (`courses/_universities/sustainable-fashion-academy.png`); the name needs confirming.
+- Home band: logos only, no names (the name is the alt text), on one line that scrolls sideways when needed. Shown from one institution.
+- University Partners: each institution lists its first 5 courses, then "View all N courses", which opens Online Courses filtered to it (`/courses?institution=<name>`).
+- New courses get Fibre2Fashion Education by default (`lw_publish_js.py`, `content.json` "author_name").
+
+**Categories (25 Nov 2026).** "apparel-production" was renamed "apparel-manufacturing" (LearnWorlds category manager, so all 4 courses changed at once). New: **sourcing** (Controlling Midseason Hanger Substitutions) and **merchandising** (From Forecast to Order), each as the course's second category: they show in Explore by topic, the Trending filters and the Online Courses subject filter, and both courses stay in the Apparel Manufacturing section on home.
+
+**Course order.** LearnWorlds lists courses A–Z by title and has no order setting. `SITE.featured` in `body.html` (now `staple-yarn-spinning`) puts courses first on home, Online Courses ("Featured") and University Partners.
 
 **Home.** Hero changed at the user's request (25 Nov 2026):
 - Title: "Practical industry-led courses for the textiles, apparel & fashion industry."

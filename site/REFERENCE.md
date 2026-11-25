@@ -146,7 +146,8 @@ How a page works on the live site:
 * **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
   * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order.
-  * Partner strip: the institutions set as course authors, shown from one institution (now F2F University).
+  * Partner strip: the institutions set as course authors, as logos only (no names; the name is the alt text), on one line that scrolls sideways. The logo is the author's avatar, or a wider one from `partnerLogos` at the top of `pages/home/page.html` (AMFI). Shown from one institution.
+  * Course order everywhere: courses in `SITE.featured` (`body.html`, read by the pages as `window.F2FSite.featured`) come first, then LearnWorlds' order, which is A–Z by title (LearnWorlds has no course-order setting).
   * Figures: counted from the courses.
   * No prices on home (no "Free" on cards or headings); the course page shows free or paid.
   * Blog: the JSON feed in the blog section's `data-feed`, hidden while empty.
@@ -155,7 +156,8 @@ How a page works on the live site:
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
   * Results: sort, 6 courses per page.
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
-* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar) with its courses. Since 25 Nov 2026 every course's author is **F2F University** (it replaced the "Test …" placeholders), so it lists one institution. To add a real partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
+* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar), each with its first 5 courses (`TOP` in `pages/universities/page.html`) and "View all N courses", which opens `/courses?institution=<author name>`. Institutions now: Fibre2Fashion Education (13 courses) and AMFI (Amsterdam Fashion Institute) (3). To add a partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
+* **Categories** are LearnWorlds course Categories. Rename or add one in Courses → Manage categories (`/author/categories-manager`), which also picks its courses. A course appears on home under its first category only.
 * Contact details (fibre2fashion.com/aboutus/contact): +91-2717-429555, inquiry@fibre2fashion.com, B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India.
 
 ## Edits made in the LearnWorlds admin are kept

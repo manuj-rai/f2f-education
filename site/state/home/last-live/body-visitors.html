@@ -7,7 +7,7 @@
     categories        = each course's Categories (Course settings). A section per category, in catalogue order;
                         each course shows once, under its first category. Name = the category text
                         ("fibre-fundamentals" shows as "Fibre Fundamentals"; a category typed with spaces shows as typed).
-    partner strip     = the institutions set as course authors (name + profile picture); shown from 1 institution (F2F University is the author of every course).
+    partner strip     = the institutions set as course authors, logos only (the avatar, or a wider logo from partnerLogos); shown from 1 institution.
     stats             = counted from the courses.
     blog              = the JSON feed in data-feed on the blog section; hidden while there is none.
   Topic icons are picked by keywords in the category name (rules below), with a default.
@@ -30,7 +30,8 @@
     ["retail|commerce|shop", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIFJldGFpbCBhbmQgRS1jb21tZXJjZSAmIzIyNjsmIzEyODsmIzE0ODsgc2hvcHBpbmcgYmFnIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTggOVY2QzggNC45MzkxMyA4LjQyMTQzIDMuOTIxNzIgOS4xNzE1NyAzLjE3MTU3QzkuOTIxNzIgMi40MjE0MyAxMC45MzkxIDIgMTIgMkMxMy4wNjA5IDIgMTQuMDc4MyAyLjQyMTQzIDE0LjgyODQgMy4xNzE1N0MxNS41Nzg2IDMuOTIxNzIgMTYgNC45MzkxMyAxNiA2VjlNNSA3SDE5TDIxIDIxSDNMNSA3WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
     ["trend|forecast", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUcmVuZCBGb3JlY2FzdGluZyAmIzIyNjsmIzEyODsmIzE0ODsgdHJlbmRpbmcgY2hhcnQiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMyAzVjIxSDIxTTYgMTZMMTEgMTFMMTUgMTRMMjEgNk0yMSAxMVY2SDE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="]
   ],
-  "topicDefault": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIE1hbnVmYWN0dXJpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IGZhY3RvcnkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNiAxOEg3TTExIDE4SDEyTTE2IDE4SDE3TTE1IDdIMTlNMyAyMVYxMEw5IDE0VjlMMTUgMTNWM0gxOUwyMSAyMUgzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" }
+  "topicDefault": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIE1hbnVmYWN0dXJpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IGZhY3RvcnkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNiAxOEg3TTExIDE4SDEyTTE2IDE4SDE3TTE1IDdIMTlNMyAyMVYxMEw5IDE0VjlMMTUgMTNWM0gxOUwyMSAyMUgzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K",
+  "partnerLogos": { "amfi-amsterdam-fashion-institute": "https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/3bffa1b68cf7c96d5f552af6c390fe03.png" } }
 </script>
 
 <section class="w-hero" aria-labelledby="w-hero-title">
@@ -250,6 +251,13 @@
       .then(function (j) { if (!j || !Array.isArray(j.data)) throw new Error('Unexpected response'); return j.data; });
   }
 
+  // Courses in SITE.featured (site/custom-code/body.html) come first, in that order; the rest keep LearnWorlds' order (A–Z)
+  function featuredFirst(list) {
+    var f = (window.F2FSite && window.F2FSite.featured) || [];
+    function rank(c) { var i = f.indexOf(c.titleId); return i < 0 ? f.length : i; }
+    return list.map(function (c, i) { return [c, i]; }).sort(function (a, b) { return rank(a[0]) - rank(b[0]) || a[1] - b[1]; }).map(function (x) { return x[0]; });
+  }
+
   function render(courses) {
     // byTag: every course in a category (topic counts, trending filters).
     // home: each course once, under its first category (the category sections), so courses don't repeat.
@@ -304,23 +312,21 @@
     }).join('');
     topics.addEventListener('click', function (e) { var a = e.target.closest('[data-filter]'); if (a) showTrend(a.getAttribute('data-filter')); });
 
-    // Partner strip: the institutions set as course authors, shown once there is one
+    // Partner strip: the institutions set as course authors, shown once there is one. Logos only, no names (the user's
+    // request); the name is the logo's alt text. The logo is the author's avatar, unless partnerLogos (top of this file)
+    // has a wider logo for that institution. With no picture at all, the name is shown instead.
     var seen = {}, institutions = [];
     courses.forEach(function (c) { authors(c).forEach(function (a) { if (!seen[a.name]) { seen[a.name] = 1; institutions.push(a); } }); });
     var partners = root.querySelector('[data-w-partners]');
     if (institutions.length >= 1) {
-      var list = partners.querySelector('[data-w-partner-list]');
+      var list = partners.querySelector('[data-w-partner-list]'), logos = ICONS.partnerLogos || {};
       list.innerHTML = institutions.map(function (a) {
-        var img = imageUrl(a.image), id = 'uni-' + a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-        return '<li><a class="w-partner" href="/universities#' + id + '" title="' + esc(a.name) + '">' +
-          (img ? '<img src="' + esc(img) + '" height="40" alt="" loading="lazy">' : '') +
-          '<span class="w-partner-name">' + esc(a.name) + '</span></a></li>';
+        var key = a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        var img = logos[key] || imageUrl(a.image);
+        return '<li><a class="w-partner" href="/universities#uni-' + key + '" title="' + esc(a.name) + '">' +
+          (img ? '<img src="' + esc(img) + '" height="48" alt="' + esc(a.name) + '" loading="lazy">' : '<span class="w-partner-name">' + esc(a.name) + '</span>') +
+          '</a></li>';
       }).join('');
-      // A wide logo already shows the name (like the design's university wordmarks); square ones get the name beside them
-      [].forEach.call(list.querySelectorAll('img'), function (img) {
-        function fit() { if (img.naturalWidth / img.naturalHeight >= 1.8) img.parentNode.classList.add('is-wordmark'); }
-        if (img.complete && img.naturalWidth) fit(); else img.addEventListener('load', fit);
-      });
       partners.hidden = false;
     }
 
@@ -339,7 +345,7 @@
     root.querySelector('[data-w-topics]').innerHTML = '';
   }
 
-  load().then(render, fail);
+  load().then(function (c) { render(featuredFirst(c)); }, fail);
 
   // Blog: latest three items from the JSON feed in data-feed; the section stays hidden without one
   var blog = root.querySelector('[data-w-blog]'), feed = blog && blog.getAttribute('data-feed');

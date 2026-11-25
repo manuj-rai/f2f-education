@@ -24,8 +24,9 @@ For most new courses, use text lessons instead of videos. One article becomes a 
 
    The manual route is "Putting a course into LearnWorlds" below; in its step 4, upload the `.docx` files instead of videos.
    The label is "N min · Reading". The author is the institution shown on University Partners (`/universities`; course settings →
-   Author's name and avatar). Every course has **F2F University** with `courses/_universities/f2f-university.png`; that's also the
-   script's default. Pass `"<Author name>" <avatar.png>` after the slug only for a different institution.
+   Author's name and avatar). The script's default is **Fibre2Fashion Education** with `courses/_universities/fibre2fashion-education.png`.
+   For an AMFI course pass `"AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png` after the slug. Categories: see
+   READING_SCHEMA.md (Sourcing and Merchandising are usually a course's second category, after Apparel Manufacturing).
 
 ## Video courses
 
@@ -55,7 +56,7 @@ falls back to Microsoft PowerPoint (`make_video.ps1`), which is much slower. A f
 1. Courses → **Create course** → Build it yourself: title, card description, URL slug, keep **Draft**, and under
    *Pick a page template* choose **"Select a page layout used in another course" → Staple Yarn Spinning**. The new course page then
    copies the clean F2F layout and needs no clean-up.
-2. Course settings → General: Label, Author "F2F University" (avatar `courses/_universities/f2f-university.png`), categories, course image (`course-card.jpg`, crop to the
+2. Course settings → General: Label, Author "Fibre2Fashion Education" (avatar `courses/_universities/fibre2fashion-education.png`; AMFI courses: "AMFI (Amsterdam Fashion Institute)", `amfi.png`), categories, course image (`course-card.jpg`, crop to the
    full image). Turn **Automatically extract Course SEO** off and write an SEO description under 160 characters; the course page
    hero shows it.
 3. Pricing → Add pricing option → **Free**, status **Public**.
