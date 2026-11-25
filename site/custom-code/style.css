@@ -437,6 +437,7 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
 .c-h2 { flex: 1; font-size: 26px; font-weight: 600; line-height: 1.45; }
 .c-h3 { font-size: 22px; font-weight: 600; line-height: 1.45; margin-bottom: 18px; }
 .c-content-sum { font-size: 13px; color: #5b687c; }
+.c-soon { padding: 20px 24px; background: #ffffff; border: 1px solid #dfe6ef; border-radius: 8px; font-size: 15px; color: #3d5066; } /* course with no lessons yet (Coming soon) */
 .c-modules { background: #ffffff; border: 1px solid #dfe6ef; border-radius: 8px; overflow: hidden; }
 .c-module + .c-module { border-top: 1px solid #dfe6ef; }
 .c-module-head { display: flex; align-items: center; gap: 16px; width: 100%; margin: 0; padding: 22px 24px; border: 0; background: #ffffff; text-align: left; cursor: pointer; font: inherit; color: inherit; }

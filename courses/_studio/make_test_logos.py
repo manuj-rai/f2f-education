@@ -2,9 +2,9 @@
 
 No course uses them any more. Since 25 Nov 2026 the institutions are real, with their own logos in courses/_universities/
 (not generated here, so this script never overwrites them):
-  fibre2fashion-education.png       Fibre2Fashion Education (the user's F2F logo), author of 6 courses
-  amfi.png                          AMFI (Amsterdam Fashion Institute), author of 5 courses
-  sustainable-fashion-academy.png   Sustainable Fashion School (logo reads "Academy"), author of 5 courses
+  fibre2fashion-education.png       Fibre2Fashion Education (the user's F2F logo), author of 15 courses
+  amfi.png                          AMFI (Amsterdam Fashion Institute) (wide logo), author of How Fashion Trends Rise
+  sustainable-fashion-school.png    Sustainable Fashion School (wide logo), author of the Coming-soon Fashion Policy Masterclass Series
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont

@@ -350,7 +350,9 @@
     var task = null;
     modules.forEach(function (mod) { mod.lessons.forEach(function (u) { if (u.kind === 'Assignment' || u.kind === 'Quiz') { if (!task || /assignment|project/i.test(u.title) || u.kind === 'Assignment') task = { mod: mod, unit: u }; } }); });
 
-    var attrs = [plural(modules.length, 'module', 'modules'), plural(lessons.length, 'lesson', 'lessons')].concat(label);
+    // No lessons yet (a Coming-soon course): say so instead of "0 modules · 0 lessons"
+    var soon = !lessons.length;
+    var attrs = (soon ? ['Coming soon'] : [plural(modules.length, 'module', 'modules'), plural(lessons.length, 'lesson', 'lessons')]).concat(label);
     page.className = 'c-page';
     page.innerHTML =
       '<section class="c-hero" aria-labelledby="c-title"><div class="c-wrap">' +
@@ -372,7 +374,8 @@
       '<section class="c-work" id="c-overview"><div class="c-wrap c-work-in">' +
         '<div class="c-main">' +
           '<section class="c-content" id="c-content" aria-labelledby="c-content-title">' +
-            '<div class="c-content-head"><h2 id="c-content-title" class="c-h2">Course content</h2><p class="c-content-sum">' + esc(plural(modules.length, 'module', 'modules') + ' · ' + plural(lessons.length, 'lesson', 'lessons')) + '</p></div>' +
+            '<div class="c-content-head"><h2 id="c-content-title" class="c-h2">Course content</h2><p class="c-content-sum">' + (soon ? 'Coming soon' : esc(plural(modules.length, 'module', 'modules') + ' · ' + plural(lessons.length, 'lesson', 'lessons'))) + '</p></div>' +
+            (soon ? '<p class="c-soon">The lessons will be listed here when the course opens.</p>' : '') +
             '<div class="c-modules">' + modules.map(function (mod, i) {
               var num = (mod.n < 10 ? '0' : '') + mod.n, open = progress ? !!(next && next.mod === mod) : i === 0;
               var complete = progress && mod.doneCount === mod.units.length;
