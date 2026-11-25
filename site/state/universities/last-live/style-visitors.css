@@ -1,0 +1,69 @@
+/* F2F page:universities · generated from site/pages/universities by site/tools/build.js. Edit the files there, not here. */
+/* LearnWorlds' own sections on this page are replaced by the design (slots move the ones it uses). */
+#sectionsWrapper main > .learnworlds-section { display: none !important; }
+/* Keep the footer below the fold until the page block is in place. */
+#sectionsWrapper:not(:has(#f2f-page)) main { min-height: 100vh; }
+/* Content for one audience only */
+.f2f-visitor [data-show="members"], .f2f-member [data-show="visitors"] { display: none !important; }
+/* Universities page, in the home page's Figma style (Inter, navy / blue, 80px side margins). */
+.f2f-page--universities {
+  --u-navy: #11234f; --u-ink: #0d1b3e; --u-blue: #1b5fa8; --u-text: #3d5066; --u-muted: #5b687c;
+  --u-pale: #8aacc8; --u-soft: #f0f4fa; --u-line: #dce4e0; --u-bg: #ffffff; --u-card: #ffffff; --u-link: #1b5fa8;
+  color: var(--u-ink); background: var(--u-soft);
+}
+html[data-theme="dark"] .f2f-page--universities {
+  --u-ink: #f5f5f5; --u-text: #b8c2cf; --u-muted: #a3a3a3; --u-soft: #0c0f16; --u-line: rgba(255, 255, 255, .14);
+  --u-bg: #000000; --u-card: #111111; --u-link: #6ea8ff;
+}
+.f2f-page--universities ul { list-style: none; margin: 0; padding: 0; }
+.f2f-page--universities a { text-decoration: none; }
+.f2f-page--universities a:focus-visible { outline: 2px solid #6ea8ff; outline-offset: 2px; }
+.u-wrap { max-width: 1440px; margin: 0 auto; padding: 0 80px; }
+
+/* Header band */
+.u-head { background: var(--u-navy); color: #ffffff; padding: 64px 0 56px; }
+.u-eyebrow { font-size: 12px; font-weight: 700; line-height: normal; color: var(--u-pale); text-transform: uppercase; margin: 0; }
+.u-title { margin-top: 12px; font-size: 48px; font-weight: 600; line-height: 1.1; letter-spacing: 0; color: #ffffff; }
+.u-lede { margin-top: 16px; max-width: 60ch; font-size: 17px; line-height: 1.6; color: #d6e2f0; }
+.u-count { margin-top: 24px; font-size: 14px; font-weight: 600; color: var(--u-pale); min-height: 1.4em; }
+
+/* Institution cards */
+.u-list { padding: 56px 0 80px; }
+.u-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.u-card { background: var(--u-card); border: 1px solid var(--u-line); border-radius: 8px; padding: 24px; scroll-margin-top: 120px; }
+.u-card.is-target { border-color: var(--u-blue); box-shadow: 0 0 0 2px var(--u-blue); }
+.u-card-head { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--u-line); }
+.u-logo { width: 64px; height: 64px; flex: none; display: flex; align-items: center; justify-content: center; border: 1px solid var(--u-line);
+  border-radius: 8px; background: #ffffff; overflow: hidden; }
+.u-logo img { width: 100%; height: 100%; object-fit: contain; }
+.u-logo span { font-size: 20px; font-weight: 700; color: #1b5fa8; letter-spacing: .02em; }
+.u-name { font-size: 20px; font-weight: 600; line-height: 1.25; letter-spacing: 0; color: var(--u-ink); }
+.u-meta { margin-top: 4px; font-size: 13px; color: var(--u-muted); }
+.u-courses li + li { border-top: 1px solid var(--u-line); }
+.u-courses a { display: flex; flex-direction: column; gap: 6px; padding: 16px 0 2px; }
+.u-courses li + li a { padding-top: 16px; }
+.u-courses li:not(:last-child) a { padding-bottom: 16px; }
+.u-course-title { font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--u-ink); }
+.u-courses a:hover .u-course-title { color: var(--u-link); text-decoration: underline; }
+.u-course-meta { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--u-text); }
+.u-free { margin-left: 8px; font-weight: 600; color: var(--u-text); }
+.u-empty { grid-column: 1 / -1; font-size: 15px; color: var(--u-text); }
+.u-empty a { color: var(--u-link) !important; font-weight: 600; }
+
+/* Loading placeholders */
+.u-card--skel span { display: block; height: 14px; margin-bottom: 14px; border-radius: 4px;
+  background: linear-gradient(90deg, rgba(127,127,127,.08), rgba(127,127,127,.16), rgba(127,127,127,.08)); background-size: 200% 100%;
+  animation: u-shimmer 1.2s linear infinite; }
+.u-card--skel span:first-child { height: 64px; width: 64px; }
+.u-card--skel span:last-child { width: 60%; margin-bottom: 0; }
+@keyframes u-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) { .u-card--skel span { animation: none; } }
+
+@media (max-width: 1024px) { .u-wrap { padding: 0 48px; } .u-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .u-wrap { padding: 0 20px; }
+  .u-head { padding: 44px 0 40px; }
+  .u-title { font-size: 34px; }
+  .u-grid { grid-template-columns: 1fr; }
+}
+/* /F2F page:universities */

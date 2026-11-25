@@ -1,0 +1,970 @@
+{
+  "slug": "woven-intelligence-wearables",
+  "title": "Woven Intelligence: Smart Textiles in Wearable Technology",
+  "subtitle": "How fabrics that sense, power and connect are redefining what clothing can do",
+  "card_description": "Discover how smart textiles sense, react, power and connect – and where they are transforming healthcare, sport, fashion and defence. Free course with certificate.",
+  "label": "35 min · Online",
+  "card_icon": "shirt",
+  "card_topic": "Smart textiles",
+  "level": "Beginner",
+  "categories": [
+    "technical-textiles"
+  ],
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Woven Intelligence: Textiles Redefining Wearables",
+    "url": "https://www.fibre2fashion.com/industry-article/11289/woven-intelligence-textiles-redefining-wearables",
+    "authors": "Diti Shah",
+    "published": "Feb 2026"
+  },
+  "outcomes": [
+    "Explain how wearables are shifting from devices to smart fabrics",
+    "Describe the four functional roles of textiles in wearable technology",
+    "Give real examples of smart textiles in four industries",
+    "Name the key materials and techniques behind smart textiles",
+    "Assess the challenges, future directions and sustainability of smart wearables"
+  ],
+  "audience": "Students, designers, merchandisers and textile professionals who want a clear, non-technical introduction to smart textiles and e-textiles.",
+  "about": "Wearable technology is moving from devices you wear to clothes that do. In this free visual course, based on Diti Shah's Fibre2Fashion article, you'll learn the four jobs textiles perform in modern wearables, see real examples from healthcare, sport, fashion and defence, and explore the conductive fibres and smart materials that make it all work. You'll also look at the challenges that still hold smart textiles back, where the technology is heading, and how to design wearables that don't become tomorrow's e-waste. Six short video lessons, a knowledge check and a free certificate.",
+  "lessons": [
+    {
+      "title": "From gadgets to smart fabrics",
+      "sub": "Why textiles now sit at the centre of wearable technology",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "From gadgets to smart fabrics",
+          "sub": "Why textiles now sit at the centre of wearable technology",
+          "say": "Welcome to Woven Intelligence. In this short course you'll see how textiles have moved from passive layers of comfort to active parts of wearable technology."
+        },
+        {
+          "type": "shift",
+          "title": "The big shift in wearables",
+          "from": "Devices you wear",
+          "to": "Clothes that do",
+          "p": "Wearables have grown beyond fitness trackers and smartwatches into health monitoring, safety, performance and everyday fashion.",
+          "say": "Consumers want technology that is lighter, more comfortable and part of daily life. That puts textiles, the material closest to the body, at the centre of the next wave of wearables."
+        },
+        {
+          "type": "compare",
+          "title": "Why rigid gadgets hit a limit",
+          "left": {
+            "h": "Gadgets on the body",
+            "items": [
+              "Bulky and hard-edged",
+              "Sit on top of the skin",
+              "Often uncomfortable to wear",
+              "The body adapts to the device"
+            ]
+          },
+          "right": {
+            "h": "Smart fabrics",
+            "items": [
+              "Soft, light and flexible",
+              "The fabric itself is the sensor",
+              "Closer, steadier skin contact",
+              "Technology adapts to the body"
+            ]
+          },
+          "say": "Early wearables asked the body to put up with hard, bulky devices. Smart textiles flip that: the technology is built into the fabric, so it moves, stretches and breathes with the wearer."
+        },
+        {
+          "type": "cards",
+          "title": "Three advances made it possible",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "cable",
+              "h": "Conductive fibres",
+              "p": "Yarns that carry electrical signals through the fabric itself."
+            },
+            {
+              "icon": "activity",
+              "h": "Flexible sensors",
+              "p": "Sensing elements that bend and stretch with the garment."
+            },
+            {
+              "icon": "cpu",
+              "h": "Miniaturised circuits",
+              "p": "Electronics small enough to sit inside a textile structure."
+            }
+          ],
+          "say": "Together, these advances turned textiles into active participants in collecting and processing data, opening the way to continuous monitoring, better comfort and more design freedom."
+        },
+        {
+          "type": "definition",
+          "tag": "Definition",
+          "big": "**Smart textiles** are fabrics embedded with sensors, conductive fibres or electronic components, so garments can monitor the body, respond to their surroundings and communicate with digital devices – while staying comfortable and flexible.",
+          "say": "Keep this definition in mind. Every example in this course combines a familiar fabric with at least one of these added abilities."
+        },
+        {
+          "type": "list",
+          "title": "What you'll learn in this course",
+          "numbered": true,
+          "items": [
+            {
+              "t": "The four jobs textiles do in wearables"
+            },
+            {
+              "t": "Where smart textiles are used today"
+            },
+            {
+              "t": "The materials that make them work"
+            },
+            {
+              "t": "The challenges and what comes next"
+            },
+            {
+              "t": "How smart textiles can be more sustainable"
+            }
+          ],
+          "say": "We'll take these one lesson at a time. At the end you can test yourself with a short knowledge check and earn a free certificate."
+        }
+      ]
+    },
+    {
+      "title": "Four jobs textiles do",
+      "sub": "Sensing, reacting, powering and connecting – built into the fabric",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Four jobs textiles do",
+          "sub": "Sensing, reacting, powering and connecting – built into the fabric",
+          "say": "Smart textiles do more than hold electronics. In this lesson we look at the four functional roles they play in modern wearable technology."
+        },
+        {
+          "type": "cards",
+          "title": "The four functional roles",
+          "cols": 2,
+          "items": [
+            {
+              "icon": "heart-pulse",
+              "h": "Sense the body",
+              "p": "Track biometric signals without rigid sensors."
+            },
+            {
+              "icon": "cloud-sun",
+              "h": "Read the environment",
+              "p": "Detect UV, humidity, pollution and temperature."
+            },
+            {
+              "icon": "battery-charging",
+              "h": "Store and make energy",
+              "p": "Harvest, generate and store power in the fabric."
+            },
+            {
+              "icon": "wifi",
+              "h": "Communicate and connect",
+              "p": "Send data and control devices wirelessly."
+            }
+          ],
+          "say": "Most smart garments combine two or more of these roles. Let's look at each one in turn."
+        },
+        {
+          "type": "chips",
+          "kicker": "Role 1",
+          "title": "Sensing the body",
+          "lead": "Conductive yarns and printed electronics let the fabric surface work like a sensor grid that tracks:",
+          "chips": [
+            {
+              "icon": "heart-pulse",
+              "t": "Heart rate"
+            },
+            {
+              "icon": "thermometer",
+              "t": "Temperature"
+            },
+            {
+              "icon": "move",
+              "t": "Movement"
+            },
+            {
+              "icon": "activity",
+              "t": "Muscle activity"
+            },
+            {
+              "icon": "wind",
+              "t": "Respiration"
+            }
+          ],
+          "note": "Because the sensors sit inside the textile structure, they get **better skin contact**, more accurate readings and comfortable long-term wear.",
+          "say": "A sensor built into the fabric stays in close contact with the skin all day, which is hard for a strap-on device to match."
+        },
+        {
+          "type": "focus",
+          "kicker": "Role 1 · examples",
+          "icon": "footprints",
+          "h": "The fabric is the sensor",
+          "p": "Different textile constructions pick up different signals. Here are three examples from the article.",
+          "label": "Examples",
+          "points": [
+            {
+              "icon": "footprints",
+              "t": "**Pressure-sensitive fabrics** detect posture and gait."
+            },
+            {
+              "icon": "heart-pulse",
+              "t": "**Electroconductive textiles** measure ECG (heart) and EMG (muscle) readings."
+            },
+            {
+              "icon": "thermometer",
+              "t": "**Temperature-regulating materials** help predict physiological changes."
+            }
+          ],
+          "say": "ECG records the heart's electrical activity and EMG records muscle activity. Measuring them through fabric makes continuous tracking possible without stick-on electrodes."
+        },
+        {
+          "type": "focus",
+          "kicker": "Role 2",
+          "icon": "cloud-sun",
+          "h": "Reading the environment",
+          "p": "Wearable textiles also interact with the world around the wearer. Some advanced materials even change colour or texture in response.",
+          "label": "They can detect",
+          "points": [
+            {
+              "icon": "sun",
+              "t": "UV exposure"
+            },
+            {
+              "icon": "droplets",
+              "t": "Humidity"
+            },
+            {
+              "icon": "wind",
+              "t": "Pollution levels"
+            },
+            {
+              "icon": "thermometer",
+              "t": "Ambient temperature"
+            }
+          ],
+          "note": "Most valuable where situational awareness matters: **outdoor sportswear, military uniforms and safety garments**.",
+          "say": "For someone working outdoors or in a hazardous setting, a garment that warns about heat, UV or poor air can matter as much as one that tracks the heart."
+        },
+        {
+          "type": "cards",
+          "kicker": "Role 3",
+          "title": "Powering wearables from the fabric",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "sun",
+              "h": "Solar-powered fibres",
+              "p": "Fibres woven into clothing that harvest energy from light."
+            },
+            {
+              "icon": "move",
+              "h": "Kinetic textiles",
+              "p": "Fabrics that harvest energy from the wearer's motion."
+            },
+            {
+              "icon": "battery",
+              "h": "Fabric supercapacitors",
+              "p": "Store charge inside the fabric without adding bulk."
+            }
+          ],
+          "say": "Battery life has been one of the biggest limits on wearables. These approaches may eventually remove the need for traditional batteries, making wearables more self-sufficient and more sustainable."
+        },
+        {
+          "type": "focus",
+          "kicker": "Role 4",
+          "icon": "wifi",
+          "h": "Communication and connectivity",
+          "p": "Smart textiles are being integrated with wireless systems so garments can share data and act as controls.",
+          "label": "How it works",
+          "points": [
+            {
+              "icon": "bluetooth",
+              "t": "Links over **Bluetooth, NFC and Wi-Fi**."
+            },
+            {
+              "icon": "hand",
+              "t": "A jacket sleeve can become a **touch-sensitive interface** for your phone or navigation."
+            },
+            {
+              "icon": "radio",
+              "t": "Built-in **antennas and conductive pathways** send data to devices or the cloud."
+            }
+          ],
+          "say": "Imagine adjusting your music or checking directions by touching your sleeve, without reaching into a pocket. That is connectivity built into the textile."
+        },
+        {
+          "type": "stack",
+          "title": "How a smart garment fits together",
+          "layers": [
+            {
+              "icon": "shirt",
+              "h": "Textile base",
+              "p": "Comfort, stretch and washability: the garment itself."
+            },
+            {
+              "icon": "activity",
+              "h": "Sensing",
+              "p": "Conductive yarns and printed electronics pick up signals."
+            },
+            {
+              "icon": "battery-charging",
+              "h": "Power",
+              "p": "Energy harvested or stored in the fabric."
+            },
+            {
+              "icon": "wifi",
+              "h": "Connectivity",
+              "p": "Bluetooth, NFC or Wi-Fi, antennas and conductive pathways."
+            },
+            {
+              "icon": "smartphone",
+              "h": "App and cloud",
+              "p": "Raw signals turned into useful insights for the wearer."
+            }
+          ],
+          "say": "Put together, the four roles form a system: a comfortable textile base, sensing, power and connectivity, feeding an app or cloud service that turns raw signals into useful information."
+        }
+      ]
+    },
+    {
+      "title": "Where smart textiles are used",
+      "sub": "Healthcare, sport, fashion and defence – four sectors leading adoption",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Where smart textiles are used",
+          "sub": "Healthcare, sport, fashion and defence – four sectors leading adoption",
+          "say": "Now let's see where these abilities are already making a difference. The article highlights four sectors."
+        },
+        {
+          "type": "cards",
+          "title": "Four sectors being transformed",
+          "cols": 2,
+          "items": [
+            {
+              "icon": "stethoscope",
+              "h": "Healthcare",
+              "p": "Continuous, non-intrusive monitoring of patients."
+            },
+            {
+              "icon": "dumbbell",
+              "h": "Sports and fitness",
+              "p": "Performance insights and injury prevention."
+            },
+            {
+              "icon": "sparkles",
+              "h": "Fashion and lifestyle",
+              "p": "Interactive garments that light up or respond."
+            },
+            {
+              "icon": "shield",
+              "h": "Military and tactical",
+              "p": "Uniforms that monitor stress and threats."
+            }
+          ],
+          "say": "Each sector values smart textiles for a different reason: care, performance, expression or safety."
+        },
+        {
+          "type": "focus",
+          "kicker": "Healthcare",
+          "icon": "stethoscope",
+          "h": "Monitoring without the wires",
+          "p": "Textile-based wearables track health continuously and without discomfort – critical for managing chronic conditions and monitoring patients remotely.",
+          "label": "In practice",
+          "points": [
+            {
+              "icon": "heart-pulse",
+              "t": "**Smart hospital gowns, compression garments and bedding** record vital signs in real time."
+            },
+            {
+              "icon": "clock",
+              "t": "Fewer manual checks for care teams and less disturbance for patients."
+            },
+            {
+              "icon": "smartphone",
+              "t": "Supports **remote monitoring** of patients outside hospital."
+            }
+          ],
+          "say": "When the gown or the bedding records vital signs, care teams get a continuous picture of the patient instead of occasional snapshots."
+        },
+        {
+          "type": "focus",
+          "kicker": "Sports and fitness",
+          "icon": "dumbbell",
+          "h": "Smarter training",
+          "p": "Athletic wear embedded with motion-tracking fibres turns every session into data.",
+          "label": "What it can do",
+          "points": [
+            {
+              "icon": "chart-line",
+              "t": "Analyse **performance metrics** during training."
+            },
+            {
+              "icon": "activity",
+              "t": "Detect **muscle fatigue** as it builds up."
+            },
+            {
+              "icon": "shield-check",
+              "t": "Help **prevent injuries** before they happen."
+            }
+          ],
+          "note": "For professional athletes, these insights can transform training programmes and optimise performance.",
+          "say": "Coaches no longer have to rely only on what they can see. Garments can show how muscles are working and when an athlete is at risk of overdoing it."
+        },
+        {
+          "type": "example",
+          "tag": "Real-world example",
+          "icon": "sparkles",
+          "h": "CuteCircuit",
+          "p": "A fashion brand that designs dresses embedded with LED lights whose colours and patterns change through a smartphone app.",
+          "points": [
+            "Garments respond to digital commands and to movement.",
+            "Worn by celebrities such as Katy Perry.",
+            "Shows fashion and technology merging seamlessly."
+          ],
+          "src": "Source: cutecircuit.com, cited in the article",
+          "say": "Fashion brands are also exploring how to add technology subtly, without compromising comfort or looks. Interactive clothing can light up, change colour or respond to touch."
+        },
+        {
+          "type": "example",
+          "tag": "Real-world example",
+          "icon": "shield",
+          "h": "Smart combat uniforms",
+          "p": "Uniforms can monitor physiological stress, hydration and environmental threats, and some textiles provide localised cooling or heating.",
+          "points": [
+            "The article cites the US Army's **Integrated Soldier Protection System (ISPS)**.",
+            "Textile sensors monitor heart rate, body temperature and exertion.",
+            "Commanders can assess fatigue and stress in real time."
+          ],
+          "src": "Source: US Army (api.army.mil), cited in the article",
+          "say": "In extreme climates and high-stress missions, real-time data on each soldier's condition supports better decisions and greater endurance."
+        },
+        {
+          "type": "reflect",
+          "q": "Which of these four sectors matters most for your work or studies?",
+          "q2": "If you designed one smart garment for it, what single signal would it track – and why?",
+          "say": "Pause the video and jot down your answer. A real use case will make the next lessons on materials and challenges more concrete."
+        }
+      ]
+    },
+    {
+      "title": "Materials that make it work",
+      "sub": "The fibres, polymers and finishes behind smart textiles",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Materials that make it work",
+          "sub": "The fibres, polymers and finishes behind smart textiles",
+          "say": "The performance of any wearable textile depends heavily on material science. This lesson covers the key material innovations."
+        },
+        {
+          "type": "cards",
+          "title": "Key material innovations",
+          "cols": 2,
+          "items": [
+            {
+              "icon": "cable",
+              "h": "Conductive fibres",
+              "p": "Made from silver, copper, carbon or graphene to carry signals."
+            },
+            {
+              "icon": "rotate-ccw",
+              "h": "Shape-memory polymers",
+              "p": "Change structure when triggered by a stimulus such as heat."
+            },
+            {
+              "icon": "maximize-2",
+              "h": "Stretchable substrates",
+              "p": "Breathable, stretchy bases that stay comfortable while housing tech."
+            },
+            {
+              "icon": "droplets",
+              "h": "Functional finishes",
+              "p": "Antimicrobial and moisture-wicking fabrics for long-term wear."
+            }
+          ],
+          "say": "Each material solves a different problem: carrying signals, reacting to conditions, staying comfortable, or keeping the garment fresh and hygienic over long wear."
+        },
+        {
+          "type": "chips",
+          "title": "Conductive fibre options",
+          "lead": "Conductive fibres are the wiring of a smart textile. The article names four common materials:",
+          "chips": [
+            {
+              "icon": "gem",
+              "t": "Silver"
+            },
+            {
+              "icon": "zap",
+              "t": "Copper"
+            },
+            {
+              "icon": "atom",
+              "t": "Carbon"
+            },
+            {
+              "icon": "layers",
+              "t": "Graphene"
+            }
+          ],
+          "note": "**Graphene** is a single layer of carbon atoms: extremely thin, strong and highly conductive.",
+          "say": "These materials can be spun, coated or blended into yarns so that the fabric itself carries electrical signals between sensors, power and connectivity."
+        },
+        {
+          "type": "list",
+          "title": "Emerging techniques",
+          "lead": "Researchers are adding new functions without losing softness or flexibility:",
+          "items": [
+            {
+              "icon": "atom",
+              "t": "**Nanomaterial coatings**",
+              "sub": "Add functional properties to the fibre surface."
+            },
+            {
+              "icon": "droplets",
+              "t": "**Microencapsulation**",
+              "sub": "Tiny capsules hold functional substances inside the fabric."
+            },
+            {
+              "icon": "layers",
+              "t": "**Hybrid materials**",
+              "sub": "Traditional fibres plus advanced composites for better sensor integration and conductivity."
+            }
+          ],
+          "say": "These techniques let a fabric carry new functions while still feeling like a normal textile, which is essential if people are going to wear it every day."
+        },
+        {
+          "type": "list",
+          "title": "What every smart textile must stay",
+          "numbered": false,
+          "items": [
+            {
+              "icon": "shield-check",
+              "t": "**Durable**: survives daily use"
+            },
+            {
+              "icon": "droplets",
+              "t": "**Washable**: electronics survive laundering"
+            },
+            {
+              "icon": "move",
+              "t": "**Flexible**: moves and stretches with the body"
+            },
+            {
+              "icon": "heart-pulse",
+              "t": "**Safe** for prolonged skin contact"
+            },
+            {
+              "icon": "sparkles",
+              "t": "**Appealing** and commercially viable"
+            }
+          ],
+          "say": "However clever the electronics, a smart garment still has to behave like clothing. If it can't be washed, stretched and worn all day, it won't leave the lab."
+        }
+      ]
+    },
+    {
+      "title": "Challenges and the road ahead",
+      "sub": "What still holds smart textiles back – and where they are heading",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Challenges and the road ahead",
+          "sub": "What still holds smart textiles back – and where they are heading",
+          "say": "Despite strong progress, several constraints still slow adoption. After looking at them, we explore what the next generation of smart textiles could do."
+        },
+        {
+          "type": "cards",
+          "title": "Challenges to solve",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "droplets",
+              "h": "Durability and washing",
+              "p": "Electronics must survive washing, stretching and the environment."
+            },
+            {
+              "icon": "battery",
+              "h": "Power efficiency",
+              "p": "Energy harvesting is promising but still limited."
+            },
+            {
+              "icon": "lock",
+              "h": "Privacy and data",
+              "p": "Who owns, consents to and stores personal data?"
+            },
+            {
+              "icon": "coins",
+              "h": "Cost of production",
+              "p": "Advanced smart textiles are expensive to make at scale."
+            },
+            {
+              "icon": "puzzle",
+              "h": "Standardisation",
+              "p": "Few shared standards for materials, interfaces and manufacturing."
+            },
+            {
+              "icon": "scale",
+              "h": "Regulation",
+              "p": "Safety, data and consumer rules are still evolving."
+            }
+          ],
+          "say": "Supply-chain constraints and ethical, sustainable sourcing also matter as the market grows. Solving these issues is what moves smart textiles out of the lab."
+        },
+        {
+          "type": "statement",
+          "big": "The goal: move smart textiles from **prototypes** to **mainstream consumer products**.",
+          "small": "With AI-driven analytics, IoT connectivity and sustainable engineering, textile wearables are expected to shift from specialised products to everyday essentials.",
+          "say": "The next generation won't just add features to existing garments. It will redefine what clothing can do."
+        },
+        {
+          "type": "focus",
+          "kicker": "The future",
+          "icon": "thermometer-sun",
+          "h": "Adaptive textiles",
+          "p": "Fabrics that respond instantly to the wearer's needs and surroundings.",
+          "label": "Possibilities",
+          "points": [
+            {
+              "icon": "thermometer",
+              "t": "Thermal-regulation systems that **warm or cool** the body automatically."
+            },
+            {
+              "icon": "snowflake",
+              "t": "Climate-sensing fibres that adjust insulation **zone by zone**."
+            },
+            {
+              "icon": "shirt",
+              "t": "Outdoor apparel that works like a **personal climate-control system**."
+            }
+          ],
+          "say": "Instead of adding or removing layers, your jacket could manage your temperature for you, based on the weather and your own comfort preferences."
+        },
+        {
+          "type": "focus",
+          "kicker": "The future",
+          "icon": "stethoscope",
+          "h": "Diagnostic healthcare textiles",
+          "p": "Fabrics that support early diagnosis and preventive care without the discomfort of conventional medical devices.",
+          "label": "Researchers are developing",
+          "points": [
+            {
+              "icon": "flask-conical",
+              "t": "Fabrics that read **biochemical markers in sweat** and track hydration."
+            },
+            {
+              "icon": "heart-pulse",
+              "t": "Detection of **irregular heart rhythms** and of stress through skin conductivity."
+            },
+            {
+              "icon": "bandage",
+              "t": "**Smart bandages** that track wound healing or release medication at the right time."
+            }
+          ],
+          "say": "These capabilities could support remote patient monitoring and help reduce hospital readmissions, with continuous health insights in place of occasional check-ups."
+        },
+        {
+          "type": "focus",
+          "kicker": "The future",
+          "icon": "palette",
+          "h": "Expressive fashion",
+          "p": "Programmable textiles will blur the boundaries between style, identity and technology.",
+          "label": "Coming next",
+          "points": [
+            {
+              "icon": "lightbulb",
+              "t": "Embedded **LEDs and electrochromic pigments** that shift colour or pattern."
+            },
+            {
+              "icon": "sparkles",
+              "t": "Surfaces that respond to **mood, environment or digital commands**."
+            },
+            {
+              "icon": "brain",
+              "t": "**AI-driven personalisation** of how clothing looks and behaves in real time."
+            }
+          ],
+          "say": "This opens doors to dynamic fashion, performance costumes and interactive retail experiences."
+        },
+        {
+          "type": "statement",
+          "big": "Smart textiles could become **as common as smartphones** are today.",
+          "small": "That depends on cost-effective production and on answering users' concerns about durability, privacy and data security.",
+          "say": "The convergence of textile engineering, flexible electronics, material science and digital technology is what makes this future possible."
+        }
+      ]
+    },
+    {
+      "title": "Sustainability and key takeaways",
+      "sub": "Designing smart textiles that don't become tomorrow's e-waste",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Sustainability and key takeaways",
+          "sub": "Designing smart textiles that don't become tomorrow's e-waste",
+          "say": "Our final lesson looks at sustainability, which will increasingly decide how smart textiles are designed, made, used and disposed of."
+        },
+        {
+          "type": "statement",
+          "big": "Smart textiles bring both **an opportunity** and **a risk** for sustainability.",
+          "small": "Designed well, they cut battery use and waste. Designed badly, they add electronics to clothing and create new waste and resource burdens.",
+          "say": "The shift towards smart textiles can support environmental progress, but only if waste and resource use are designed out from the start."
+        },
+        {
+          "type": "focus",
+          "kicker": "1 · Materials",
+          "icon": "leaf",
+          "h": "Eco-friendly materials",
+          "p": "Demand for sustainable wearables is accelerating research into biodegradable, recyclable and responsibly sourced materials.",
+          "label": "Examples",
+          "points": [
+            {
+              "icon": "zap",
+              "t": "Conductive fibres from **carbon-based composites, plant-derived polymers or recycled metals**."
+            },
+            {
+              "icon": "sprout",
+              "t": "**Organic cotton, hemp, bamboo and recycled polyester** fabrics that can carry electronics."
+            },
+            {
+              "icon": "recycle",
+              "t": "Less dependence on **petroleum-based synthetics** and plastic-heavy parts."
+            }
+          ],
+          "say": "The aim is to replace plastic-heavy components without giving up durability or performance."
+        },
+        {
+          "type": "cards",
+          "kicker": "2 · Energy",
+          "title": "Self-powering garments",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "sun",
+              "h": "Solar-harvesting fibres",
+              "p": "Turn light into electricity."
+            },
+            {
+              "icon": "move",
+              "h": "Piezoelectric yarns",
+              "p": "Convert the wearer's movement into power."
+            },
+            {
+              "icon": "flame",
+              "h": "Thermoelectric materials",
+              "p": "Draw energy from body heat."
+            }
+          ],
+          "say": "Rechargeable batteries add to electronic waste. Garments that power themselves need little or no external charging, reducing battery use and energy consumption."
+        },
+        {
+          "type": "focus",
+          "kicker": "3 · Longevity",
+          "icon": "wrench",
+          "h": "Longevity and repair",
+          "p": "Integrating sensors and circuits into the fabric removes detachable parts that break easily, so garments last longer.",
+          "label": "How it reduces waste",
+          "points": [
+            {
+              "icon": "droplets",
+              "t": "More **durable, washable** smart textiles stay functional for longer."
+            },
+            {
+              "icon": "repeat",
+              "t": "Less **fast-tech turnover** of short-lived devices."
+            },
+            {
+              "icon": "puzzle",
+              "t": "**Modular design** lets electronics be removed, repaired or upgraded without discarding the garment."
+            }
+          ],
+          "say": "Design for repair matters here as much as in any other product. The garment and its electronics shouldn't have to be thrown away together."
+        },
+        {
+          "type": "recap",
+          "title": "Key takeaways",
+          "items": [
+            "Wearables are shifting from **devices you wear** to **clothes that do**.",
+            "Textiles **sense, react, power and connect**, often several at once.",
+            "Healthcare, sport, fashion and defence are leading adoption.",
+            "Conductive fibres, smart polymers and finishes make it possible.",
+            "Durability, power, privacy, cost and standards still need solving.",
+            "Sustainable materials, self-power and repairability reduce waste."
+          ],
+          "say": "Textiles are no longer passive layers of comfort. They are becoming dynamic systems that interact with both the body and the environment."
+        },
+        {
+          "type": "closing",
+          "title": "Well done – you've finished the lessons!",
+          "sub": "Test what you've learned, earn your certificate, and read the full article for more detail.",
+          "say": "Thank you for learning with F2F Education. Take the knowledge check next to complete the course."
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "Which phrase best describes the shift in wearable technology covered in this course?",
+      "options": [
+        "From clothes that do to devices you wear",
+        "From devices you wear to clothes that do",
+        "From smart fabrics back to rigid sensors",
+        "From fitness trackers to smartwatches"
+      ],
+      "answer": 1,
+      "feedback": "Innovation is moving from devices you wear to clothes that do: the fabric itself becomes the technology."
+    },
+    {
+      "type": "mc",
+      "q": "Why do sensors embedded in the textile structure often give better readings than strap-on devices?",
+      "options": [
+        "They have better skin contact and suit long-term wear",
+        "They use stronger batteries",
+        "They are always connected to Wi-Fi",
+        "They are made of rigid plastic"
+      ],
+      "answer": 0,
+      "feedback": "Embedded sensors stay in close contact with the skin, improving accuracy and comfort for long-term wear."
+    },
+    {
+      "type": "mc",
+      "q": "Which readings can electroconductive textiles measure?",
+      "options": [
+        "UV index and humidity",
+        "Fabric weight and thread count",
+        "ECG and EMG readings",
+        "GPS location"
+      ],
+      "answer": 2,
+      "feedback": "Electroconductive textiles can measure ECG (heart) and EMG (muscle) readings."
+    },
+    {
+      "type": "mc",
+      "q": "Which of these is NOT one of the four functional roles of textiles in wearables?",
+      "options": [
+        "Sensory input and data collection",
+        "Environmental interaction",
+        "Energy storage and power generation",
+        "Dyeing and colour fastness"
+      ],
+      "answer": 3,
+      "feedback": "The four roles are sensing, environmental interaction, energy storage and generation, and communication and connectivity."
+    },
+    {
+      "type": "mc",
+      "q": "Kinetic textiles generate energy from…",
+      "options": [
+        "Sunlight",
+        "Wi-Fi signals",
+        "Moisture in the air",
+        "The wearer's motion"
+      ],
+      "answer": 3,
+      "feedback": "Kinetic textiles harvest energy from motion; solar-powered fibres use light."
+    },
+    {
+      "type": "mc",
+      "q": "What is CuteCircuit known for?",
+      "options": [
+        "Smart hospital gowns",
+        "LED dresses controlled through a smartphone app",
+        "Fabric-based supercapacitors",
+        "Smart combat uniforms"
+      ],
+      "answer": 1,
+      "feedback": "CuteCircuit designs dresses embedded with LEDs whose colours and patterns change via an app."
+    },
+    {
+      "type": "ma",
+      "q": "Which materials does the course name for making conductive fibres? (Select all that apply)",
+      "options": [
+        "Silver",
+        "Graphene",
+        "Wool",
+        "Copper",
+        "Bamboo"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "feedback": "Conductive fibres are made from silver, copper, carbon or graphene."
+    },
+    {
+      "type": "tf",
+      "q": "Piezoelectric yarns convert movement into electrical power.",
+      "answer": true,
+      "feedback": "True: piezoelectric yarns turn movement into power, helping garments become self-powering."
+    },
+    {
+      "type": "mc",
+      "q": "A garment that tracks personal health data raises questions about ownership, consent and storage. Which challenge is this?",
+      "options": [
+        "Durability and washability",
+        "Power efficiency",
+        "User privacy and data security",
+        "Cost of production"
+      ],
+      "answer": 2,
+      "feedback": "Who owns the data, who consented and where it is stored are privacy and data-security questions."
+    },
+    {
+      "type": "tf",
+      "q": "With modular design, the whole garment must be thrown away when an electronic part fails.",
+      "answer": false,
+      "feedback": "False: modular design lets electronic parts be removed, repaired or upgraded without discarding the garment."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Smart textiles",
+      "def": "Fabrics embedded with sensors, conductive fibres or electronics that let garments monitor, respond and communicate."
+    },
+    {
+      "term": "Conductive fibre",
+      "def": "A fibre that carries electrical signals, made from materials such as silver, copper, carbon or graphene."
+    },
+    {
+      "term": "Printed electronics",
+      "def": "Circuits or sensors printed directly onto the surface of a fabric."
+    },
+    {
+      "term": "ECG",
+      "def": "Electrocardiogram: a record of the heart's electrical activity."
+    },
+    {
+      "term": "EMG",
+      "def": "Electromyography: a record of the electrical activity of muscles."
+    },
+    {
+      "term": "Kinetic textile",
+      "def": "A fabric that harvests energy from the wearer's movement."
+    },
+    {
+      "term": "Fabric supercapacitor",
+      "def": "A textile-based component that stores electrical charge without adding bulk."
+    },
+    {
+      "term": "Piezoelectric yarn",
+      "def": "A yarn that generates electricity when it is bent, stretched or pressed."
+    },
+    {
+      "term": "Thermoelectric material",
+      "def": "A material that turns a temperature difference, such as body heat, into electricity."
+    },
+    {
+      "term": "Shape-memory polymer",
+      "def": "A polymer that changes its shape or structure in response to a stimulus such as heat."
+    },
+    {
+      "term": "Microencapsulation",
+      "def": "Enclosing tiny amounts of a functional substance in capsules held within the fabric."
+    },
+    {
+      "term": "Electrochromic pigment",
+      "def": "A pigment that changes colour when an electrical signal is applied."
+    },
+    {
+      "term": "NFC",
+      "def": "Near-field communication: short-range wireless data exchange between devices held close together."
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+<!-- F2F page:home · generated from site/pages/home by site/tools/build.js. Edit the files there, not here. -->
+<div id="f2f-page" class="f2f-page f2f-page--home f2f-visitor">
+<!--
+  Home page, built from the Figma design "F2F Education — Fibre2Fashion" (file hLl2NH7EWq53JM2QIiD5qU, frame 36:2).
+  Everything below the hero copy is built by the script at the end from LearnWorlds' live course data,
+  so new courses and new categories appear with no edit here:
+    categories        = each course's Categories (Course settings). A section per category, in catalogue order;
+                        each course shows once, under its first category. Name = the category text
+                        ("fibre-fundamentals" shows as "Fibre Fundamentals"; a category typed with spaces shows as typed).
+    partner strip     = the institutions set as course authors (name + profile picture); shown from 2 institutions.
+    stats             = counted from the courses.
+    blog              = the JSON feed in data-feed on the blog section; hidden while there is none.
+  Topic icons are picked by keywords in the category name (rules below), with a default.
+-->
+<script type="application/json" id="w-icons">
+{ "arrow": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik00LjE2NiAxMEgxNS44MzRNMTAgMTUuODM0TDE1LjgzNCAxMEwxMCA0LjE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K", "arrowUpRight": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy11cC1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xMS4zMzI4IDExLjMzMjhWNC42NjcySDQuNjY3Mk0xMS4zMzI4IDQuNjY3Mkw0LjY2NzIgMTEuMzMyOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiM1QjY4N0MiLz4KPC9nPgo8L3N2Zz4K",
+  "arrowUpRightBlue": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy11cC1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xMi43NDk0IDEyLjc0OTRWNS4yNTA2SDUuMjUwNk0xMi43NDk0IDUuMjUwNkw1LjI1MDYgMTIuNzQ5NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K", "clock": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjbG9jay0zIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF84KSI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik03IDMuNDk5NzJWN0g5LjMzMzUyTTEyLjgzMzggN0MxMi44MzM4IDEwLjIyMTkgMTAuMjIxOSAxMi44MzM4IDcgMTIuODMzOEMzLjc3ODA4IDEyLjgzMzggMS4xNjYyIDEwLjIyMTkgMS4xNjYyIDdDMS4xNjYyIDMuNzc4MDggMy43NzgwOCAxLjE2NjIgNyAxLjE2NjJDMTAuMjIxOSAxLjE2NjIgMTIuODMzOCAzLjc3ODA4IDEyLjgzMzggN1oiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjNUI2ODdDIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMF84Ij4KPHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=",
+  "topics": [
+    ["textile design|print", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIERlc2lnbiAmIzIyNjsmIzEyODsmIzE0ODsgdGhyZWFkIHNwb29sIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTYgM0gxOE02IDIxSDE4TTggM1YyMU0xNiAzVjIxTTggN0gxNk04IDEwSDE2TTggMTNIMTZNOCAxNkgxNk04IDE5SDE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["sustain|circular|eco|recycl", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJTdXN0YWluYWJsZSBGYXNoaW9uICYjMjI2OyYjMTI4OyYjMTQ4OyBsZWFmIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTMgMjJMMTYgOU04IDE3VjExTTEyIDEzSDE3TTIwIDNDMTAgMiAzIDYgNCAxM0M1IDIxIDE5IDIzIDIwIDNaIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["fashion design|design", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIERlc2lnbiAmIzIyNjsmIzEyODsmIzE0ODsgc2hpcnQiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOCAzTDMgNkwxIDExTDYgMTNWMjFIMThWMTNMMjMgMTFMMjEgNkwxNiAzQzE2IDcgOCA3IDggM1oiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg=="],
+    ["fibre|fiber|yarn|spinn|fundamental", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIERlc2lnbiAmIzIyNjsmIzEyODsmIzE0ODsgdGhyZWFkIHNwb29sIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTYgM0gxOE02IDIxSDE4TTggM1YyMU0xNiAzVjIxTTggN0gxNk04IDEwSDE2TTggMTNIMTZNOCAxNkgxNk04IDE5SDE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["fabric|science|technical|smart|nonwoven|testing|quality", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYWJyaWMgU2NpZW5jZSBhbmQgVGVjaG5vbG9neSAmIzIyNjsmIzEyODsmIzE0ODsgZmxhc2siPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOSAzSDE1TTEwIDNWOUw0IDE5QzMuMzMzMzMgMjAuMzMzMyA0IDIxIDYgMjFIMThDMjAgMjEgMjAuNjY2NyAyMC4zMzMzIDIwIDE5TDE0IDlWM003IDE1SDE3TTEwIDE4SDEwLjAxTTE0IDEySDE0LjAxIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["pattern|drap|cutting", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJQYXR0ZXJuIE1ha2luZyBhbmQgRHJhcGluZyAmIzIyNjsmIzEyODsmIzE0ODsgc2Npc3NvcnMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOSA2QzkgNy42NTY4NSA3LjY1Njg1IDkgNiA5QzQuMzQzMTUgOSAzIDcuNjU2ODUgMyA2QzMgNC4zNDMxNSA0LjM0MzE1IDMgNiAzQzcuNjU2ODUgMyA5IDQuMzQzMTUgOSA2WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPHBhdGggaWQ9IlZlY3Rvcl8yIiBkPSJNOSAxOEM5IDE5LjY1NjkgNy42NTY4NSAyMSA2IDIxQzQuMzQzMTUgMjEgMyAxOS42NTY5IDMgMThDMyAxNi4zNDMxIDQuMzQzMTUgMTUgNiAxNUM3LjY1Njg1IDE1IDkgMTYuMzQzMSA5IDE4WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPHBhdGggaWQ9IlZlY3Rvcl8zIiBkPSJNOC4yIDguMkwyMSAyMU04LjIgMTUuOEwyMSAzTTE0IDEwTDEwIDE0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["merchandis|sourcing", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIE1lcmNoYW5kaXNpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IHByaWNlIHRhZyI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0zIDNIMTFMMjEgMTNMMTMgMjFMMyAxMVYzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPHBhdGggaWQ9IlZlY3Rvcl8yIiBkPSJNOC41IDcuNUM4LjUgOC4wNTIyOCA4LjA1MjI4IDguNSA3LjUgOC41QzYuOTQ3NzIgOC41IDYuNSA4LjA1MjI4IDYuNSA3LjVDNi41IDYuOTQ3NzIgNi45NDc3MiA2LjUgNy41IDYuNUM4LjA1MjI4IDYuNSA4LjUgNi45NDc3MiA4LjUgNy41WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
+    ["manufactur|factory|mill|machine", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIE1hbnVmYWN0dXJpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IGZhY3RvcnkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNiAxOEg3TTExIDE4SDEyTTE2IDE4SDE3TTE1IDdIMTlNMyAyMVYxMEw5IDE0VjlMMTUgMTNWM0gxOUwyMSAyMUgzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
+    ["marketing|brand", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIE1hcmtldGluZyBhbmQgQnJhbmRpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IG1lZ2FwaG9uZSI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik02IDE1SDNWOUg4TTYgMTVIOE02IDE1TDggMjFIMTJMMTAgMTZNOCAxNUwyMCAyMFY0TDggOU04IDE1VjlNMjMgOVYxNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
+    ["apparel|production|garment|sewing|operation", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJBcHBhcmVsIFByb2R1Y3Rpb24gJiMyMjY7JiMxMjg7JiMxNDg7IG5lZWRsZSBhbmQgdGhyZWFkIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTUgMjBMMTUgM0MxNyAwIDIxIDIgMTkgNUw1IDIwWk01IDIwQzEwIDE4IDEyIDI1IDE3IDIxQzIxIDE4IDE4IDE0IDE1IDE1TTE1IDVMMTYuNSAzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="],
+    ["business|management|strategy|leader", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIEJ1c2luZXNzIE1hbmFnZW1lbnQgJiMyMjY7JiMxMjg7JiMxNDg7IGJyaWVmY2FzZSI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik01IDdIMTlDMjAuMTA0NiA3IDIxIDcuODk1NDMgMjEgOVYxOUMyMSAyMC4xMDQ2IDIwLjEwNDYgMjEgMTkgMjFINUMzLjg5NTQzIDIxIDMgMjAuMTA0NiAzIDE5VjlDMyA3Ljg5NTQzIDMuODk1NDMgNyA1IDdaIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8cGF0aCBpZD0iVmVjdG9yXzIiIGQ9Ik04IDdWNEM4IDMuMzMzMzMgOC4zMzMzMyAzIDkgM0gxNUMxNS42NjY3IDMgMTYgMy4zMzMzMyAxNiA0VjdNMyAxMkM5IDE2IDE1IDE2IDIxIDEyTTEwIDEzSDE0VjE3SDEwVjEzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
+    ["retail|commerce|shop", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJGYXNoaW9uIFJldGFpbCBhbmQgRS1jb21tZXJjZSAmIzIyNjsmIzEyODsmIzE0ODsgc2hvcHBpbmcgYmFnIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTggOVY2QzggNC45MzkxMyA4LjQyMTQzIDMuOTIxNzIgOS4xNzE1NyAzLjE3MTU3QzkuOTIxNzIgMi40MjE0MyAxMC45MzkxIDIgMTIgMkMxMy4wNjA5IDIgMTQuMDc4MyAyLjQyMTQzIDE0LjgyODQgMy4xNzE1N0MxNS41Nzg2IDMuOTIxNzIgMTYgNC45MzkxMyAxNiA2VjlNNSA3SDE5TDIxIDIxSDNMNSA3WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K"],
+    ["trend|forecast", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUcmVuZCBGb3JlY2FzdGluZyAmIzIyNjsmIzEyODsmIzE0ODsgdHJlbmRpbmcgY2hhcnQiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMyAzVjIxSDIxTTYgMTZMMTEgMTFMMTUgMTRMMjEgNk0yMSAxMVY2SDE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="]
+  ],
+  "topicDefault": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIE1hbnVmYWN0dXJpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IGZhY3RvcnkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNiAxOEg3TTExIDE4SDEyTTE2IDE4SDE3TTE1IDdIMTlNMyAyMVYxMEw5IDE0VjlMMTUgMTNWM0gxOUwyMSAyMUgzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" }
+</script>
+
+<section class="w-hero" aria-labelledby="w-hero-title">
+  <div class="w-wrap w-hero-inner">
+    <img class="w-hero-art" src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/ea263f2c1bce0a5e1668790631d2f45f.png" width="537" height="442" alt="">
+    <div class="w-hero-copy">
+      <h1 id="w-hero-title" class="w-hero-title">Practical industry-led <br class="w-br">courses for textiles, <br class="w-br">apparel &amp; fashion industry.</h1>
+      <hr class="w-hero-rule">
+      <a class="w-btn w-btn--primary" href="/courses">Explore the Courses <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJFeHBsb3JlIHByb2dyYW1zIj4KPHBhdGggaWQ9IkFycm93IiBkPSJNMTIuNzQ5NCAxMi43NDk0VjUuMjUwNkg1LjI1MDZNMTIuNzQ5NCA1LjI1MDZMNS4yNTA2IDEyLjc0OTQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJ3aGl0ZSIvPgo8L2c+Cjwvc3ZnPgo=" width="18" height="18" alt=""></a>
+    </div>
+    <form class="w-hero-search" role="search" data-w-search>
+      <img class="w-hero-search-icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJTZWFyY2giPgo8cGF0aCBpZD0iU2VhcmNoIHN5bWJvbCIgZD0iTTE3LjUgMTcuNUwxMy44ODM0IDEzLjg4MzRNMTUuODMzMiA5LjE2NjYxQzE1LjgzMzIgMTIuODQ4NSAxMi44NDg1IDE1LjgzMzIgOS4xNjY2MSAxNS44MzMyQzUuNDg0NzQgMTUuODMzMiAyLjUgMTIuODQ4NSAyLjUgOS4xNjY2MUMyLjUgNS40ODQ3NCA1LjQ4NDc0IDIuNSA5LjE2NjYxIDIuNUMxMi44NDg1IDIuNSAxNS44MzMyIDUuNDg0NzQgMTUuODMzMiA5LjE2NjYxWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" width="20" height="20" alt="">
+      <input type="search" name="q" placeholder="What would you like to learn?" aria-label="What would you like to learn?" autocomplete="off">
+      <button type="submit" aria-label="Search courses"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJTdWJtaXQgc2VhcmNoIj4KPHBhdGggaWQ9IkFycm93IiBkPSJNNC4xNjYgMTBIMTUuODM0TTEwIDE1LjgzNEwxNS44MzQgMTBMMTAgNC4xNjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="20" height="20" alt=""></button>
+    </form>
+  </div>
+</section>
+
+<section class="w-partners" aria-labelledby="w-partners-title" data-w-partners hidden>
+  <div class="w-wrap">
+    <h2 id="w-partners-title" class="w-partners-label">LEARN FROM THE WORLD’S MOST RESPECTED INSTITUTIONS</h2>
+    <ul class="w-partners-logos" data-w-partner-list></ul>
+    <a class="w-partners-all" href="/universities">View all universities <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0zLjMzMjggOEgxMi42NjcyTTggMTIuNjY3MkwxMi42NjcyIDhMOCAzLjMzMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="16" height="16" alt=""></a>
+  </div>
+</section>
+
+<nav class="w-catnav" aria-label="Course categories">
+  <div class="w-wrap w-catnav-inner">
+    <span class="w-catnav-label">FIND YOUR NEXT STEP</span>
+    <div class="w-catnav-links" data-w-catnav></div>
+  </div>
+</nav>
+
+<div data-w-categories>
+  <section class="w-section w-cat"><div class="w-wrap"><div class="w-grid w-grid--n3" data-w-skeleton="3"></div></div></section>
+</div>
+
+<section class="w-section w-trending" id="w-trending" aria-labelledby="w-trending-title">
+  <div class="w-wrap">
+    <div class="w-intro">
+      <div class="w-intro-text">
+        <p class="w-eyebrow">Skills for textile and fashion</p>
+        <h2 id="w-trending-title" class="w-h2">Trending Textile &amp; Fashion Programs</h2>
+      </div>
+      <a class="w-more" href="/courses">View all textile programs <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik00LjE2NiAxMEgxNS44MzRNMTAgMTUuODM0TDE1LjgzNCAxMEwxMCA0LjE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" width="20" height="20" alt=""></a>
+    </div>
+    <div class="w-pills" role="tablist" aria-label="Filter by topic" data-w-pills></div>
+    <div class="w-grid w-grid--n3" data-w-trending data-w-skeleton="3"></div>
+  </div>
+</section>
+
+<section class="w-section w-topics" aria-labelledby="w-topics-title">
+  <div class="w-wrap">
+    <div class="w-intro">
+      <div class="w-intro-text">
+        <p class="w-eyebrow">Follow your curiosity</p>
+        <h2 id="w-topics-title" class="w-h2">Explore Programs by Topic</h2>
+        <p class="w-lede">Find the expertise you need for the future you want.</p>
+      </div>
+    </div>
+    <ul class="w-topic-grid" data-w-topics></ul>
+  </div>
+</section>
+
+<section class="w-impact" aria-labelledby="w-impact-title">
+  <div class="w-wrap">
+    <div class="w-impact-story">
+      <img class="w-impact-photo" src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/debc4855b6b8458e29003d79f61e7bd5.jpg" width="576" height="400" loading="lazy" decoding="async" alt="A learner taking notes during a live online class">
+      <div class="w-impact-copy">
+        <p class="w-eyebrow w-eyebrow--light">KNOWLEDGE THAT MOVES YOU FORWARD</p>
+        <h2 id="w-impact-title" class="w-impact-title">The F2F Education Impact</h2>
+        <ul class="w-benefits">
+          <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE5IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNS44MzI3IDQuNzVMNy4xMjUyNCAxMy40NTc3TDMuMTY3MyA5LjQ5OTY1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iI0E5QkRCRiIvPgo8L2c+Cjwvc3ZnPgo=" width="19" height="19" alt=""><div><h3>Outcome-Based Learning</h3><p>Courses are curated and designed to meet specific learning outcomes, based on career goals.</p></div></li>
+          <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE5IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNS44MzI3IDQuNzVMNy4xMjUyNCAxMy40NTc3TDMuMTY3MyA5LjQ5OTY1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iI0E5QkRCRiIvPgo8L2c+Cjwvc3ZnPgo=" width="19" height="19" alt=""><div><h3>Develop Future-Ready Skills</h3><p>Our programs help learners build skills they can apply immediately in their jobs and prepare for future opportunities.</p></div></li>
+          <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE5IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNS44MzI3IDQuNzVMNy4xMjUyNCAxMy40NTc3TDMuMTY3MyA5LjQ5OTY1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iI0E5QkRCRiIvPgo8L2c+Cjwvc3ZnPgo=" width="19" height="19" alt=""><div><h3>Immersive Learning Experience</h3><p>Interactive exercises and cohort-based learning create connections that extend beyond the classroom.</p></div></li>
+        </ul>
+      </div>
+    </div>
+    <dl class="w-stats" data-w-stats hidden></dl>
+  </div>
+</section>
+
+<section class="w-section w-enterprise" aria-labelledby="w-enterprise-title">
+  <div class="w-wrap w-enterprise-inner">
+    <div class="w-enterprise-copy">
+      <p class="w-eyebrow">F2F EDUCATION FOR ENTERPRISE</p>
+      <h2 id="w-enterprise-title" class="w-enterprise-title">Skill-Building Solutions for Results-Driven Businesses and Their Teams</h2>
+      <ul class="w-solutions">
+        <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNC45OTk0IDQuNUw2Ljc1MDIzIDEyLjc0OTRMMy4wMDA2IDguOTk5NjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="18" height="18" alt=""><div><h3>Group enrollments</h3><p>Build in-demand skills across your organization in a cohort of peers.</p></div></li>
+        <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNC45OTk0IDQuNUw2Ljc1MDIzIDEyLjc0OTRMMy4wMDA2IDguOTk5NjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="18" height="18" alt=""><div><h3>Private cohorts</h3><p>Create an exclusive learning environment with content tailored to your needs.</p></div></li>
+        <li><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjaGVjayI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xNC45OTk0IDQuNUw2Ljc1MDIzIDEyLjc0OTRMMy4wMDA2IDguOTk5NjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="18" height="18" alt=""><div><h3>Tailored content</h3><p>Align learning with your industry, business priorities, and goals.</p></div></li>
+      </ul>
+      <a class="w-btn w-btn--primary w-btn--48" href="mailto:inquiry@fibre2fashion.com?subject=F2F%20Education%20for%20teams">About Enterprise <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE3IiBoZWlnaHQ9IjE3IiB2aWV3Qm94PSIwIDAgMTcgMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy11cC1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xMi4wNDExIDEyLjA0MTFWNC45NTg5SDQuOTU4OU0xMi4wNDExIDQuOTU4OUw0Ljk1ODkgMTIuMDQxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==" width="17" height="17" alt=""></a>
+    </div>
+    <figure class="w-team">
+      <img class="w-team-photo" src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/5da21a620de791ad3b3459a0b2936dc2.jpg" width="580" height="430" loading="lazy" decoding="async" alt="A team discussing ideas around a table">
+      <figcaption class="w-team-note"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMzAgMzAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJncmFkdWF0aW9uLWNhcCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0yNy40OTg4IDEyLjQ5OTdWMjAuMDAwNk03LjUwMDM4IDE1LjYyNTFWMjAuMDAwNkM3LjUwMDM4IDIwLjk5NTIgOC4yOTA0OSAyMS45NDkyIDkuNjk2OSAyMi42NTI1QzExLjEwMzMgMjMuMzU1OSAxMy4wMTA4IDIzLjc1MSAxNC45OTk4IDIzLjc1MUMxNi45ODg3IDIzLjc1MSAxOC44OTYyIDIzLjM1NTkgMjAuMzAyNyAyMi42NTI1QzIxLjcwOTEgMjEuOTQ5MiAyMi40OTkyIDIwLjk5NTIgMjIuNDk5MiAyMC4wMDA2VjE1LjYyNTFNMjYuNzczNiAxMy42NTI4QzI2Ljk5NzMgMTMuNTU0MSAyNy4xODcyIDEzLjM5MTggMjcuMzE5NyAxMy4xODYyQzI3LjQ1MjIgMTIuOTgwNiAyNy41MjE1IDEyLjc0MDcgMjcuNTE4OSAxMi40OTYxQzI3LjUxNjQgMTIuMjUxNSAyNy40NDIyIDEyLjAxMyAyNy4zMDU1IDExLjgxMDJDMjcuMTY4OCAxMS42MDc0IDI2Ljk3NTYgMTEuNDQ5MSAyNi43NDk4IDExLjM1NUwxNi4wMzY5IDYuNDc0NDdDMTUuNzExMyA2LjMyNTg5IDE1LjM1NzUgNi4yNDkgMTQuOTk5NSA2LjI0OUMxNC42NDE2IDYuMjQ5IDE0LjI4NzggNi4zMjU4OSAxMy45NjIxIDYuNDc0NDdMMy4yNTA0NyAxMS4zNUMzLjAyNzk0IDExLjQ0NzUgMi44Mzg2NSAxMS42MDc3IDIuNzA1NzIgMTEuODExMUMyLjU3Mjc5IDEyLjAxNDUgMi41MDIgMTIuMjUyMiAyLjUwMiAxMi40OTUyQzIuNTAyIDEyLjczODEgMi41NzI3OSAxMi45NzU4IDIuNzA1NzIgMTMuMTc5MkMyLjgzODY1IDEzLjM4MjYgMy4wMjc5NCAxMy41NDI4IDMuMjUwNDcgMTMuNjQwM0wxMy45NjIxIDE4LjUyNThDMTQuMjg3OCAxOC42NzQ0IDE0LjY0MTYgMTguNzUxMyAxNC45OTk1IDE4Ljc1MTNDMTUuMzU3NSAxOC43NTEzIDE1LjcxMTMgMTguNjc0NCAxNi4wMzY5IDE4LjUyNThMMjYuNzczNiAxMy42NTI4WiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" width="30" height="30" alt=""><span>Stronger capabilities.<br>Stronger organizations.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Blog: filled from the JSON feed in data-feed (an array of { title, url, image, category, summary, author,
+     minutes }). Hidden while data-feed is empty or the feed is unreachable. -->
+<section class="w-section w-blog" aria-labelledby="w-blog-title" data-w-blog data-feed="" hidden>
+  <div class="w-wrap">
+    <div class="w-intro">
+      <div class="w-intro-text">
+        <p class="w-eyebrow">Trends and insights</p>
+        <h2 id="w-blog-title" class="w-h2">The F2F Textile &amp; Fashion Blog</h2>
+      </div>
+      <a class="w-more" href="https://www.fibre2fashion.com/industry-article/">Visit the blog <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik00LjE2NiAxMEgxNS44MzRNMTAgMTUuODM0TDE1LjgzNCAxMEwxMCA0LjE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" width="20" height="20" alt=""></a>
+    </div>
+    <div class="w-articles" data-w-articles></div>
+  </div>
+</section>
+
+<section class="w-newsletter" aria-labelledby="w-news-title">
+  <div class="w-wrap w-newsletter-inner">
+    <div class="w-news-copy">
+      <p class="w-eyebrow">YOUR FUTURE, IN FOCUS</p>
+      <h2 id="w-news-title" class="w-news-title">Let’s Stay in Touch!</h2>
+      <p class="w-news-text">Get updates on courses, helpful insights, and offers. Make your next move an informed one.</p>
+    </div>
+    <form class="w-news-form" data-w-newsletter novalidate>
+      <div class="w-field"><label for="w-fn">First name</label><input id="w-fn" name="firstName" autocomplete="given-name" placeholder="First name"></div>
+      <div class="w-field"><label for="w-ln">Last name</label><input id="w-ln" name="lastName" autocomplete="family-name" placeholder="Last name"></div>
+      <div class="w-field"><label for="w-em">Email address</label><input id="w-em" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+      <div class="w-field"><label for="w-co">Country / Region</label>
+        <select id="w-co" name="country" autocomplete="country-name">
+          <option value="">Select country</option>
+          <option>India</option><option>Bangladesh</option><option>Sri Lanka</option><option>Pakistan</option><option>Vietnam</option>
+          <option>China</option><option>Turkey</option><option>United Arab Emirates</option><option>United Kingdom</option>
+          <option>United States</option><option>Germany</option><option>Italy</option><option>Other</option>
+        </select>
+      </div>
+      <label class="w-consent"><input type="checkbox" name="optin" required><span>By sharing my information, I agree to receive communications from Fibre2Fashion. Read our <a href="https://www.fibre2fashion.com/privacy-policy.htm">Privacy Policy</a>.</span></label>
+      <div class="w-news-actions">
+        <button type="submit" class="w-btn w-btn--primary w-btn--48">Submit <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE3IiBoZWlnaHQ9IjE3IiB2aWV3Qm94PSIwIDAgMTcgMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy11cC1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0xMi4wNDExIDEyLjA0MTFWNC45NTg5SDQuOTU4OU0xMi4wNDExIDQuOTU4OUw0Ljk1ODkgMTIuMDQxMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IndoaXRlIi8+CjwvZz4KPC9zdmc+Cg==" width="17" height="17" alt=""></button>
+        <p class="w-news-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+/* Live sections for the home page: one request to LearnWorlds' catalogue, then everything renders from it.
+   Nothing about courses or categories is written into this page: add a course or a category in LearnWorlds
+   and it appears here. */
+(function () {
+  'use strict';
+  var root = document.querySelector('.f2f-page--home') || document;
+  var ICONS = JSON.parse(document.getElementById('w-icons').textContent);
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
+  var SMALL = { and: 1, of: 1, in: 1, for: 1, the: 1, to: 1, on: 1 };
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return m ? m[1] : FILES; }
+  function imageUrl(img) { return !img ? '' : (/^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '')); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+
+  // A category as typed in LearnWorlds. "fibre-fundamentals" -> "Fibre Fundamentals"; "Fashion & Design" stays as is.
+  function category(tag) {
+    var name = /[A-Z\s&]/.test(tag) ? tag.trim() : tag.split(/[-_]+/).map(function (w, i) {
+      return i && SMALL[w] ? w : w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(' ');
+    var icon = ICONS.topicDefault, lower = name.toLowerCase();
+    for (var i = 0; i < ICONS.topics.length; i++) if (new RegExp(ICONS.topics[i][0]).test(lower)) { icon = ICONS.topics[i][1]; break; }
+    return { tag: tag, id: 'topic-' + tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), name: name, icon: icon };
+  }
+  function authors(c) {
+    var out = [];
+    (c.cohorts || []).forEach(function (h) { (h.authors || []).forEach(function (a) { if (a && a.name) out.push(a); }); });
+    return out;
+  }
+  function pricing(c) {
+    var pick = null;
+    (c.cohorts || []).forEach(function (h) { (h.packages || []).forEach(function (p) { if (p.access && p.access !== 'public') return; if (!pick || (p.isPrimary && !pick.isPrimary)) pick = p; }); });
+    var a = pick && pick.contentAccessCondition;
+    if (!a) return { label: '', free: false };
+    if (a.status === 'free' || !a.actualPrice || !a.actualPrice.price) return { label: 'Free', free: true };
+    try { return { label: new Intl.NumberFormat('en-IN', { style: 'currency', currency: a.actualPrice.currency || 'INR', maximumFractionDigits: 0 }).format(a.actualPrice.price / 100), free: false }; }
+    catch (e) { return { label: '', free: false }; }
+  }
+
+  function card(c) {
+    var s = c.settings || {};
+    var parts = String(s.points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
+    var by = authors(c)[0];
+    var img = imageUrl(s.image);
+    return '<article class="w-card">' +
+      '<div class="w-card-media">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : '') + '</div>' +
+      '<div class="w-card-body">' +
+        (by ? '<p class="w-card-inst">' + esc(by.name) + '</p>' : '') +
+        '<h3 class="w-card-title"><a href="/course/' + encodeURIComponent(c.titleId) + '">' + esc(c.title) + '</a></h3>' +
+        '<p class="w-card-meta">' + (parts[0] ? '<span class="w-card-dur"><img src="' + ICONS.clock + '" width="14" height="14" alt="">' + esc(parts[0]) + '</span>' : '') +
+          (parts[1] ? '<span>' + esc(parts.slice(1).join(' · ')) + '</span>' : '') + '</p>' +
+        '<p class="w-card-actions"><span class="w-card-cta">View program →</span><span class="w-card-price">' + esc(pricing(c).label) + '</span></p>' +
+      '</div></article>';
+  }
+  function grid(el, list, max) {
+    var shown = list.slice(0, max || 3);
+    el.className = 'w-grid w-grid--n' + Math.max(2, Math.min(3, shown.length));
+    el.removeAttribute('data-w-skeleton');
+    el.innerHTML = shown.map(card).join('');
+  }
+
+  // Skeleton cards while the catalogue loads
+  [].forEach.call(root.querySelectorAll('[data-w-skeleton]'), function (el) {
+    var n = +el.getAttribute('data-w-skeleton') || 3, h = '';
+    for (var i = 0; i < n; i++) h += '<div class="w-card w-card--skel" aria-hidden="true"><div class="w-card-media"></div><div class="w-card-body"><span></span><span></span><span></span></div></div>';
+    el.innerHTML = h;
+  });
+
+  function load() {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return fetch('/api/learner/products', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+      body: JSON.stringify({
+        type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true',
+        hideProductsWithoutVisibleOptions: 'true', fields: 'title,titleId,cohorts.packages,cohorts.authors,settings',
+        sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
+        offset: '0', itemsPerPage: '200', paginationType: 'offset'
+      })
+    }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (j) { if (!j || !Array.isArray(j.data)) throw new Error('Unexpected response'); return j.data; });
+  }
+
+  function render(courses) {
+    // byTag: every course in a category (topic counts, trending filters).
+    // home: each course once, under its first category (the category sections), so courses don't repeat.
+    var byTag = {}, home = {}, order = [];
+    courses.forEach(function (c) {
+      var tags = ((c.settings || {}).tags || []).filter(Boolean);
+      tags.forEach(function (t) {
+        if (!byTag[t]) { byTag[t] = []; order.push(t); }
+        byTag[t].push(c);
+      });
+      if (tags[0]) (home[tags[0]] = home[tags[0]] || []).push(c);
+    });
+    var cats = order.map(category);
+    var sections = cats.filter(function (c) { return home[c.tag]; });
+
+    // "Find your next step" bar
+    root.querySelector('[data-w-catnav]').innerHTML = sections.map(function (c) {
+      return '<a href="#' + c.id + '">' + esc(c.name) + '</a>';
+    }).join('');
+
+    // One section per category
+    root.querySelector('[data-w-categories]').innerHTML = sections.map(function (c, i) {
+      var list = home[c.tag], allFree = list.every(function (x) { return pricing(x).free; });
+      return '<section class="w-section w-cat' + (i % 2 ? ' w-section--soft' : '') + '" id="' + c.id + '" aria-labelledby="' + c.id + '-title">' +
+        '<div class="w-wrap"><div class="w-intro"><div class="w-intro-text">' +
+          '<p class="w-eyebrow">' + plural(byTag[c.tag].length, 'course', 'courses') + (allFree ? ' · Free' : '') + '</p>' +
+          '<h2 class="w-h2" id="' + c.id + '-title">' + esc(c.name) + '</h2>' +
+        '</div><a class="w-more" href="/courses">View all programs <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
+        '<div class="w-grid" data-w-cat-grid="' + c.id + '"></div></div></section>';
+    }).join('');
+    sections.forEach(function (c) { grid(root.querySelector('[data-w-cat-grid="' + c.id + '"]'), home[c.tag], 3); });
+
+    // Trending: all courses in catalogue order, with a filter per category
+    var pills = root.querySelector('[data-w-pills]'), trend = root.querySelector('[data-w-trending]');
+    pills.innerHTML = [{ tag: '', name: 'All topics' }].concat(cats).map(function (c, i) {
+      return '<button type="button" role="tab" class="w-pill" aria-selected="' + (i === 0) + '" data-tag="' + esc(c.tag) + '">' + esc(c.name) + '</button>';
+    }).join('');
+    function showTrend(tag) {
+      [].forEach.call(pills.children, function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-tag') === tag)); });
+      grid(trend, tag ? byTag[tag] : courses, 3);
+    }
+    pills.addEventListener('click', function (e) { var b = e.target.closest('.w-pill'); if (b) showTrend(b.getAttribute('data-tag')); });
+    showTrend('');
+
+    // Explore by topic: jumps to the category's section, or (if all its courses sit under another category)
+    // to Trending, filtered to it
+    var topics = root.querySelector('[data-w-topics]');
+    topics.innerHTML = cats.map(function (c) {
+      var href = home[c.tag] ? '#' + c.id : '#w-trending" data-filter="' + esc(c.tag);
+      return '<li><a class="w-topic" href="' + href + '"><img src="' + c.icon + '" width="24" height="24" alt="">' +
+        '<span class="w-topic-name">' + esc(c.name) + '</span><span class="w-topic-count">' + plural(byTag[c.tag].length, 'course', 'courses') + '</span>' +
+        '<img src="' + ICONS.arrowUpRight + '" width="16" height="16" alt=""></a></li>';
+    }).join('');
+    topics.addEventListener('click', function (e) { var a = e.target.closest('[data-filter]'); if (a) showTrend(a.getAttribute('data-filter')); });
+
+    // Partner strip: the institutions set as course authors, shown once there are at least two
+    var seen = {}, institutions = [];
+    courses.forEach(function (c) { authors(c).forEach(function (a) { if (!seen[a.name]) { seen[a.name] = 1; institutions.push(a); } }); });
+    var partners = root.querySelector('[data-w-partners]');
+    if (institutions.length >= 2) {
+      var list = partners.querySelector('[data-w-partner-list]');
+      list.innerHTML = institutions.map(function (a) {
+        var img = imageUrl(a.image), id = 'uni-' + a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        return '<li><a class="w-partner" href="/universities#' + id + '" title="' + esc(a.name) + '">' +
+          (img ? '<img src="' + esc(img) + '" height="40" alt="" loading="lazy">' : '') +
+          '<span class="w-partner-name">' + esc(a.name) + '</span></a></li>';
+      }).join('');
+      // A wide logo already shows the name (like the design's university wordmarks); square ones get the name beside them
+      [].forEach.call(list.querySelectorAll('img'), function (img) {
+        function fit() { if (img.naturalWidth / img.naturalHeight >= 1.8) img.parentNode.classList.add('is-wordmark'); }
+        if (img.complete && img.naturalWidth) fit(); else img.addEventListener('load', fit);
+      });
+      partners.hidden = false;
+    }
+
+    // Figures, counted from the catalogue
+    var free = courses.filter(function (c) { return pricing(c).free; }).length;
+    var stats = [[courses.length, courses.length === 1 ? 'Course available' : 'Courses available'], [cats.length, cats.length === 1 ? 'Topic' : 'Topics']];
+    if (institutions.length >= 2) stats.push([institutions.length, 'Partner institutions']);
+    else if (free) stats.push([free, free === courses.length ? 'Free to learn' : 'Free courses']);
+    var dl = root.querySelector('[data-w-stats]');
+    dl.innerHTML = stats.map(function (s) { return '<div><dt>' + esc(s[1]) + '</dt><dd>' + s[0] + '</dd></div>'; }).join('');
+    dl.hidden = false;
+  }
+
+  function fail() {
+    var msg = '<p class="w-error">Courses couldn’t load just now. <a href="/courses">Browse all courses</a></p>';
+    root.querySelector('[data-w-categories]').innerHTML = '<section class="w-section"><div class="w-wrap">' + msg + '</div></section>';
+    root.querySelector('[data-w-trending]').innerHTML = msg;
+    root.querySelector('[data-w-topics]').innerHTML = '';
+  }
+
+  load().then(render, fail);
+
+  // Blog: latest three items from the JSON feed in data-feed; the section stays hidden without one
+  var blog = root.querySelector('[data-w-blog]'), feed = blog && blog.getAttribute('data-feed');
+  if (feed) {
+    fetch(feed).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(function (j) {
+      var items = (Array.isArray(j) ? j : (j.items || j.articles || [])).filter(function (a) { return a && a.title && a.url; }).slice(0, 3);
+      if (!items.length) return;
+      blog.querySelector('[data-w-articles]').innerHTML = items.map(function (a) {
+        var meta = [a.author ? 'By ' + a.author : '', a.minutes ? a.minutes + ' min read' : ''].filter(Boolean).join(' • ');
+        return '<article class="w-article">' +
+          (a.image ? '<img class="w-article-img" src="' + esc(a.image) + '" width="380" height="210" loading="lazy" decoding="async" alt="">' : '<div class="w-article-img"></div>') +
+          (a.category ? '<p class="w-article-tag">' + esc(a.category) + '</p>' : '') +
+          '<h3 class="w-article-title"><a href="' + esc(a.url) + '" rel="noopener">' + esc(a.title) + '</a></h3>' +
+          (a.summary ? '<p class="w-article-text">' + esc(a.summary) + '</p>' : '') +
+          '<p class="w-article-meta"><span>' + esc(meta) + '</span><img src="' + ICONS.arrowUpRightBlue + '" width="18" height="18" alt=""></p>' +
+        '</article>';
+      }).join('');
+      blog.hidden = false;
+    }).catch(function () { /* keep the section hidden */ });
+  }
+
+  // Hero search box: opens the site-wide course search panel with what was typed
+  var form = root.querySelector('[data-w-search]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = form.q.value.trim();
+    if (window.F2FSearch) window.F2FSearch.open(q); else location.href = '/courses';
+  });
+
+  // Newsletter: LearnWorlds' own newsletter endpoint (the same one the footer form uses)
+  var news = root.querySelector('[data-w-newsletter]');
+  news.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = news.querySelector('.w-news-status'), email = news.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Enter a valid email address.'; news.email.focus(); return; }
+    if (!news.optin.checked) { status.textContent = 'Tick the box to agree to receive emails.'; return; }
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    var tags = ['home-newsletter'];
+    if (news.country.value) tags.push('country-' + news.country.value.toLowerCase().replace(/[^a-z]+/g, '-'));
+    var btn = news.querySelector('button[type="submit"]');
+    btn.disabled = true; status.textContent = 'Sending…';
+    // Same headers as LearnWorlds' own newsletter form, which also sends its visitor token.
+    var headers = { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' };
+    try {
+      var anon = localStorage.getItem('anonymous_token'); // stored as {"token": "...", "lastAccessed": ...}
+      if (anon && anon.charAt(0) === '{') anon = JSON.parse(anon).token;
+      if (anon) headers['anonymous-token'] = anon;
+    } catch (err) {}
+    fetch('/api/emails', {
+      method: 'POST', credentials: 'same-origin',
+      headers: headers,
+      body: JSON.stringify({ email: email, optin: true, page_submitted: location.pathname, tags: tags })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      news.reset(); status.textContent = 'Thanks! You’re subscribed.';
+    }).catch(function () {
+      status.textContent = 'That didn’t go through. Please try again in a moment.';
+    }).then(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</div>
+<script>
+/* Moves this page between the header and footer, and LearnWorlds sections into their slots. */
+(function () {
+  var page = document.getElementById('f2f-page');
+  var main = document.querySelector('#sectionsWrapper main') || document.querySelector('main');
+  if (!page || !main) return;
+  main.parentNode.insertBefore(page, main);
+  function fillSlots() {
+    var slots = page.querySelectorAll('[data-lw-section], [data-lw-element]');
+    for (var i = 0; i < slots.length; i++) {
+      var slot = slots[i], whole = slot.hasAttribute('data-lw-section');
+      var hit = document.querySelector(slot.getAttribute(whole ? 'data-lw-section' : 'data-lw-element'));
+      var node = hit && (whole ? (hit.closest('.learnworlds-section') || hit) : hit);
+      if (node && !page.contains(node)) slot.parentNode.replaceChild(node, slot);
+      else slot.setAttribute('data-lw-missing', '');
+    }
+  }
+  if (document.readyState === 'complete') fillSlots(); else window.addEventListener('load', fillSlots);
+  page.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-f2f-open]');
+    if (!a) return;
+    e.preventDefault();
+    var form = a.getAttribute('data-f2f-open');
+    var lw = document.querySelector('.js-linked-node[data-interactive-link-type="openformslink"][data-interactive-link-var1="' + form + '"]');
+    if (lw && !page.contains(lw)) lw.click(); else location.href = '/?msg=not-logged-in';
+  });
+})();
+</script>
+<!-- /F2F page:home -->

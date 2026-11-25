@@ -1,0 +1,152 @@
+{
+  "format": "reading",
+  "slug": "hanger-substitution-control",
+  "micro": true,
+  "title": "Controlling Midseason Hanger Substitutions",
+  "subtitle": "A practical procedure to test, approve, trace and close a temporary hanger substitute.",
+  "card_description": "When a supplier proposes a substitute hanger part mid-season, learn how to test it, approve a limited release, trace it to cartons and close the approval.",
+  "seo_description": "Free micro course for apparel buyers: test, approve, trace and close midseason hanger substitutions without losing control of the specification.",
+  "level": "Beginner",
+  "categories": [
+    "apparel-production"
+  ],
+  "card_icon": "clipboard-check",
+  "card_topic": "Hanger approvals",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "How Apparel Buyers can Control Midseason Hanger Substitutions",
+    "url": "https://www.fibre2fashion.com/industry-article/11943/how-apparel-buyers-can-control-midseason-hanger-substitutions",
+    "authors": "Frank Chan",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Request the information and samples needed to judge a substitute hanger part.",
+    "Set acceptance criteria and test substitutes on the garments most at risk.",
+    "Approve a defined release limited by style, quantity, destination and shipment.",
+    "Link the exception to cartons so receiving teams can check it.",
+    "Close a temporary approval with an end condition and reconciliation."
+  ],
+  "audience": "Apparel buyers, sourcing and merchandising teams, quality controllers, and packing and warehouse staff who handle hanger changes during production.",
+  "about": "A supplier message arrives mid-season: the approved hanger clip is out of stock, but an alternative is available before the packing date. Should you approve it, and how? This free micro course, based on the Fibre2Fashion article by Frank Chan, gives apparel buyers a practical procedure. You will learn what to ask the supplier for, how to test a substitute on the garments most likely to expose a problem, how to approve a limited release, how to make the exception visible on cartons at receiving, and how to close the approval so the specification does not change silently.",
+  "lessons": [
+    {
+      "title": "Testing a Proposed Substitute",
+      "file": "01-testing-substitute.md"
+    },
+    {
+      "title": "Releasing, Tracing and Closing Approvals",
+      "file": "02-release-trace-close.md"
+    }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "Which four questions should a useful exception record for a substitute hanger part answer?",
+      "options": [
+        "Who supplied it, what it costs and how fast it ships",
+        "What changed, where it works, which cartons contain it, when it ends",
+        "Which factory, line, shift and operator fitted the part",
+        "Whether the supplier, factory and store all prefer it"
+      ],
+      "answer": 1,
+      "feedback": "The record ties a temporary approval to what changed, where it works, which cartons contain it and when the approval ends."
+    },
+    {
+      "type": "mc",
+      "q": "A supplier proposes a substitute clip. Which garments should you test it on?",
+      "options": [
+        "The styles most likely to expose a problem, such as a lightweight skirt",
+        "Whichever garments the factory happens to have to hand",
+        "Only the heaviest style, because it is hardest to hold",
+        "None, because a labelled photo is enough"
+      ],
+      "answer": 0,
+      "feedback": "Test the styles most likely to fail, such as a light skirt that may slip and a thick waistband that is hard to clamp."
+    },
+    {
+      "type": "tf",
+      "q": "A labelled side-by-side photo is enough to judge whether a substitute clip will mark the fabric.",
+      "answer": false,
+      "feedback": "False. A photo may show whether a garment hangs level, but grip and surface marks need a named garment and a repeatable check."
+    },
+    {
+      "type": "mc",
+      "q": "A substitute passes on two trouser styles but leaves a visible impression on a lightweight skirt. What should the approval do?",
+      "options": [
+        "Approve it for all three styles to protect the schedule",
+        "Reject it for the whole order",
+        "Approve it for the two trouser styles only, up to a set quantity",
+        "Let the factory decide style by style during packing"
+      ],
+      "answer": 2,
+      "feedback": "A defined release limits the substitute to the styles that passed, up to a set quantity and shipment; the skirt keeps the original or waits."
+    },
+    {
+      "type": "mc",
+      "q": "Why is a supplier’s email saying it used the approved alternative not enough at receiving?",
+      "options": [
+        "It usually arrives after the goods have shipped",
+        "Receivers are not responsible for checking trims",
+        "It gives receivers too much detail to act on",
+        "It cannot link the carton being opened to the approval covering it"
+      ],
+      "answer": 3,
+      "feedback": "Linking the exception to a lot or carton range lets receivers connect each carton they open to the approval that applies to it."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these are suitable end conditions for a temporary substitute approval? (select all that apply)",
+      "options": [
+        "A purchase-order line",
+        "A maximum quantity",
+        "Whenever the supplier decides to stop",
+        "A shipment cutoff",
+        "No end date, to save paperwork"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "feedback": "Set the end condition when you approve: a purchase-order line, maximum quantity or shipment cutoff. Open-ended approvals let the specification change silently."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Hanger substitution",
+      "def": "Replacing an approved hanger part, such as a clip, hook, coating or body, with an alternative, usually because of a shortage."
+    },
+    {
+      "term": "Exception record",
+      "def": "A short record of a temporary approval: what changed, where it works, which cartons contain it and when it ends."
+    },
+    {
+      "term": "Side-by-side sample",
+      "def": "The approved and proposed versions, labelled and shown or fitted together, so differences can be compared directly."
+    },
+    {
+      "term": "Acceptance criteria",
+      "def": "Checks agreed before comparing samples that decide whether a substitute is acceptable, such as hang, grip and fabric marking."
+    },
+    {
+      "term": "Defined release",
+      "def": "A limited approval stating the styles, quantities, destinations, approval number, packing instructions, carton range and receiving checks it covers."
+    },
+    {
+      "term": "Carton range",
+      "def": "The identified cartons packed under the exception, so receivers know which cartons contain the substitute."
+    },
+    {
+      "term": "Traceability",
+      "def": "Recording events such as packing, shipping and receiving so each carton can be linked to the instructions and approvals that apply to it."
+    },
+    {
+      "term": "End condition",
+      "def": "The point at which a temporary approval ends, such as a purchase-order line, a maximum quantity or a shipment cutoff."
+    },
+    {
+      "term": "Reconciliation",
+      "def": "The supplier’s count of how many substitute parts were used and whether any remain once the approval ends."
+    }
+  ]
+}

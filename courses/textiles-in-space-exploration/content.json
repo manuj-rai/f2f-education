@@ -1,0 +1,157 @@
+{
+  "format": "reading",
+  "slug": "textiles-in-space-exploration",
+  "title": "Space Textiles: How Fabrics Protect Astronauts",
+  "subtitle": "How layered, high-performance fabrics keep astronauts safe, and where space clothing is heading next",
+  "card_description": "Learn how spacesuit textiles handle heat, radiation, abrasion and movement, and how future space clothing could shape what we wear. Free course with certificate.",
+  "seo_description": "Free course: how layered spacesuit textiles protect astronauts from heat, radiation and debris, and what future space clothing may look like.",
+  "level": "Beginner",
+  "categories": ["technical-textiles"],
+  "card_icon": "orbit",
+  "card_topic": "Space textiles",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "The Role of Textiles in Space Exploration",
+    "url": "https://www.fibre2fashion.com/industry-article/11885/the-role-of-textiles-in-space-exploration",
+    "authors": "Diti Shah",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain why a spacesuit works as a wearable life-support system",
+    "Name key spacesuit fibres and the property each one contributes",
+    "Describe how suits manage outside heat and the astronaut's body heat",
+    "Explain the trade-offs between protection, weight and mobility",
+    "Identify features future space garments could offer on long missions"
+  ],
+  "audience": "Students, designers and textile professionals curious about technical textiles, protective clothing and how extreme environments drive fabric innovation.",
+  "about": "A spacesuit is not one fabric but a wearable life-support system built from carefully engineered layers. In this free readable course, based on the Fibre2Fashion article by Diti Shah, you'll learn why space is so hostile to the human body, which high-performance fibres go into spacesuits and why, and how suits manage heat, radiation, fast-moving particles and the need to move freely. You'll also look ahead to lighter, smarter and more sustainable garments for long missions to the Moon and Mars, and see how space research can inspire clothing on Earth. Four short lessons, a knowledge check and a free certificate.",
+  "lessons": [
+    { "title": "Why space needs engineered textiles", "file": "01-why-engineered-textiles.md" },
+    { "title": "Fibres built for extreme conditions", "file": "02-fibres-extreme-conditions.md" },
+    { "title": "Managing heat, radiation and movement", "file": "03-heat-radiation-movement.md" },
+    { "title": "Smarter suits for longer missions", "file": "04-future-space-clothing.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "Why is a spacesuit best described as a wearable life-support system?",
+      "options": [
+        "It is made from one ultra-strong protective fabric",
+        "It creates a controlled environment that lets the body function",
+        "It is worn only inside the spacecraft",
+        "It is designed mainly to block radiation"
+      ],
+      "answer": 1,
+      "feedback": "A spacesuit creates a controlled environment around the astronaut, providing pressure, insulation, protection and mobility in a hostile place."
+    },
+    {
+      "type": "mc",
+      "q": "Aluminised Mylar and Kapton, both used in the Apollo suits, are examples of which kind of material?",
+      "options": [
+        "Natural fibres",
+        "Knitted fabrics",
+        "Thin films",
+        "Rubber coatings"
+      ],
+      "answer": 2,
+      "feedback": "The Apollo suits combined woven fabrics, coated fabrics and thin films; aluminised Mylar and Kapton are the films."
+    },
+    {
+      "type": "mc",
+      "q": "Which three materials are combined in NASA's Ortho-Fabric?",
+      "options": [
+        "Nomex, Gore-Tex and Kevlar",
+        "Nylon, Dacron and Kapton",
+        "Vectran, Mylar and Teflon",
+        "Cotton, polyester and neoprene"
+      ],
+      "answer": 0,
+      "feedback": "Ortho-Fabric combines Nomex for flame resistance, Gore-Tex for waterproofing and breathability, and Kevlar for strength."
+    },
+    {
+      "type": "mc",
+      "q": "Why has NASA used Vectran in the palms of spacesuit gloves?",
+      "options": [
+        "It is waterproof and breathable",
+        "It reflects solar radiation",
+        "It keeps the hands warm",
+        "It resists cuts from sharp edges"
+      ],
+      "answer": 3,
+      "feedback": "Vectran is valued for its cut resistance, useful when astronauts work around sharp-edged surfaces and equipment."
+    },
+    {
+      "type": "tf",
+      "q": "Spacesuit construction relies on a system of different materials, each chosen for a specific job.",
+      "answer": true,
+      "feedback": "True: no single fabric does everything, so materials are matched to the protection and flexibility each part of the suit needs."
+    },
+    {
+      "type": "mc",
+      "q": "What does a liquid cooling garment do?",
+      "options": [
+        "Reflects sunlight away from the suit",
+        "Removes excess body heat using circulating water",
+        "Maintains air pressure inside the suit",
+        "Shields the astronaut from radiation"
+      ],
+      "answer": 1,
+      "feedback": "Small tubes carry cooling water that draws heat away from the body to the life-support system."
+    },
+    {
+      "type": "mc",
+      "q": "Why can't designers simply add as much radiation shielding to a suit as possible?",
+      "options": [
+        "Shielding materials cannot be made into textiles",
+        "Radiation is not a risk beyond Earth",
+        "The suit would become too heavy, and every kilogram matters",
+        "Shielding would block the suit's radio signals"
+      ],
+      "answer": 2,
+      "feedback": "Maximum shielding could be too heavy to wear, and spacecraft face strict weight limits, so lightweight multifunctional materials are needed."
+    },
+    {
+      "type": "mc",
+      "q": "Why do spacesuit designers put so much emphasis on joint design and fit?",
+      "options": [
+        "Close-fitting suits need less cooling water",
+        "Joints are where most radiation enters the suit",
+        "Tighter fits make suits cheaper to produce",
+        "Internal pressure stiffens the suit and limits movement"
+      ],
+      "answer": 3,
+      "feedback": "Internal pressure in a vacuum reduces flexibility, so joints, gloves and fit are designed to help astronauts move and work."
+    },
+    {
+      "type": "tf",
+      "q": "Micrometeoroids are too small to pose any real risk to a spacesuit.",
+      "answer": false,
+      "feedback": "False: these tiny particles travel at enormous speeds, so suits need layers that resist penetration and abrasion."
+    },
+    {
+      "type": "ma",
+      "q": "Which qualities does the course list for future space garments? (select all that apply)",
+      "options": [
+        "Self-repairing",
+        "Heavier, for extra protection",
+        "Modular",
+        "Sensor-enabled",
+        "Single-use and disposable"
+      ],
+      "answers": [0, 2, 3],
+      "feedback": "Future garments could be lighter, more flexible, sensor-enabled, self-repairing, antimicrobial and modular. The aim is less weight and longer life, not heavier or disposable clothing."
+    }
+  ],
+  "glossary": [
+    { "term": "Extravehicular mobility suit", "def": "The spacesuit worn outside the spacecraft, for example during a spacewalk." },
+    { "term": "Aramid", "def": "Aromatic polyamide: a family of synthetic fibres, such as Kevlar and Nomex, known for strength and heat resistance." },
+    { "term": "Ortho-Fabric", "def": "An outer spacesuit material tested by NASA that combines Nomex, Gore-Tex and Kevlar." },
+    { "term": "Cut resistance", "def": "A material's ability to resist being sliced by a sharp edge." },
+    { "term": "Abrasion resistance", "def": "A fabric's ability to resist wearing away when it is rubbed against surfaces." },
+    { "term": "Liquid cooling garment", "def": "A garment with a network of small tubes carrying cooling water that removes body heat." },
+    { "term": "Sievert", "def": "The unit used to express the effect of a radiation dose on the human body." },
+    { "term": "Micrometeoroid", "def": "A very small natural particle of rock or metal travelling through space at high speed." },
+    { "term": "Smart textiles (e-textiles)", "def": "Fabrics that integrate sensors and electronic components, for example to monitor heart rate or body temperature." },
+    { "term": "Self-healing material", "def": "A material that can repair small amounts of damage automatically or with minimal intervention." }
+  ]
+}

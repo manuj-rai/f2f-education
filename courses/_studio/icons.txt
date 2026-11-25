@@ -1,0 +1,10 @@
+heart-pulse thermometer thermometer-sun activity sun sun-medium cloud-sun battery battery-charging plug-zap zap bolt
+wifi bluetooth radio signal smartphone cloud network share-2 link link-2 database server cpu cable bot brain
+shirt palette sparkles gem tag tags shopping-bag shopping-cart store package package-check boxes truck warehouse route map-pin compass globe
+stethoscope dumbbell footprints bandage hand users user-check graduation-cap hard-hat handshake briefcase landmark building-2 factory
+shield shield-check lock eye scan-eye scan scan-line camera search zoom-in filter microscope flask-conical atom dna orbit
+leaf sprout tree-pine recycle trash-2 droplets waves wind snowflake flame
+layers puzzle workflow waypoints spline infinity settings cog wrench hammer drill scissors ruler weight scale gauge timer clock hourglass calendar
+rotate-cw rotate-ccw repeat move move-horizontal arrow-up-down maximize-2 minimize-2 git-compare sliders-horizontal
+chart-line chart-bar chart-no-axes-column line-chart bar-chart-3 pie-chart trending-up trending-down calculator sigma percent target
+lightbulb book-open award badge-check clipboard-check list-checks file-check check circle-check circle-alert triangle-alert info x arrow-right coins

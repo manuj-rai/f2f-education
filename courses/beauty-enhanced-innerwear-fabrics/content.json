@@ -1,0 +1,156 @@
+{
+  "format": "reading",
+  "slug": "beauty-enhanced-innerwear-fabrics",
+  "title": "Cosmetotextiles: Beauty-Enhanced Fabrics for Innerwear",
+  "subtitle": "How innerwear fabrics are designed to deliver skincare ingredients, and how to judge the claims",
+  "card_description": "Learn how cosmetotextiles build moisturisers, vitamins and fragrances into innerwear fabrics, and why testing, wash durability and skin safety matter. Free course with certificate.",
+  "seo_description": "Free course on cosmetotextile innerwear: how fabrics carry skincare ingredients, and the testing and skin-safety questions behind the claims.",
+  "level": "Beginner",
+  "categories": ["technical-textiles"],
+  "card_icon": "sparkles",
+  "card_topic": "Beauty fabrics",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "When Innerwear Meets Skincare: The Rise of Beauty Benefit-Enhanced Fabrics",
+    "url": "https://www.fibre2fashion.com/industry-article/11918/when-innerwear-meets-skincare-the-rise-of-beauty-benefit-enhanced-fabrics",
+    "authors": "Kshipra Kulkarni",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Explain what cosmetotextiles are and how they deliver ingredients",
+    "Compare fibre incorporation, coatings and microencapsulation as delivery routes",
+    "Explain why innerwear suits beauty-enhanced fabric development",
+    "Identify the factors that decide whether a cosmetotextile performs",
+    "Describe the testing, wash-durability and skin-safety checks responsible products need"
+  ],
+  "audience": "Innerwear designers, product developers, merchandisers, students and textile professionals interested in functional finishes and where fabrics meet personal care.",
+  "about": "Underwear is starting to borrow from the skincare shelf. In this free readable course, based on the Fibre2Fashion article by Kshipra Kulkarni, you'll learn what cosmetotextiles are, how ingredients such as hyaluronic acid, vitamins and fragrances are built into fibres, finishes and microcapsules, and why innerwear is such a natural platform for them. You'll also see why an ingredient in a fabric does not automatically work like a cosmetic product, how claims can be tested, why washing matters, and what intimate skin safety demands. Three short lessons, a knowledge check and a free certificate.",
+  "lessons": [
+    { "title": "What are cosmetotextiles?", "file": "01-what-are-cosmetotextiles.md" },
+    { "title": "Innerwear as a skincare platform", "file": "02-innerwear-skincare-platform.md" },
+    { "title": "Testing claims and protecting skin", "file": "03-testing-claims-skin-safety.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "Which description best defines a cosmetotextile?",
+      "options": [
+        "A textile that incorporates cosmetic or skin-beneficial substances",
+        "A fabric dyed with cosmetic pigments for colour",
+        "A textile used to package cosmetic products",
+        "A medical fabric proven to treat skin conditions"
+      ],
+      "answer": 0,
+      "feedback": "Cosmetotextiles incorporate cosmetic or skin-beneficial substances into fibres, yarns, fabrics or finishes, acting as delivery systems for bioactive compounds."
+    },
+    {
+      "type": "mc",
+      "q": "Which of these is NOT one of the routes for adding cosmetic ingredients to a textile?",
+      "options": [
+        "Incorporating them into fibres during manufacturing",
+        "Applying them as coatings or finishes",
+        "Enclosing them in microcapsules attached to the fabric",
+        "Adding them to the detergent the wearer uses"
+      ],
+      "answer": 3,
+      "feedback": "Ingredients are built into the textile itself: in the fibre, through coatings or finishes, or in microcapsules on the surface."
+    },
+    {
+      "type": "mc",
+      "q": "In microencapsulated fabrics, what typically triggers the gradual release of the ingredient?",
+      "options": [
+        "Washing the garment at a high temperature",
+        "Movement, friction, body heat and perspiration",
+        "Exposure to direct sunlight",
+        "An activator the wearer applies separately"
+      ],
+      "answer": 1,
+      "feedback": "Microcapsules protect the ingredient and release it gradually through everyday conditions during wear: movement, friction, body heat and perspiration."
+    },
+    {
+      "type": "mc",
+      "q": "Why is innerwear considered a natural platform for cosmetotextiles?",
+      "options": [
+        "It is the cheapest garment category to produce",
+        "It is rarely washed, so finishes last longer",
+        "It stays in direct contact with the skin for many hours",
+        "It is bought only by consumers who use skincare"
+      ],
+      "answer": 2,
+      "feedback": "A serum may be applied once or twice a day, but underwear stays in prolonged, direct contact with the skin."
+    },
+    {
+      "type": "mc",
+      "q": "An innerwear fabric contains hyaluronic acid. What can you conclude about how it will perform?",
+      "options": [
+        "It will moisturise exactly like a hyaluronic acid serum",
+        "It automatically counts as a medical product",
+        "Its benefit lasts for the life of the garment",
+        "It depends on amount, release rate, skin contact, durability and stability"
+      ],
+      "answer": 3,
+      "feedback": "An ingredient's presence does not guarantee cosmetic-level performance; effectiveness depends on how the textile holds, keeps and releases it."
+    },
+    {
+      "type": "tf",
+      "q": "Because the textile is part of the delivery system, testing a cosmetotextile can be more complicated than testing a conventional skincare product.",
+      "answer": true,
+      "feedback": "True: evaluators must consider fabric construction, ingredient concentration, release behaviour, skin contact and laundering, not just the formulation."
+    },
+    {
+      "type": "mc",
+      "q": "Why do manufacturers need to test cosmetotextile innerwear after multiple laundering cycles?",
+      "options": [
+        "Washing can affect finishes, coatings and encapsulated ingredients",
+        "Washing always strengthens the cosmetic effect",
+        "Detergents add their own skincare benefits",
+        "Laundering is only needed for outerwear"
+      ],
+      "answer": 0,
+      "feedback": "Innerwear is washed often, so the claimed benefit must remain meaningful after repeated laundering throughout the product's useful life."
+    },
+    {
+      "type": "ma",
+      "q": "Which should be considered for a fabric in prolonged contact with intimate skin? (select all that apply)",
+      "options": [
+        "pH compatibility",
+        "Dyes and finishes",
+        "Seasonal fashion trends",
+        "Friction and moisture",
+        "Retail price point"
+      ],
+      "answers": [0, 1, 3],
+      "feedback": "Safety checks cover formulation, textile chemistry, dyes, finishes, pH compatibility, friction, moisture and potential skin sensitivity."
+    },
+    {
+      "type": "tf",
+      "q": "A brand can describe beauty-enhanced innerwear as a medical treatment without clinical evidence, provided it lists the ingredients.",
+      "answer": false,
+      "feedback": "False: intimate-care claims must stay distinct from medical claims unless clinical evidence and regulatory pathways support them."
+    },
+    {
+      "type": "mc",
+      "q": "Which approach best describes the likely future of cosmetotextile development?",
+      "options": [
+        "Adding higher doses of ingredients to standard fabrics",
+        "Replacing textile expertise with cosmetic chemistry",
+        "Engineering the whole textile system around the desired function",
+        "Dropping wash-durability testing to cut costs"
+      ],
+      "answer": 2,
+      "feedback": "Future work is expected to combine textile and cosmetic expertise, engineering fibre, fabric, finish and release together around the intended benefit."
+    }
+  ],
+  "glossary": [
+    { "term": "Cosmetotextile", "def": "A textile that incorporates cosmetic or skin-beneficial substances into its fibres, yarns, fabric or finish." },
+    { "term": "Bioactive compound", "def": "A substance intended to have an effect on living tissue, such as the skin." },
+    { "term": "Finish", "def": "A treatment applied to a fabric after it is made to give it extra properties." },
+    { "term": "Microencapsulation", "def": "Sealing an ingredient inside microscopic capsules attached to a fabric, protecting it and allowing gradual release." },
+    { "term": "Controlled release", "def": "Delivery of an ingredient gradually over time rather than all at once." },
+    { "term": "Hyaluronic acid", "def": "A substance found naturally in the skin, widely used in skincare to support hydration." },
+    { "term": "Substantiation", "def": "The evidence, such as wear trials and objective measurements, that supports a product claim." },
+    { "term": "Wear trial", "def": "A test in which people wear a product under defined, controlled conditions to assess its performance." },
+    { "term": "Wash durability", "def": "The ability of a finish or treatment to keep working through repeated laundering." },
+    { "term": "pH compatibility", "def": "How well a product suits the acidity or alkalinity of the skin it touches." }
+  ]
+}

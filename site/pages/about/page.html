@@ -1,0 +1,98 @@
+<!--
+  About (/about). DRAFT for the user's approval (25 Nov 2026); not published. Replaces LearnWorlds' template page
+  (invented instructors, figures and testimonials).
+  Company facts are quoted or condensed from fibre2fashion.com/aboutus (read 25 Nov 2026); contact details are from
+  the README. The programs / institutions / topics figures are counted live from the LearnWorlds catalogue.
+-->
+<section class="a-hero" aria-labelledby="a-title">
+  <div class="a-wrap">
+    <p class="a-eyebrow a-eyebrow--light">ABOUT F2F EDUCATION</p>
+    <h1 id="a-title" class="a-title">Practical learning for the textile, apparel and fashion industry</h1>
+    <p class="a-lede">F2F Education is the learning platform of Fibre2Fashion: industry-led online programs, taught with partner institutions, for people who make, source and sell textiles and fashion.</p>
+    <dl class="a-live" data-a-live hidden>
+      <div><dd data-a-n="programs"></dd><dt>Programs</dt></div>
+      <div><dd data-a-n="institutions"></dd><dt>Partner institutions</dt></div>
+      <div><dd data-a-n="topics"></dd><dt>Topics</dt></div>
+    </dl>
+  </div>
+</section>
+
+<section class="a-section" aria-labelledby="a-who">
+  <div class="a-wrap a-two">
+    <div>
+      <p class="a-eyebrow">WHO WE ARE</p>
+      <h2 id="a-who" class="a-h2">Built by Fibre2Fashion</h2>
+    </div>
+    <div class="a-copy">
+      <p>Fibre2Fashion Pvt. Ltd is a market-driven B2B portal for the textile, apparel and fashion industry, founded in 2000. It serves every segment of the value chain, from fibre and yarn to garments, machinery and retail, with business solutions, news, articles and market reports.</p>
+      <p>F2F Education brings that industry knowledge into structured courses, so professionals and students can build skills they can use at work straight away.</p>
+      <ul class="a-facts">
+        <li><b>Since 2000</b><span>serving the textile industry</span></li>
+        <li><b>190+</b><span>countries with digital presence</span></li>
+        <li><b>800K+</b><span>registered companies</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="a-section a-section--soft" aria-labelledby="a-purpose">
+  <div class="a-wrap">
+    <p class="a-eyebrow">WHAT DRIVES US</p>
+    <h2 id="a-purpose" class="a-h2">Vision, mission and values</h2>
+    <div class="a-cards">
+      <div class="a-card"><h3>Our vision</h3><p>To be a top global entity leveraging technology and knowledge to create value in the Textile and Apparel industry.</p></div>
+      <div class="a-card"><h3>Our mission</h3><p>To be the platform of choice of each stakeholder across the Textile and Apparel value chain to aid their key business activities globally.</p></div>
+      <div class="a-card"><h3>Our values</h3><ul class="a-values"><li>Integrity</li><li>Accountability</li><li>Innovation</li><li>Commitment</li><li>Ownership</li><li>Flexibility</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="a-cta" aria-labelledby="a-cta-title">
+  <div class="a-wrap a-cta-row">
+    <div>
+      <h2 id="a-cta-title" class="a-cta-title">Find your next program</h2>
+      <p class="a-cta-text">Browse every program, or see the institutions that teach them.</p>
+    </div>
+    <p class="a-actions"><a class="a-btn" href="/courses">Explore programs</a><a class="a-btn a-btn--line" href="/universities">Our universities</a></p>
+  </div>
+</section>
+
+<section class="a-section" aria-labelledby="a-contact">
+  <div class="a-wrap a-two">
+    <div>
+      <p class="a-eyebrow">CONTACT</p>
+      <h2 id="a-contact" class="a-h2">Talk to us</h2>
+    </div>
+    <dl class="a-contact">
+      <div><dt>Email</dt><dd><a href="mailto:inquiry@fibre2fashion.com">inquiry@fibre2fashion.com</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+912717429555">+91-2717-429555</a></dd></div>
+      <div><dt>Address</dt><dd>B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India</dd></div>
+    </dl>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  // Live figures from the catalogue (the same request the course pages use); hidden if it fails
+  var root = document.querySelector('.f2f-page--about') || document, box = root.querySelector('[data-a-live]');
+  var meta = document.querySelector('meta[name="csrf-token"]');
+  fetch('/api/learner/products', { method: 'POST', credentials: 'same-origin',
+    headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+    body: JSON.stringify({ type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true', hideProductsWithoutVisibleOptions: 'true',
+      fields: 'titleId,cohorts.authors,settings', offset: '0', itemsPerPage: '200', paginationType: 'offset' }) })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (j) {
+      var list = (j && j.data) || [], inst = {}, topics = {};
+      list.forEach(function (c) {
+        (c.cohorts || []).forEach(function (h) { (h.authors || []).forEach(function (a) { if (a && a.name) inst[a.name] = 1; }); });
+        ((c.settings || {}).tags || []).forEach(function (t) { if (t) topics[t] = 1; });
+      });
+      if (!list.length) return;
+      box.querySelector('[data-a-n="programs"]').textContent = list.length;
+      box.querySelector('[data-a-n="institutions"]').textContent = Object.keys(inst).length;
+      box.querySelector('[data-a-n="topics"]').textContent = Object.keys(topics).length;
+      box.hidden = false;
+    }).catch(function () {});
+})();
+</script>

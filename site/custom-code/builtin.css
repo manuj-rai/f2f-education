@@ -1,0 +1,115 @@
+/* =====================================================================
+   F2F EDUCATION · BUILT-IN PAGES (LearnWorlds' /account, /inbox, /social, /people, /dailynews, /workpad)
+   These pages don't load the site styles ("<style> Dynamic (css)"), only LearnWorlds' 6th site slot,
+   "<style> (css) for built in pages". npm run push puts style.css there followed by this file, so
+   they get the same header, search and footer as every other page, plus the overrides below.
+   ===================================================================== */
+.slug-profile #profFrame .profBut { background-color: black; } /* was already in this slot (LearnWorlds' example rule); kept */
+
+/* LearnWorlds' own header and strip: these pages have no body.lw-page, which the site-wide rule needs */
+html.f2f-chrome section.lw-topbar, html.f2f-chrome section.lw-hello-bar { display: none !important; }
+
+/* Background and type */
+body:is(.slug-account, .slug-inbox, .slug-social, .slug-people, .slug-dailynews, .slug-workpad) { background: #f7f9fc !important; }
+:is(.account-app-page, .app-container, .social-app-page) { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important; background-color: #f7f9fc !important; color: #0d1b3e; }
+:is(.account-app-page, .app-container, .social-app-page) :is(.learnworlds-main-text, .learnworlds-heading4, .learnworlds-subheading, input, textarea, button) { font-family: inherit !important; }
+
+/* The apps were sized for LearnWorlds' 55px header; fit them under the site header instead
+   (body.html sets --f2f-header-h to the header's height) */
+.app-container, .social-app-page { height: calc(100vh - var(--f2f-header-h, 104px)) !important; min-height: 520px; }
+.account-app-page .personal-details-values { min-width: 0 !important; }
+.account-app-page { height: auto !important; min-height: calc(100vh - var(--f2f-header-h, 104px)); overflow: visible !important; padding-bottom: 56px; }
+
+/* Headings */
+.account-app-page .learnworlds-subheading { font-size: 28px !important; font-weight: 600 !important; line-height: 1.4 !important; color: #0d1b3e !important; letter-spacing: 0 !important; }
+:is(.account-app-page, .app-container, .social-app-page) .learnworlds-heading4 { font-size: 18px !important; font-weight: 600 !important; color: #0d1b3e !important; }
+.account-app-page .account-value-display-title { font-size: 11px !important; font-weight: 600 !important; letter-spacing: .02em; color: #5b687c !important; }
+.account-app-page .account-table-header { background: #f0f4fa !important; }
+
+/* Fields */
+/* Single-line fields only: the message and post composers (textareas) size themselves, so they keep LearnWorlds' styling */
+:is(.account-app-page, .app-container, .social-app-page) :is(input.learnworlds-input-normal, input.social-search-input, input.learnworlds-input) {
+  border: 1px solid #dce3ed !important; border-radius: 4px !important; background-color: #ffffff !important; font-size: 14px !important; font-weight: 400 !important; color: #0d1b3e !important; box-shadow: none !important; }
+:is(.account-app-page, .app-container, .social-app-page) input::placeholder { color: #5b687c !important; opacity: 1; }
+:is(.account-app-page, .app-container, .social-app-page) input:focus { border-color: #1b5fa8 !important; outline: 0; }
+
+/* Buttons */
+:is(.account-app-page, .app-container, .social-app-page) .learnworlds-button:is(.learnworlds-button-solid-brand, .learnworlds-button-solid-accent1) {
+  border-radius: 4px !important; background-color: #1b5fa8 !important; font-weight: 600 !important; }
+:is(.account-app-page, .app-container, .social-app-page) .learnworlds-button:is(.learnworlds-button-solid-brand, .learnworlds-button-solid-accent1):hover { background-color: #154d89 !important; }
+.account-app-page a.learnworlds-main-text { color: #0d1b3e !important; }
+.account-app-page a.learnworlds-main-text:hover { color: #1b5fa8 !important; }
+
+/* ---------- Account settings (/account): the site's title band, a sidebar card and one white card per section ----------
+   Same look as /profile and My learning. body.html adds the band (#acc-hero). */
+/* One page scroll, like every other page: LearnWorlds scrolls the account inside its own fixed-height box */
+.account-app-page > .ov-auto, .account-app-page #account-app, .account-app-page .account-app { height: auto !important; min-height: 0 !important; overflow: visible !important; }
+.account-app-page #account-app { background: transparent !important; }
+.account-app-page #account-app .learnworlds-section-content { width: 100% !important; max-width: 1160px !important; margin: 0 auto !important; padding: 0 !important; }
+.account-app-page .account-app { width: auto !important; max-width: 100% !important; padding: 32px 20px 0 !important; }
+
+/* Title band */
+.acc-hero { background: #0d1b3e; padding: 36px 0; }
+.acc-wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+.acc-eyebrow { margin: 0 0 8px; font-size: 11px; font-weight: 700; line-height: 1.4; color: #91b8e1; text-transform: uppercase; }
+.acc-title { margin: 0; font-size: 32px; font-weight: 600; line-height: 1.4; letter-spacing: 0; color: #ffffff; }
+.acc-text { margin: 8px 0 0; font-size: 14px; line-height: 1.5; color: #cedaee; }
+.account-app-page:has(#acc-hero) .account-app > h2.learnworlds-subheading { display: none !important; }
+
+/* Sidebar (sticks under the header while the sections scroll) and the sections column */
+.account-app-page .account-cnt { gap: 24px; background: transparent !important; border-radius: 0 !important; }
+.account-app-page .account-menu { flex: none; width: 240px !important; padding: 0 !important; }
+.account-app-page .account-menu-content { position: sticky; top: 96px !important; width: auto !important; padding: 8px !important; background: #ffffff; border: 1px solid #dce3ed; border-radius: 8px; }
+.account-app-page .account-section-navigation a { display: block; margin: 0 !important; padding: 10px 12px !important; border-radius: 4px;
+  font-size: 14px !important; font-weight: 500 !important; line-height: 1.4 !important; color: #5b687c !important; text-decoration: none !important; }
+.account-app-page .account-section-navigation a:hover { background: #f7f9fc; color: #0d1b3e !important; }
+/* body.html marks the section in view (is-current); LearnWorlds' own "active" no longer follows the page scroll */
+.account-app-page .account-section-navigation a.is-current { background: #e7eff9; color: #1b5fa8 !important; font-weight: 600 !important; }
+.account-app-page .account-page-content { flex: 1; min-width: 0; padding: 0 !important; display: flex; flex-direction: column; gap: 16px; }
+
+/* Section cards */
+.account-app-page .account-section { margin: 0 !important; padding: 24px; background: #ffffff; border: 1px solid #dce3ed; border-radius: 8px; scroll-margin-top: 96px; }
+/* Going to the first section (/account#personal-details, or its sidebar link) shows the top of the page, title band included */
+.account-app-page .account-page-content > section.account-section:first-of-type { scroll-margin-top: 600px; }
+.account-app-page .account-section-header { align-items: center; margin-bottom: 20px !important; padding-bottom: 16px; border-bottom: 1px solid #eef2f7; }
+.account-app-page .account-section-title-icon { color: #1b5fa8; }
+/* Edit / Save / Cancel: small outline buttons */
+.account-app-page .account-section-header .learnworlds-button.text-only { height: auto !important; padding: 7px 14px !important; border: 1px solid #dce3ed !important; border-radius: 4px !important;
+  background: #ffffff !important; color: #1b5fa8 !important; font-size: 13px !important; font-weight: 600 !important; line-height: 1.4 !important; }
+.account-app-page .account-section-header .learnworlds-button.text-only.lw-currentColor-text { color: #5b687c !important; }
+.account-app-page .account-section-header .learnworlds-button.text-only:hover { background: #f0f4fa !important; }
+
+/* Read-only values */
+.account-app-page .account-value-display { border-bottom-color: #e5ebf3 !important; }
+.account-app-page .account-value-display-value { font-size: 15px !important; color: #0d1b3e !important; }
+.account-app-page .account-value-display-value:empty::before { content: "Not added"; color: #8a97a8; }
+.account-app-page .account-user-avatar img { border-radius: 50%; }
+
+/* Edit forms */
+.account-app-page .account-section label.learnworlds-main-text-small { font-size: 12px !important; font-weight: 600 !important; color: #5b687c !important; }
+.account-app-page .account-section .learnworlds-button-outline { border: 1px solid #dce3ed !important; border-radius: 4px !important; background: #ffffff !important; color: #1b5fa8 !important; font-weight: 600 !important; }
+.account-app-page .account-section .learnworlds-button-outline:hover { background: #f0f4fa !important; }
+
+/* Tables (courses and programs, payment history) */
+.account-app-page .account-table { border: 1px solid #dce3ed; border-radius: 8px; background: #ffffff; }
+.account-app-page .account-table-header { border-radius: 8px 8px 0 0; }
+.account-app-page .account-table-header-cell-content { font-size: 12px !important; font-weight: 600 !important; color: #5b687c !important; }
+.account-app-page .account-table-row { border-bottom: 1px solid #eef2f7 !important; }
+.account-app-page .account-table-row:last-child { border-bottom: 0 !important; border-radius: 0 0 8px 8px; }
+.account-app-page .account-table-row:hover { background: #f7f9fc; }
+.account-app-page .account-table-cell { font-size: 14px !important; color: #0d1b3e !important; }
+.account-app-page .account-table-cell a { font-weight: 500; color: #0d1b3e !important; }
+.account-app-page .account-table-cell a:hover { color: #1b5fa8 !important; }
+.account-app-page .account-table-cell .learnworlds-button { color: #1b5fa8 !important; font-weight: 600 !important; }
+.account-app-page .account-payments-view-type span { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #eaf0fb; color: #1b5fa8; font-size: 12px; font-weight: 600; }
+.account-app-page .account-sub-header { min-height: 0 !important; padding: 0 0 12px !important; }
+.account-app-page .account-sub-header h5 { font-size: 15px !important; font-weight: 600 !important; color: #0d1b3e !important; }
+
+/* Tablet and phone: LearnWorlds hides the sidebar */
+@media (max-width: 720px) {
+  .acc-hero { padding: 28px 0; }
+  .acc-title { font-size: 26px; }
+  .account-app-page .account-app { padding: 20px 16px 0 !important; }
+  .acc-wrap { padding: 0 16px; }
+  .account-app-page .account-section { padding: 16px; }
+}

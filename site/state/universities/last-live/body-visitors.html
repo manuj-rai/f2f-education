@@ -1,0 +1,143 @@
+<!-- F2F page:universities · generated from site/pages/universities by site/tools/build.js. Edit the files there, not here. -->
+<div id="f2f-page" class="f2f-page f2f-page--universities f2f-visitor">
+<!--
+  Universities page: every institution that teaches a course here, read live from LearnWorlds.
+  An institution = a course's author (Course settings > General > Author's name and avatar).
+  Change a course's author in LearnWorlds and this page (and the home page's partner strip) follows; nothing
+  about institutions or courses is written into this page.
+-->
+<script type="application/json" id="u-icons">
+{ "clock": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJjbG9jay0zIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF84KSI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik03IDMuNDk5NzJWN0g5LjMzMzUyTTEyLjgzMzggN0MxMi44MzM4IDEwLjIyMTkgMTAuMjIxOSAxMi44MzM4IDcgMTIuODMzOEMzLjc3ODA4IDEyLjgzMzggMS4xNjYyIDEwLjIyMTkgMS4xNjYyIDdDMS4xNjYyIDMuNzc4MDggMy43NzgwOCAxLjE2NjIgNyAxLjE2NjJDMTAuMjIxOSAxLjE2NjIgMTIuODMzOCAzLjc3ODA4IDEyLjgzMzggN1oiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjNUI2ODdDIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMF84Ij4KPHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=", "arrow": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0zLjMzMjggOEgxMi42NjcyTTggMTIuNjY3MkwxMi42NjcyIDhMOCAzLjMzMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" }
+</script>
+
+<section class="u-head" aria-labelledby="u-title">
+  <div class="u-wrap">
+    <p class="u-eyebrow">Learn from respected institutions</p>
+    <h1 id="u-title" class="u-title">Universities &amp; institutions</h1>
+    <p class="u-lede">The institutions behind our courses. Each one lists the courses it teaches on F2F Education.</p>
+    <p class="u-count" data-u-count aria-live="polite">&nbsp;</p>
+  </div>
+</section>
+
+<section class="u-list" aria-label="Institutions">
+  <div class="u-wrap">
+    <div class="u-grid" data-u-grid>
+      <div class="u-card u-card--skel" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="u-card u-card--skel" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="u-card u-card--skel" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.querySelector('.f2f-page--universities') || document;
+  var ICONS = JSON.parse(document.getElementById('u-icons').textContent);
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return m ? m[1] : FILES; }
+  function imageUrl(img) { return !img ? '' : (/^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '')); }
+  function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function initials(name) { return name.split(/\s+/).filter(function (w) { return /^[A-Za-z0-9]/.test(w) && !/^(of|the|and|for|in)$/i.test(w); }).slice(0, 3).map(function (w) { return w.charAt(0).toUpperCase(); }).join(''); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function isFree(c) {
+    var free = false;
+    (c.cohorts || []).forEach(function (h) { (h.packages || []).forEach(function (p) { var a = p.contentAccessCondition; if (a && (a.status === 'free' || !a.actualPrice || !a.actualPrice.price)) free = true; }); });
+    return free;
+  }
+
+  function load() {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return fetch('/api/learner/products', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+      body: JSON.stringify({
+        type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true',
+        hideProductsWithoutVisibleOptions: 'true', fields: 'title,titleId,cohorts.packages,cohorts.authors,settings',
+        sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
+        offset: '0', itemsPerPage: '200', paginationType: 'offset'
+      })
+    }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (j) { if (!j || !Array.isArray(j.data)) throw new Error('Unexpected response'); return j.data; });
+  }
+
+  function render(courses) {
+    // Group courses by institution (course author), in catalogue order
+    var byName = {}, list = [];
+    courses.forEach(function (c) {
+      var seen = {};
+      (c.cohorts || []).forEach(function (h) {
+        (h.authors || []).forEach(function (a) {
+          if (!a || !a.name || seen[a.name]) return;
+          seen[a.name] = 1;
+          if (!byName[a.name]) { byName[a.name] = { name: a.name, image: a.image, courses: [] }; list.push(byName[a.name]); }
+          if (!byName[a.name].image && a.image) byName[a.name].image = a.image;
+          byName[a.name].courses.push(c);
+        });
+      });
+    });
+
+    root.querySelector('[data-u-count]').textContent = list.length
+      ? plural(list.length, 'institution', 'institutions') + ' · ' + plural(courses.length, 'course', 'courses')
+      : '';
+    var grid = root.querySelector('[data-u-grid]');
+    if (!list.length) { grid.innerHTML = '<p class="u-empty">Institutions will appear here as their courses are published.</p>'; return; }
+
+    grid.innerHTML = list.map(function (u) {
+      var img = imageUrl(u.image);
+      return '<article class="u-card" id="uni-' + slug(u.name) + '" aria-labelledby="uni-' + slug(u.name) + '-name">' +
+        '<header class="u-card-head">' +
+          '<div class="u-logo">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : '<span>' + esc(initials(u.name)) + '</span>') + '</div>' +
+          '<div><h2 class="u-name" id="uni-' + slug(u.name) + '-name">' + esc(u.name) + '</h2>' +
+          '<p class="u-meta">' + plural(u.courses.length, 'course', 'courses') + '</p></div>' +
+        '</header>' +
+        '<ul class="u-courses">' + u.courses.map(function (c) {
+          var parts = String((c.settings || {}).points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
+          return '<li><a href="/course/' + encodeURIComponent(c.titleId) + '"><span class="u-course-title">' + esc(c.title) + '</span>' +
+            '<span class="u-course-meta">' + (parts[0] ? '<img src="' + ICONS.clock + '" width="14" height="14" alt="">' + esc(parts.join(' · ')) : '') +
+            (isFree(c) ? '<span class="u-free">Free</span>' : '') + '</span></a></li>';
+        }).join('') + '</ul>' +
+      '</article>';
+    }).join('');
+
+    // Arriving from a partner logo (…/universities#uni-name): bring that card into view once it exists
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) { t.classList.add('is-target'); t.scrollIntoView({ block: 'center' }); } }
+  }
+
+  load().then(render, function () {
+    root.querySelector('[data-u-grid]').innerHTML = '<p class="u-empty">Institutions couldn’t load just now. <a href="/courses">Browse all courses</a></p>';
+  });
+})();
+</script>
+</div>
+<script>
+/* Moves this page between the header and footer, and LearnWorlds sections into their slots. */
+(function () {
+  var page = document.getElementById('f2f-page');
+  var main = document.querySelector('#sectionsWrapper main') || document.querySelector('main');
+  if (!page || !main) return;
+  main.parentNode.insertBefore(page, main);
+  function fillSlots() {
+    var slots = page.querySelectorAll('[data-lw-section], [data-lw-element]');
+    for (var i = 0; i < slots.length; i++) {
+      var slot = slots[i], whole = slot.hasAttribute('data-lw-section');
+      var hit = document.querySelector(slot.getAttribute(whole ? 'data-lw-section' : 'data-lw-element'));
+      var node = hit && (whole ? (hit.closest('.learnworlds-section') || hit) : hit);
+      if (node && !page.contains(node)) slot.parentNode.replaceChild(node, slot);
+      else slot.setAttribute('data-lw-missing', '');
+    }
+  }
+  if (document.readyState === 'complete') fillSlots(); else window.addEventListener('load', fillSlots);
+  page.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-f2f-open]');
+    if (!a) return;
+    e.preventDefault();
+    var form = a.getAttribute('data-f2f-open');
+    var lw = document.querySelector('.js-linked-node[data-interactive-link-type="openformslink"][data-interactive-link-var1="' + form + '"]');
+    if (lw && !page.contains(lw)) lw.click(); else location.href = '/?msg=not-logged-in';
+  });
+})();
+</script>
+<!-- /F2F page:universities -->

@@ -1,0 +1,1050 @@
+<!--
+  F2F Education · Site custom code · BODY
+  Goes into BOTH site body slots (logged in and logged out). Don't write the body tag's name in angle brackets in this
+  file: LearnWorlds replaces that text with the page's own body tag.
+  Draws the site header and footer from the Figma design on every site page (signed in or not), and the
+  course search (magnifier in the header; also opens with "/" or Ctrl+K / Cmd+K).
+  The site is always in light mode; the header toggle was removed on 2026-11-24.
+  Keep the <script> tags: without them the code shows up as text on the page.
+-->
+<script>
+/* ---------- Light mode on every page ----------
+   Also forgets a mode saved by the old header toggle. */
+(function () {
+  document.documentElement.setAttribute('data-theme', 'light');
+  try { localStorage.removeItem('f2f-theme'); } catch (e) {}
+})();
+</script>
+<script>
+/* ---------- Header and footer ----------
+   From the Figma design (file hLl2NH7EWq53JM2QIiD5qU): "Public navigation" (signed out), "Student header" and
+   "Learning navigation" (signed in), "Public footer". Edit the links and wording in SITE below.
+   LearnWorlds' own top strip, header and footer stay in the page but hidden (style.css section 6): this header's
+   "Log in" opens LearnWorlds' own sign-in window through them. If this header can't be drawn, head.html shows
+   LearnWorlds' own header and footer again. */
+(function () {
+  'use strict';
+  var SITE = {
+    strip: 'WORLD-CLASS EDUCATION. REAL-WORLD IMPACT.',
+    stripLinks: [['For organizations', '/#w-enterprise-title'], ['Global / English', '']],
+    logo: 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/bdfd3459584429eb633dc5fead3fa06d.webp',
+    // "Resources" shows but is disabled (no link) until there's a real resources page. An item with an empty address
+    // is drawn as greyed-out text with a "Coming soon" hint.
+    nav: [['Explore programs', '/courses'], ['Universities', '/universities'], ['Resources', '']],
+    // Signed in: the account menu. (The "My learning · My certificates · Account settings" bar under the header was
+    // removed on 25 Nov 2026 at the user's request; these links live in this menu instead.)
+    account: [['My learning', '/start'], ['Profile', '/profile'], ['Inbox', '/inbox'], ['Account settings', '/account'], ['Sign out', '/signout']],
+    accountName: 'Student account', accountNote: 'Learning workspace',
+    footerName: 'F2F EDUCATION', footerOwner: 'Fibre2Fashion',
+    // Privacy policy and Terms of use are disabled (shown, not clickable) until the real policies are written
+    // (the user's request, 25 Nov 2026). To turn them on again: '/privacy' and '/terms'.
+    footerLinks: [['Help center', 'mailto:inquiry@fibre2fashion.com'], ['Privacy policy', ''], ['Terms of use', '']]
+  };
+  var SEARCH = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17.5001 17.5001L13.8835 13.8835M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke-linecap="round" stroke="#102044"/></svg>';
+  var CHEVRON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.25L7 8.75L10.5 5.25" stroke-linecap="round" stroke="#5B687C"/></svg>';
+  var MENU = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d1b3e" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+
+  if (document.querySelector('.f2f-header')) return;
+  // Only where the site styles load: the course player (/path-player) runs this code but not style.css, so it keeps
+  // LearnWorlds' own player layout and no unstyled header is added there.
+  if (!getComputedStyle(document.documentElement).getPropertyValue('--f2f-blue').trim()) { document.documentElement.classList.remove('f2f-chrome'); return; }
+  document.documentElement.classList.add('f2f-chrome');
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  var topbar = document.querySelector('section.lw-topbar');
+  var signInLink = topbar && topbar.querySelector('[data-interactive-link-type="openformslink"][data-interactive-link-var1="signin"]');
+  var member = !signInLink && !!((topbar && topbar.querySelector('[data-interactive-link-type="signout"]')) || (function () { try { return window.getUserToken && window.getUserToken(); } catch (e) { return ''; } })());
+  var here = location.pathname.replace(/\/+$/, '') || '/';
+  function current(href) {
+    var p = href.split(/[?#]/)[0].replace(/\/+$/, '') || '/';
+    return p !== '/' && (here === p || (p === '/courses' && here.indexOf('/course/') === 0) || here.indexOf(p + '/') === 0);
+  }
+  function link(item, cls) {
+    if (!item[1]) return '<span class="' + cls + ' is-disabled" aria-disabled="true" title="Coming soon">' + esc(item[0]) + '</span>';
+    var on = current(item[1]);
+    return '<a class="' + cls + (on ? ' is-current' : '') + '" href="' + esc(item[1]) + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(item[0]) + '</a>';
+  }
+
+  // The learner's LearnWorlds data, fetched once and shared by the header, course pages and My learning
+  window.F2FStats = member ? fetch('/api/user_stats', { credentials: 'same-origin', headers: { accept: 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }) : Promise.resolve(null);
+
+  var header = document.createElement('header');
+  header.className = 'f2f-header' + (member ? ' f2f-header--member' : '');
+  header.innerHTML =
+    '<a class="f2f-skip" href="#f2f-content">Skip to content</a>' +
+    '<div class="f2f-strip"><div class="f2f-strip-in">' +
+      '<p class="f2f-strip-text">' + esc(SITE.strip) + '</p>' +
+      '<p class="f2f-strip-links">' + SITE.stripLinks.map(function (l) { return l[1] ? '<a href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>' : '<span>' + esc(l[0]) + '</span>'; }).join('') + '</p>' +
+    '</div></div>' +
+    '<div class="f2f-bar"><div class="f2f-bar-in">' +
+      '<a class="f2f-logo" href="/" aria-label="F2F Education home"><img src="' + esc(SITE.logo) + '" width="222" height="38" alt="Fibre2Fashion Education"></a>' +
+      '<nav class="f2f-nav" aria-label="Main">' + SITE.nav.map(function (l) { return link(l, 'f2f-nav-link'); }).join('') + '</nav>' +
+      '<div class="f2f-actions">' +
+        '<button type="button" class="f2f-search-open" aria-label="Search courses" title="Search courses">' + SEARCH + '</button>' +
+        (member
+          ? '<div class="f2f-acct"><button type="button" class="f2f-acct-btn" aria-expanded="false" aria-haspopup="true">' +
+              '<span class="f2f-acct-name"><b>' + esc(SITE.accountName) + '</b><small>' + esc(SITE.accountNote) + '</small></span>' + CHEVRON + '</button>' +
+              '<div class="f2f-acct-menu" hidden>' + SITE.account.map(function (l) { return link(l, 'f2f-acct-link'); }).join('') + '</div></div>'
+          : '<a class="f2f-login" href="/?msg=not-logged-in" data-f2f-signin>Log in</a>') +
+        '<button type="button" class="f2f-menu-btn" aria-expanded="false" aria-label="Menu">' + MENU + '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="f2f-mobile" hidden>' +
+      SITE.nav.map(function (l) { return link(l, 'f2f-mobile-link'); }).join('') +
+      '<div class="f2f-mobile-group">' +
+        (member ? SITE.account.map(function (l) { return link(l, 'f2f-mobile-link f2f-mobile-link--sub'); }).join('')
+          : '<a class="f2f-mobile-link f2f-mobile-link--login" href="/?msg=not-logged-in" data-f2f-signin>Log in</a>') +
+        SITE.stripLinks.filter(function (l) { return l[1]; }).map(function (l) { return link(l, 'f2f-mobile-link f2f-mobile-link--sub'); }).join('') +
+    '</div></div></div>';
+
+  var nativeFooter = document.querySelector('section.lw-footer');
+  var footer = document.createElement('footer');
+  footer.className = 'f2f-footer';
+  footer.innerHTML = '<div class="f2f-footer-in">' +
+    '<div class="f2f-footer-brand"><p class="f2f-footer-name">' + esc(SITE.footerName) + '</p>' +
+      '<p class="f2f-footer-copy">© ' + new Date().getFullYear() + ' ' + esc(SITE.footerOwner) + '. All rights reserved.</p></div>' +
+    '<nav class="f2f-footer-links" aria-label="Footer">' + SITE.footerLinks.map(function (l) { return link(l, 'f2f-footer-link'); }).join('') + '</nav></div>';
+
+  // Same places as LearnWorlds' own: the header first in the page, the footer after the content.
+  var first = document.querySelector('#sectionsWrapper > section.lw-hello-bar') || topbar;
+  if (first && first.parentNode) first.parentNode.insertBefore(header, first);
+  else document.body.insertBefore(header, document.body.firstChild);
+  // LearnWorlds' built-in app pages (inbox, community) fit their height under this (builtin.css)
+  document.documentElement.style.setProperty('--f2f-header-h', header.offsetHeight + 'px');
+  if (nativeFooter && nativeFooter.parentNode) nativeFooter.parentNode.insertBefore(footer, nativeFooter.nextSibling);
+  else { var main = document.querySelector('main'); (main && main.parentNode ? main.parentNode : document.body).insertBefore(footer, main ? main.nextSibling : null); }
+
+  // The account button shows the learner's name (first and last name, else username), not "Student account"
+  if (member) window.F2FStats.then(function (s) {
+    var me = s && s.me, name = me && ([me.first_name, me.last_name].filter(function (x) { return x && String(x).trim(); }).join(' ').trim() || me.username);
+    var b = header.querySelector('.f2f-acct-name b');
+    if (name && b) { b.textContent = name; b.title = name; }
+  });
+
+  // "Skip to content": the first focusable item; jumps past the header to the page's main content
+  header.querySelector('.f2f-skip').addEventListener('click', function (e) {
+    var t = document.querySelector('#f2f-page, #f2f-course, #f2f-error, #sectionsWrapper > main, main, .account-app-page, .app-container, .social-app-page');
+    if (!t) return;
+    e.preventDefault();
+    if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+    t.focus({ preventScroll: true }); t.scrollIntoView({ block: 'start' });
+  });
+
+  // Search and sign in
+  var searchBtn = header.querySelector('.f2f-search-open');
+  searchBtn.addEventListener('click', function () { if (window.F2FSearch) window.F2FSearch.open(); });
+  ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
+    searchBtn.addEventListener(ev, function () { if (window.F2FSearch && window.F2FSearch.prefetch) window.F2FSearch.prefetch(); }, { passive: true });
+  });
+  // "Log in" opens LearnWorlds' own sign-in window. The click is stopped here and the window opened just after
+  // it: otherwise the same click reaches LearnWorlds' "click outside closes the window" handler and shuts it.
+  [].forEach.call(header.querySelectorAll('[data-f2f-signin]'), function (a) {
+    a.addEventListener('click', function (e) {
+      var native = document.querySelector('section.lw-topbar [data-interactive-link-type="openformslink"][data-interactive-link-var1="signin"]') || signInLink;
+      if (!native) return; // no LearnWorlds link: the href (the site's sign-in prompt) is followed instead
+      e.preventDefault(); e.stopPropagation();
+      closeAll();
+      setTimeout(function () { native.click(); }, 0);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.f2f-acct')) toggle(acctBtn, false);
+    if (!e.target.closest('.f2f-header')) toggle(menuBtn, false);
+  });
+
+  // Account menu (signed in) and the phone menu
+  var acctBtn = header.querySelector('.f2f-acct-btn'), menuBtn = header.querySelector('.f2f-menu-btn');
+  function toggle(btn, open) {
+    if (!btn) return;
+    var panel = btn === acctBtn ? header.querySelector('.f2f-acct-menu') : header.querySelector('.f2f-mobile');
+    if (open === undefined) open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  }
+  function closeAll() { toggle(acctBtn, false); toggle(menuBtn, false); }
+  if (acctBtn) acctBtn.addEventListener('click', function () { toggle(acctBtn); });
+  menuBtn.addEventListener('click', function () { toggle(menuBtn); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+  // E-mail links (footer "Help center", "Talk to an adviser", "About Enterprise", ...) still ask the computer's e-mail
+  // app to open. When none is set up, nothing visible happens (the user's report, 25 Nov 2026), so a small window
+  // also shows the address, with Copy address, Gmail and Outlook.
+  var mail = null;
+  function mailBox() {
+    if (mail) return mail;
+    mail = document.createElement('dialog');
+    mail.className = 'f2f-mail';
+    mail.setAttribute('aria-labelledby', 'f2f-mail-title');
+    mail.innerHTML = '<div class="f2f-mail-in"><button type="button" class="f2f-mail-close" aria-label="Close">×</button>' +
+      '<p class="f2f-mail-eyebrow">Email us</p><p id="f2f-mail-title" class="f2f-mail-addr"></p>' +
+      '<p class="f2f-mail-note">Your email app should open now. If it doesn’t, copy the address or write from your webmail.</p>' +
+      '<div class="f2f-mail-actions"><button type="button" class="f2f-mail-copy">Copy address</button>' +
+      '<a class="f2f-mail-web" data-web="gmail" target="_blank" rel="noopener">Gmail</a>' +
+      '<a class="f2f-mail-web" data-web="outlook" target="_blank" rel="noopener">Outlook</a></div></div>';
+    document.body.appendChild(mail);
+    mail.querySelector('.f2f-mail-close').addEventListener('click', function () { mail.close(); });
+    mail.addEventListener('click', function (e) { if (e.target === mail) mail.close(); }); // the dimmed backdrop
+    mail.querySelector('.f2f-mail-copy').addEventListener('click', function () {
+      var b = this, addr = mail.getAttribute('data-to');
+      function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy address'; }, 2000); }
+      function fallback() {
+        var r = document.createRange(), s = getSelection();
+        r.selectNodeContents(mail.querySelector('.f2f-mail-addr')); s.removeAllRanges(); s.addRange(r);
+        try { if (document.execCommand('copy')) done(); } catch (x) { /* the address stays selected to copy by hand */ }
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(addr).then(done, fallback); else fallback();
+    });
+    return mail;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var href = a.getAttribute('href'), q = href.indexOf('?');
+    var to = decodeURIComponent(q < 0 ? href.slice(7) : href.slice(7, q)), subject = new URLSearchParams(q < 0 ? '' : href.slice(q + 1)).get('subject') || '';
+    if (!to) return;
+    var box = mailBox();
+    box.setAttribute('data-to', to);
+    box.querySelector('.f2f-mail-addr').textContent = to;
+    box.querySelector('[data-web="gmail"]').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + (subject ? '&su=' + encodeURIComponent(subject) : '');
+    box.querySelector('[data-web="outlook"]').href = 'https://outlook.office.com/mail/deeplink/compose?to=' + encodeURIComponent(to) + (subject ? '&subject=' + encodeURIComponent(subject) : '');
+    setTimeout(function () { if (!box.open) { if (box.showModal) box.showModal(); else box.setAttribute('open', ''); } }, 0);
+  });
+})();
+</script>
+<script>
+/* ---------- Course pages (/course/<slug>): one layout for every course, current and future ----------
+   Figma "Public course details" (file hLl2NH7EWq53JM2QIiD5qU, frame 195:3). Everything comes from that course in
+   LearnWorlds (the same request LearnWorlds' own course page makes); parts it has no data for are left out, nothing
+   is typed per course. The enrol button is LearnWorlds' own (hidden on the page): its label and what it does
+   (sign up, enrol, buy, continue) are LearnWorlds'. If the course can't be read, LearnWorlds' own page shows. */
+(function () {
+  'use strict';
+  var m = /^\/course\/([^\/?#]+)\/?$/.exec(location.pathname);
+  if (!m || document.getElementById('f2f-course')) return;
+  var slug = decodeURIComponent(m[1]);
+  var html = document.documentElement;
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
+  var TYPES = [ // LearnWorlds unit type -> what the curriculum calls it
+    [/ebook|pdf|page|text|article|reading/i, 'Reading'], [/video|youtube|vimeo|wistia/i, 'Video'], [/audio|podcast/i, 'Audio'],
+    [/assignment/i, 'Assignment'], [/assessment|exam|quiz|survey/i, 'Quiz'], [/certificate/i, 'Certificate'],
+    [/live|zoom|webinar|meeting/i, 'Live session'], [/scorm|h5p|interactive|embed/i, 'Interactive']
+  ];
+  html.classList.add('f2f-coursepage');
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var r = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return r ? r[1] : FILES; }
+  function imageUrl(img) { return !img ? '' : (/^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '')); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function categoryName(tag) {
+    if (/[A-Z\s&]/.test(tag)) return tag.trim();
+    var w = tag.split(/[-_]+/); return w.map(function (x, i) { return i ? x : x.charAt(0).toUpperCase() + x.slice(1); }).join(' ');
+  }
+  function kind(u) {
+    var t = (u.type || '') + ' ' + (u.icon || '');
+    for (var i = 0; i < TYPES.length; i++) if (TYPES[i][0].test(t)) {
+      // A graded activity named as an assignment (LearnWorlds stores both as exams) is shown as one
+      return TYPES[i][1] === 'Quiz' && /assignment|project/i.test(u.unitTitle || '') ? 'Assignment' : TYPES[i][1];
+    }
+    return u.subtitle && u.subtitle.length < 24 ? u.subtitle : '';
+  }
+  function minutes(u) {
+    var s = +(u.readTime || u.duration || u.videoDuration || u.length || 0);
+    return s > 0 ? Math.max(1, Math.round(s / 60)) + ' min' : '';
+  }
+  function extent(u) { return u.questionsCount ? plural(+u.questionsCount, 'question', 'questions') : minutes(u); }
+
+  // The page box, right away (with a loading state), so LearnWorlds' own course page never flashes
+  var page = document.createElement('div');
+  page.id = 'f2f-course';
+  page.className = 'c-page is-loading';
+  page.innerHTML = '<section class="c-hero"><div class="c-wrap"><div class="c-skel c-skel--crumb"></div><div class="c-hero-row"><div class="c-hero-copy">' +
+    '<div class="c-skel c-skel--line"></div><div class="c-skel c-skel--title"></div><div class="c-skel c-skel--text"></div></div><div class="c-hero-photo c-skel"></div></div></div></section>';
+  var main = document.querySelector('#sectionsWrapper > main') || document.querySelector('main');
+  if (!main) { html.classList.remove('f2f-coursepage'); return; }
+  main.parentNode.insertBefore(page, main);
+  function giveUp() { html.classList.remove('f2f-coursepage'); if (page.parentNode) page.parentNode.removeChild(page); }
+
+  var meta = document.querySelector('meta[name="csrf-token"]');
+  var request = fetch('/api/learner/products', {
+    method: 'POST', credentials: 'same-origin',
+    headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+    body: JSON.stringify({ ids: slug, type: 'course', fields: 'id,title,titleId,cohorts,settings,progress', enrichLearningPath: 'true', includeDripFeedInfo: 'true', offset: '0', itemsPerPage: '1', paginationType: 'offset' })
+  }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  // Signed in: the learner's enrolled courses (LearnWorlds' own user_stats). Signed out it fails, which is fine.
+  var stats = window.F2FStats || fetch('/api/user_stats', { credentials: 'same-origin', headers: { accept: 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+  var timeout = new Promise(function (res, rej) { setTimeout(function () { rej(new Error('timeout')); }, 15000); });
+  Promise.race([Promise.all([request, stats]), timeout]).then(function (both) {
+    var j = both[0], st = both[1];
+    var c = j && j.data && j.data[0];
+    var cohort = c && c.cohorts && c.cohorts[0];
+    if (!c || !cohort || !Array.isArray(cohort.content) || c.titleId !== slug) throw new Error('no course data');
+    var enrolled = !!(st && Array.isArray(st.userCourses) && st.userCourses.indexOf(c.id) >= 0 && c.progress && typeof c.progress.progress === 'number');
+    render(c, cohort, enrolled ? c.progress : null);
+  }).catch(giveUp);
+
+  function render(c, cohort, progress) {
+    var s = c.settings || {}, md = s.metadata || {};
+    var description = md.description || s.description || '';
+    var tags = (s.tags || []).filter(Boolean);
+    var label = String(s.points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
+    var author = (cohort.authors || []).filter(function (a) { return a && a.name; })[0];
+    var image = imageUrl(s.image);
+
+    // Modules and lessons. Every unit counts as a lesson (the certificate too), as in LearnWorlds' own progress.
+    var done = function (id) { var p = progress && progress.unitProgress; return !!(p && !Array.isArray(p) && p[id] && p[id].completed); };
+    var modules = cohort.content.filter(function (sec) { return sec && Array.isArray(sec.learningPath); }).map(function (sec, i) {
+      var units = sec.learningPath.map(function (u) { return { id: u.id, title: u.unitTitle || u.title || '', kind: kind(u), extent: extent(u), raw: u, done: done(u.id) }; });
+      return { n: i + 1, title: sec.title || '', description: sec.description || '', free: sec.access === 'public', units: units, lessons: units,
+        doneCount: units.filter(function (u) { return u.done; }).length };
+    }).filter(function (mod) { return mod.units.length; });
+    var lessons = [].concat.apply([], modules.map(function (mod) { return mod.lessons; }));
+    var certificate = lessons.filter(function (u) { return u.kind === 'Certificate'; })[0];
+    // Enrolled: the first unfinished lesson is "up next"; its module opens
+    var next = null;
+    if (progress) modules.forEach(function (mod) { mod.units.forEach(function (u) { if (!next && !u.done) next = { mod: mod, unit: u }; }); });
+    function playerUrl(u) { return '/path-player?courseid=' + encodeURIComponent(slug) + (u ? '&unit=' + encodeURIComponent(u.id) + 'Unit' : ''); }
+    var quizzes = lessons.filter(function (u) { return u.kind === 'Quiz' || u.kind === 'Assignment'; });
+    var attachments = [];
+    lessons.forEach(function (u) { (u.raw.attachments || []).forEach(function (a) {
+      var url = a && (a.url || a.link || a.href), name = a && (a.title || a.name || a.filename);
+      if (url && name) attachments.push({ url: url, name: name, ext: (String(a.extension || a.type || url).match(/\.?([a-z0-9]{2,4})$/i) || [])[1] || '' });
+    }); });
+
+    // Price, from the course's public pricing option
+    var price = '', pick = null;
+    (cohort.packages || []).forEach(function (p) { if (p.access && p.access !== 'public') return; if (!pick || (p.isPrimary && !pick.isPrimary)) pick = p; });
+    var cond = pick && pick.contentAccessCondition;
+    if (cond) {
+      if (cond.status === 'free' || !cond.actualPrice || !cond.actualPrice.price) price = 'Free';
+      else { try { price = new Intl.NumberFormat('en-IN', { style: 'currency', currency: cond.actualPrice.currency || 'INR', maximumFractionDigits: 0 }).format(cond.actualPrice.price / 100); } catch (e) {} }
+    }
+
+    // Course at a glance: only what the course has
+    var count = {}; lessons.forEach(function (u) { if (u.kind) count[u.kind] = (count[u.kind] || 0) + 1; });
+    var WORD = { Reading: ['reading', 'readings'], Video: ['video', 'videos'], Audio: ['audio lesson', 'audio lessons'], Quiz: ['quiz', 'quizzes'],
+      Assignment: ['assignment', 'assignments'], 'Live session': ['live session', 'live sessions'], Interactive: ['interactive lesson', 'interactive lessons'],
+      Certificate: ['certificate', 'certificates'] };
+    var mix = Object.keys(count).map(function (k) { var w = WORD[k] || [k.toLowerCase(), k.toLowerCase()]; return plural(count[k], w[0], w[1]); }).join(', ');
+    var questions = quizzes.reduce(function (n, u) { return n + (+u.raw.questionsCount || 0); }, 0);
+    var glance = [];
+    if (label[0]) glance.push(['Duration', label[0]]);
+    if (label.length > 1) glance.push(['Format', label.slice(1).join(' · ')]);
+    if (lessons.length) glance.push(['Lessons', plural(lessons.length, 'lesson', 'lessons') + (mix ? ' (' + mix + ')' : '')]);
+    if (quizzes.length) glance.push(['Assessment', plural(quizzes.length, 'quiz', 'quizzes').replace(/quiz(zes)?/, quizzes.length === 1 ? 'graded activity' : 'graded activities') + (questions ? ' · ' + plural(questions, 'question', 'questions') : '')]);
+    if (tags.length) glance.push(['Topic', tags.map(categoryName).join(', ')]);
+    if (certificate) glance.push(['Award', certificate.title || 'Certificate']);
+
+    // A practical task to preview: the assignment, else the last graded activity
+    var task = null;
+    modules.forEach(function (mod) { mod.lessons.forEach(function (u) { if (u.kind === 'Assignment' || u.kind === 'Quiz') { if (!task || /assignment|project/i.test(u.title) || u.kind === 'Assignment') task = { mod: mod, unit: u }; } }); });
+
+    var attrs = [plural(modules.length, 'module', 'modules'), plural(lessons.length, 'lesson', 'lessons')].concat(label);
+    page.className = 'c-page';
+    page.innerHTML =
+      '<section class="c-hero" aria-labelledby="c-title"><div class="c-wrap">' +
+        (progress
+          ? '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/start">My learning</a><span aria-hidden="true">/</span><span aria-current="page">Course details</span></nav>'
+          : '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/courses">Explore programs</a>' +
+            (tags[0] ? '<span aria-hidden="true">/</span><a href="/courses?subject=' + encodeURIComponent(tags[0]) + '">' + esc(categoryName(tags[0])) + '</a>' : '') + '</nav>') +
+        '<div class="c-hero-row"><div class="c-hero-copy">' +
+          (author ? '<p class="c-eyebrow c-eyebrow--light">' + esc(author.name) + '</p>' : '') +
+          '<h1 id="c-title" class="c-title">' + esc(c.title) + '</h1>' +
+          (description ? '<p class="c-lede">' + esc(description) + '</p>' : '') +
+          '<p class="c-attrs">' + attrs.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</p>' +
+        '</div>' + (image ? '<img class="c-hero-photo" src="' + esc(image) + '" width="456" height="286" alt="">' : '') + '</div>' +
+      '</div></section>' +
+      '<nav class="c-tabs" aria-label="On this page"><div class="c-wrap c-tabs-in">' +
+        '<a href="#c-overview" class="c-tab is-current">Overview</a><a href="#c-content" class="c-tab">Course content</a>' +
+        (attachments.length ? '<a href="#c-resources" class="c-tab">Resources</a>' : '') +
+      '</div></nav>' +
+      '<section class="c-work" id="c-overview"><div class="c-wrap c-work-in">' +
+        '<div class="c-main">' +
+          '<section class="c-content" id="c-content" aria-labelledby="c-content-title">' +
+            '<div class="c-content-head"><h2 id="c-content-title" class="c-h2">Course content</h2><p class="c-content-sum">' + esc(plural(modules.length, 'module', 'modules') + ' · ' + plural(lessons.length, 'lesson', 'lessons')) + '</p></div>' +
+            '<div class="c-modules">' + modules.map(function (mod, i) {
+              var num = (mod.n < 10 ? '0' : '') + mod.n, open = progress ? !!(next && next.mod === mod) : i === 0;
+              var complete = progress && mod.doneCount === mod.units.length;
+              var state = !progress ? '' : complete ? ['is-complete', 'Completed'] : next && next.mod === mod ? ['is-next', 'Up next'] : mod.doneCount ? ['is-started', 'In progress'] : ['is-new', 'Not started'];
+              return '<div class="c-module' + (open ? ' is-open' : '') + (complete ? ' is-complete' : '') + '" id="c-module-' + mod.n + '">' +
+                '<button type="button" class="c-module-head" aria-expanded="' + open + '" aria-controls="c-module-body-' + mod.n + '">' +
+                  '<span class="c-module-num">' + (complete ? '<span aria-label="Completed">✓</span>' : num) + '</span><span class="c-module-text"><span class="c-module-title">' + esc(mod.title) + '</span>' +
+                  '<span class="c-module-sub">' + (progress ? esc(mod.doneCount + ' of ' + plural(mod.units.length, 'lesson', 'lessons') + ' complete')
+                    : esc(plural(mod.lessons.length, 'lesson', 'lessons')) + (mod.free ? ' · <b>Free preview</b>' : '')) + '</span></span>' +
+                  (state ? '<span class="c-module-state ' + state[0] + '">' + state[1] + '</span>' : '') +
+                  '<span class="c-module-toggle" aria-hidden="true"></span></button>' +
+                '<div class="c-module-body" id="c-module-body-' + mod.n + '"' + (open ? '' : ' hidden') + '>' +
+                  (mod.description ? '<p class="c-module-desc">' + esc(mod.description) + '</p>' : '') +
+                  mod.units.map(function (u, k) {
+                    var isNext = next && next.unit === u;
+                    return '<div class="c-lesson' + (isNext ? ' is-next' : '') + (u.done ? ' is-done' : '') + '"><span class="c-lesson-num">' + mod.n + '.' + (k + 1) + '</span><span class="c-lesson-text"><span class="c-lesson-title">' + esc(u.title) + '</span>' +
+                      (isNext ? '<span class="c-lesson-kind">Next lesson</span>' : u.kind ? '<span class="c-lesson-kind">' + esc(u.kind) + (u.done ? ' · Completed' : '') + '</span>' : '') + '</span>' +
+                      (u.extent ? '<span class="c-lesson-time">' + esc(u.extent) + '</span>' : '') + '</div>';
+                  }).join('') +
+                '</div></div>';
+            }).join('') + '</div>' +
+          '</section>' +
+          (attachments.length ? '<section class="c-resources" id="c-resources" aria-labelledby="c-res-title"><h2 id="c-res-title" class="c-h3">Course resources</h2><div class="c-res-grid">' +
+            attachments.map(function (a) { return '<a class="c-res" href="' + esc(a.url) + '" target="_blank" rel="noopener"><span class="c-res-name">' + esc(a.name) + '</span>' +
+              (a.ext ? '<span class="c-res-meta">' + esc(a.ext.toUpperCase()) + '</span>' : '') + '<span class="c-res-link">Download' + (a.ext ? ' ' + esc(a.ext.toUpperCase()) : '') + ' ↓</span></a>'; }).join('') +
+          '</div></section>' : '') +
+        '</div>' +
+        '<aside class="c-side" aria-label="About this course">' +
+          (progress
+            ? '<div class="c-card c-progress"><p class="c-eyebrow">Your learning journey</p>' +
+                '<p class="c-progress-sum"><span class="c-progress-pct">' + Math.round(progress.progress) + '%</span><span>Course complete</span></p>' +
+                '<div class="c-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + Math.round(progress.progress) + '"><span style="width:' + Math.max(0, Math.min(100, progress.progress)) + '%"></span></div>' +
+                '<p class="c-progress-count">' + esc((+progress.unitsCompleted || 0) + ' of ' + plural(+progress.unitsTotal || lessons.length, 'lesson', 'lessons') + ' completed') + '</p>' +
+                '<a class="c-btn" href="' + esc(playerUrl(next ? next.unit : lessons[0])) + '">' + (next ? (progress.unitsCompleted ? 'Resume learning →' : 'Start learning →') : 'Review the course →') + '</a>' +
+                (next ? '<p class="c-progress-next">Up next: ' + esc(next.unit.title) + '<br>' + esc('Module ' + next.mod.n + (next.unit.extent ? ' · ' + next.unit.extent : '')) + '</p>' : '') +
+              '</div>'
+            : '<div class="c-card c-enrol" hidden>' + (price ? '<p class="c-price">' + esc(price) + '</p>' : '') + '<a href="#" class="c-btn" data-c-enrol></a></div>') +
+          (task ? '<div class="c-card"><p class="c-eyebrow">Learn by doing</p><p class="c-task-where">' + esc(task.unit.kind + ' · Module ' + task.mod.n) + '</p>' +
+            '<p class="c-task-title">' + esc(task.unit.title) + '</p>' + (task.unit.extent ? '<p class="c-task-meta">' + esc(task.unit.extent) + '</p>' : '') +
+            '<a href="#c-module-' + task.mod.n + '" class="c-btn c-btn--line" data-c-open="' + task.mod.n + '">Explore the curriculum ↓</a></div>' : '') +
+          (glance.length ? '<div class="c-card"><h2 class="c-card-title">Course at a glance</h2><dl class="c-glance">' +
+            glance.map(function (g) { return '<div><dt>' + esc(g[0]) + '</dt><dd>' + esc(g[1]) + '</dd></div>'; }).join('') + '</dl></div>' : '') +
+        '</aside>' +
+      '</div></section>';
+
+    // Modules open and close; "Explore the curriculum" opens that module
+    function setOpen(mod, open) {
+      var head = mod.querySelector('.c-module-head'), body = mod.querySelector('.c-module-body');
+      head.setAttribute('aria-expanded', String(open)); body.hidden = !open; mod.classList.toggle('is-open', open);
+    }
+    page.addEventListener('click', function (e) {
+      var head = e.target.closest('.c-module-head');
+      if (head) { var mod = head.parentNode; setOpen(mod, !mod.classList.contains('is-open')); return; }
+      var go = e.target.closest('[data-c-open]');
+      if (go) { e.preventDefault(); var t = document.getElementById('c-module-' + go.getAttribute('data-c-open')); if (t) { setOpen(t, true); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } return; }
+      var tab = e.target.closest('.c-tab');
+      if (tab) {
+        e.preventDefault();
+        [].forEach.call(page.querySelectorAll('.c-tab'), function (x) { x.classList.toggle('is-current', x === tab); });
+        var target = document.querySelector(tab.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // The enrol button mirrors LearnWorlds' own (its label changes with the visitor: register, buy, continue…)
+    var enrolCard = page.querySelector('.c-enrol'), enrolBtn = page.querySelector('[data-c-enrol]');
+    if (!enrolBtn) return; // enrolled: the progress card links straight to the next lesson
+    function nativeEnrol() { return document.querySelector('main [data-node-type="course-enroll"] .learnworlds-button'); }
+    function syncEnrol() {
+      var n = nativeEnrol(), text = n ? (n.innerText || n.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (text) { enrolBtn.textContent = text; enrolCard.hidden = false; }
+      return !!text;
+    }
+    if (!syncEnrol()) {
+      var tries = 0, iv = setInterval(function () { if (syncEnrol() || ++tries > 40) clearInterval(iv); }, 250);
+    }
+    enrolBtn.addEventListener('click', function (e) {
+      var n = nativeEnrol(); if (!n) return;
+      e.preventDefault(); e.stopPropagation();
+      setTimeout(function () { n.click(); }, 0);
+    });
+  }
+})();
+</script>
+<script>
+/* ---------- Profile (/profile): "My courses" and "My certificates" ----------
+   Drawn like My learning, from the learner's LearnWorlds data (user_stats: enrolled courses; products: progress and
+   lessons). LearnWorlds' own two sections stay in the page, hidden (style.css section 14); if the data can't be
+   read they show again. A certificate is a course's certificate unit: earned once that unit is complete. */
+(function () {
+  'use strict';
+  if (!document.body.classList.contains('slug-profile') || !window.F2FStats || document.getElementById('p-courses')) return;
+  if (!getComputedStyle(document.documentElement).getPropertyValue('--f2f-blue').trim()) return;
+  var nativeCourses = document.querySelector('#sectionsWrapper > main > section.lw-course-cards');
+  var nativeCerts = document.querySelector('#sectionsWrapper > main > section.lw-certificates-cards');
+  var anchor = nativeCourses || nativeCerts;
+  if (!anchor) return;
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
+  var SEARCH = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 14L11.1 11.1M12.67 7.33A5.33 5.33 0 1 1 2 7.33a5.33 5.33 0 0 1 10.67 0Z" stroke="#102044" stroke-linecap="round"/></svg>';
+  var RIBBON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg>';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return m ? m[1] : FILES; }
+  function imageUrl(img) { return !img ? '' : (/^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '')); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function player(c, u) { return '/path-player?courseid=' + encodeURIComponent(c.titleId) + (u ? '&unit=' + encodeURIComponent(u.id) + 'Unit' : ''); }
+
+  // The two sections, in LearnWorlds' place (before its "My Courses"), with a loading state
+  var courses = document.createElement('section'); courses.id = 'p-courses'; courses.className = 'p-sec';
+  courses.innerHTML = '<div class="p-wrap"><div class="p-head"><h2 class="p-h2">My courses</h2><a class="p-link" href="/start">Go to My learning →</a></div>' +
+    '<div class="p-grid"><div class="p-skel"></div><div class="p-skel"></div><div class="p-skel"></div></div></div>';
+  var certs = document.createElement('section'); certs.id = 'certificates'; certs.className = 'p-sec p-sec--white'; certs.hidden = true;
+  anchor.parentNode.insertBefore(courses, anchor);
+  anchor.parentNode.insertBefore(certs, anchor);
+  function giveUp() { [courses, certs].forEach(function (s) { if (s.parentNode) s.parentNode.removeChild(s); }); }
+
+  var meta = document.querySelector('meta[name="csrf-token"]');
+  function api(body) {
+    return fetch('/api/learner/products', { method: 'POST', credentials: 'same-origin', body: JSON.stringify(body),
+      headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' } })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
+  Promise.all([window.F2FStats, api({ type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true',
+      hideProductsWithoutVisibleOptions: 'true', fields: 'id,titleId', offset: '0', itemsPerPage: '200', paginationType: 'offset' })])
+    .then(function (r) {
+      var mine = r[0] && Array.isArray(r[0].userCourses) ? r[0].userCourses : null;
+      if (!mine) throw new Error('no user data');
+      var ids = ((r[1] && r[1].data) || []).filter(function (c) { return mine.indexOf(c.id) >= 0; }).map(function (c) { return c.titleId; });
+      if (!ids.length) return [];
+      return api({ ids: ids.join(','), type: 'course', fields: 'id,title,titleId,cohorts,settings,progress', enrichLearningPath: 'true', offset: '0', itemsPerPage: String(ids.length), paginationType: 'offset' })
+        .then(function (j) { return (j && j.data) || []; });
+    })
+    .then(function (list) { return window.F2FStats.then(function (s) { render(list, s ? +s.earnedCertificates || 0 : 0); }); }).catch(giveUp);
+
+  function summarise(c) {
+    var p = c.progress || {}, up = p.unitProgress && !Array.isArray(p.unitProgress) ? p.unitProgress : {};
+    var units = [], cert = null, next = null;
+    ((c.cohorts && c.cohorts[0] && c.cohorts[0].content) || []).forEach(function (sec) { (sec.learningPath || []).forEach(function (u) { units.push(u); }); });
+    units.forEach(function (u) {
+      var isCert = /certificate/i.test((u.type || '') + ' ' + (u.icon || ''));
+      if (isCert && !cert) cert = u;
+      if (!next && !(up[u.id] && up[u.id].completed)) next = u;
+    });
+    var done = +p.unitsCompleted || 0, total = +p.unitsTotal || units.length, pct = Math.round(+p.progress || 0);
+    var status = p.completed || (total && done >= total) ? 'completed' : (done || p.latestTime) ? 'active' : 'new';
+    var author = ''; ((c.cohorts && c.cohorts[0] && c.cohorts[0].authors) || []).forEach(function (a) { if (!author && a && a.name) author = a.name; });
+    return { c: c, title: c.title || '', author: author, image: imageUrl((c.settings || {}).image), done: done, total: total, pct: pct, status: status,
+      next: status === 'completed' ? null : next, first: units[0], cert: cert, certEarned: false, completed: !!p.completed, latest: +p.latestTime || 0 };
+  }
+
+  // Earned or not comes from LearnWorlds' own (hidden) certificates list, which it draws shortly after the page
+  // loads: a certificate unit counts as visited before the certificate is actually awarded (e.g. on passing a quiz).
+  function nativeStates() {
+    return new Promise(function (res) {
+      var tries = 0;
+      (function poll() {
+        var cards = nativeCerts ? nativeCerts.querySelectorAll('.lw-course-card') : [];
+        if (cards.length || ++tries > 40) {
+          var map = {};
+          [].forEach.call(cards, function (c) {
+            var t = c.querySelector('h3'), tag = c.querySelector('.lw-tag');
+            if (t) map[t.textContent.replace(/\s+/g, ' ').trim().toLowerCase()] = tag ? tag.textContent.replace(/\s+/g, ' ').trim() : '';
+          });
+          res(map);
+        } else setTimeout(poll, 250);
+      })();
+    });
+  }
+
+  var STATUS = { active: ['In progress', 'Continue learning'], new: ['Not started', 'Start learning'], completed: ['Completed', 'Review the course'] };
+  function bar(x) {
+    return '<p class="p-progress"><span>' + esc(x.done + ' of ' + plural(x.total, 'lesson', 'lessons') + ' completed') + '</span><b>' + x.pct + '%</b></p>' +
+      '<div class="p-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + x.pct + '"><span style="width:' + Math.max(0, Math.min(100, x.pct)) + '%"></span></div>';
+  }
+  function courseCard(x) {
+    var page = '/course/' + encodeURIComponent(x.c.titleId);
+    return '<article class="p-card">' +
+      '<a class="p-card-media" href="' + page + '" tabindex="-1" aria-hidden="true">' + (x.image ? '<img src="' + esc(x.image) + '" alt="" loading="lazy">' : '') + '</a>' +
+      '<div class="p-card-body">' +
+        '<p class="p-status p-status--' + x.status + '">' + STATUS[x.status][0] + '</p>' +
+        '<h3 class="p-card-title"><a href="' + page + '">' + esc(x.title) + '</a></h3>' +
+        (x.author ? '<p class="p-inst">' + esc(x.author) + '</p>' : '') + bar(x) +
+        (x.next ? '<p class="p-next">' + (x.done ? 'Next: ' : 'Start with: ') + esc(x.next.unitTitle || '') + '</p>' : '') +
+        '<a class="p-btn" href="' + esc(player(x.c, x.status === 'completed' ? x.first : (x.next || x.first))) + '">' + STATUS[x.status][1] + '</a>' +
+      '</div></article>';
+  }
+  function certCard(x) {
+    var state = x.certEarned ? ['earned', 'Earned'] : x.status === 'new' ? ['new', 'Not started'] : ['active', 'In progress · ' + x.pct + '%'];
+    return '<article class="p-cert p-cert--' + state[0] + '">' +
+      '<span class="p-cert-icon">' + RIBBON + '</span>' +
+      '<div class="p-cert-body">' +
+        '<p class="p-cert-state">' + esc(state[1]) + '</p>' +
+        '<h3 class="p-cert-title">' + esc(x.title) + '</h3>' +
+        '<p class="p-cert-name">' + esc(x.cert.unitTitle || 'Certificate of completion') + '</p>' +
+        (x.certEarned ? '' : '<div class="p-bar p-bar--thin"><span style="width:' + Math.max(0, Math.min(100, x.pct)) + '%"></span></div>') +
+        (x.certEarned ? '<a class="p-btn p-btn--solid" href="' + esc(player(x.c, x.cert)) + '">View certificate</a>'
+          : '<a class="p-btn" href="' + esc(player(x.c, x.next || x.first)) + '">' + (x.status === 'new' ? 'Start the course' : 'Continue the course') + '</a>') +
+      '</div></article>';
+  }
+
+  function render(list, earnedTotal) {
+    var all = list.map(summarise), tab = 'all', words = [];
+    var body = courses.querySelector('.p-wrap');
+    if (!all.length) {
+      body.innerHTML = '<div class="p-head"><h2 class="p-h2">My courses</h2></div><div class="p-empty"><p>You haven’t enrolled in a program yet.</p><a class="p-btn p-btn--solid" href="/courses">Explore programs</a></div>';
+      return;
+    }
+    var counts = { all: all.length, active: 0, new: 0, completed: 0 };
+    all.forEach(function (x) { counts[x.status]++; });
+    body.innerHTML = '<div class="p-head"><h2 class="p-h2">My courses</h2><a class="p-link" href="/start">Go to My learning →</a></div>' +
+      '<div class="p-filters"><div class="p-tabs" role="tablist" aria-label="Show"></div>' +
+      '<label class="p-search">' + SEARCH + '<input type="search" placeholder="Search my courses" aria-label="Search my courses" autocomplete="off"></label></div>' +
+      '<div class="p-grid"></div>';
+    var tabs = body.querySelector('.p-tabs'), grid = body.querySelector('.p-grid'), input = body.querySelector('input');
+    function draw() {
+      tabs.innerHTML = [['all', 'All'], ['active', 'In progress'], ['new', 'Not started'], ['completed', 'Completed']].filter(function (t) { return t[0] === 'all' || counts[t[0]]; }).map(function (t) {
+        return '<button type="button" role="tab" class="p-tab" aria-selected="' + (tab === t[0]) + '" data-p-tab="' + t[0] + '">' + t[1] + ' (' + counts[t[0]] + ')</button>';
+      }).join('');
+      var shown = all.filter(function (x) {
+        if (tab !== 'all' && x.status !== tab) return false;
+        var hay = (x.title + ' ' + x.author).toLowerCase();
+        return words.every(function (w) { return hay.indexOf(w) >= 0; });
+      });
+      grid.innerHTML = shown.length ? shown.map(courseCard).join('') : '<p class="p-none">No courses match.</p>';
+    }
+    tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-p-tab]'); if (b) { tab = b.getAttribute('data-p-tab'); draw(); } });
+    var t; input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(function () { words = input.value.toLowerCase().split(/\s+/).filter(Boolean); draw(); }, 150); });
+    draw();
+
+    // Certificates: one per enrolled course that awards one, earned first
+    var withCert = all.filter(function (x) { return x.cert; });
+    if (!withCert.length) return;
+    nativeStates().then(function (map) {
+      var known = Object.keys(map).length > 0;
+      withCert.forEach(function (x) {
+        var tag = map[x.title.replace(/\s+/g, ' ').trim().toLowerCase()];
+        x.certEarned = known ? !!tag && !/not/i.test(tag) && /earn|valid|award|issued/i.test(tag)
+          : earnedTotal > 0 && x.completed; // no list to read: only a finished course, and only if any were earned
+      });
+      // Only earned certificates are listed (the user's choice, 25 Nov 2026); until then, a short note
+      var earned = withCert.filter(function (x) { return x.certEarned; });
+      certs.innerHTML = '<div class="p-wrap"><div class="p-head"><h2 class="p-h2">My certificates</h2>' +
+          (earned.length ? '<p class="p-head-note">' + plural(earned.length, 'certificate', 'certificates') + ' earned</p>' : '') + '</div>' +
+        (earned.length ? '<div class="p-cert-grid">' + earned.map(certCard).join('') + '</div>'
+          : '<div class="p-empty p-empty--cert"><span class="p-cert-icon">' + RIBBON + '</span><div><p class="p-empty-title">No certificates yet</p>' +
+            '<p>Finish a course to earn its certificate. It will show here.</p></div><a class="p-btn" href="/start">Go to My learning</a></div>') +
+        '</div>';
+      certs.hidden = false;
+      if (location.hash === '#certificates') setTimeout(function () { certs.scrollIntoView({ block: 'start' }); }, 50);
+    });
+  }
+})();
+</script>
+<script>
+/* ---------- 404 page ----------
+   LearnWorlds' error page (body.slug-error) gets the site's look: what happened, a program search and the main ways
+   back in. LearnWorlds' own error section stays in the page, hidden (style.css section 13). */
+(function () {
+  'use strict';
+  if (!document.body.classList.contains('slug-error') || document.getElementById('f2f-error')) return;
+  if (!getComputedStyle(document.documentElement).getPropertyValue('--f2f-blue').trim()) return;
+  var main = document.querySelector('#sectionsWrapper > main') || document.querySelector('main');
+  if (!main) return;
+  var member = !!document.querySelector('.f2f-header--member');
+  var box = document.createElement('section');
+  box.id = 'f2f-error';
+  box.className = 'x-page';
+  box.setAttribute('aria-labelledby', 'x-title');
+  box.innerHTML = '<div class="x-wrap">' +
+    '<p class="x-eyebrow">Error 404</p>' +
+    '<h1 id="x-title" class="x-title">We couldn’t find that page</h1>' +
+    '<p class="x-text">The link may be out of date, or the page may have moved. Search for a program, or pick up from one of these pages.</p>' +
+    '<form class="x-search" role="search"><input type="search" name="q" placeholder="Search by program, topic, or institution" aria-label="Search programs" autocomplete="off"><button type="submit">Search programs</button></form>' +
+    '<p class="x-actions">' + (member ? '<a class="x-btn" href="/start">Go to my learning</a><a class="x-btn x-btn--line" href="/courses">Explore programs</a>'
+      : '<a class="x-btn" href="/courses">Explore programs</a><a class="x-btn x-btn--line" href="/">Go to the home page</a>') + '</p>' +
+  '</div>';
+  main.parentNode.insertBefore(box, main);
+  box.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = this.q.value.trim();
+    location.href = '/courses' + (q ? '?q=' + encodeURIComponent(q) : '');
+  });
+})();
+
+/* ---------- Account settings (/account, a LearnWorlds built-in page) ----------
+   The site's navy title band above LearnWorlds' account app; the rest is builtin.css. LearnWorlds' own "My Account"
+   heading is hidden once the band is there. */
+(function () {
+  'use strict';
+  if (!document.body.classList.contains('slug-account') || document.getElementById('acc-hero')) return;
+  if (!getComputedStyle(document.documentElement).getPropertyValue('--f2f-blue').trim()) return;
+  var app = document.querySelector('.account-app-page > .ov-auto') || document.getElementById('account-app');
+  if (!app) return;
+  var band = document.createElement('section');
+  band.id = 'acc-hero';
+  band.className = 'acc-hero';
+  band.setAttribute('aria-labelledby', 'acc-title');
+  band.innerHTML = '<div class="acc-wrap"><p class="acc-eyebrow">Your account</p><h1 id="acc-title" class="acc-title">Account settings</h1>' +
+    '<p class="acc-text">Your personal details, password, courses and payments.</p></div>';
+  app.parentNode.insertBefore(band, app);
+
+  // Sidebar. The account now scrolls with the page (builtin.css), not inside LearnWorlds' own box, so LearnWorlds can
+  // no longer tell which section is in view. The page marks it instead (class is-current) and the links scroll the page.
+  function sections() { return [].slice.call(document.querySelectorAll('.account-page-content .account-section[id]')); }
+  function links() { return [].slice.call(document.querySelectorAll('.account-section-navigation a')); }
+  function sectionOf(a, i) {
+    var name = (a.textContent || '').trim().toLowerCase(), all = sections();
+    return all.filter(function (s) { var h = s.querySelector('h4'); return h && h.textContent.trim().toLowerCase() === name; })[0] || all[i] || null;
+  }
+  var OFFSET = 120; // the header's bar (72px) plus some room
+  function mark() {
+    var all = sections(), cur = all[0];
+    all.forEach(function (s) { if (s.getBoundingClientRect().top <= OFFSET) cur = s; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2 && all.length) cur = all[all.length - 1];
+    links().forEach(function (a, i) {
+      var on = sectionOf(a, i) === cur;
+      a.classList.toggle('is-current', on);
+      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  var queued = false;
+  window.addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; mark(); }); } }, { passive: true });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.account-section-navigation a');
+    if (!a) return;
+    var s = sectionOf(a, links().indexOf(a));
+    if (!s) return;
+    e.preventDefault();
+    setTimeout(function () { // after LearnWorlds' own handler, which only scrolls its old box
+      s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', '#' + s.id); } catch (x) { /* the address just keeps its old #part */ }
+    }, 0);
+  });
+  // LearnWorlds draws the account a moment after the page loads; then mark the sidebar and open a linked section
+  var tries = 0, wait = setInterval(function () {
+    if (!links().length || !sections().length) { if (++tries > 75) clearInterval(wait); return; }
+    clearInterval(wait);
+    var target = location.hash && document.getElementById(location.hash.slice(1));
+    if (target && target.classList.contains('account-section') && target !== sections()[0]) target.scrollIntoView({ block: 'start' });
+    mark();
+  }, 200);
+})();
+</script>
+<script>
+/* ---------- Course search ----------
+   Results come live from LearnWorlds: the same search the course catalogue uses (title, description,
+   keywords) and the same courses it shows (public, with a visible price option). New courses appear
+   in search automatically; nothing here needs editing per course. */
+(function () {
+  'use strict';
+  var PAGE = 8;       // results shown at first
+  var ALL = 50;       // results after "Show all"
+  var TIMEOUT = 12000; // give up on a request after 12 s and show a link to the catalogue
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/'; // fallback; read from the page when possible
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+  var X = '<svg class="f2f-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+  var wrap, dialog, input, list, status, more, lastFocus = null;
+  var items = [], active = -1, seq = 0, timer = null, cache = {};
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function norm(q) { q = (q || '').replace(/\s+/g, ' ').trim(); return q.length < 2 ? '' : q; }
+
+  function filesBase() {
+    var l = document.querySelector('link[rel~="icon"]');
+    var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href);
+    return m ? m[1] : FILES;
+  }
+
+  function imageUrl(img) {
+    if (!img) return '';
+    return /^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '');
+  }
+
+  function price(course) {
+    var pick = null;
+    (course.cohorts || []).forEach(function (c) {
+      (c.packages || []).forEach(function (p) {
+        if (p.access && p.access !== 'public') return;
+        if (!pick || (p.isPrimary && !pick.isPrimary)) pick = p;
+      });
+    });
+    var a = pick && pick.contentAccessCondition;
+    if (!a) return '';
+    if (a.status === 'free' || !a.actualPrice || !a.actualPrice.price) return 'Free';
+    var amount = a.actualPrice.price / 100, cur = a.actualPrice.currency || 'INR';
+    try { return new Intl.NumberFormat('en-IN', { style: 'currency', currency: cur, maximumFractionDigits: 0 }).format(amount); }
+    catch (e) { return amount + ' ' + cur; }
+  }
+
+  /* Highlight the typed words in a title (escaping each piece, so markup in titles stays text). */
+  function highlight(title, q) {
+    var words = (q || '').split(' ').filter(function (w) { return w.length > 1; })
+      .map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+    if (!words.length) return esc(title);
+    return String(title).split(new RegExp('(' + words.join('|') + ')', 'gi')).map(function (part, i) {
+      return i % 2 ? '<mark>' + esc(part) + '</mark>' : esc(part);
+    }).join('');
+  }
+
+  /* One request per query: the promise is cached, so a background prefetch and an open share it. */
+  function fetchCourses(q, limit) {
+    var key = q.toLowerCase() + '|' + limit;
+    if (cache[key]) return cache[key];
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timeout = ctrl ? setTimeout(function () { ctrl.abort(); }, TIMEOUT) : null;
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    var body = {
+      type: 'course',
+      access: 'public,private-enroll,soon,view-locked',
+      excludeNotEnrolledPrivateProductsForAdmin: 'true',
+      hideProductsWithoutVisibleOptions: 'true',
+      fields: 'title,titleId,cohorts.packages,settings',
+      sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
+      offset: '0', itemsPerPage: String(limit), paginationType: 'offset'
+    };
+    if (q) body.search = q;
+    var p = fetch('/api/learner/products', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+      body: JSON.stringify(body),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      clearTimeout(timeout);
+      if (!j || j.success === false || !Array.isArray(j.data)) throw new Error('Unexpected response');
+      return { courses: j.data, total: (j.pagination && j.pagination.totalItems) || j.data.length };
+    }).catch(function (e) {
+      clearTimeout(timeout);
+      delete cache[key]; // let the next attempt try again
+      throw e;
+    });
+    cache[key] = p;
+    return p;
+  }
+
+  /* Warm the browser cache: the course list in the background, the pictures once the visitor
+     shows intent (pointer on, focus on or touch of the search button). Pictures cache for 31 days. */
+  var warmed = {};
+  function warmImages(res) {
+    res.courses.forEach(function (c) {
+      var u = imageUrl((c.settings || {}).image);
+      if (u && !warmed[u]) { warmed[u] = new Image(); warmed[u].decoding = 'async'; warmed[u].src = u; }
+    });
+  }
+  function prefetch(withImages) {
+    fetchCourses('', PAGE).then(function (res) { if (withImages) warmImages(res); }, function () {});
+  }
+
+  var SKEL_ROW = '<li role="presentation" class="f2f-sr-skel" aria-hidden="true"><span class="f2f-sr-ph"></span>' +
+    '<span class="f2f-sr-text"><span class="f2f-skel-line"></span><span class="f2f-skel-line f2f-skel-short"></span></span></li>';
+  var SKELETON = SKEL_ROW + SKEL_ROW + SKEL_ROW + SKEL_ROW;
+
+  /* Shown only if results take more than a moment: placeholder rows on first open, and a
+     "Searching…" note (keeping the current results visible) while typing. */
+  function showLoading(q) {
+    status.textContent = q ? 'Searching…' : 'Loading courses…';
+    if (!list.querySelector('.f2f-sr')) { list.innerHTML = SKELETON; more.hidden = true; }
+  }
+
+  function courseUrl(c) { return '/course/' + encodeURIComponent(c.titleId); }
+
+  function setActive(i) {
+    var links = list.querySelectorAll('.f2f-sr');
+    if (!links.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+    active = (i + links.length) % links.length;
+    links.forEach(function (a, n) { a.setAttribute('aria-selected', n === active ? 'true' : 'false'); });
+    input.setAttribute('aria-activedescendant', links[active].id);
+    links[active].scrollIntoView({ block: 'nearest' });
+  }
+
+  function render(res, q) {
+    items = res.courses;
+    active = -1;
+    input.removeAttribute('aria-activedescendant');
+    list.innerHTML = items.map(function (c, i) {
+      var s = c.settings || {}, img = imageUrl(s.image);
+      var meta = [s.points, price(c)].filter(Boolean).map(esc).join(' · ');
+      return '<li role="presentation"><a class="f2f-sr" role="option" id="f2f-sr-' + i + '" href="' + courseUrl(c) + '" tabindex="-1" aria-selected="false">' +
+        (img ? '<img src="' + esc(img) + '" alt="" decoding="async">' : '<span class="f2f-sr-ph" aria-hidden="true"></span>') +
+        '<span class="f2f-sr-text"><span class="f2f-sr-title">' + highlight(c.title, q) + '</span>' +
+        (meta ? '<span class="f2f-sr-meta">' + meta + '</span>' : '') + '</span></a></li>';
+    }).join('');
+    if (!items.length) status.innerHTML = q ? 'No courses match “' + esc(q) + '”.' : 'No courses yet.';
+    else if (!q) status.textContent = 'Latest courses';
+    else status.textContent = res.total === 1 ? '1 course found' : res.total + ' courses found';
+    more.hidden = !(res.total > items.length);
+    more.textContent = 'Show all ' + res.total;
+    input.setAttribute('aria-expanded', items.length ? 'true' : 'false');
+  }
+
+  function run(q, limit) {
+    var mine = ++seq;
+    dialog.setAttribute('aria-busy', 'true');
+    var slow = setTimeout(function () { if (mine === seq) showLoading(q); }, 150);
+    return fetchCourses(q, limit || PAGE).then(function (res) {
+      if (mine === seq) render(res, q);
+      return res;
+    }, function () {
+      if (mine !== seq) return null;
+      items = []; list.innerHTML = ''; more.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      status.innerHTML = 'Search isn’t available right now. <a href="/courses">Browse all courses</a>';
+      return null;
+    }).then(function (res) {
+      clearTimeout(slow);
+      if (mine === seq) dialog.removeAttribute('aria-busy');
+      return res;
+    });
+  }
+
+  function onInput() {
+    clearTimeout(timer);
+    var q = norm(input.value);
+    timer = setTimeout(function () { run(q); }, q ? 200 : 0);
+  }
+
+  function onEnter() {
+    if (active >= 0 && items[active]) { location.href = courseUrl(items[active]); return; }
+    var q = norm(input.value);
+    if (!q) { location.href = '/courses'; return; }
+    clearTimeout(timer);
+    run(q).then(function (res) { if (res && res.courses[0]) location.href = courseUrl(res.courses[0]); });
+  }
+
+  function focusables() {
+    return Array.prototype.filter.call(dialog.querySelectorAll('input, button, a[href]:not([tabindex="-1"])'), function (el) {
+      return !el.hidden && el.getClientRects().length;
+    });
+  }
+
+  function build() {
+    if (wrap) return;
+    wrap = document.createElement('div');
+    wrap.className = 'f2f-search';
+    wrap.hidden = true;
+    wrap.innerHTML =
+      '<div class="f2f-search-backdrop" data-f2f-close></div>' +
+      '<div class="f2f-search-dialog" role="dialog" aria-modal="true" aria-label="Search courses">' +
+        '<div class="f2f-search-field">' + ICON +
+          '<input type="search" class="f2f-search-input" placeholder="Search courses" aria-label="Search courses"' +
+          ' role="combobox" aria-autocomplete="list" aria-controls="f2f-search-list" aria-expanded="false"' +
+          ' autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">' +
+          '<button type="button" class="f2f-search-close" data-f2f-close aria-label="Close search"><kbd>Esc</kbd>' + X + '</button>' +
+        '</div>' +
+        '<p class="f2f-search-status" role="status" aria-live="polite"></p>' +
+        '<ul class="f2f-search-list" id="f2f-search-list" role="listbox" aria-label="Courses"></ul>' +
+        '<div class="f2f-search-foot">' +
+          '<button type="button" class="f2f-search-more" hidden></button>' +
+          '<a class="f2f-search-all" href="/courses">Browse all courses →</a>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(wrap);
+    dialog = wrap.querySelector('.f2f-search-dialog');
+    input = wrap.querySelector('.f2f-search-input');
+    list = wrap.querySelector('.f2f-search-list');
+    status = wrap.querySelector('.f2f-search-status');
+    more = wrap.querySelector('.f2f-search-more');
+
+    input.addEventListener('input', onInput);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active < 0 ? -1 : active - 1); }
+      else if (e.key === 'Enter') { e.preventDefault(); onEnter(); }
+    });
+    more.addEventListener('click', function () { run(norm(input.value), ALL).then(function () { input.focus(); }); });
+    wrap.addEventListener('click', function (e) { if (e.target.closest('[data-f2f-close]')) close(); });
+    // Pictures shimmer until they arrive; a missing picture falls back to the plain placeholder.
+    list.addEventListener('load', function (e) { if (e.target.tagName === 'IMG') e.target.classList.add('is-loaded'); }, true);
+    list.addEventListener('error', function (e) { if (e.target.tagName === 'IMG') e.target.classList.add('is-loaded', 'is-broken'); }, true);
+    list.addEventListener('mousemove', function (e) {
+      var a = e.target.closest('.f2f-sr');
+      if (a) setActive(Array.prototype.indexOf.call(list.querySelectorAll('.f2f-sr'), a));
+    });
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = focusables(); if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+
+  function open() {
+    build();
+    if (!wrap.hidden) { input.focus(); return; }
+    lastFocus = document.activeElement;
+    wrap.hidden = false;
+    document.documentElement.classList.add('f2f-search-open');
+    input.focus();
+    input.select();
+    run(norm(input.value));
+  }
+
+  function close() {
+    if (!wrap || wrap.hidden) return;
+    clearTimeout(timer);
+    wrap.hidden = true;
+    document.documentElement.classList.remove('f2f-search-open');
+    if (lastFocus && document.contains(lastFocus) && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* The header column for the search button: just left of the account column (Sign in when signed out,
+     the user menu when signed in), which is the header's last column after the logo and the menu.
+     On phones and tablets that column is hidden and the button sits by the ☰ (see style.css). */
+  function toolsCol() {
+    var row = document.querySelector('section.lw-topbar .lw-cols');
+    if (!row) return null;
+    var col = row.querySelector('.f2f-tools-col');
+    if (!col) { col = document.createElement('div'); col.className = 'col f2f-tools-col'; }
+    var cols = Array.prototype.filter.call(row.children, function (c) { return c !== col; });
+    var account = cols.length >= 3 ? cols[cols.length - 1] : null;
+    if (account) { if (col.nextElementSibling !== account) row.insertBefore(col, account); }
+    else if (col.parentNode !== row) row.appendChild(col);
+    return col;
+  }
+
+  function addButton() {
+    var col = toolsCol();
+    if (!col || col.querySelector('.f2f-search-btn')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'f2f-icon-btn f2f-search-btn';
+    btn.setAttribute('aria-label', 'Search courses');
+    btn.setAttribute('aria-haspopup', 'dialog');
+    btn.title = 'Search courses';
+    btn.innerHTML = ICON;
+    btn.addEventListener('click', open);
+    ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
+      btn.addEventListener(ev, function () { prefetch(true); }, { passive: true });
+    });
+    col.insertBefore(btn, col.firstChild);
+  }
+
+  function typing(el) {
+    return el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
+  }
+
+  /* For page designs (e.g. the home page's hero search box): F2FSearch.open('yarn') opens the panel
+     with that text already searched. */
+  window.F2FSearch = {
+    open: function (q) {
+      build();
+      if (typeof q === 'string') input.value = q;
+      if (!wrap.hidden) { run(norm(input.value)); input.focus(); return; }
+      open();
+    },
+    // The header's search button calls this on hover / focus / touch, so results and pictures are ready
+    prefetch: function () { prefetch(true); }
+  };
+
+  function init() {
+    addButton();
+    var topbar = document.querySelector('section.lw-topbar');
+    if (topbar && window.MutationObserver) {
+      new MutationObserver(function () { if (!topbar.querySelector('.f2f-search-btn')) addButton(); })
+        .observe(topbar, { childList: true, subtree: true });
+    }
+    // Fetch the course list once the page has settled, so the panel opens with results ready.
+    var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
+    var later = function () { idle(function () { prefetch(false); }, { timeout: 4000 }); };
+    if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey) && !e.altKey) {
+        e.preventDefault();
+        if (wrap && !wrap.hidden) close(); else open();
+      } else if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && !typing(e.target)) {
+        e.preventDefault();
+        open();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
+<!-- /F2F Education · Site custom code · BODY -->

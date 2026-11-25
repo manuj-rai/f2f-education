@@ -1,0 +1,184 @@
+{
+  "format": "reading",
+  "slug": "optical-brightening-mistakes",
+  "micro": true,
+  "title": "Getting Whites Right with Optical Brighteners",
+  "subtitle": "Avoid five common mistakes that dull white fabric, waste chemicals and confuse approvals.",
+  "card_description": "Learn why more optical brightener can make fabric less white, how bath chemistry and temperature affect the result, and how to approve whites under the right light.",
+  "seo_description": "Free micro course on optical brighteners: avoid overdosing, control the bath and polyester temperature, and approve whites under D65.",
+  "level": "Beginner",
+  "categories": [
+    "apparel-production"
+  ],
+  "card_icon": "sun",
+  "card_topic": "Optical brightening",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "More Brightener, Less White: Five Optical Brightening Mistakes that Cost Process Houses Whiteness",
+    "url": "https://www.fibre2fashion.com/industry-article/11896/more-brightener-less-white-five-optical-brightening-mistakes-that-cost-process-houses-whiteness-and-money",
+    "authors": "Waquar Arshad Khan",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain how optical brighteners make fabric look whiter than bleaching alone.",
+    "Find the lowest effective brightener dose with a simple dose ladder.",
+    "Spot bath chemicals and water conditions that undo a brightener's effect.",
+    "Put temperature control first when brightening polyester.",
+    "Approve whites under D65 using both whiteness index and tint."
+  ],
+  "audience": "Dyeing and finishing staff in process houses, quality teams and apparel buyers who specify, test or approve white fabrics and garments.",
+  "about": "A white shirt has about a second to convince a buyer, and a faint cream cast makes it look old. Optical brightening agents fix that, but they behave very differently from bleach, and familiar habits can cost whiteness and money. This free micro course, based on the Fibre2Fashion article by Waquar Arshad Khan, explains how brighteners work and walks through five common mistakes: overdosing, running hotter and longer than needed, ignoring what else is in the bath, under-heating polyester and judging white under the wrong light. You will finish with a practical routine for setting doses, controlling the bath and approving whites under D65.",
+  "lessons": [
+    {
+      "title": "Why More Brightener Is Not Whiter",
+      "file": "01-more-is-not-whiter.md"
+    },
+    {
+      "title": "Controlling the Brightening Bath",
+      "file": "02-controlling-the-bath.md"
+    },
+    {
+      "title": "Judging and Approving White Correctly",
+      "file": "03-judging-and-approving-white.md"
+    }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "How does an optical brightening agent make bleached fabric look whiter?",
+      "options": [
+        "It removes the remaining yellow colour chemically, like a stronger bleach",
+        "It absorbs invisible ultraviolet light and re-emits it as visible blue light",
+        "It coats the fibre with a white pigment that hides the yellowness",
+        "It absorbs blue light so that the fabric reflects less yellow"
+      ],
+      "answer": 1,
+      "feedback": "OBAs absorb UV at roughly 330–380 nm and re-emit blue light at about 400–450 nm, which cancels the residual yellowness of bleached fabric."
+    },
+    {
+      "type": "mc",
+      "q": "A dyer doubles the OBA dose on cotton that is already above its optimum dose. What is most likely to happen?",
+      "options": [
+        "Whiteness rises in proportion to the extra brightener",
+        "Whiteness stays the same, but chemical costs rise",
+        "The brightener breaks down and the fabric turns yellow",
+        "Whiteness falls and the fabric takes on a slight green tint"
+      ],
+      "answer": 3,
+      "feedback": "Above the optimum, extra molecules cluster on the fibre, fluoresce less and absorb violet light, so whiteness falls and the fabric turns slightly green."
+    },
+    {
+      "type": "mc",
+      "q": "How should a process house set the OBA dose for a new fabric quality?",
+      "options": [
+        "Use the top of the supplier's recommended range to be safe",
+        "Reuse the dose that worked on the last fabric quality",
+        "Run a dose ladder and lock in the lowest dose that reaches the target",
+        "Keep adding brightener until the fabric stops looking whiter"
+      ],
+      "answer": 2,
+      "feedback": "The optimum depends on the brightener and the fabric. A dose ladder finds it, and the lowest dose that meets the target is the one to use."
+    },
+    {
+      "type": "tf",
+      "q": "On cotton, a cooler and shorter brightening cycle than the supplier's data sheet recommends can still give satisfactory whiteness.",
+      "answer": true,
+      "feedback": "True. Researchers ran 60 °C for 30 minutes at neutral pH instead of 80–90 °C for 60 minutes and still got satisfactory whiteness on cotton."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these can reduce the whiteness an OBA gives on cotton? (select all that apply)",
+      "options": [
+        "Cationic softener carried over into the OBA bath",
+        "Iron ions in the process water",
+        "Poor rinsing and neutralising after bleaching",
+        "Adding a suitable sequestering agent to the bath",
+        "Applying cationic finishes after the brightening step"
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "feedback": "Cationic carry-over, iron ions and leftover peroxide or alkali all undermine the OBA. A sequestering agent and applying cationics afterwards are remedies, not causes."
+    },
+    {
+      "type": "mc",
+      "q": "Polyester whites are coming out dull. What should you check first?",
+      "options": [
+        "The temperature profile of the brightening bath",
+        "Whether the brightener dose can be doubled",
+        "Whether a cationic softener was added to the bath",
+        "The pH of the final rinse water"
+      ],
+      "answer": 0,
+      "feedback": "On polyester, temperature explained about 94 per cent of the variation in whiteness, because disperse-type brighteners only enter the fibre well above its glass transition temperature."
+    },
+    {
+      "type": "mc",
+      "q": "Two lots of brightened white shirts match in one light booth but look different in another. What is the most likely reason?",
+      "options": [
+        "One lot was bleached and the other was not",
+        "Whites can only be judged reliably by eye at a window",
+        "The booths' lamps contain different amounts of ultraviolet light",
+        "Light booths always exaggerate small differences between whites"
+      ],
+      "answer": 2,
+      "feedback": "An OBA only fluoresces when UV is present, so lamps with different UV content make brightened whites look different. Approve whites under D65."
+    },
+    {
+      "type": "mc",
+      "q": "In routine checks, the whiteness tint (Tw) of a white keeps rising above +3. What does this suggest?",
+      "options": [
+        "The white is turning reddish and needs more brightener",
+        "The white is perfectly neutral and ready to approve",
+        "The spectrophotometer no longer needs UV calibration",
+        "A greenish tint is developing, an early warning of overdosing"
+      ],
+      "answer": 3,
+      "feedback": "A Tw between −3 and +3 is neutral; positive values mean greenish. A rising Tw is an early warning that the dose has passed its optimum."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Optical brightening agent (OBA)",
+      "def": "A chemical, also called a fluorescent whitening agent, that absorbs ultraviolet light and re-emits it as visible blue light, making fabric look whiter."
+    },
+    {
+      "term": "Fluorescence",
+      "def": "Absorbing light at one wavelength and almost instantly giving it back at a longer one, such as ultraviolet in and blue out."
+    },
+    {
+      "term": "Owf (on the weight of fabric)",
+      "def": "A dose expressed as a percentage of the fabric's weight; 0.1 per cent owf is 100 g per 100 kg of fabric."
+    },
+    {
+      "term": "CIE whiteness index",
+      "def": "A whiteness value calculated from instrument colour measurements; a higher number means a whiter sample."
+    },
+    {
+      "term": "Whiteness tint (Tw)",
+      "def": "Shows which way a white leans: −3 to +3 is neutral, positive values are greenish and negative values reddish."
+    },
+    {
+      "term": "Dose ladder",
+      "def": "A short series of trials at increasing brightener doses, used to find the lowest dose that meets the whiteness target."
+    },
+    {
+      "term": "D65",
+      "def": "The standard illuminant representing average daylight. It contains UV-A, so it is used for judging and measuring brightened whites."
+    },
+    {
+      "term": "Sequestering agent",
+      "def": "A chemical that binds metal ions such as iron so they cannot interfere with the process."
+    },
+    {
+      "term": "Glass transition temperature",
+      "def": "The temperature above which a fibre's polymer chains loosen enough for disperse brighteners and dyes to enter."
+    },
+    {
+      "term": "Exhaustion",
+      "def": "The share of brightener in the bath that moves onto the fabric rather than staying in the water."
+    }
+  ]
+}

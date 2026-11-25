@@ -1,0 +1,18 @@
+{
+  "name": "f2f-education-site",
+  "private": true,
+  "description": "Work on the F2F Education LearnWorlds site locally, see every change at once, then publish it",
+  "scripts": {
+    "dev": "node site/tools/dev.js",
+    "preview": "node site/tools/dev.js",
+    "check": "node site/tools/check.js",
+    "status": "node site/tools/status.js",
+    "pull": "node site/tools/pull.js",
+    "push": "node site/tools/push.js",
+    "new-page": "node site/tools/new-page.js",
+    "build": "node site/tools/build.js"
+  },
+  "devDependencies": {
+    "playwright-core": "1.62.1"
+  }
+}

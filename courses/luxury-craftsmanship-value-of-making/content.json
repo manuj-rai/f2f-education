@@ -1,0 +1,155 @@
+{
+  "format": "reading",
+  "slug": "luxury-craftsmanship-value-of-making",
+  "title": "Craftsmanship and the New Meaning of Luxury",
+  "subtitle": "See why craft, detail and skilled making are becoming the quiet signals of luxury value.",
+  "card_description": "Learn why luxury value is moving from visible logos to construction, textile knowledge, time, heritage and artisan skill, and how designers can work with craft.",
+  "seo_description": "Free course on craft-led luxury: why construction, textile knowledge, time, heritage and artisan skill now signal value beyond the logo.",
+  "level": "Beginner",
+  "categories": ["fashion-design"],
+  "card_icon": "gem",
+  "card_topic": "Craft luxury",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "The New Luxury Code: Craftsmanship, Detail and the Value of Making",
+    "url": "https://www.fibre2fashion.com/industry-article/11903/the-new-luxury-code-craftsmanship-detail-and-the-value-of-making",
+    "authors": "Kshipra Kulkarni",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Explain why luxury value is shifting from logos to craft and detail.",
+    "Describe how textile knowledge and provenance shape a product’s perceived value.",
+    "Analyse how time, individual character and rare skill create craft-led value.",
+    "Reinterpret heritage techniques for contemporary products instead of reproducing them.",
+    "Use craft as a design language, supported by technology and the maker’s story."
+  ],
+  "audience": "Fashion and textile design students, designers, merchandisers and brand teams interested in craft, heritage textiles and how luxury value is changing.",
+  "about": "Luxury used to announce itself with a logo. Today, more of its value lies in details you have to look for. This free reading course is based on the Fibre2Fashion article by Kshipra Kulkarni, “The New Luxury Code: Craftsmanship, Detail and the Value of Making”. It explains why recognition is giving way to discernment and informed taste, and how time, individual character and rare skill create value in craft-led products. It ends with how designers can reinterpret heritage techniques, make artisans visible, use craft as a design language and combine it with technology.",
+  "lessons": [
+    { "title": "Luxury Beyond the Logo", "file": "01-luxury-beyond-logo.md" },
+    { "title": "How Skilled Making Creates Value", "file": "02-skilled-making-value.md" },
+    { "title": "Heritage, Makers and Craft-Led Design", "file": "03-heritage-makers-design.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "According to the course, why has recognition alone begun to offer less differentiation in luxury?",
+      "options": [
+        "Logos have been removed from most premium products",
+        "Prominent brands have become visible across many markets",
+        "Consumers can no longer afford recognisable labels",
+        "Craft-led products have become cheaper than branded ones"
+      ],
+      "answer": 1,
+      "feedback": "As prominent brands became widely visible and the luxury market more crowded, being recognised by everyone did less to set a product apart."
+    },
+    {
+      "type": "mc",
+      "q": "A shopper judges a fabric by its fibre content, weave structure, provenance and dyeing process. What does this illustrate?",
+      "options": [
+        "Reliance on instant brand recognition",
+        "A preference for speed and constant newness",
+        "Interest only in limited-edition releases",
+        "Informed taste built on knowledge"
+      ],
+      "answer": 3,
+      "feedback": "Greater access to information means fabrics are judged on less visible qualities too. Knowing why a textile is distinctive adds value and makes taste more informed."
+    },
+    {
+      "type": "tf",
+      "q": "The course argues that recognisable luxury labels no longer hold any appeal for consumers.",
+      "answer": false,
+      "feedback": "False. For some consumers a recognisable label still carries considerable appeal. A quieter, knowledge-based form of status is emerging alongside it."
+    },
+    {
+      "type": "mc",
+      "q": "Why does the time invested in a hand-embroidered garment add to its value?",
+      "options": [
+        "It guarantees the garment will never wear out",
+        "It lets the brand release collections more often",
+        "It communicates patience, skill and continuity in a fast culture",
+        "It lowers the overall cost of production"
+      ],
+      "answer": 2,
+      "feedback": "Craft runs to a slower rhythm that cannot be rushed without changing the result, so the product communicates patience, skill and continuity rather than speed."
+    },
+    {
+      "type": "mc",
+      "q": "Two garments made with the same hand technique differ slightly in stitch and texture. How does the course view this?",
+      "options": [
+        "As individual character, which can itself be a form of luxury",
+        "As a quality defect that should always be removed",
+        "As proof that the technique was rushed",
+        "As a sign that the pieces were machine-made"
+      ],
+      "answer": 0,
+      "feedback": "Small variations give each piece its own character. The appeal is not imperfection but the sense that the product is not interchangeable with another."
+    },
+    {
+      "type": "mc",
+      "q": "What kind of scarcity does craft introduce that marketing cannot easily create?",
+      "options": [
+        "Scarcity created by raising the price",
+        "Scarcity created by limited-edition releases",
+        "Scarcity created by restricting where products are sold",
+        "Scarcity of specialised skill that takes years to acquire"
+      ],
+      "answer": 3,
+      "feedback": "Some techniques take years to master, so few artisans can carry them out well. The rarity lies in the knowledge itself, not in a decision to make fewer units."
+    },
+    {
+      "type": "mc",
+      "q": "A designer wants to use a traditional weave in a modern collection. Which approach does the course recommend?",
+      "options": [
+        "Reproduce the weave exactly as it existed in the past",
+        "Reinterpret it through new silhouettes, colours, materials or applications",
+        "Replace the weave with a printed imitation of it",
+        "Keep it only for historical costume pieces"
+      ],
+      "answer": 1,
+      "feedback": "Heritage crafts stay relevant through reinterpretation, not exact reproduction. The craft keeps its cultural identity while gaining a new context for today’s consumers."
+    },
+    {
+      "type": "tf",
+      "q": "Showing artisans at work can give a garment a clearer sense of origin and add to its value.",
+      "answer": true,
+      "feedback": "True. When the maker becomes part of the story, the product no longer seems to come from an anonymous system, and this human element can be highly valuable."
+    },
+    {
+      "type": "mc",
+      "q": "Which example shows craftsmanship used as a design language rather than as decoration?",
+      "options": [
+        "Adding a small embroidered logo to a finished shirt",
+        "Printing a traditional motif on the packaging",
+        "Letting a woven structure determine how the garment falls",
+        "Sewing a hand-finished label into the hem"
+      ],
+      "answer": 2,
+      "feedback": "Craft becomes a design language when it shapes the garment itself, such as a woven structure determining its fall, rather than being applied at the end."
+    },
+    {
+      "type": "ma",
+      "q": "In which ways can technology support traditional craft, according to the course? (select all that apply)",
+      "options": [
+        "Documenting traditional processes",
+        "Connecting artisans with international consumers",
+        "Removing human decisions from handmade work",
+        "Helping designers develop motifs and experiment with patterns",
+        "Replacing the need for artisan skill"
+      ],
+      "answers": [0, 1, 3],
+      "feedback": "Technology can document processes, connect artisans with markets and support design development, while the human decisions that give handmade work its character remain."
+    }
+  ],
+  "glossary": [
+    { "term": "Craft-led product", "def": "A product whose appeal rests on skilled making, technique and detail rather than mainly on brand recognition." },
+    { "term": "Discernment", "def": "The ability to notice and judge quality that is not immediately obvious." },
+    { "term": "Provenance", "def": "The origin of a textile, craft or product: where, how and by whom it was made." },
+    { "term": "Weave structure", "def": "The way warp and weft threads interlace in a fabric, affecting its strength, drape and surface." },
+    { "term": "Surface technique", "def": "Work applied to the face of a fabric, such as embroidery or hand finishing, that adds texture or pattern." },
+    { "term": "Heritage craft", "def": "A traditional, often regional technique that carries generations of accumulated knowledge and cultural identity." },
+    { "term": "Reinterpretation", "def": "Adapting a traditional technique through new silhouettes, colours, materials or applications instead of reproducing it exactly." },
+    { "term": "Scarcity of skill", "def": "Exclusivity that comes from specialised expertise that takes years to acquire and that few artisans possess." },
+    { "term": "Design language", "def": "A consistent way of designing; craft becomes one when it shapes structure, silhouette and concept, not just decoration." }
+  ]
+}

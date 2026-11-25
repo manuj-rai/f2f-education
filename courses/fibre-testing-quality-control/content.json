@@ -1,0 +1,142 @@
+{
+  "format": "reading",
+  "slug": "fibre-testing-quality-control",
+  "title": "Fibre Testing Essentials: What Mills Check Before Spinning",
+  "subtitle": "Learn how fibre maturity, fineness, strength, length and moisture are tested, and what the results mean.",
+  "card_description": "A free reading course on raw-material fibre testing: maturity, cross-section, fineness, strength, length uniformity, cohesion, moisture regain, trash, neps and colour.",
+  "seo_description": "Free course on fibre testing for raw-material quality control: maturity, micronaire, strength, length uniformity, moisture regain, trash and neps.",
+  "level": "Beginner",
+  "categories": ["fibre-fundamentals"],
+  "card_icon": "flask-conical",
+  "card_topic": "Fibre testing",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Fibre Property Testing for Raw-Material Quality Control",
+    "url": "https://www.fibre2fashion.com/industry-article/11878/fibre-property-testing-for-raw-material-quality-control",
+    "authors": "Dr Lipsa Mohapatra",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain why mills test fibre before spinning and how they use results",
+    "Describe how cotton maturity and fineness are tested, and read micronaire correctly",
+    "Interpret fibre strength and elongation results, including the effect of gauge length",
+    "Calculate uniformity index and moisture regain, and explain what they show",
+    "Explain how cohesion, trash, neps and colour affect processing and quality"
+  ],
+  "audience": "Spinning mill and cotton-buying staff, quality-control trainees, and textile students who need to understand a fibre test report.",
+  "about": "Fibre properties set the limits of spinning performance and shape yarn and fabric quality, so mills test raw material before it is processed. This free reading course, based on a Fibre2Fashion article by Dr Lipsa Mohapatra, explains the core tests used in raw-material quality control, with examples drawn mainly from cotton. You will learn what maturity, cross-section, fineness, strength, elongation, length uniformity, cohesiveness and moisture regain mean, how each is measured and why it matters, then look at trash, neps, colour and stickiness. Worked examples cover maturity ratio, uniformity index and moisture regain. A short quiz checks your understanding.",
+  "lessons": [
+    { "title": "Fibre Structure: Maturity and Cross-Section", "file": "01-maturity-cross-section.md" },
+    { "title": "Fineness and the Micronaire Value", "file": "02-fineness-micronaire.md" },
+    { "title": "Fibre Strength and Elongation", "file": "03-strength-elongation.md" },
+    { "title": "Length, Uniformity and Cohesion", "file": "04-length-uniformity-cohesion.md" },
+    { "title": "Moisture Regain and Other Key Checks", "file": "05-moisture-other-checks.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "In the caustic soda method, a cotton sample has 75% normal fibres and 15% dead fibres. What is its maturity ratio?",
+      "options": ["0.30", "0.45", "1.00", "1.15"],
+      "answer": 2,
+      "feedback": "M = (N − D) ÷ 200 + 0.70, so (75 − 15) ÷ 200 = 0.30, plus 0.70 gives 1.00."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these problems are linked to immature cotton fibres? (select all that apply)",
+      "options": [
+        "More fibre breakage and yarn breaks",
+        "More neps",
+        "Different dye uptake from mature fibres",
+        "Less waste in processing"
+      ],
+      "answers": [0, 1, 2],
+      "feedback": "Thin-walled immature fibres break more easily, form neps and absorb dye differently. They tend to increase waste, not reduce it."
+    },
+    {
+      "type": "mc",
+      "q": "A cotton sample gives a low micronaire reading. What is the safest conclusion?",
+      "options": [
+        "The fibres are certainly fine and suit fine counts",
+        "The fibres may be fine, immature or both",
+        "The fibres are certainly immature and should be rejected",
+        "The sample contains too much trash"
+      ],
+      "answer": 1,
+      "feedback": "Micronaire reflects both fineness and maturity. A low value can mean fine fibres, immature fibres or both, so check a maturity measure too."
+    },
+    {
+      "type": "mc",
+      "q": "Cotton bundle strength was measured on a Pressley tester and on an HVI. Why might the two results not be directly comparable?",
+      "options": [
+        "The HVI cannot report strength in g/tex",
+        "The Pressley tester only tests single fibres",
+        "Only the Pressley tester records elongation",
+        "They test at different gauge lengths: zero and 1/8 inch"
+      ],
+      "answer": 3,
+      "feedback": "The Pressley tester breaks bundles at zero gauge and the HVI at 1/8 inch. Gauge length changes measured strength, so it must be stated."
+    },
+    {
+      "type": "tf",
+      "q": "Cotton and linen generally show much higher elongation at break than nylon and polyester.",
+      "answer": false,
+      "feedback": "Natural cellulosic fibres such as cotton and linen have low elongation. Wool and many man-made fibres, such as nylon and polyester, stretch much further."
+    },
+    {
+      "type": "mc",
+      "q": "A cotton has a mean length of 24 mm and an upper half mean length of 30 mm. What is its Uniformity Index?",
+      "options": ["6", "80", "125", "54"],
+      "answer": 1,
+      "feedback": "UI = (ML ÷ UHML) × 100 = (24 ÷ 30) × 100 = 80. Dividing the other way round gives 125, which UI can never reach."
+    },
+    {
+      "type": "mc",
+      "q": "What is the most likely effect of a high short fibre content on spinning?",
+      "options": [
+        "More thick and thin places, hairiness, fly and waste",
+        "A higher micronaire value",
+        "Lower moisture regain",
+        "A higher maturity ratio"
+      ],
+      "answer": 0,
+      "feedback": "Short fibres are hard to control in drafting, so a high SFC increases thick and thin places, hairiness, fly and waste."
+    },
+    {
+      "type": "tf",
+      "q": "The more cohesive a fibre is, the more smoothly it will draft.",
+      "answer": false,
+      "feedback": "Cohesion needs a balance. Too little causes web or sliver breakage and fly; too much hinders drafting and can give an uneven sliver."
+    },
+    {
+      "type": "mc",
+      "q": "A fibre sample weighs 112 g before oven-drying and 100 g after. What is its moisture regain?",
+      "options": ["10.7%", "88%", "12%", "112%"],
+      "answer": 2,
+      "feedback": "Regain = (W − D) ÷ D × 100 = 12 ÷ 100 × 100 = 12%. Dividing by 112 g instead gives 10.7%, which is the moisture content."
+    },
+    {
+      "type": "mc",
+      "q": "A dyed fabric shows small visible specks. Which fibre test result is most worth checking?",
+      "options": [
+        "Nep count per gram",
+        "Moisture regain",
+        "Uniformity Ratio",
+        "Crimp percentage"
+      ],
+      "answer": 0,
+      "feedback": "Neps, small knots of tangled fibre, can show as visible specks in yarn and fabric, especially after dyeing. AFIS reports nep count per gram."
+    }
+  ],
+  "glossary": [
+    { "term": "Maturity ratio", "def": "A single value for cotton maturity. In the caustic soda method, M = (N − D) ÷ 200 + 0.70." },
+    { "term": "Micronaire", "def": "Airflow-based cotton measure in µg/in that reflects both fibre fineness and maturity." },
+    { "term": "Tenacity", "def": "Breaking force divided by linear density, in g/tex or cN/tex; allows fibres of different fineness to be compared." },
+    { "term": "Gauge length", "def": "Distance between the tester jaws. Zero gauge (Pressley) and 1/8 inch (Stelometer, HVI) give different strength results." },
+    { "term": "UHML", "def": "Upper Half Mean Length: the mean length of the longer half of the fibres by weight." },
+    { "term": "Uniformity Index (UI)", "def": "UI = (ML ÷ UHML) × 100, reported by HVI. A higher UI means more uniform fibre length." },
+    { "term": "Short fibre content (SFC)", "def": "Percentage of fibres shorter than 12.7 mm (0.5 inch). A lower SFC means more uniform length." },
+    { "term": "Cohesiveness", "def": "The ability of fibres to cling together during processing, influenced by fibre surface, shape, crimp and spin finish." },
+    { "term": "Moisture regain", "def": "Weight of water as a percentage of the oven-dry weight of a fibre sample." },
+    { "term": "HVI and AFIS", "def": "Testing instruments. HVI tests cotton strength, length, trash and colour; AFIS reports maturity, length and neps." }
+  ]
+}

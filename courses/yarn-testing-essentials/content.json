@@ -1,0 +1,1178 @@
+{
+  "slug": "yarn-testing-essentials",
+  "title": "Yarn Testing Essentials: Six Properties Every Mill Checks",
+  "subtitle": "Learn how count, twist, strength, elongation, evenness and hairiness are measured, and what the numbers mean.",
+  "card_description": "A free, practical course on the six core yarn tests: count systems and conversions, twist, strength, elongation, uniformity and hairiness, with worked calculations.",
+  "label": "40 min · Online",
+  "card_icon": "microscope",
+  "card_topic": "Yarn testing",
+  "level": "Beginner",
+  "categories": [
+    "fibre-fundamentals"
+  ],
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Yarn Testing: Count, Twist, Strength, Elongation, Uniformity and Hairiness",
+    "url": "https://www.fibre2fashion.com/industry-article/11855/yarn-testing-count-twist-strength-elongation-uniformity-and-hairiness",
+    "authors": "Dr Lipsa Mohapatra (NIFT Bhubaneswar)",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain how direct and indirect count systems express yarn fineness",
+    "Calculate yarn count from a lea and convert between Ne, Tex, Denier and Nm",
+    "Describe how twist is tested and use the twist multiplier to compare yarns",
+    "Interpret strength and elongation results, including tenacity, RKM and CSP",
+    "Explain how evenness and hairiness are tested and why they affect fabric quality"
+  ],
+  "audience": "Spinning, weaving and knitting staff, quality-control trainees, textile and fashion students, and yarn buyers who need to read and question a yarn test report.",
+  "about": "Yarn quality shapes every later stage of textile production, from winding and weaving to how the finished fabric looks and performs. This free course, based on a Fibre2Fashion article by Dr Lipsa Mohapatra of NIFT Bhubaneswar, walks through the six properties that spinning mills and testing laboratories check as routine: count, twist, strength, elongation, uniformity and hairiness. For each one you will learn the definition, the units, how the test works and why the result matters in practice. Worked examples show how to find count from a lea, convert between count systems, and calculate twist multiplier, tenacity and elongation. A short quiz checks your understanding.",
+  "lessons": [
+    {
+      "title": "Why Yarn Testing Matters",
+      "sub": "Six routine yarn tests, and the two systems used to express yarn count",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Why Yarn Testing Matters",
+          "sub": "Six routine tests shape how a yarn runs and how the fabric performs",
+          "say": "Welcome. In this course we look at the yarn tests that spinning mills and laboratories run every day, starting with the one that underpins all the others: yarn count."
+        },
+        {
+          "type": "statement",
+          "big": "Yarn quality shapes **every later stage** of textile production.",
+          "small": "It affects how a yarn runs in winding, warping, weaving and knitting, and how the finished fabric looks and performs.",
+          "say": "A fault that starts in the yarn rarely stays there. It travels downstream as machine stoppages and fabric defects, which is why yarn properties are measured as a routine part of quality control, not as an occasional check."
+        },
+        {
+          "type": "chips",
+          "kicker": "Course map",
+          "title": "Six properties tested as routine",
+          "lead": "Spinning mills and testing laboratories measure these as part of quality control.",
+          "chips": [
+            {
+              "icon": "ruler",
+              "t": "Count"
+            },
+            {
+              "icon": "rotate-cw",
+              "t": "Twist"
+            },
+            {
+              "icon": "dumbbell",
+              "t": "Strength"
+            },
+            {
+              "icon": "move-horizontal",
+              "t": "Elongation"
+            },
+            {
+              "icon": "activity",
+              "t": "Uniformity"
+            },
+            {
+              "icon": "scan-eye",
+              "t": "Hairiness"
+            }
+          ],
+          "note": "For each property: the definition, units, testing principle and practical significance.",
+          "say": "We will take each property in turn and ask the same four questions: what it is, how it is expressed, how it is tested and why it matters. The final lesson brings them together, because no single number tells you whether a yarn is good."
+        },
+        {
+          "type": "definition",
+          "tag": "Definition",
+          "big": "**Yarn count** expresses the fineness of a yarn as a relationship between its length and its weight.",
+          "say": "Why not simply measure the diameter? Because yarn is soft and compressible, so its diameter changes under the slightest pressure. Length and weight can be measured accurately, so every count system is built on those two quantities."
+        },
+        {
+          "type": "compare",
+          "kicker": "Count systems",
+          "title": "Direct versus indirect count systems",
+          "left": {
+            "h": "Direct system",
+            "items": [
+              "Length is fixed, weight varies",
+              "Mass per unit length",
+              "Higher number means **coarser** yarn",
+              "Examples: Tex and Denier"
+            ]
+          },
+          "right": {
+            "h": "Indirect system",
+            "items": [
+              "Weight is fixed, length varies",
+              "Length per unit mass",
+              "Higher number means **finer** yarn",
+              "Examples: Ne, Worsted (Nw), Metric (Nm)"
+            ]
+          },
+          "say": "The quickest way to tell the two apart is to ask what happens to the number as the yarn gets thicker. In a direct system it goes up; in an indirect system it goes down. Mixing them up is an easy way to order the wrong yarn."
+        },
+        {
+          "type": "formula",
+          "kicker": "Direct systems",
+          "title": "Tex and Denier: mass per length",
+          "items": [
+            {
+              "h": "Tex",
+              "f": "Tex = (weight in g ÷ length in m) × 1000",
+              "p": "Weight in grams of 1,000 metres of yarn"
+            },
+            {
+              "h": "Denier",
+              "f": "Denier = (weight in g ÷ length in m) × 9000",
+              "p": "Weight in grams of 9,000 metres; widely used for filament yarns"
+            }
+          ],
+          "say": "Because the length is fixed, a direct count is simply a weight. A 30 tex yarn weighs 30 grams per kilometre; double the weight for the same length and you double the tex. Denier works the same way over 9,000 metres."
+        },
+        {
+          "type": "formula",
+          "kicker": "Indirect systems",
+          "title": "Ne, Worsted and Metric: length per weight",
+          "items": [
+            {
+              "h": "English count (Ne)",
+              "f": "Ne = (length in yd ÷ weight in lb) ÷ 840",
+              "p": "Number of 840-yard hanks that weigh one pound"
+            },
+            {
+              "h": "Worsted count (Nw)",
+              "f": "Nw = (length in yd ÷ weight in lb) ÷ 560",
+              "p": "Number of 560-yard hanks that weigh one pound"
+            },
+            {
+              "h": "Metric count (Nm)",
+              "f": "Nm = length in m ÷ weight in g",
+              "p": "Number of kilometre lengths that weigh one kilogram"
+            }
+          ],
+          "say": "Indirect systems count hanks instead. English count, used for cotton, asks how many 840-yard hanks make up a pound. Worsted uses a 560-yard hank, and metric count simply divides metres by grams, which is the same as kilometres per kilogram."
+        },
+        {
+          "type": "table",
+          "kicker": "English count",
+          "title": "Same pound, longer length, finer yarn",
+          "head": [
+            "Length in one pound (yd)",
+            "Hanks of 840 yd",
+            "English count"
+          ],
+          "rows": [
+            [
+              "840",
+              "1",
+              "1s"
+            ],
+            [
+              "4,200",
+              "5",
+              "5s"
+            ],
+            [
+              "8,400",
+              "10",
+              "10s"
+            ],
+            [
+              "16,800",
+              "20",
+              "20s"
+            ],
+            [
+              "33,600",
+              "40",
+              "40s"
+            ]
+          ],
+          "say": "Every extra 840 yards packed into the same pound raises the count by one. A 40s yarn has twice the length per pound of a 20s yarn, so it is the finer of the two. The small s after the number is how English counts are usually written."
+        },
+        {
+          "type": "reflect",
+          "q": "A supplier quotes a yarn simply as “30”. What else must you know before you can say whether it is fine or coarse?",
+          "say": "Keep that question in mind. In the next lesson we measure count in the laboratory and learn the conversion factors that let you move between systems with confidence."
+        }
+      ]
+    },
+    {
+      "title": "Measuring Count and Converting Systems",
+      "sub": "Wrap reels, balances, and the factors that link Ne, Tex, Denier and Nm",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Measuring and Converting Count",
+          "sub": "From a weighed lea to Tex, Denier and Nm in a few steps",
+          "say": "Now we move into the laboratory. You will see how count is measured, why a lea weighed in grains gives such a neat shortcut, and how to convert one count system into another."
+        },
+        {
+          "type": "list",
+          "kicker": "Method",
+          "title": "How count is measured",
+          "numbered": true,
+          "lead": "Count is found by measuring a known length of yarn and weighing it.",
+          "items": [
+            {
+              "t": "Wind a lea of 120 yards on a wrap reel",
+              "sub": "For cotton: 80 wraps on a reel 1.5 yards round",
+              "icon": "repeat"
+            },
+            {
+              "t": "Weigh the lea, often in grains",
+              "sub": "One pound equals 7,000 grains",
+              "icon": "scale"
+            },
+            {
+              "t": "Calculate the count, or read it directly",
+              "sub": "Quadrant and Knowles balances give the count directly",
+              "icon": "calculator"
+            }
+          ],
+          "say": "The method is simple on purpose. Fixing the length removes one variable, so the balance reading alone tells you the count. That is why some balances can be scaled to show the count straight away, with no calculation at all."
+        },
+        {
+          "type": "formula",
+          "kicker": "Lea shortcut",
+          "title": "Why 1000 ÷ grains gives Ne",
+          "items": [
+            {
+              "h": "Start from Ne",
+              "f": "Ne = (yards ÷ pounds) ÷ 840",
+              "p": "The definition of English count"
+            },
+            {
+              "h": "Insert a 120-yd lea",
+              "f": "Ne = (120 × 7000 ÷ W) ÷ 840",
+              "p": "W is the lea weight in grains; 7,000 grains make one pound"
+            },
+            {
+              "h": "Simplify",
+              "f": "Ne = 840,000 ÷ (840 × W) = 1000 ÷ W",
+              "p": "Count equals 1,000 divided by the lea weight in grains"
+            }
+          ],
+          "say": "With a 120-yard lea weighed in grains, the numbers cancel neatly: 120 times 7,000 is 840,000, and dividing by the 840-yard hank leaves exactly 1,000. The whole calculation collapses to a single division."
+        },
+        {
+          "type": "calc",
+          "kicker": "Worked example",
+          "title": "Finding count from a lea",
+          "given": [
+            "Lea length: 120 yards",
+            "Lea weight: 50 grains"
+          ],
+          "steps": [
+            "50 grains is 50 ÷ 7,000 of a pound",
+            "One pound would hold 120 × 7,000 ÷ 50 = 16,800 yd",
+            "16,800 ÷ 840 = 20 hanks per pound",
+            "Shortcut check: 1000 ÷ 50 = 20"
+          ],
+          "result": "The yarn is **20s Ne**",
+          "say": "Notice that 16,800 yards per pound is exactly the 20s line from the table in lesson one. A heavier lea would give a lower count, meaning a coarser yarn, which is just what you expect in an indirect system."
+        },
+        {
+          "type": "table",
+          "kicker": "Conversions",
+          "title": "Four conversions to remember",
+          "head": [
+            "From",
+            "To",
+            "Formula"
+          ],
+          "rows": [
+            [
+              "Ne",
+              "Tex",
+              "Tex = 590.5 ÷ Ne"
+            ],
+            [
+              "Tex",
+              "Denier",
+              "Denier = 9 × Tex"
+            ],
+            [
+              "Tex",
+              "Nm",
+              "Nm = 1000 ÷ Tex"
+            ],
+            [
+              "Nm",
+              "Ne",
+              "Ne = 0.5905 × Nm"
+            ]
+          ],
+          "say": "The factor 590.5 comes from turning 840 yards and one pound into metres and grams. Notice the pattern: between a direct and an indirect system you divide, because one rises as the other falls. Between two systems of the same kind you multiply."
+        },
+        {
+          "type": "calc",
+          "kicker": "Worked example",
+          "title": "Converting a 20s Ne yarn",
+          "given": [
+            "Count: 20s Ne, from the lea test"
+          ],
+          "steps": [
+            "Tex = 590.5 ÷ 20 ≈ 29.5 tex",
+            "Denier = 9 × 29.5 ≈ 266 denier",
+            "Nm = 1000 ÷ 29.5 ≈ 33.9",
+            "Check: 0.5905 × 33.9 ≈ 20 Ne"
+          ],
+          "result": "20s Ne ≈ 29.5 tex ≈ 266 denier ≈ Nm 33.9",
+          "say": "Always finish with a check in the opposite direction. If you land back on the count you started with, the arithmetic is sound. Small rounding differences are normal, so quote results to a sensible number of figures."
+        },
+        {
+          "type": "focus",
+          "kicker": "Instruments",
+          "icon": "scale",
+          "h": "Choosing the right count tool",
+          "p": "Most count testing combines a wrap reel with a balance. When only a short length of yarn is available, a different balance is needed.",
+          "label": "Tools",
+          "points": [
+            {
+              "t": "Wrap reel: winds a fixed 120-yard lea",
+              "icon": "repeat"
+            },
+            {
+              "t": "Quadrant and Knowles balances: give the count directly",
+              "icon": "scale"
+            },
+            {
+              "t": "Beesley balance: for short lengths, such as yarn taken from a fabric",
+              "icon": "scissors"
+            }
+          ],
+          "say": "The Beesley balance earns its place in fabric analysis. If a buyer hands you a swatch and asks what count was used, you can only unravel short pieces of yarn, and this balance is suited to exactly that situation."
+        },
+        {
+          "type": "cards",
+          "kicker": "Significance",
+          "title": "Why count comes first",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "calculator",
+              "h": "Basis for other tests",
+              "p": "Twist multiplier, tenacity and Count Strength Product all use count in their calculation."
+            },
+            {
+              "icon": "weight",
+              "h": "Fabric weight",
+              "p": "Count helps decide how heavy the finished fabric will be."
+            },
+            {
+              "icon": "hand",
+              "h": "Cover and handle",
+              "p": "Count shapes how well a fabric covers and how it feels."
+            }
+          ],
+          "say": "Get the count wrong and everything built on it is wrong too: the twist multiplier, the tenacity, the CSP, and ultimately the weight and feel of the fabric the customer receives. That is why count is the starting point for most other yarn tests."
+        }
+      ]
+    },
+    {
+      "title": "Twist: The Turns That Bind Fibres",
+      "sub": "Twist units, S and Z direction, twist multiplier and two ways to test",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Twist: The Turns That Bind Fibres",
+          "sub": "How twist is expressed, linked to count and measured on a twist tester",
+          "say": "A loose bundle of staple fibres has very little strength. Twist is what turns that bundle into a yarn, and in this lesson you will learn how it is expressed, compared across counts and tested."
+        },
+        {
+          "type": "definition",
+          "tag": "Definition",
+          "big": "**Twist** is the number of turns inserted per unit length of yarn. It binds the fibres together and gives the yarn its coherence and strength.",
+          "say": "Twist works by pressing the fibres against one another, so friction stops them slipping apart when the yarn is pulled. The more firmly they are gripped, the more of their own strength the yarn can use, at least up to a point we will come back to."
+        },
+        {
+          "type": "focus",
+          "kicker": "Units and direction",
+          "icon": "rotate-cw",
+          "h": "Expressing twist level and direction",
+          "p": "Twist is quoted in turns per inch (**TPI**) or turns per metre (**TPM**). Its direction is **S** or **Z**: hold the yarn vertically and see which letter's middle stroke matches the slope of the fibres.",
+          "label": "Key points",
+          "points": [
+            {
+              "t": "Z twist: fibres slope like the middle of a Z, rising to the right"
+            },
+            {
+              "t": "S twist: fibres slope like the middle of an S, rising to the left"
+            },
+            {
+              "t": "TPM = TPI × 39.37, because one metre is 39.37 inches"
+            }
+          ],
+          "say": "Direction matters as much as level. When single yarns are plied together, the ply twist is usually inserted in the opposite direction, which helps the finished yarn stay balanced instead of snarling."
+        },
+        {
+          "type": "formula",
+          "kicker": "Twist multiplier",
+          "title": "Linking twist to count",
+          "items": [
+            {
+              "h": "Twist multiplier",
+              "f": "TM = TPI ÷ √Ne",
+              "p": "Expresses twist level relative to count in the English cotton count system"
+            },
+            {
+              "h": "Rearranged",
+              "f": "TPI = TM × √Ne",
+              "p": "For the same TM, finer yarns need more turns per inch"
+            }
+          ],
+          "say": "Yarn diameter shrinks as count rises, and yarns with the same twist multiplier end up with roughly the same fibre angle, so TM compares twist intensity across counts. A higher TM gives a harder, stronger yarn, but only up to a limit."
+        },
+        {
+          "type": "calc",
+          "kicker": "Worked example",
+          "title": "Calculating twist multiplier",
+          "given": [
+            "Count: 36s Ne",
+            "Measured twist: 24 TPI"
+          ],
+          "steps": [
+            "√36 = 6",
+            "TM = 24 ÷ 6 = 4.0",
+            "In metric terms: 24 × 39.37 ≈ 945 TPM"
+          ],
+          "result": "TM = 4.0, about 945 turns per metre",
+          "say": "Turn it around and you can plan production. If a 36s yarn needs a TM of 4.0, the spinner sets about 24 turns per inch. For a 16s yarn at the same TM, the square root of 16 is 4, so only 16 turns per inch are needed."
+        },
+        {
+          "type": "compare",
+          "kicker": "Testing methods",
+          "title": "Two ways to test twist",
+          "left": {
+            "h": "Direct counting",
+            "items": [
+              "Untwist until fibres or plies lie parallel",
+              "Count the turns removed",
+              "Suits plied yarns",
+              "Suits filament yarns"
+            ]
+          },
+          "right": {
+            "h": "Untwist–retwist",
+            "items": [
+              "Suits single spun yarns",
+              "Fibres never lie fully parallel",
+              "Untwist, then retwist to original length",
+              "Total turns ÷ 2 gives the twist"
+            ]
+          },
+          "say": "Both methods use a twist tester fitted with a pre-tension weight and a revolution counter. Direct counting works when you can clearly see the components separate. In a single spun yarn you cannot, so the untwist–retwist method uses the change in length as its reference instead."
+        },
+        {
+          "type": "list",
+          "kicker": "Untwist–retwist",
+          "title": "The untwist–retwist method, step by step",
+          "numbered": true,
+          "items": [
+            {
+              "t": "Clamp the yarn in the twist tester under pre-tension",
+              "sub": "The pre-tension weight keeps test conditions consistent"
+            },
+            {
+              "t": "Untwist: the yarn extends as turns are removed",
+              "sub": "Twist had shortened the yarn; removing it lets the length grow"
+            },
+            {
+              "t": "Keep turning the same way: twist builds in the opposite direction",
+              "sub": "The yarn now shortens again"
+            },
+            {
+              "t": "Stop when the yarn returns to its original length",
+              "sub": "Read the total turns on the revolution counter"
+            },
+            {
+              "t": "Divide the total turns by two",
+              "sub": "Half removed the original twist; half inserted the reverse twist"
+            }
+          ],
+          "say": "For example, if the counter reads 360 turns on a 10-inch specimen, the yarn had 180 turns in those 10 inches, or 18 turns per inch. Remember both divisions: first by two, then by the specimen length."
+        },
+        {
+          "type": "focus",
+          "kicker": "Significance",
+          "icon": "trending-up",
+          "h": "More twist is not always stronger",
+          "p": "Yarn strength rises with twist up to an **optimum level**. Beyond it, strength falls, because the fibres become too oblique to the yarn axis.",
+          "label": "Twist also affects",
+          "points": [
+            {
+              "t": "Handle: more twist gives a harder yarn"
+            },
+            {
+              "t": "Lustre and bulk of the yarn"
+            },
+            {
+              "t": "Dye uptake"
+            },
+            {
+              "t": "Hairiness: higher twist generally reduces it"
+            }
+          ],
+          "say": "Past the optimum, each extra turn tilts the fibres further away from the direction of pull, so less of their strength resists the load. Extra twist also costs output, because every turn has to be inserted by the spinning machine."
+        },
+        {
+          "type": "reflect",
+          "q": "A knitter wants a soft, bulky yarn; a weaver wants a strong warp. How might their twist choices differ, and what does each give up?",
+          "say": "Think about the optimum and the side effects on handle, bulk and hairiness. There is rarely one right twist, only the right twist for the end use."
+        }
+      ]
+    },
+    {
+      "title": "Strength and Elongation",
+      "sub": "Breaking force, tenacity, RKM and CSP, and how far yarn stretches before breaking",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Strength and Elongation",
+          "sub": "How much load a yarn can take, and how far it stretches first",
+          "say": "Every yarn is pulled, bent and snatched on its way through winding, warping, sizing, weaving and knitting. This lesson covers how its resistance to those stresses is measured, and how to compare different yarns fairly."
+        },
+        {
+          "type": "definition",
+          "tag": "Definition",
+          "big": "**Yarn strength** is the force needed to break the yarn. It decides whether a yarn can withstand processing stresses without frequent breaks.",
+          "say": "Strength is the property that shows up most directly as lost time. Every break in winding or on the loom has to be found, mended and restarted, so weak yarn costs output long before anyone sees the fabric."
+        },
+        {
+          "type": "cards",
+          "kicker": "Measures",
+          "title": "Four ways to express strength",
+          "cols": 2,
+          "items": [
+            {
+              "icon": "weight",
+              "h": "Breaking force",
+              "p": "The force at break, in centinewtons (cN) or grams-force."
+            },
+            {
+              "icon": "scale",
+              "h": "Tenacity",
+              "p": "Breaking force divided by linear density, in **cN/tex**. Compares yarns of different counts fairly."
+            },
+            {
+              "icon": "ruler",
+              "h": "RKM (breaking length)",
+              "p": "The length of yarn, in kilometres, whose own weight equals its breaking force."
+            },
+            {
+              "icon": "calculator",
+              "h": "Count Strength Product (CSP)",
+              "p": "Lea strength in pounds multiplied by English count. Widely used in Indian spinning mills."
+            }
+          ],
+          "say": "Breaking force on its own favours coarse yarns, which are stronger simply because they contain more fibre. Tenacity, RKM and CSP all bring count into the picture, so fine and coarse yarns can be judged on the same footing. RKM is numerically equal to tenacity in grams-force per tex."
+        },
+        {
+          "type": "compare",
+          "kicker": "Test types",
+          "title": "Single-end test versus lea test",
+          "left": {
+            "h": "Single-end test",
+            "items": [
+              "One strand broken at a time",
+              "Modern testers use constant rate of extension",
+              "Strength and elongation recorded together"
+            ]
+          },
+          "right": {
+            "h": "Lea test",
+            "items": [
+              "A 120-yard skein broken as a whole",
+              "80 wraps on a 1.5-yard wrap reel",
+              "Lea strength in pounds feeds the CSP"
+            ]
+          },
+          "say": "The two tests answer slightly different questions. A single-end test shows the strength of individual lengths of yarn, while the lea test loads all 80 wraps together and gives one figure for the skein. That figure, in pounds, is what goes into the Count Strength Product."
+        },
+        {
+          "type": "cards",
+          "kicker": "Tester principles",
+          "title": "Three principles of tensile testers",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "move-horizontal",
+              "h": "Constant rate of extension",
+              "p": "CRE testers stretch the specimen at a steady rate. Examples include the Instron and Uster Tensorapid."
+            },
+            {
+              "icon": "trending-up",
+              "h": "Constant rate of loading",
+              "p": "CRL testers increase the load on the specimen at a steady rate."
+            },
+            {
+              "icon": "timer",
+              "h": "Constant rate of traverse",
+              "p": "CRT testers move one jaw at a steady rate. Found in older pendulum-lever machines."
+            }
+          ],
+          "say": "Results from different principles are not always directly comparable, so a test report should state which type of tester was used. CRE is the principle behind modern single-end testers, so it is the one you are most likely to meet."
+        },
+        {
+          "type": "formula",
+          "kicker": "Key formulas",
+          "title": "Calculating strength and elongation results",
+          "items": [
+            {
+              "h": "Tenacity",
+              "f": "Tenacity (cN/tex) = breaking force (cN) ÷ tex",
+              "p": "Strength per unit of linear density"
+            },
+            {
+              "h": "Elongation at break",
+              "f": "Elongation % = (extension at break ÷ initial length) × 100",
+              "p": "Increase in length at break, as a percentage of the original test length"
+            },
+            {
+              "h": "Count Strength Product",
+              "f": "CSP = lea strength (lb) × Ne",
+              "p": "Example: 110 lb lea strength on a 20s yarn gives CSP 2,200"
+            }
+          ],
+          "say": "Elongation is defined against the original test length, so always note the length used. It is recorded together with strength, on the same tensile tester and in the same test, so one break gives you both numbers."
+        },
+        {
+          "type": "calc",
+          "kicker": "Worked example",
+          "title": "One tensile test, two results",
+          "given": [
+            "Yarn: 29.5 tex (20s Ne), test length 500 mm",
+            "Breaking force 472 cN; extension at break 30 mm"
+          ],
+          "steps": [
+            "Tenacity = 472 ÷ 29.5 = 16.0 cN/tex",
+            "Elongation = (30 ÷ 500) × 100 = 6.0%",
+            "RKM equals tenacity in gf/tex: 16.0 ÷ 0.981 ≈ 16.3 km"
+          ],
+          "result": "16.0 cN/tex, 6.0% elongation, RKM about 16.3 km",
+          "say": "The RKM step converts centinewtons to grams-force, since one gram-force is about 0.981 centinewtons. Put another way, a 16.3-kilometre length of this yarn, hanging freely, would break under its own weight."
+        },
+        {
+          "type": "focus",
+          "kicker": "Elongation",
+          "icon": "chart-line",
+          "h": "Reading the load–elongation curve",
+          "p": "The tensile tester plots load against extension for every break. The **area under the curve** gives the work of rupture, which reflects the toughness of the yarn.",
+          "label": "Why elongation matters",
+          "points": [
+            {
+              "t": "Adequate elongation helps yarn absorb sudden loads in weaving and knitting"
+            },
+            {
+              "t": "Low elongation causes more end breaks"
+            },
+            {
+              "t": "More end breaks mean more loom stoppages"
+            }
+          ],
+          "say": "Two yarns can break at the same force and still behave very differently. The one that stretches further has a larger area under its curve, so it can absorb more of the sudden jerks a yarn meets on a loom or knitting machine."
+        },
+        {
+          "type": "reflect",
+          "q": "Two yarns break at the same force, but one stretches twice as far before breaking. Which would you put on a high-speed loom, and why?",
+          "say": "Use the idea of work of rupture to answer. Strength tells you the peak load a yarn can take; elongation tells you how much shock it can absorb on the way there."
+        }
+      ]
+    },
+    {
+      "title": "Uniformity and Hairiness",
+      "sub": "How consistent and how clean a yarn is, and how both are measured",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "Uniformity and Hairiness",
+          "sub": "Checking how consistent and how clean a yarn is along its length",
+          "say": "Count and strength describe a yarn on average. Uniformity and hairiness look along its length and at its surface, where many of the faults that customers actually see in fabric begin."
+        },
+        {
+          "type": "definition",
+          "tag": "Definition",
+          "big": "**Uniformity**, or evenness, is the consistency of mass per unit length along a yarn.",
+          "say": "No yarn is perfectly even, because the number of fibres in each cross-section varies. Evenness testing measures that variation, so that its causes can be found and kept within limits the end use can tolerate."
+        },
+        {
+          "type": "cards",
+          "kicker": "Measures",
+          "title": "Three ways to express evenness",
+          "cols": 3,
+          "items": [
+            {
+              "icon": "activity",
+              "h": "U%",
+              "p": "Mean deviation of yarn mass from the average, as a percentage."
+            },
+            {
+              "icon": "sigma",
+              "h": "CV%",
+              "p": "Coefficient of variation of yarn mass along the yarn."
+            },
+            {
+              "icon": "list-checks",
+              "h": "Imperfection index (IPI)",
+              "p": "Thin places, thick places and neps counted per kilometre, usually reported as one total."
+            }
+          ],
+          "say": "U% and CV% both describe overall variation, but CV% gives more weight to large deviations. For a normal pattern of variation, CV% is about 1.25 times U%. IPI is different: it counts individual faults you could point to on the yarn."
+        },
+        {
+          "type": "table",
+          "kicker": "Imperfections",
+          "title": "What counts as an imperfection",
+          "head": [
+            "Imperfection",
+            "Counting level",
+            "Comment"
+          ],
+          "rows": [
+            [
+              "Thin places",
+              "−50% of mean mass",
+              "Weak points that cause end breaks"
+            ],
+            [
+              "Thick places",
+              "+50% of mean mass",
+              "Can show as fabric faults"
+            ],
+            [
+              "Neps",
+              "+200% (ring-spun yarn)",
+              "Small knots of tangled fibre"
+            ],
+            [
+              "IPI",
+              "Total of all three",
+              "Reported per kilometre of yarn"
+            ]
+          ],
+          "say": "The percentages are sensitivity settings on the tester, measured against the average mass of the yarn. A thin place at minus 50 per cent has only half the normal mass at that point, which is why it is so likely to break."
+        },
+        {
+          "type": "focus",
+          "kicker": "Test principle",
+          "icon": "zap",
+          "h": "How a capacitance evenness tester works",
+          "p": "The most widely used method, as in the Uster Tester. The yarn passes between two **capacitor plates**; any change in yarn mass changes the capacitance, and this is recorded as an evenness signal.",
+          "label": "Supporting tools",
+          "points": [
+            {
+              "t": "Optical sensors: some modern testers measure yarn diameter instead",
+              "icon": "eye"
+            },
+            {
+              "t": "Spectrogram: identifies periodic faults, such as eccentric drafting rollers",
+              "icon": "bar-chart-3"
+            },
+            {
+              "t": "Uster Statistics: benchmarks a mill's yarn against world production",
+              "icon": "globe"
+            },
+            {
+              "t": "Seriplane or blackboard test: yarn wound on a black board, graded against standard photographs",
+              "icon": "scan-eye"
+            }
+          ],
+          "say": "A faulty rotating part leaves a fault that repeats at a regular length along the yarn, and the spectrogram shows it as a peak. The seriplane, by contrast, shows what the eye will see when yarn lies side by side, much as it does in fabric."
+        },
+        {
+          "type": "statement",
+          "big": "Uneven yarn hides **weak places** that break, and shows up in fabric as streaks, barré and cloudiness.",
+          "small": "Evenness affects both how the yarn runs and how the fabric looks.",
+          "say": "Faults like barré often become obvious only after the fabric has been woven or knitted and dyed, by which time the whole batch has been made. Catching unevenness at the yarn stage is far cheaper."
+        },
+        {
+          "type": "focus",
+          "kicker": "Hairiness",
+          "icon": "scan-eye",
+          "h": "Measuring the fibres that stick out",
+          "p": "**Hairiness** refers to fibre ends and loops protruding from the body of a yarn. Most testers are optical: protruding fibres scatter or interrupt a light beam, and photo detectors count or measure them.",
+          "label": "Measures",
+          "points": [
+            {
+              "t": "Uster H value: total length in cm of protruding fibres per cm of yarn; no unit"
+            },
+            {
+              "t": "Zweigle S3: number of hairs 3 mm or longer per 100 metres"
+            },
+            {
+              "t": "Shirley hairiness meter: counts hairs beyond a set distance from the yarn core"
+            }
+          ],
+          "say": "The H value has no unit because it divides centimetres by centimetres. It describes overall hairiness, while S3 counts only the longer hairs, which are the ones that tend to cause trouble in later processing."
+        },
+        {
+          "type": "chips",
+          "kicker": "Causes",
+          "title": "What drives hairiness",
+          "lead": "Hairiness depends on the fibre, the process and the condition of the machine.",
+          "chips": [
+            {
+              "icon": "ruler",
+              "t": "Fibre length"
+            },
+            {
+              "icon": "factory",
+              "t": "Spinning system"
+            },
+            {
+              "icon": "rotate-cw",
+              "t": "Twist level"
+            },
+            {
+              "icon": "gauge",
+              "t": "Spindle speed"
+            },
+            {
+              "icon": "cog",
+              "t": "Traveller condition"
+            }
+          ],
+          "note": "Compact-spun yarn is less hairy than conventional ring-spun yarn, and higher twist generally reduces hairiness.",
+          "say": "Longer fibres leave fewer free ends along each length of yarn, and twist binds the ends that are there more tightly into the yarn body. Compact spinning condenses the fibre strand before twist is inserted, which traps more of those ends."
+        },
+        {
+          "type": "list",
+          "kicker": "Significance",
+          "title": "Why hairiness matters",
+          "numbered": false,
+          "lead": "Some hairiness is welcome where a soft handle is needed. Too much causes problems:",
+          "items": [
+            {
+              "t": "Pilling on the finished fabric",
+              "icon": "circle-alert"
+            },
+            {
+              "t": "Fluff generation",
+              "icon": "wind"
+            },
+            {
+              "t": "Problems in sizing",
+              "icon": "droplets"
+            },
+            {
+              "t": "Less clarity on the fabric surface",
+              "icon": "eye"
+            }
+          ],
+          "say": "So the target is not zero hairiness but the right level for the end use. A crisp shirting needs a clean, clear surface, while a soft-handle fabric can benefit from some protruding fibre."
+        }
+      ]
+    },
+    {
+      "title": "How the Six Properties Connect",
+      "sub": "Reading yarn quality as a whole, plus a quick reference for every test",
+      "scenes": [
+        {
+          "type": "opener",
+          "title": "How the Six Properties Connect",
+          "sub": "Why yarn quality must be judged on the full set of results",
+          "say": "You now know how each property is defined and tested. In this final lesson we put them side by side and see how they influence one another, because that is how a yarn behaves in a real mill."
+        },
+        {
+          "type": "table",
+          "kicker": "Quick reference",
+          "title": "The six tests at a glance",
+          "head": [
+            "Property",
+            "Common measure",
+            "Principle or method",
+            "Typical instrument"
+          ],
+          "rows": [
+            [
+              "Count",
+              "Ne, Nm, Tex, Denier",
+              "Weight of a known length",
+              "Wrap reel and balance; Beesley balance"
+            ],
+            [
+              "Twist",
+              "TPI, TPM, TM",
+              "Direct counting; untwist–retwist",
+              "Twist tester"
+            ],
+            [
+              "Strength",
+              "cN, cN/tex, RKM, CSP",
+              "CRE, CRL, CRT; single-end and lea",
+              "Uster Tensorapid, Instron, lea tester"
+            ],
+            [
+              "Elongation",
+              "% at break",
+              "Recorded during the tensile test",
+              "Same as the strength tester"
+            ],
+            [
+              "Uniformity",
+              "U%, CV%, IPI",
+              "Capacitance; optical",
+              "Uster Tester"
+            ],
+            [
+              "Hairiness",
+              "H value, S3",
+              "Optical or photoelectric",
+              "Uster Tester, Zweigle, Shirley meter"
+            ]
+          ],
+          "say": "Use this table as a checklist when you read a test report. If a property is missing, ask why; and when a figure is given, check that its unit matches the system you expect."
+        },
+        {
+          "type": "stack",
+          "kicker": "Connections",
+          "title": "How the properties build on each other",
+          "layers": [
+            {
+              "icon": "ruler",
+              "h": "Count",
+              "p": "The base: used in twist multiplier, tenacity and CSP"
+            },
+            {
+              "icon": "rotate-cw",
+              "h": "Twist",
+              "p": "Gives the yarn its structure and lowers hairiness"
+            },
+            {
+              "icon": "activity",
+              "h": "Uniformity",
+              "p": "Thin places become weak points that cut strength and elongation"
+            },
+            {
+              "icon": "dumbbell",
+              "h": "Strength and elongation",
+              "p": "Show how the yarn handles stress in processing"
+            },
+            {
+              "icon": "scan-eye",
+              "h": "Hairiness",
+              "p": "With uniformity, shows how clean and consistent the yarn is"
+            }
+          ],
+          "say": "Notice how problems travel upwards. A count error distorts every figure calculated from it, and an uneven yarn shows up not only in its evenness report but also as lower strength and elongation, because a yarn tends to break at its weakest point."
+        },
+        {
+          "type": "example",
+          "tag": "Illustrative scenario",
+          "icon": "triangle-alert",
+          "h": "Good average strength, frequent breaks",
+          "p": "A yarn shows good average tenacity, yet it keeps breaking in warping and weaving. Its evenness report reveals many thin places. Each one is a weak point, so the yarn fails in use despite its strength figure.",
+          "points": [
+            "Strength alone did not explain the end breaks",
+            "Uniformity results pointed to the cause"
+          ],
+          "say": "This case is made up, but its logic comes straight from the way the properties connect. When one result looks fine and the yarn still misbehaves, look for the answer in a property that has not been checked."
+        },
+        {
+          "type": "statement",
+          "big": "A yarn that performs well on one property may still **fail in use** if it performs poorly on another.",
+          "small": "Judge yarn quality on the full set of properties, not on one headline number.",
+          "say": "That is the core message of yarn quality control. Count, twist, strength, elongation, uniformity and hairiness each give part of the picture; only together do they tell you how a yarn will run and how the fabric will look."
+        },
+        {
+          "type": "reflect",
+          "q": "Think of a yarn you specify, buy or test. Which of the six properties do you check today, and which might be hiding your next quality problem?",
+          "say": "If the honest answer is only count and strength, you now know which questions to ask next, and which tests can answer them."
+        },
+        {
+          "type": "recap",
+          "title": "Key takeaways",
+          "items": [
+            "Count expresses fineness: Tex and Denier rise with coarseness, Ne and Nm with fineness.",
+            "Ne = 1000 ÷ lea weight in grains; Tex = 590.5 ÷ Ne.",
+            "Twist binds fibres; TM = TPI ÷ √Ne, and strength peaks at an optimum twist.",
+            "Tenacity, RKM and CSP compare strength fairly; elongation comes from the same tensile test.",
+            "Evenness (U%, CV%, IPI) is tested by capacitance; hairiness (H, S3) optically.",
+            "Judge yarn on all six properties together, never on one number."
+          ],
+          "say": "Those six points are the backbone of the course. The PDF guide repeats the formulas and the glossary, so keep it handy the next time you read a yarn test report."
+        },
+        {
+          "type": "closing",
+          "title": "You can now read a yarn test report",
+          "sub": "Six properties, one picture of yarn quality. Thank you for learning with F2F Education.",
+          "say": "Well done for completing the course. Take the short quiz to check your understanding, and if you want to go deeper, the original Fibre2Fashion article by Dr Lipsa Mohapatra is linked with this course."
+        }
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "A mill lists one yarn as 40s Ne and another as 40 tex. Which yarn is finer?",
+      "options": [
+        "The 40 tex yarn, because tex rises as yarn gets finer",
+        "The 40s Ne yarn, because Ne is an indirect system",
+        "Both are equally fine, because the numbers match",
+        "It cannot be judged without knowing the fibre"
+      ],
+      "answer": 1,
+      "feedback": "Ne is indirect, so a higher number means finer yarn; tex is direct, so a higher number means coarser. 40s Ne is about 14.8 tex, far finer than 40 tex."
+    },
+    {
+      "type": "mc",
+      "q": "A 120-yard lea of cotton yarn weighs 40 grains. What is its English count (Ne)?",
+      "options": [
+        "16s",
+        "20s",
+        "25s",
+        "40s"
+      ],
+      "answer": 2,
+      "feedback": "For a 120-yard lea weighed in grains, Ne = 1000 ÷ lea weight. 1000 ÷ 40 = 25, so the yarn is 25s."
+    },
+    {
+      "type": "mc",
+      "q": "Using Tex = 590.5 ÷ Ne, approximately what is a 30s Ne yarn in tex?",
+      "options": [
+        "About 19.7 tex",
+        "About 17.7 tex",
+        "About 50.8 tex",
+        "About 270 tex"
+      ],
+      "answer": 0,
+      "feedback": "590.5 ÷ 30 ≈ 19.7 tex. The other figures come from multiplying instead of dividing, or from confusing tex with Nm or denier."
+    },
+    {
+      "type": "mc",
+      "q": "Why is the untwist–retwist method used for single spun yarns rather than direct counting?",
+      "options": [
+        "It is the only method that shows S or Z direction",
+        "It is designed mainly for filament yarns",
+        "Single spun yarns carry too little twist to count",
+        "Their fibres cannot be laid fully parallel, so turns cannot be counted directly"
+      ],
+      "answer": 3,
+      "feedback": "In single spun yarn the fibres never lie fully parallel, so the tester untwists, retwists to the original length, and halves the total turns."
+    },
+    {
+      "type": "mc",
+      "q": "A 25s Ne yarn has 20 turns per inch. What is its twist multiplier (TM)?",
+      "options": [
+        "0.8",
+        "4.0",
+        "5.0",
+        "100"
+      ],
+      "answer": 1,
+      "feedback": "TM = TPI ÷ √Ne. The square root of 25 is 5, so TM = 20 ÷ 5 = 4.0."
+    },
+    {
+      "type": "tf",
+      "q": "Adding more twist always makes a yarn stronger.",
+      "answer": false,
+      "feedback": "Strength rises with twist only up to an optimum. Beyond it, the fibres become too oblique to the yarn axis and strength falls."
+    },
+    {
+      "type": "mc",
+      "q": "Why is tenacity (cN/tex) more useful than breaking force when comparing yarns of different counts?",
+      "options": [
+        "It is measured on a lea, so it is more reliable",
+        "It already includes the elongation at break",
+        "It divides breaking force by linear density, allowing for count",
+        "It is quoted in pounds, so it matches the CSP"
+      ],
+      "answer": 2,
+      "feedback": "Coarser yarns break at higher forces simply because they contain more fibre. Dividing by linear density puts yarns of different counts on a fair footing."
+    },
+    {
+      "type": "mc",
+      "q": "In weaving, what is the most likely result of using yarn with low elongation at break?",
+      "options": [
+        "More end breaks and loom stoppages",
+        "Higher hairiness on the fabric surface",
+        "A coarser count than specified",
+        "Periodic faults on the spectrogram"
+      ],
+      "answer": 0,
+      "feedback": "Adequate elongation lets yarn absorb sudden loads in weaving and knitting. Low elongation means more end breaks and more loom stoppages."
+    },
+    {
+      "type": "mc",
+      "q": "In a capacitance evenness tester such as the Uster Tester, what makes the signal change?",
+      "options": [
+        "Light scattered by protruding fibres",
+        "A change in twist direction",
+        "The number of turns removed from the yarn",
+        "A change in yarn mass between the capacitor plates"
+      ],
+      "answer": 3,
+      "feedback": "The yarn runs between two capacitor plates, and any change in mass changes the capacitance, which is recorded as the evenness signal. Light scattering is used for hairiness."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these generally reduce yarn hairiness? (select all that apply)",
+      "options": [
+        "Higher twist",
+        "Compact spinning instead of conventional ring spinning",
+        "Lower twist",
+        "Measuring S3 instead of the Uster H value"
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "feedback": "Higher twist binds fibre ends into the yarn, and compact-spun yarn is less hairy than ring-spun yarn. Changing the test method changes the measurement, not the yarn."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Tex",
+      "def": "Direct count: weight in grams of 1,000 metres of yarn. A higher tex means a coarser yarn."
+    },
+    {
+      "term": "Denier",
+      "def": "Direct count: weight in grams of 9,000 metres of yarn. Denier = 9 × Tex; widely used for filament yarns."
+    },
+    {
+      "term": "English count (Ne)",
+      "def": "Indirect count: number of 840-yard hanks that weigh one pound. A higher Ne means a finer yarn."
+    },
+    {
+      "term": "Metric count (Nm)",
+      "def": "Indirect count: number of kilometre lengths that weigh one kilogram, i.e. metres per gram. Ne = 0.5905 × Nm."
+    },
+    {
+      "term": "TPI / TPM",
+      "def": "Turns per inch or turns per metre: the twist level in a yarn. TPM = TPI × 39.37."
+    },
+    {
+      "term": "S and Z twist",
+      "def": "Twist direction. With the yarn held vertically, the fibres slope like the middle stroke of the letter S or Z."
+    },
+    {
+      "term": "Twist multiplier (TM)",
+      "def": "TM = TPI ÷ √Ne. Expresses twist relative to count, so yarns of different counts can be compared."
+    },
+    {
+      "term": "Tenacity",
+      "def": "Breaking force divided by linear density, usually in cN/tex. Allows a fair strength comparison between yarns of different counts."
+    },
+    {
+      "term": "RKM",
+      "def": "Breaking length: the length of yarn, in kilometres, whose own weight equals its breaking force."
+    },
+    {
+      "term": "Count Strength Product (CSP)",
+      "def": "Lea strength in pounds multiplied by English count. Widely used in Indian spinning mills."
+    },
+    {
+      "term": "CRE, CRL, CRT",
+      "def": "Tensile tester principles: constant rate of extension, constant rate of loading and constant rate of traverse."
+    },
+    {
+      "term": "U% and CV%",
+      "def": "Evenness measures: U% is the mean deviation of yarn mass from the average; CV% is its coefficient of variation."
+    },
+    {
+      "term": "Imperfection index (IPI)",
+      "def": "Total of thin places (−50%), thick places (+50%) and neps (+200% for ring-spun yarn) per kilometre of yarn."
+    },
+    {
+      "term": "H value and S3",
+      "def": "Hairiness measures. Uster H: total cm of protruding fibre per cm of yarn. Zweigle S3: hairs 3 mm or longer per 100 m."
+    }
+  ]
+}

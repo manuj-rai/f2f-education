@@ -1,0 +1,163 @@
+{
+  "format": "reading",
+  "slug": "digital-first-fashion-production",
+  "title": "From Forecast to Order: Digital-First Fashion Production",
+  "subtitle": "How try-ons, pre-orders and 3D tools could let fashion sell first and make later.",
+  "card_description": "Learn how digital try-ons, pre-orders, 3D weaving and small batches could move fashion from forecasts to demand-led orders, and what this means for suppliers.",
+  "seo_description": "Free course on digital-first fashion production: forecasting, virtual try-ons, pre-orders, made-to-order, small batches and supplier needs.",
+  "level": "Beginner",
+  "categories": ["apparel-production"],
+  "card_icon": "workflow",
+  "card_topic": "Digital production",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Could Digitalisation Change Fashion's Production Model?",
+    "url": "https://www.fibre2fashion.com/industry-article/11917/could-digitalisation-change-fashions-production-model",
+    "authors": "Scarlett Buckley",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Explain why mass fashion production depends on early forecasts.",
+    "Describe how overproduction and returns create waste and new regulation.",
+    "Identify digital signals that reveal demand before an order exists.",
+    "Compare show-first, make-later models and where they fit best.",
+    "Assess what demand-led production asks of mills and factories."
+  ],
+  "audience": "Sourcing and production teams, merchandisers, mill and factory managers, brand planners and students interested in digital, demand-led manufacturing.",
+  "about": "Fashion has long made clothes first and sold them second, guided by forecasts locked in months ahead. This free course, based on the Fibre2Fashion article by Scarlett Buckley, explores whether digital tools could reverse that order. You will see why forecasting leads to unsold stock, how the EU ban on destroying unsold clothing raises the stakes, and how virtual try-ons, body scanning, pre-orders and 3D weaving could turn shopper data into production decisions. You will also learn why smaller batches do not automatically mean less clothing, and what demand-led production asks of mills and factories.",
+  "lessons": [
+    { "title": "Why Fashion Produces on Forecasts", "file": "01-forecasts.md" },
+    { "title": "Digital Shoppers and Demand Signals", "file": "02-demand-signals.md" },
+    { "title": "Show It First, Make It Later", "file": "03-show-first-make-later.md" },
+    { "title": "Small Batches and What Suppliers Need", "file": "04-what-suppliers-need.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "Why do fashion brands usually lock in quantities by style, colour and size months before a collection reaches the shops?",
+      "options": [
+        "Shoppers place their orders that far in advance",
+        "EU law requires production plans to be filed early",
+        "Roll-bought fabric, batch dyeing and layered cutting make large orders cheaper",
+        "Factories prefer to work without minimum order quantities"
+      ],
+      "answer": 2,
+      "feedback": "Manufacturing economics drive early commitment: fabric is bought by the roll, dyed by the batch and cut in layers, so unit cost falls as orders grow."
+    },
+    {
+      "type": "mc",
+      "q": "Under the ESPR ban, what must a large EU fashion company do with unsold clothing?",
+      "options": [
+        "Sell it, donate it or prepare it for reuse",
+        "Send it for recycling within one year",
+        "Incinerate it under controlled conditions",
+        "Store it until the next season"
+      ],
+      "answer": 0,
+      "feedback": "The ban counts recycling, incineration and landfill as destruction. Unsold items must be sold, donated or prepared for reuse."
+    },
+    {
+      "type": "tf",
+      "q": "Producing closer to demand will automatically mean the fashion industry makes fewer clothes overall.",
+      "answer": false,
+      "feedback": "False. Shein’s demand-led model keeps unsold stock low per style but has fuelled rapid growth. The outcome depends on how brands use the tools."
+    },
+    {
+      "type": "mc",
+      "q": "Why are retailers investing in virtual try-on, body scanning and online size finders?",
+      "options": [
+        "To replace physical stores entirely",
+        "To collect data for advertising only",
+        "To shorten delivery times",
+        "To cut returns, most of which come down to look or fit"
+      ],
+      "answer": 3,
+      "feedback": "About one in five garments bought online is returned, and around 70 per cent of those returns relate to how the item looks or fits."
+    },
+    {
+      "type": "mc",
+      "q": "A shopper orders the same dress in sizes 10, 12 and 14, planning to send two back. What is this called?",
+      "options": [
+        "Pre-ordering",
+        "Bracketing",
+        "Test-and-repeat",
+        "Made-to-order"
+      ],
+      "answer": 1,
+      "feedback": "Bracketing means ordering several sizes or colours to try at home. Inconsistent sizing encourages it, and each return carries real production costs."
+    },
+    {
+      "type": "ma",
+      "q": "Which online behaviours can signal demand before an order is placed? (select all that apply)",
+      "options": [
+        "Try-on sessions",
+        "Abandoned baskets",
+        "Wish lists",
+        "Factory minimum order quantities",
+        "Last season’s markdown prices"
+      ],
+      "answers": [0, 1, 2],
+      "feedback": "Try-ons, abandoned baskets, size selections and wish lists all point to demand that has not yet become an order."
+    },
+    {
+      "type": "mc",
+      "q": "What makes Unspun’s 3D weaving approach different from conventional garment making?",
+      "options": [
+        "It uses body scans to print fabric patterns",
+        "It sews garments faster with robotic arms",
+        "It goes from yarn to garment without weaving flat fabric, cutting or sewing",
+        "It dyes finished garments to order"
+      ],
+      "answer": 2,
+      "feedback": "The machine weaves the garment directly from yarn, which aims to make one-off, made-to-order production affordable."
+    },
+    {
+      "type": "mc",
+      "q": "Which product is the best candidate for made-to-order production?",
+      "options": [
+        "Tailored workwear, where fit matters and styles change slowly",
+        "A trend-led party top bought on impulse",
+        "A fast-selling seasonal print",
+        "A low-cost basic wanted for next-day delivery"
+      ],
+      "answer": 0,
+      "feedback": "Made-to-order works best where fit matters and styles change slowly, such as denim, tailoring and workwear. Impulse buys may be lost to the wait."
+    },
+    {
+      "type": "mc",
+      "q": "A mill holds fabric undyed and dyes it once a brand confirms orders. What is the main trade-off for the mill?",
+      "options": [
+        "The fabric can no longer be sold to other brands",
+        "Colours can no longer follow demand",
+        "Brands must order larger quantities",
+        "It holds stock for longer, which ties up cash"
+      ],
+      "answer": 3,
+      "feedback": "Dyeing later lets stock become whichever colour is selling, but the mill carries that stock, and its cost, for longer."
+    },
+    {
+      "type": "mc",
+      "q": "When a brand stops guessing order sizes, someone still holds fabric and capacity. What does the course suggest suppliers aim for?",
+      "options": [
+        "Absorbing the cost of flexibility to win more orders",
+        "Flexibility that is paid for, such as longer-term capacity agreements",
+        "Refusing all orders below their usual minimum",
+        "Moving all production next to the brand’s head office"
+      ],
+      "answer": 1,
+      "feedback": "Suppliers should price flexibility rather than absorb it. Longer-term capacity agreements can share risk more fairly than one-off orders."
+    }
+  ],
+  "glossary": [
+    { "term": "Demand forecasting", "def": "Estimating, months before production, how many units of each style, colour and size will sell." },
+    { "term": "Minimum order quantity (MOQ)", "def": "The smallest order a factory or mill will accept, set to cover the time and cost of setting up production." },
+    { "term": "Ecodesign for Sustainable Products Regulation (ESPR)", "def": "EU law on product sustainability that bans large companies from destroying unsold clothing, accessories and footwear." },
+    { "term": "Bracketing", "def": "Ordering several sizes or colours of the same item to try at home, then returning those not kept." },
+    { "term": "Virtual showroom", "def": "A digital space where wholesale buyers view and order collections from 3D samples instead of physical ones." },
+    { "term": "Pre-order", "def": "Selling a style before it is made, and committing to production once enough customers have paid." },
+    { "term": "Made-to-order", "def": "Production that starts only after a customer has bought the garment." },
+    { "term": "3D weaving", "def": "A process that turns yarn directly into a garment, skipping flat fabric weaving, cutting and sewing." },
+    { "term": "Test-and-repeat", "def": "Releasing styles in small quantities, tracking sales in real time and reordering only those that perform." },
+    { "term": "Changeover", "def": "Switching a production line from one style to another; every changeover costs set-up time." }
+  ]
+}

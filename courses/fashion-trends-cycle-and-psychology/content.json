@@ -1,0 +1,162 @@
+{
+  "format": "reading",
+  "slug": "fashion-trends-cycle-and-psychology",
+  "title": "How Fashion Trends Rise, Spread and Return",
+  "subtitle": "Follow a trend from first idea to peak, decline and revival, and learn what drives it.",
+  "card_description": "Understand the fashion cycle, the psychology of belonging and distinction, and how algorithms, creators and commerce speed trends up and wear them out.",
+  "seo_description": "Free course on the fashion cycle: how trends emerge, peak, decline and return, and the psychology and business behind them.",
+  "level": "Beginner",
+  "categories": ["fashion-design"],
+  "card_icon": "trending-up",
+  "card_topic": "Fashion trends",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "The Fashion Cycle Explained: How Trends Rise, Peak and Decline",
+    "url": "https://www.fibre2fashion.com/industry-article/11893/the-fashion-cycle-explained-how-trends-rise-peak-and-decline",
+    "authors": "Kshipra Kulkarni",
+    "published": "Oct 2026"
+  },
+  "source2": {
+    "title": "The Psychology and Business Behind Fashion Trends",
+    "url": "https://www.fibre2fashion.com/industry-article/11904/the-psychology-and-business-behind-fashion-trends",
+    "authors": "Kshipra Kulkarni",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Describe the stages of the fashion cycle, from first idea to decline.",
+    "Explain how culture and consumer psychology shape what people want to wear.",
+    "Analyse how algorithms, creators and commercial decisions accelerate trends.",
+    "Distinguish short-lived attention spikes from trends with lasting relevance.",
+    "Explain why past styles return and how modern forecasting reads culture."
+  ],
+  "audience": "Fashion design and merchandising students, designers, buyers, brand and retail teams, and anyone curious about why fashion trends come and go.",
+  "about": "Why does a look dominate one season and feel dated the next? This free reading course draws on two Fibre2Fashion articles by Kshipra Kulkarni: “The Fashion Cycle Explained: How Trends Rise, Peak and Decline” and “The Psychology and Business Behind Fashion Trends”. It follows a trend through the stages of the fashion cycle, explains the psychology of belonging and distinction that keeps trends moving, and shows how algorithms, creators, brands and retailers speed trends up and wear them out. It ends with what makes a trend last, why past styles return and how forecasters combine data with cultural insight.",
+  "lessons": [
+    { "title": "The Fashion Cycle, Stage by Stage", "file": "01-fashion-cycle-stages.md" },
+    { "title": "Culture, Identity and the Consumer", "file": "02-culture-identity-consumer.md" },
+    { "title": "Algorithms, Creators and Commerce", "file": "03-algorithms-creators-commerce.md" },
+    { "title": "Why Trends Last, Fade or Return", "file": "04-last-fade-return.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "A designer shows a striking new silhouette on the runway. According to the course, what decides whether it becomes a trend?",
+      "options": [
+        "How many fashion editors attend the show",
+        "How strongly it connects with the cultural moment",
+        "Whether it uses an expensive new material",
+        "How quickly factories can produce it"
+      ],
+      "answer": 1,
+      "feedback": "A runway appearance alone does not create a trend. Its success depends on how strongly the idea connects with the cultural moment."
+    },
+    {
+      "type": "tf",
+      "q": "A trend’s peak is often its strongest commercial phase, yet it also marks the beginning of saturation.",
+      "answer": true,
+      "feedback": "True. As the look becomes familiar everywhere, sales are strong, but its power to signal individuality weakens and consumers start seeking fresher alternatives."
+    },
+    {
+      "type": "mc",
+      "q": "A well-made jacket from a few seasons ago still fits and functions, but now looks dated. What does this illustrate?",
+      "options": [
+        "Poor garment construction",
+        "Physical wear and tear",
+        "A failed revival",
+        "Perceptual fashion obsolescence"
+      ],
+      "answer": 3,
+      "feedback": "In fashion, obsolescence is often perceptual rather than physical: the garment still works, but the cultural context around it has changed."
+    },
+    {
+      "type": "mc",
+      "q": "During a period of economic uncertainty, which preferences does the course suggest consumers may lean towards?",
+      "options": [
+        "Bold colour and experimental styling",
+        "Expressive, attention-grabbing dressing",
+        "Practicality, comfort and longevity",
+        "Frequent one-season purchases"
+      ],
+      "answer": 2,
+      "feedback": "Trends reflect the cultural mood. Economic uncertainty can encourage practicality, comfort and longevity, while optimism favours colour and expressive dressing."
+    },
+    {
+      "type": "mc",
+      "q": "Which tension in consumer psychology keeps fashion trends evolving?",
+      "options": [
+        "Fitting into a cultural moment versus maintaining personal distinction",
+        "Low prices versus high garment quality",
+        "Comfort versus durability",
+        "Shopping online versus shopping in store"
+      ],
+      "answer": 0,
+      "feedback": "People want to belong and to stand out. When a look becomes commonplace, consumers reinterpret it to regain distinction, and the cycle moves on."
+    },
+    {
+      "type": "mc",
+      "q": "Which sequence describes the self-reinforcing loop that social platform algorithms can create?",
+      "options": [
+        "Design, production, retail, markdown",
+        "Imitation, decline, revival, peak",
+        "Exposure, interest, imitation, more content, greater exposure",
+        "Runway, magazine, retailer, consumer"
+      ],
+      "answer": 2,
+      "feedback": "Algorithms boost what people engage with. Exposure drives interest and imitation, which creates more content and still greater exposure."
+    },
+    {
+      "type": "ma",
+      "q": "Which signals can reveal changing consumer preferences before they appear in traditional market data? (select all that apply)",
+      "options": [
+        "Search patterns",
+        "Engagement rates",
+        "A fixed seasonal design calendar",
+        "Social conversations",
+        "Last season’s production volumes"
+      ],
+      "answers": [0, 1, 3],
+      "feedback": "Search patterns, engagement rates, purchasing behaviour and social conversations show what consumers are seeking and discussing, often before sales data does."
+    },
+    {
+      "type": "tf",
+      "q": "If a look gains huge visibility on social media, it is guaranteed lasting cultural relevance.",
+      "answer": false,
+      "feedback": "False. Visibility alone does not guarantee relevance. Trends that connect with deeper attitudes and invite reinterpretation tend to last longer."
+    },
+    {
+      "type": "mc",
+      "q": "A historical silhouette returns, redesigned with modern proportions. What makes a revival like this work?",
+      "options": [
+        "Exact reproduction of the original garment",
+        "Scarcity and a high price point",
+        "Celebrity endorsement alone",
+        "Nostalgia for recognition, plus reinterpretation for relevance"
+      ],
+      "answer": 3,
+      "feedback": "Nostalgia gives the familiar recognition, while contemporary reinterpretation gives it renewed relevance. This is why fashion moves cyclically rather than linearly."
+    },
+    {
+      "type": "mc",
+      "q": "According to the course, what sets the most perceptive trend forecasters apart today?",
+      "options": [
+        "They rely only on runway shows and seasonal collections",
+        "They combine data with intuition and examine the cultural forces behind patterns",
+        "They let platform algorithms decide which trends to follow",
+        "They focus only on what consumers bought last season"
+      ],
+      "answer": 1,
+      "feedback": "Modern forecasting reads culture as well as data, asking why ideas resonate at a particular moment and what people will care about next."
+    }
+  ],
+  "glossary": [
+    { "term": "Fashion cycle", "def": "The path a style follows as it is created, adopted, reaches a peak, becomes saturated and declines." },
+    { "term": "Trend forecasting", "def": "Studying consumer behaviour, culture, technology and visual culture to spot emerging patterns and judge which ideas will gain relevance." },
+    { "term": "Early adopters", "def": "The first people to take up a new aesthetic, such as editors, stylists, influencers and creative communities, drawn by its novelty." },
+    { "term": "Saturation", "def": "The point at which a trend is so widely seen that it loses its novelty and its power to signal individuality." },
+    { "term": "Visual fatigue", "def": "Weariness with an aesthetic caused by repeated exposure, which drives a trend’s decline." },
+    { "term": "Fashion obsolescence", "def": "When a garment looks outdated because its cultural context has changed, even though it is still functional and well designed." },
+    { "term": "Feedback loop", "def": "A self-reinforcing cycle, such as exposure on social platforms leading to imitation, more content and still greater exposure." },
+    { "term": "Digital creator", "def": "A person who shares fashion content directly with an engaged online community, spreading trends through trust and identification." },
+    { "term": "Revival", "def": "The return of an earlier silhouette, colour, motif or technique, made relevant again through contemporary reinterpretation." }
+  ]
+}

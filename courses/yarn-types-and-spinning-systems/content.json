@@ -1,0 +1,164 @@
+{
+  "format": "reading",
+  "slug": "yarn-types-and-spinning-systems",
+  "title": "Yarn Types and Spinning Systems Compared",
+  "subtitle": "Learn how ring, rotor, air-jet, friction, core-spun and filament yarns are made, and when to use each.",
+  "card_description": "A free reading course comparing ring, rotor, air-jet, friction, core-spun and filament yarns: how each is formed, its structure and properties, and where it is used.",
+  "seo_description": "Free course comparing ring, rotor, air-jet, friction, core-spun and filament yarns: how each is made, its structure, properties and end uses.",
+  "level": "Beginner",
+  "categories": ["fibre-fundamentals"],
+  "card_icon": "cable",
+  "card_topic": "Yarn types",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Yarn Properties and Applications of Ring-Spun, Rotor-Spun, Core-Spun and Filament Yarns",
+    "url": "https://www.fibre2fashion.com/industry-article/11905/yarn-properties-and-applications-of-ring-spun-rotor-spun-core-spun-and-filament-yarns",
+    "authors": "Dr Lipsa Mohapatra",
+    "published": "Nov 2026"
+  },
+  "source2": {
+    "title": "An Overview of Open-End Spinning: Rotor, Air-Jet and Friction Spinning",
+    "url": "https://www.fibre2fashion.com/industry-article/11900/an-overview-of-open-end-spinning-rotor-air-jet-and-friction-spinning",
+    "authors": "Dr Lipsa Mohapatra",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain how yarn structure shapes strength, evenness, hairiness and handle",
+    "Describe how ring spinning inserts twist and why its speed is limited",
+    "Explain the open-end principle and compare rotor, air-jet and friction spinning",
+    "Describe how core-spun and filament yarns are made and used",
+    "Choose a suitable yarn type for a product and its end use"
+  ],
+  "audience": "Textile and fashion students, yarn and fabric buyers, merchandisers, and spinning, weaving or knitting staff who want to compare yarn types.",
+  "about": "The same cotton can become a soft, fine shirting yarn or a firm, economical denim yarn, depending on how it is spun. This free reading course draws on two Fibre2Fashion articles by Dr Lipsa Mohapatra: “Yarn Properties and Applications of Ring-Spun, Rotor-Spun, Core-Spun and Filament Yarns” and “An Overview of Open-End Spinning: Rotor, Air-Jet and Friction Spinning”. You will see how ring, rotor, air-jet and friction spinning insert twist and build different yarn structures, and how core-spun and filament yarns add strength, stretch and engineered performance. It ends with a practical guide to choosing the right yarn for each end use.",
+  "lessons": [
+    { "title": "Why Structure Matters: Ring-Spun Yarn", "file": "01-ring-spun-yarn.md" },
+    { "title": "The Open-End Principle and Rotor Spinning", "file": "02-open-end-rotor-spinning.md" },
+    { "title": "Air-Jet and Friction Spinning", "file": "03-air-jet-friction-spinning.md" },
+    { "title": "Core-Spun and Filament Yarns", "file": "04-core-spun-filament-yarns.md" },
+    { "title": "Choosing the Right Yarn Type", "file": "05-choosing-yarn-type.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "What sets the speed ceiling of ring spinning?",
+      "options": [
+        "Twist is inserted by rotating the whole yarn package",
+        "Fibres must first be separated into individual fibres",
+        "Wrapper fibres must be tightened by compressed air",
+        "It can only spin coarse counts"
+      ],
+      "answer": 0,
+      "feedback": "In ring spinning the rotating package inserts the twist, so package rotation and traveller speed cap output. Newer systems separate twist insertion from winding."
+    },
+    {
+      "type": "mc",
+      "q": "How does compact spinning improve on conventional ring spinning?",
+      "options": [
+        "It feeds sliver directly, eliminating the roving stage",
+        "It wraps staple fibres around a filament core",
+        "It condenses the fibre strand before twist, reducing hairiness",
+        "It inserts false twist with swirling compressed air"
+      ],
+      "answer": 2,
+      "feedback": "Compact spinning condenses the fibre strand before twist insertion, so fewer fibre ends escape. The yarn is less hairy and can be stronger and more even."
+    },
+    {
+      "type": "mc",
+      "q": "In open-end spinning, how is twist inserted into the yarn?",
+      "options": [
+        "By rotating the bobbin on a spindle",
+        "At the open end of the forming yarn, while the package only winds",
+        "By entangling continuous filaments with an air jet",
+        "By drafting roving between pairs of rollers"
+      ],
+      "answer": 1,
+      "feedback": "Fibres are separated, reassembled and twisted at the open yarn end. The package only winds, which allows higher delivery speeds and larger packages."
+    },
+    {
+      "type": "tf",
+      "q": "Air-jet spinning is a true open-end system, in the same way as rotor and friction spinning.",
+      "answer": false,
+      "feedback": "False. Air-jet spinning keeps the fibre strand continuous and wraps surface fibres around a core. It is grouped with open-end systems for its high productivity from sliver."
+    },
+    {
+      "type": "mc",
+      "q": "Compared with ring-spun yarn of a similar count, how does rotor-spun yarn generally differ?",
+      "options": [
+        "It is stronger, softer and hairier",
+        "It is finer, smoother and more lustrous",
+        "It is weaker and less even, but softer",
+        "It is more even and less hairy, but weaker and firmer"
+      ],
+      "answer": 3,
+      "feedback": "Rotor yarn is more even, bulkier and less hairy, but usually 10–20 per cent weaker, with a firmer handle from its higher twist."
+    },
+    {
+      "type": "mc",
+      "q": "Which description fits the structure of air-jet yarn?",
+      "options": [
+        "A core of nearly parallel fibres held by wrapper fibres at intervals",
+        "Fibres in helical paths, migrating between core and surface",
+        "A twisted core surrounded by irregular belt fibres",
+        "Continuous filaments with little or no twist"
+      ],
+      "answer": 0,
+      "feedback": "Air-jet yarn is fasciated: a largely untwisted, parallel core bound by wrapper fibres. This gives low hairiness but lower strength than ring yarn."
+    },
+    {
+      "type": "mc",
+      "q": "Which system's core-spinning capability supports heat-resistant yarns with aramid sheaths and conductive core yarns?",
+      "options": [
+        "Compact ring spinning",
+        "Rotor spinning",
+        "Friction (DREF) spinning",
+        "Air-jet vortex spinning"
+      ],
+      "answer": 2,
+      "feedback": "Friction spinning, notably DREF-3, wraps fibres around a core strand. This supports technical yarns such as aramid-sheathed heat-resistant yarns and conductive core yarns."
+    },
+    {
+      "type": "tf",
+      "q": "Flat filament yarns have essentially no staple-fibre hairiness, because they contain no staple-fibre ends.",
+      "answer": true,
+      "feedback": "True. Their continuous structure gives a smooth, lustrous surface and low pilling, although they may snag depending on fabric construction."
+    },
+    {
+      "type": "mc",
+      "q": "A brand wants stretch denim that keeps a cotton-like surface. Which yarn suits it best?",
+      "options": [
+        "Rotor-spun cotton yarn",
+        "Core-spun yarn with an elastane core and cotton sheath",
+        "Flat polyester filament yarn",
+        "Friction-spun DREF-2 yarn"
+      ],
+      "answer": 1,
+      "feedback": "In core-spun yarn the elastane core gives stretch, while the cotton sheath provides the surface handle, appearance and dyeability."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these are typical uses of filament yarns? (select all that apply)",
+      "options": [
+        "Linings and lingerie",
+        "Tyre cord and seat belts",
+        "Towels and heavy fleece",
+        "Hosiery and activewear",
+        "Blankets and filter fabrics"
+      ],
+      "answers": [0, 1, 3],
+      "feedback": "Flat filaments suit linings and lingerie, textured filaments hosiery and activewear, and high-tenacity filaments tyre cord and seat belts. Towels and blankets use staple-spun yarns."
+    }
+  ],
+  "glossary": [
+    { "term": "Staple fibre", "def": "A fibre of limited length, such as cotton, that must be twisted or wrapped with others to form a yarn." },
+    { "term": "Sliver", "def": "A thick, untwisted rope of staple fibres. Rotor, air-jet and friction spinning work directly from it." },
+    { "term": "Roving", "def": "A thinner, slightly twisted strand drafted from sliver, which feeds the ring spinning frame." },
+    { "term": "Hairiness", "def": "Fibre ends protruding from the yarn surface. Excessive hairiness can contribute to pilling, fly and surface irregularity." },
+    { "term": "Open-end spinning", "def": "Spinning in which fibres are separated, reassembled and twisted at the open yarn end, while the package only winds." },
+    { "term": "Wrapper fibres", "def": "Surface fibres wound around a yarn core, as in rotor yarn, where they are called belts, and air-jet yarn." },
+    { "term": "Fasciated yarn", "def": "A yarn with a core of nearly parallel, largely untwisted fibres bound by wrapper fibres at intervals, as made by air-jet spinning." },
+    { "term": "False twist", "def": "Temporary twist that builds up before a twisting point and cancels out after it, leaving no net twist." },
+    { "term": "Core-spun yarn", "def": "A yarn with a continuous filament core, such as polyester or elastane, covered by a staple-fibre sheath." },
+    { "term": "Texturing", "def": "Processes such as false-twist and air-jet texturing that add crimp, loops or bulk to filament yarns." }
+  ]
+}

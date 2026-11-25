@@ -1,0 +1,158 @@
+{
+  "format": "reading",
+  "slug": "clothing-longevity-consumer-behaviour",
+  "title": "Clothes People Keep Wearing: Lessons from the Netherlands",
+  "subtitle": "Why some garments are worn again and again while others stay unworn, and what brands can do.",
+  "card_description": "Use Dutch wardrobe research to understand why comfort, fit and versatility keep clothes in use, and how brands can design and source for longer wear.",
+  "seo_description": "Free course on why people keep wearing some clothes: Dutch wardrobe data on comfort, fit, versatility, digital demand and circular fashion.",
+  "level": "Beginner",
+  "categories": ["sustainable-textiles"],
+  "card_icon": "recycle",
+  "card_topic": "Clothing longevity",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "The Dutch Clothing Mountain: What Makes Consumers Keep Wearing Certain Clothes Again & Again?",
+    "url": "https://www.fibre2fashion.com/industry-article/11884/the-dutch-clothing-mountain-what-makes-consumers-keep-wearing-certain-clothes-again-and-again",
+    "authors": "Nithu K",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain why under-use matters as much as purchase volume.",
+    "Interpret wardrobe data on why garments are loved or discarded.",
+    "Apply situational thinking to design garments for many occasions.",
+    "Assess how digital shopping and media influence fashion demand.",
+    "Link consumer signals to product and sourcing decisions."
+  ],
+  "audience": "Fashion designers, brand and product teams, sourcing professionals and sustainability students interested in consumer behaviour and longer garment use.",
+  "about": "Many garments are bought but rarely worn. This free course, based on the Fibre2Fashion article by Nithu K, uses the Netherlands as a case study to explore why some clothes become everyday favourites while others stay in the wardrobe. Drawing on the National Wardrobe Audit 2025, you will see how comfort, fit and versatility drive repeated wear, how one consumer dresses for many occasions, and how digital shopping, media and circular-textile policy shape demand. The final lesson turns these insights into product and sourcing decisions, with lessons for suppliers in India and elsewhere.",
+  "lessons": [
+    { "title": "The Hidden Problem of Under-Use", "file": "01-under-use.md" },
+    { "title": "What Makes a Favourite Garment", "file": "02-favourite-garments.md" },
+    { "title": "One Consumer, Many Occasions", "file": "03-many-occasions.md" },
+    { "title": "Digital Discovery and Media Influence", "file": "04-digital-and-media.md" },
+    { "title": "From Wearer Insight to Sourcing", "file": "05-insight-to-sourcing.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "What does the course mean when it says the Dutch clothing problem may be under-use rather than consumption alone?",
+      "options": [
+        "Consumers buy too few garments to support local brands",
+        "Many garments are owned but rarely or never worn",
+        "Most clothing in the Netherlands is bought second-hand",
+        "Garments wear out before they can be resold"
+      ],
+      "answer": 1,
+      "feedback": "The 2025 audit found about one in six garments was never worn. Under-use means owning clothes that never become useful."
+    },
+    {
+      "type": "mc",
+      "q": "No longer fitting was the leading reason garments were discarded. Which response does the course link most directly to fit?",
+      "options": [
+        "Accurate grading, clear size communication and consistent suppliers",
+        "Stronger sustainability messaging on labels",
+        "Launching new styles more often",
+        "Switching to cheaper fabrics to lower prices"
+      ],
+      "answer": 0,
+      "feedback": "The marketing × sourcing matrix links fit to clearer size communication, accurate grading and supplier consistency, so garments fit as intended."
+    },
+    {
+      "type": "mc",
+      "q": "A brand wants to make garments that customers keep wearing. Which focus does the wardrobe audit support most strongly?",
+      "options": [
+        "Sustainability claims on the label",
+        "Frequent new colourways for novelty",
+        "Comfort and good fit",
+        "Lower prices than competitors"
+      ],
+      "answer": 2,
+      "feedback": "Comfort and good fit accounted for 43.3 per cent of reasons for a favourite garment, far ahead of any other reason."
+    },
+    {
+      "type": "tf",
+      "q": "Because only 1.3 per cent named sustainability as a reason for a favourite garment, the audit shows Dutch consumers do not care about sustainability.",
+      "answer": false,
+      "feedback": "False. The finding shows people experience garments through comfort, fit, looks and versatility, not that they ignore sustainability."
+    },
+    {
+      "type": "mc",
+      "q": "How does the course treat the chain from comfort to attachment, repeated use and longer retention?",
+      "options": [
+        "As a proven law of consumer behaviour",
+        "As a marketing slogan with no research value",
+        "As evidence that comfort shortens garment life",
+        "As a plausible relationship that still needs testing"
+      ],
+      "answer": 3,
+      "feedback": "The article calls it premature to claim comfort automatically lengthens garment life, but says the relationship is worth testing."
+    },
+    {
+      "type": "mc",
+      "q": "One shopper buys clothes for work, the gym, dates and quiet weekends at home. What does this illustrate?",
+      "options": [
+        "Demographic data fully explains her choices",
+        "Several clothing markets can exist inside one consumer",
+        "She is a fashion-led rather than practical consumer",
+        "Her wardrobe is mostly athleisure"
+      ],
+      "answer": 1,
+      "feedback": "A garment’s value changes with the situation, so segmenting by occasion reveals needs that age or income alone would miss."
+    },
+    {
+      "type": "mc",
+      "q": "A sweatshirt bought for sport is also worn for commuting and travel. Which question does the course recommend product teams ask?",
+      "options": [
+        "Is this sportswear or fashion?",
+        "Which age group buys it most?",
+        "How many situations can this product serve?",
+        "Can it be sold at a higher price?"
+      ],
+      "answer": 2,
+      "feedback": "Versatility, the third most common reason for a favourite garment, depends on how many situations one product can serve."
+    },
+    {
+      "type": "mc",
+      "q": "A marketer claims a streaming show caused a rise in sales of one style. What does the course say is needed?",
+      "options": [
+        "Search, sales or consumer data that tests the link",
+        "A larger advertising budget for the next season",
+        "Agreement from the show’s producers",
+        "Nothing more, because the timing proves the effect"
+      ],
+      "answer": 0,
+      "feedback": "Without data the claim is an assumption. Recognition, search, purchase intention and actual purchase can each be measured."
+    },
+    {
+      "type": "ma",
+      "q": "Which digital behaviours does the course describe as possible demand intelligence for product planning and sourcing? (select all that apply)",
+      "options": [
+        "Customer reviews",
+        "Product returns",
+        "Conversion from browsing to buying",
+        "Average wardrobe size by gender",
+        "Supplier countries’ share of imports"
+      ],
+      "answers": [0, 1, 2],
+      "feedback": "AI search, engagement, conversion, reviews and returns are online behaviours that can signal demand. Wardrobe size and import shares are not digital behaviour."
+    },
+    {
+      "type": "tf",
+      "q": "According to the course, a sustainable garment that is never worn still represents a poor use of resources.",
+      "answer": true,
+      "feedback": "True. Materials and processes only create value when garments are used, which is why retention belongs in circular-fashion strategy."
+    }
+  ],
+  "glossary": [
+    { "term": "Under-use", "def": "Owning garments that are rarely or never worn, so the resources used to make them deliver little value." },
+    { "term": "Garment retention", "def": "Keeping a garment in active use for longer through repeated wear, repair, resale or reuse." },
+    { "term": "Wardrobe journey", "def": "A garment’s stages with its owner: purchase, ownership, first wear, repeated wear, repair or resale, and disposal." },
+    { "term": "Re-export", "def": "Importing goods and selling them on to other countries, as the Netherlands does with most imported apparel." },
+    { "term": "Situational consumption", "def": "Understanding clothing by the occasion it serves, such as work, sport or dating, not only by who buys it." },
+    { "term": "Demographic segmentation", "def": "Grouping consumers by characteristics such as age, gender, income or location." },
+    { "term": "Athleisure", "def": "Sports and performance-style clothing worn for everyday activities such as commuting, travel and socialising." },
+    { "term": "Extended Producer Responsibility (EPR)", "def": "Policy making producers responsible for products after use; Dutch textile EPR covers collection, reuse and recycling." },
+    { "term": "Traceability", "def": "The ability to track a product and its materials through each stage of the supply chain." },
+    { "term": "Reverse logistics", "def": "The flow of products back from consumers for repair, resale, reuse or recycling." }
+  ]
+}

@@ -1,0 +1,225 @@
+<!--
+  My learning (/start, LearnWorlds' "After login" page; signed-in learners only) · Figma file hLl2NH7EWq53JM2QIiD5qU,
+  frame 184:2. Everything about the learner is read live from LearnWorlds:
+    /api/user_stats        enrolled courses (userCourses) and earned certificates
+    /api/learner/products  each course's progress (lessons done, percent, per-lesson completion) and its lessons
+  Parts with no LearnWorlds data (weekly goal, due dates, saved programs, support panel) are left out.
+  "Resume learning" opens LearnWorlds' course player at the learner's next unfinished lesson.
+-->
+<section class="l-hero" aria-labelledby="l-hero-title">
+  <div class="l-wrap l-hero-row">
+    <div class="l-hero-copy">
+      <p class="l-eyebrow l-eyebrow--light">YOUR LEARNING JOURNEY</p>
+      <h1 id="l-hero-title" class="l-hero-title">A little learning. A big step forward.</h1>
+      <p class="l-hero-text" data-l-welcome>Welcome back. Build the skills for the future you want.</p>
+    </div>
+    <dl class="l-stats" data-l-stats hidden>
+      <div><dd data-l-stat="active">00</dd><dt>Active programs</dt></div>
+      <div><dd data-l-stat="completed">00</dd><dt>Completed</dt></div>
+      <div><dd data-l-stat="certificates">00</dd><dt>Certificates</dt></div>
+    </dl>
+  </div>
+</section>
+
+<section class="l-work" aria-label="My courses">
+  <div class="l-wrap l-work-row">
+    <div class="l-main">
+      <div class="l-loading" data-l-loading><div class="l-skel l-skel--head"></div><div class="l-skel l-skel--card"></div></div>
+
+      <section class="l-continue" data-l-continue hidden aria-labelledby="l-continue-title">
+        <div class="l-head"><h2 id="l-continue-title" class="l-h2">Continue learning</h2><p class="l-head-note">Pick up where you left off</p></div>
+        <div data-l-resume></div>
+      </section>
+
+      <section class="l-programs" id="programs" data-l-programs hidden aria-labelledby="l-programs-title">
+        <h2 id="l-programs-title" class="l-h2">My programs</h2>
+        <div class="l-filters">
+          <div class="l-tabs" role="tablist" aria-label="Show" data-l-tabs></div>
+          <label class="l-search"><img src="assets/icon-search-16.svg" width="16" height="16" alt="">
+            <input type="search" placeholder="Search programs" aria-label="Search my programs" data-l-search autocomplete="off"></label>
+        </div>
+        <div class="l-grid" data-l-grid></div>
+      </section>
+
+      <section class="l-empty" data-l-empty hidden>
+        <h2 class="l-h2">Start your first program</h2>
+        <p>You haven’t enrolled in a program yet.</p>
+        <a class="l-btn" href="/courses">Explore programs</a>
+      </section>
+    </div>
+
+    <aside class="l-side" data-l-side hidden aria-label="Your achievements">
+      <div class="l-card">
+        <p class="l-card-title">Your achievements</p>
+        <p class="l-achieve" data-l-certs></p>
+        <a class="l-link" href="/profile">View my certificates <img src="assets/icon-arrow-right-blue-16.svg" width="16" height="16" alt=""></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="l-recs" data-l-recs hidden aria-labelledby="l-recs-title">
+  <div class="l-wrap">
+    <div class="l-recs-head">
+      <div>
+        <p class="l-eyebrow">KEEP YOUR CURIOSITY GROWING</p>
+        <h2 id="l-recs-title" class="l-recs-title">Your next step starts here</h2>
+        <p class="l-recs-text">Explore more programs in fashion, textiles, and the business behind them.</p>
+      </div>
+      <a class="l-link" href="/courses">Explore all programs <img src="assets/icon-arrow-right-blue-18.svg" width="18" height="18" alt=""></a>
+    </div>
+    <div class="l-rec-grid" data-l-recs-grid></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.querySelector('.f2f-page--my-learning') || document;
+  var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
+  var q = function (s) { return root.querySelector(s); };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function filesBase() { var l = document.querySelector('link[rel~="icon"]'); var m = l && /^(https:\/\/[^\/]+\/[^\/]+-public\/)/.exec(l.href); return m ? m[1] : FILES; }
+  function imageUrl(img) { return !img ? '' : (/^https?:\/\//.test(img) ? img : filesBase() + String(img).replace(/^\//, '')); }
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function two(n) { return (n < 10 ? '0' : '') + n; }
+  function author(c) { var a = null; (c.cohorts || []).forEach(function (h) { (h.authors || []).forEach(function (x) { if (!a && x && x.name) a = x.name; }); }); return a || ''; }
+  function minutes(u) { var s = +(u.readTime || u.duration || u.videoDuration || 0); return u.questionsCount ? plural(+u.questionsCount, 'question', 'questions') : s > 0 ? Math.max(1, Math.round(s / 60)) + ' min' : ''; }
+
+  function api(url, body) {
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    return fetch(url, body ? { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' }, body: JSON.stringify(body) }
+      : { credentials: 'same-origin', headers: { accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
+  var CATALOGUE = { type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true', hideProductsWithoutVisibleOptions: 'true',
+    fields: 'id,title,titleId,cohorts.packages,cohorts.authors,settings', sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
+    offset: '0', itemsPerPage: '200', paginationType: 'offset' };
+
+  Promise.all([api('/api/user_stats'), api('/api/learner/products', CATALOGUE)]).then(function (r) {
+    var stats = r[0] || {}, catalogue = (r[1] && r[1].data) || [];
+    var mine = Array.isArray(stats.userCourses) ? stats.userCourses : [];
+    var enrolled = catalogue.filter(function (c) { return mine.indexOf(c.id) >= 0; });
+    var others = catalogue.filter(function (c) { return mine.indexOf(c.id) < 0; });
+    var name = stats.me && (stats.me.first_name || '').trim();
+    if (name) q('[data-l-welcome]').textContent = 'Welcome back, ' + name + '. Build the skills for the future you want.';
+    renderRecs(others);
+    if (!enrolled.length) { done(stats, []); return; }
+    // The enrolled courses again, with their lessons and progress (one request)
+    return api('/api/learner/products', { ids: enrolled.map(function (c) { return c.titleId; }).join(','), type: 'course', fields: 'id,title,titleId,cohorts,settings,progress',
+      enrichLearningPath: 'true', offset: '0', itemsPerPage: String(enrolled.length), paginationType: 'offset' })
+      .then(function (j) { done(stats, (j && j.data) || []); });
+  }).catch(function () {
+    q('[data-l-loading]').innerHTML = '<p class="l-error">Your programs couldn’t load just now. Please refresh the page in a moment.</p>';
+  });
+
+  // One entry per enrolled course: progress, status and the next lesson
+  function summarise(c) {
+    var p = c.progress || {}, up = p.unitProgress && !Array.isArray(p.unitProgress) ? p.unitProgress : {};
+    var content = (c.cohorts && c.cohorts[0] && c.cohorts[0].content) || [], next = null, first = null;
+    content.forEach(function (sec, i) { (sec.learningPath || []).forEach(function (u) {
+      if (!first) first = { unit: u, n: i + 1, section: sec.title || '' };
+      if (!next && !(up[u.id] && up[u.id].completed)) next = { unit: u, n: i + 1, section: sec.title || '' };
+    }); });
+    var doneN = +p.unitsCompleted || 0, total = +p.unitsTotal || 0, pct = Math.round(+p.progress || 0);
+    var status = p.completed || (total && doneN >= total) ? 'completed' : (doneN || p.latestTime) ? 'active' : 'new';
+    var target = status === 'completed' ? first : next || first;
+    return { c: c, title: c.title || '', author: author(c), image: imageUrl((c.settings || {}).image), label: (c.settings || {}).points || '',
+      done: doneN, total: total, pct: pct, status: status, next: status === 'completed' ? null : next, latest: +p.latestTime || 0,
+      url: target ? '/path-player?courseid=' + encodeURIComponent(c.titleId) + '&unit=' + encodeURIComponent(target.unit.id) + 'Unit' : '/course/' + encodeURIComponent(c.titleId),
+      page: '/course/' + encodeURIComponent(c.titleId) };
+  }
+
+  var list = [], tab = 'active', resumeId = null;
+  function done(stats, courses) {
+    list = courses.map(summarise);
+    var active = list.filter(function (x) { return x.status !== 'completed'; }), completed = list.filter(function (x) { return x.status === 'completed'; });
+    var certs = +stats.earnedCertificates || 0;
+    q('[data-l-stat="active"]').textContent = two(active.length);
+    q('[data-l-stat="completed"]').textContent = two(completed.length);
+    q('[data-l-stat="certificates"]').textContent = two(certs);
+    q('[data-l-stats]').hidden = false;
+    q('[data-l-loading]').hidden = true;
+    q('[data-l-certs]').textContent = plural(certs, 'certificate', 'certificates') + ' earned';
+    q('[data-l-side]').hidden = false;
+    if (!list.length) { q('[data-l-empty]').hidden = false; return; }
+
+    // Continue learning: the course worked on most recently that isn't finished
+    var resume = active.slice().sort(function (a, b) { return b.latest - a.latest; })[0];
+    if (resume) {
+      resumeId = resume.c.id;
+      q('[data-l-resume]').innerHTML = '<article class="l-resume">' +
+        '<a class="l-resume-media" href="' + esc(resume.page) + '" tabindex="-1" aria-hidden="true">' + (resume.image ? '<img src="' + esc(resume.image) + '" alt="" loading="lazy">' : '') + '</a>' +
+        '<div class="l-resume-body">' +
+          (resume.author ? '<p class="l-inst">' + esc(resume.author) + '</p>' : '') +
+          '<h3 class="l-resume-title"><a href="' + esc(resume.page) + '">' + esc(resume.title) + '</a></h3>' +
+          (resume.next ? '<p class="l-resume-next">Up next: Module ' + resume.next.n + (resume.next.section ? ' · ' + esc(resume.next.section) : '') + '</p>' : '') +
+          bar(resume, 'l-bar--wide') +
+          '<p class="l-resume-actions"><a class="l-btn" href="' + esc(resume.url) + '">' + (resume.done ? 'Resume learning' : 'Start learning') + '</a>' +
+            (resume.next && minutes(resume.next.unit) ? '<span>Next lesson · ' + esc(minutes(resume.next.unit)) + '</span>' : '') + '</p>' +
+        '</div></article>';
+      q('[data-l-continue]').hidden = false;
+    }
+    if (!active.length) tab = 'all';
+    q('[data-l-programs]').hidden = false;
+    renderPrograms();
+  }
+
+  function bar(x, cls) {
+    return '<div class="l-progress"><span>' + esc(x.done + ' of ' + plural(x.total, 'lesson', 'lessons') + ' completed') + '</span><b>' + x.pct + '%</b></div>' +
+      '<div class="l-bar ' + (cls || '') + '" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + x.pct + '"><span style="width:' + Math.max(0, Math.min(100, x.pct)) + '%"></span></div>';
+  }
+
+  var STATUS = { active: ['IN PROGRESS', 'Continue learning'], new: ['NOT STARTED', 'Start learning'], completed: ['COMPLETED', 'Review the course'] };
+  function programCard(x) {
+    return '<article class="l-prog">' +
+      '<a class="l-prog-media" href="' + esc(x.page) + '" tabindex="-1" aria-hidden="true">' + (x.image ? '<img src="' + esc(x.image) + '" alt="" loading="lazy">' : '') + '</a>' +
+      '<div class="l-prog-body">' +
+        '<p class="l-status l-status--' + x.status + '">' + STATUS[x.status][0] + '</p>' +
+        '<h3 class="l-prog-title"><a href="' + esc(x.page) + '">' + esc(x.title) + '</a></h3>' +
+        (x.author ? '<p class="l-inst l-inst--muted">' + esc(x.author) + '</p>' : '') +
+        bar(x) +
+        (x.next ? '<p class="l-prog-next">' + (x.done ? 'Next: ' : 'Start with: ') + esc(x.next.unit.unitTitle || x.next.unit.title || '') + '</p>' : '') +
+        '<a class="l-btn l-btn--line" href="' + esc(x.url) + '">' + STATUS[x.status][1] + '</a>' +
+      '</div></article>';
+  }
+
+  var search = q('[data-l-search]'), tabs = q('[data-l-tabs]');
+  function renderPrograms() {
+    var counts = { active: 0, completed: 0, all: list.length };
+    list.forEach(function (x) { if (x.status === 'completed') counts.completed++; else counts.active++; });
+    tabs.innerHTML = [['active', 'Active'], ['completed', 'Completed'], ['all', 'All programs']].map(function (t) {
+      return '<button type="button" role="tab" class="l-tab" aria-selected="' + (tab === t[0]) + '" data-l-tab="' + t[0] + '">' + t[1] + ' (' + counts[t[0]] + ')</button>';
+    }).join('');
+    var words = search.value.toLowerCase().split(/\s+/).filter(Boolean);
+    var shown = list.filter(function (x) {
+      if (tab === 'active' && x.status === 'completed') return false;
+      if (tab === 'completed' && x.status !== 'completed') return false;
+      // The course in "Continue learning" isn't repeated in the Active list
+      if (tab === 'active' && !words.length && x.c.id === resumeId) return false;
+      var hay = (x.title + ' ' + x.author).toLowerCase();
+      return words.every(function (w) { return hay.indexOf(w) >= 0; });
+    });
+    q('[data-l-grid]').innerHTML = shown.length ? shown.map(programCard).join('')
+      : '<p class="l-none">' + (words.length ? 'No programs match your search.' : tab === 'completed' ? 'No completed programs yet.' : tab === 'active' && counts.active ? 'Your other active programs will show here.' : 'Nothing here yet.') + '</p>';
+  }
+  tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-l-tab]'); if (b) { tab = b.getAttribute('data-l-tab'); renderPrograms(); } });
+  var typing; search.addEventListener('input', function () { clearTimeout(typing); typing = setTimeout(renderPrograms, 150); });
+
+  // Recommended: programs the learner isn't enrolled in, in catalogue order
+  function renderRecs(others) {
+    var picks = others.slice(0, 3);
+    if (!picks.length) return;
+    q('[data-l-recs-grid]').innerHTML = picks.map(function (c) {
+      var s = c.settings || {}, img = imageUrl(s.image), by = author(c), url = '/course/' + encodeURIComponent(c.titleId);
+      var label = String(s.points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
+      return '<article class="l-rec">' + '<div class="l-rec-media">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy">' : '') + '</div>' +
+        '<div class="l-rec-body">' + (by ? '<p class="l-inst l-inst--muted">' + esc(by) + '</p>' : '') +
+          '<h3 class="l-rec-title"><a href="' + esc(url) + '">' + esc(c.title) + '</a></h3>' +
+          (label.length ? '<p class="l-rec-meta">' + label.map(esc).join('<span aria-hidden="true">·</span>') + '</p>' : '') +
+          '<p class="l-rec-cta">View program →</p></div></article>';
+    }).join('');
+    q('[data-l-recs]').hidden = false;
+  }
+})();
+</script>

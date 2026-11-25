@@ -1,0 +1,156 @@
+{
+  "format": "reading",
+  "slug": "qixi-heritage-modern-fashion-design",
+  "title": "Designing from Qixi: Heritage, Craft and Modern Fashion",
+  "subtitle": "Learn how a Chinese festival of weaving and skill can inspire respectful, contemporary fashion design.",
+  "card_description": "Explore the Qixi festival’s textile roots and learn to translate its story into weaves, embroidery, construction and colour, with research and cultural sensitivity at the core.",
+  "seo_description": "Free course on Qixi and fashion: the Weaver Girl legend, qiqiao craft traditions and how to turn festival heritage into respectful design.",
+  "level": "Beginner",
+  "categories": ["fashion-design"],
+  "card_icon": "palette",
+  "card_topic": "Heritage design",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Qixi and Fashion: Ancient Chinese Heritage Meets Modern Design",
+    "url": "https://www.fibre2fashion.com/industry-article/11939/qixi-festival-fashion-ancient-chinese-heritage-modern-design",
+    "authors": "Kshipra Kulkarni",
+    "published": "Nov 2026"
+  },
+  "outcomes": [
+    "Explain the Qixi legend, the qiqiao tradition and their textile roots.",
+    "Translate festival symbols into weaves, embroidery, construction and contemporary silhouettes.",
+    "Use colour and communication to tell a craft-led cultural story.",
+    "Adapt a cultural narrative while keeping your own design identity.",
+    "Research a cultural festival and turn it into a respectful design brief."
+  ],
+  "audience": "Fashion design and textile students, designers, merchandisers and brand teams who want to draw on cultural festivals thoughtfully in their collections.",
+  "about": "Qixi, the Double Seventh Festival, is best known today as a celebration of love, yet its traditions are rooted in weaving, needlework and skill. This free reading course is based on the Fibre2Fashion article “Qixi and Fashion: Ancient Chinese Heritage Meets Modern Design” by Kshipra Kulkarni. It introduces the Weaver Girl legend and the qiqiao tradition, then shows how designers can translate the story into woven structures, embroidery, garment construction, textile surfaces and colour without copying traditional imagery. It also covers luxury fashion communication, the shift from romance to self-expression, opportunities for Indian fashion, and the research and cultural sensitivity needed for a respectful design brief.",
+  "lessons": [
+    { "title": "Qixi and Its Textile Roots", "file": "01-qixi-textile-roots.md" },
+    { "title": "Turning the Story into Design", "file": "02-story-into-design.md" },
+    { "title": "Colour, Communication and Self-Expression", "file": "03-colour-communication-expression.md" },
+    { "title": "Using Cultural Heritage Responsibly", "file": "04-heritage-responsibly.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "What was qiqiao, the practice historically linked with the Qixi festival?",
+      "options": [
+        "A custom of exchanging romantic gifts between couples",
+        "A style of festival dress worn once a year",
+        "A practice centred on seeking or demonstrating skill",
+        "A dyeing technique for making festival cloth"
+      ],
+      "answer": 2,
+      "feedback": "Qiqiao centred on seeking or demonstrating skill. Women prayed for dexterity and proficiency in needlework and weaving, and showed abilities such as needle-threading."
+    },
+    {
+      "type": "mc",
+      "q": "Why is Zhinü, the Weaver Girl, especially significant from a fashion perspective?",
+      "options": [
+        "She is a skilled maker whose identity is tied to textile creation",
+        "She is linked to one specific historical garment",
+        "She is the figure who builds the magpie bridge",
+        "She represents the commercial side of the festival"
+      ],
+      "answer": 0,
+      "feedback": "Zhinü is more than a romantic heroine. Her ability to weave celestial fabrics gives textile craft, patience and expertise a meaningful place in the story."
+    },
+    {
+      "type": "mc",
+      "q": "Why does weaving work well as a metaphor for connection in a Qixi-inspired collection?",
+      "options": [
+        "Woven fabrics are always cheaper to produce",
+        "Warp and weft threads depend on one another to form a stable structure",
+        "Weaving was practised only during the festival",
+        "Woven fabrics must always use red thread"
+      ],
+      "answer": 1,
+      "feedback": "Separate threads keep their own identity yet depend on one another to create a stable fabric, expressing connection, interdependence and unity."
+    },
+    {
+      "type": "mc",
+      "q": "A designer wants to suggest the magpie bridge without illustrating the legend. Which idea fits the course best?",
+      "options": [
+        "Printing magpies across the front of a dress",
+        "Recreating a historical robe in a modern fabric",
+        "Adding a large romantic slogan to a T-shirt",
+        "Joining two fabric sections of a dress with decorative lacing"
+      ],
+      "answer": 3,
+      "feedback": "The bridge works as an abstract principle. Crossing bands, joined panels, lacing and connecting embroidery suggest reunion without literally illustrating the story."
+    },
+    {
+      "type": "tf",
+      "q": "According to the course, Qixi-inspired fashion should faithfully replicate historical Chinese garments to stay true to the festival.",
+      "answer": false,
+      "feedback": "False. Qixi-inspired fashion does not need to replicate historical garments. The narrative can be placed within contemporary silhouettes through weave, construction, surface and colour."
+    },
+    {
+      "type": "mc",
+      "q": "Which colour approach suggests the contrast between the earthly and celestial worlds of the Qixi story?",
+      "options": [
+        "Neon brights paired with black",
+        "Soft pink with lavender alone",
+        "Tonal blues with ivory and silver-inspired neutrals",
+        "Earthy browns and khaki"
+      ],
+      "answer": 2,
+      "feedback": "Deep blue links to the night sky and celestial setting. Tonal blues with ivory and silver-inspired neutrals suggest both worlds without mythological imagery."
+    },
+    {
+      "type": "mc",
+      "q": "How can a brand shift its Qixi communication from product-focused imagery towards craftsmanship?",
+      "options": [
+        "Show artisans at work and explain how surfaces were developed",
+        "Repeat romantic images of the two lovers in every campaign",
+        "Offer deeper discounts during the festival period",
+        "Avoid any mention of the festival’s origins"
+      ],
+      "answer": 0,
+      "feedback": "Close-ups of hands with thread, embroidery films and explanations of construction put creative labour at the centre, echoing Zhinü as a maker."
+    },
+    {
+      "type": "ma",
+      "q": "Which ideas does the course suggest for widening a Qixi campaign beyond romance? (select all that apply)",
+      "options": [
+        "Celebrating friendship through coordinated garments",
+        "Exploring family relationships through intergenerational styling",
+        "Highlighting the relationship between an artisan and a designer",
+        "Dropping the Cowherd and Weaver Girl story altogether",
+        "Copying traditional costume to create a festival look"
+      ],
+      "answers": [0, 1, 2],
+      "feedback": "Friendship, family and artisan-designer relationships widen the festival’s appeal while keeping it connected to its traditional origins."
+    },
+    {
+      "type": "mc",
+      "q": "An Indian designer is planning a Qixi-inspired capsule collection. Which approach does the course recommend?",
+      "options": [
+        "Reproduce Chinese traditional garments as closely as possible",
+        "Use two interwoven saree borders, keeping a distinct Indian design identity",
+        "Avoid Indian techniques so the cultural reference stays pure",
+        "Print scenes from the legend on every piece"
+      ],
+      "answer": 1,
+      "feedback": "Focus on the shared language of textile craftsmanship, such as interwoven saree borders or paired lehenga motifs, rather than reproducing Chinese traditional garments."
+    },
+    {
+      "type": "tf",
+      "q": "Before turning Qixi’s symbols into a commercial collection, designers should research the festival’s historical meaning, including qiqiao and the Weaver Girl.",
+      "answer": true,
+      "feedback": "True. Cultural inspiration requires understanding rather than superficial visual borrowing. Research leads to more meaningful concepts and helps you acknowledge the origins."
+    }
+  ],
+  "glossary": [
+    { "term": "Qixi", "def": "A Chinese festival on the seventh day of the seventh lunar month, also called the Double Seventh or Qiqiao Festival." },
+    { "term": "Zhinü", "def": "The Weaver Girl of the Qixi legend, an accomplished weaver associated with the heavens and separated from the cowherd Niulang." },
+    { "term": "Qiqiao", "def": "A historical Qixi practice centred on seeking or demonstrating skill, especially in needlework and weaving." },
+    { "term": "Magpie bridge", "def": "In the Qixi legend, the bridge formed by magpies that allows the separated lovers to reunite." },
+    { "term": "Warp and weft", "def": "The lengthwise (warp) and crosswise (weft) threads of a woven fabric, which interlace to form a stable structure." },
+    { "term": "Surface development", "def": "Adding texture, pattern or ornament to a fabric through techniques such as embroidery, pleating, appliqué or textile manipulation." },
+    { "term": "Jacquard", "def": "A woven fabric whose pattern is created in the weave structure itself rather than printed on afterwards." },
+    { "term": "Zari", "def": "Metallic thread, traditionally of gold or silver, used in Indian embroidery and woven borders." },
+    { "term": "Cultural sensitivity", "def": "Drawing on a culture with an understanding of its meaning, rather than superficial visual borrowing, and acknowledging the origins." }
+  ]
+}

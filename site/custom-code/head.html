@@ -1,0 +1,21 @@
+<!--
+  F2F Education · Site custom code · HEAD
+  Goes into BOTH site head slots (logged in and logged out); npm run push does that.
+  The site is always in light mode (2026-11-24). Set before the page paints.
+  The dark-mode styles stay in style.css, unused, in case dark mode comes back.
+  "f2f-chrome" hides LearnWorlds' own top strip, header and footer before the page paints; body.html draws the
+  site's header and footer in their place. If that doesn't happen by the time the page has loaded, the class is
+  removed again, so LearnWorlds' own header and footer show instead of none.
+-->
+<script>
+document.documentElement.setAttribute('data-theme', 'light');
+document.documentElement.classList.add('f2f-chrome');
+// Course pages: body.html draws one layout for every course; LearnWorlds' own sections stay hidden meanwhile
+if (/^\/course\/[^\/]+\/?$/.test(location.pathname)) document.documentElement.classList.add('f2f-coursepage');
+window.addEventListener('load', function () {
+  if (!document.querySelector('.f2f-header')) document.documentElement.classList.remove('f2f-chrome');
+  if (!document.getElementById('f2f-course')) document.documentElement.classList.remove('f2f-coursepage');
+});
+</script>
+
+<!-- /F2F Education · Site custom code · HEAD -->

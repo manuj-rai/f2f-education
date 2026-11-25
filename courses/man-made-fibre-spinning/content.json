@@ -1,0 +1,156 @@
+{
+  "format": "reading",
+  "slug": "man-made-fibre-spinning",
+  "title": "Man-Made Fibre Spinning: Melt, Dry and Wet Routes",
+  "subtitle": "Learn how polymers become filaments, and why the spinning route shapes speed, cost and fibre properties.",
+  "card_description": "A free reading course on how man-made fibres are made: melt, dry and wet spinning, dry-jet wet and gel spinning, and how each route shapes the fibre.",
+  "seo_description": "Free course on man-made fibre spinning: how melt, dry and wet spinning work, and how each route affects speed, cost and fibre properties.",
+  "level": "Beginner",
+  "categories": ["fibre-fundamentals"],
+  "card_icon": "factory",
+  "card_topic": "Fibre spinning",
+  "author_name": "Fibre2Fashion Institute",
+  "source": {
+    "title": "Melt Spinning and Solution Spinning of Man-Made Fibres",
+    "url": "https://www.fibre2fashion.com/industry-article/11887/melt-spinning-and-solution-spinning-of-man-made-fibres",
+    "authors": "Dr Lipsa Mohapatra",
+    "published": "Oct 2026"
+  },
+  "outcomes": [
+    "Explain how man-made fibres are extruded through a spinneret and solidified",
+    "Describe the melt spinning sequence, from drying chips to drawing filaments",
+    "Explain how drawing and take-up speed affect orientation, tenacity and elongation",
+    "Compare dry, wet, dry-jet wet and gel spinning and their typical fibres",
+    "Choose a spinning route from polymer behaviour and explain its effect on properties"
+  ],
+  "audience": "Textile and fashion students, fibre and yarn buyers, and production or quality staff who want to understand how synthetic and regenerated fibres are made.",
+  "about": "Polyester, nylon, viscose, acrylic and elastane all start as polymers that must be turned into fine filaments. This free reading course, based on a Fibre2Fashion article by Dr Lipsa Mohapatra, explains how that happens. You will follow melt spinning step by step, from drying polymer chips to quenching and drawing, and see how take-up speed gives LOY, POY and FDY. You will then learn how solution spinning handles polymers that cannot be melted, through dry, wet, dry-jet wet and gel spinning. Finally, you will compare the routes on speed, cost and solvent use, and see how each shapes the finished fibre. A short quiz checks your understanding.",
+  "lessons": [
+    { "title": "From Polymer to Filament: Melt Spinning", "file": "01-melt-spinning.md" },
+    { "title": "Solution Spinning: Dry and Wet Routes", "file": "02-solution-spinning.md" },
+    { "title": "Comparing Routes and Fibre Properties", "file": "03-comparing-routes.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "What mainly decides whether a polymer is melt spun or solution spun?",
+      "options": [
+        "Whether it can be melted without decomposing",
+        "The number of holes in the spinneret",
+        "The filament cross-section required",
+        "Whether the fibre will be cut into staple"
+      ],
+      "answer": 0,
+      "feedback": "The route depends mainly on the polymer's thermal behaviour. Polymers that melt without decomposing are melt spun; others must be dissolved and solution spun."
+    },
+    {
+      "type": "mc",
+      "q": "A polyester filament is to have a trilobal cross-section. In melt spinning, what mainly sets this shape?",
+      "options": [
+        "The speed of the take-up rollers",
+        "The amount of spin finish applied",
+        "The shape of the spinneret holes",
+        "The drawing ratio after spinning"
+      ],
+      "answer": 2,
+      "feedback": "In melt spinning the spinneret hole is the main control over cross-section, so trilobal holes give trilobal filaments."
+    },
+    {
+      "type": "mc",
+      "q": "What happens to filament properties when as-spun filaments are drawn?",
+      "options": [
+        "Tenacity falls and elongation rises",
+        "Tenacity rises and elongation falls",
+        "Any remaining solvent is removed",
+        "The number of filaments increases"
+      ],
+      "answer": 1,
+      "feedback": "Drawing aligns the molecules along the fibre axis, which increases tenacity and reduces elongation."
+    },
+    {
+      "type": "mc",
+      "q": "Which melt-spun yarn form is commonly used as feed yarn for draw-texturing?",
+      "options": [
+        "Fully drawn yarn (FDY)",
+        "Low-oriented yarn (LOY)",
+        "Wet-spun staple fibre",
+        "Partially oriented yarn (POY)"
+      ],
+      "answer": 3,
+      "feedback": "POY is spun at higher speeds and is commonly used as draw-texturing feed yarn. LOY needs full drawing, and FDY is already fully drawn."
+    },
+    {
+      "type": "mc",
+      "q": "How does the filament solidify in dry spinning?",
+      "options": [
+        "By coagulation in an acid bath",
+        "By cooling in a quench chamber",
+        "By cooling a dilute solution into a gel",
+        "By solvent evaporating in hot air or inert gas"
+      ],
+      "answer": 3,
+      "feedback": "In dry spinning the dope contains a volatile solvent, which evaporates in a heated chamber. The solvent vapour is recovered for reuse."
+    },
+    {
+      "type": "mc",
+      "q": "Why can a dry-spun acrylic filament end up with a dog-bone cross-section?",
+      "options": [
+        "Solidification starts at the filament surface",
+        "Quench air flattens the hot filament",
+        "The acid bath dissolves its edges",
+        "It is cut into staple after spinning"
+      ],
+      "answer": 0,
+      "feedback": "In dry spinning, solidification begins at the surface. As solvent then leaves the inside, the filament shrinks and its outline becomes non-circular."
+    },
+    {
+      "type": "mc",
+      "q": "In viscose production, what happens when the dope is extruded into the acid bath?",
+      "options": [
+        "The solvent evaporates into hot air",
+        "The polymer melts and then cools",
+        "Cellulose is regenerated in filament form",
+        "Spin finish is applied to the filaments"
+      ],
+      "answer": 2,
+      "feedback": "The xanthate dope is extruded into an acid bath, usually containing sulphuric acid, sodium sulphate and zinc sulphate, where cellulose is regenerated."
+    },
+    {
+      "type": "mc",
+      "q": "What does the air gap in dry-jet wet spinning make possible?",
+      "options": [
+        "Spinning without any solvent",
+        "Higher drawing and better molecular orientation",
+        "Faster solvent evaporation than dry spinning",
+        "Lower polymer molecular weight"
+      ],
+      "answer": 1,
+      "feedback": "The filament passes through a small air gap before the bath, which permits higher drawing and improved molecular orientation, as in para-aramid and lyocell."
+    },
+    {
+      "type": "tf",
+      "q": "Wet spinning is the fastest of the three principal spinning methods.",
+      "answer": false,
+      "feedback": "Wet spinning is the slowest, because coagulation depends on chemical and diffusion processes. Melt spinning is the fastest."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these fibres are made by solution spinning? (select all that apply)",
+      "options": ["Viscose", "Elastane", "Polypropylene", "Lyocell", "Nylon 6,6"],
+      "answers": [0, 1, 3],
+      "feedback": "Viscose (wet), elastane (dry) and lyocell (dry-jet wet) are solution spun. Polypropylene and nylon 6,6 melt without decomposing, so they are melt spun."
+    }
+  ],
+  "glossary": [
+    { "term": "Spinneret", "def": "A plate with many fine holes through which liquid polymer is extruded to form filaments." },
+    { "term": "Melt spinning", "def": "The polymer is melted, extruded and solidified by cooling. Used for polyester, nylon and polypropylene." },
+    { "term": "Dope", "def": "The viscous spinning solution made by dissolving a polymer in a solvent for solution spinning." },
+    { "term": "Dry spinning", "def": "Solution spinning in which a volatile solvent evaporates in hot air or inert gas, solidifying the filament." },
+    { "term": "Wet spinning", "def": "Solution spinning in which filaments solidify in a coagulation bath by solvent exchange or chemical reaction." },
+    { "term": "Quenching", "def": "Cooling and solidifying melt-spun filaments with a controlled air flow in a quench chamber." },
+    { "term": "Drawing", "def": "Stretching as-spun filaments to align their molecules, which increases tenacity and reduces elongation." },
+    { "term": "LOY, POY and FDY", "def": "Low-oriented, partially oriented and fully drawn yarn: melt-spun forms that differ in take-up speed and drawing." },
+    { "term": "Dry-jet wet spinning", "def": "Extrusion through a small air gap into a coagulation bath, allowing higher drawing. Used for para-aramid and lyocell." },
+    { "term": "Gel spinning", "def": "A dilute UHMWPE solution is extruded, cooled to a gel filament and drawn to very high ratios." }
+  ]
+}
