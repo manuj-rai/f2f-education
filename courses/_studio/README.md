@@ -25,7 +25,8 @@ For most new courses, use text lessons instead of videos. One article becomes a 
    The manual route is "Putting a course into LearnWorlds" below; in its step 4, upload the `.docx` files instead of videos.
    The label is "N min · Reading". The author is the institution shown on University Partners (`/universities`; course settings →
    Author's name and avatar). The script's default is **Fibre2Fashion Education** with `courses/_universities/fibre2fashion-education.png`.
-   For an AMFI course pass `"AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png` after the slug. Categories: see
+   For another institution pass its name and avatar after the slug: `"AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png`
+   or `"Sustainable Fashion School" courses/_universities/sustainable-fashion-academy.png`. Categories: see
    READING_SCHEMA.md (Sourcing and Merchandising are usually a course's second category, after Apparel Manufacturing).
 
 ## Video courses

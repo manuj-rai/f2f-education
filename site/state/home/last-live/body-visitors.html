@@ -260,15 +260,27 @@
 
   function render(courses) {
     // byTag: every course in a category (topic counts, trending filters).
-    // home: each course once, under its first category (the category sections), so courses don't repeat.
-    var byTag = {}, home = {}, order = [];
-    courses.forEach(function (c) {
+    // home: each course once (the category sections), so courses don't repeat. A course goes under its first category;
+    // then every category that would have no section takes one of its courses from a section that keeps at least one
+    // other course, so each category shows (the user's request: Sourcing and Merchandising are second categories).
+    var byTag = {}, home = {}, order = [], where = [];
+    courses.forEach(function (c, i) {
       var tags = ((c.settings || {}).tags || []).filter(Boolean);
       tags.forEach(function (t) {
         if (!byTag[t]) { byTag[t] = []; order.push(t); }
         byTag[t].push(c);
       });
-      if (tags[0]) (home[tags[0]] = home[tags[0]] || []).push(c);
+      if (tags[0]) { (home[tags[0]] = home[tags[0]] || []).push(c); where[i] = tags[0]; }
+    });
+    order.forEach(function (t) {
+      if (home[t]) return;
+      for (var k = 0; k < byTag[t].length; k++) {
+        var c = byTag[t][k], i = courses.indexOf(c), from = where[i];
+        if (!from || home[from].length < 2) continue;
+        home[from].splice(home[from].indexOf(c), 1);
+        home[t] = [c]; where[i] = t;
+        return;
+      }
     });
     var cats = order.map(category);
     var sections = cats.filter(function (c) { return home[c.tag]; });
@@ -284,7 +296,7 @@
         '<div class="w-wrap"><div class="w-intro"><div class="w-intro-text">' +
           '<p class="w-eyebrow">' + plural(byTag[c.tag].length, 'course', 'courses') + '</p>' +
           '<h2 class="w-h2" id="' + c.id + '-title">' + esc(c.name) + '</h2>' +
-        '</div><a class="w-more" href="/courses">View all courses <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
+        '</div><a class="w-more" href="/courses?subject=' + encodeURIComponent(c.tag) + '">View all courses <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
         '<div class="w-grid" data-w-cat-grid="' + c.id + '"></div></div></section>';
     }).join('');
     sections.forEach(function (c) { grid(root.querySelector('[data-w-cat-grid="' + c.id + '"]'), home[c.tag], 3); });
