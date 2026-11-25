@@ -43,11 +43,6 @@
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function initials(name) { return name.split(/\s+/).filter(function (w) { return /^[A-Za-z0-9]/.test(w) && !/^(of|the|and|for|in)$/i.test(w); }).slice(0, 3).map(function (w) { return w.charAt(0).toUpperCase(); }).join(''); }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
-  function isFree(c) {
-    var free = false;
-    (c.cohorts || []).forEach(function (h) { (h.packages || []).forEach(function (p) { var a = p.contentAccessCondition; if (a && (a.status === 'free' || !a.actualPrice || !a.actualPrice.price)) free = true; }); });
-    return free;
-  }
 
   function load() {
     var meta = document.querySelector('meta[name="csrf-token"]');
@@ -56,7 +51,7 @@
       headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
       body: JSON.stringify({
         type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true',
-        hideProductsWithoutVisibleOptions: 'true', fields: 'title,titleId,cohorts.packages,cohorts.authors,settings',
+        hideProductsWithoutVisibleOptions: 'true', fields: 'title,titleId,access,cohorts.authors,settings',
         sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
         offset: '0', itemsPerPage: '200', paginationType: 'offset'
       })
@@ -96,20 +91,24 @@
     grid.innerHTML = list.map(function (u) {
       var img = imageUrl(u.image);
       return '<article class="u-card" id="uni-' + slug(u.name) + '" aria-labelledby="uni-' + slug(u.name) + '-name">' +
+        // Left: logo, name below it, "View all". Right: the institution's first TOP courses as picture cards, so an
+        // institution with one course is a short row, not a tall empty card. No prices (as on home; the course page has them).
         '<header class="u-card-head">' +
           '<div class="u-logo">' + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" decoding="async">' : '<span>' + esc(initials(u.name)) + '</span>') + '</div>' +
-          '<div><h2 class="u-name" id="uni-' + slug(u.name) + '-name">' + esc(u.name) + '</h2>' +
-          '<p class="u-meta">' + plural(u.courses.length, 'course', 'courses') + '</p></div>' +
+          '<h2 class="u-name" id="uni-' + slug(u.name) + '-name">' + esc(u.name) + '</h2>' +
+          '<a class="u-all" href="/courses?institution=' + encodeURIComponent(u.name) + '">View all ' +
+            (u.courses.length === 1 ? 'courses' : u.courses.length + ' courses') +
+            '<span class="u-visually-hidden"> from ' + esc(u.name) + '</span> <img src="' + ICONS.arrow + '" width="16" height="16" alt=""></a>' +
         '</header>' +
         '<ul class="u-courses">' + u.courses.slice(0, TOP).map(function (c) {
-          var parts = String((c.settings || {}).points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
-          return '<li><a href="/course/' + encodeURIComponent(c.titleId) + '"><span class="u-course-title">' + esc(c.title) + '</span>' +
-            '<span class="u-course-meta">' + (parts[0] ? '<img src="' + ICONS.clock + '" width="14" height="14" alt="">' + esc(parts.join(' · ')) : '') +
-            (isFree(c) ? '<span class="u-free">Free</span>' : '') + '</span></a></li>';
+          var s = c.settings || {}, pic = imageUrl(s.image);
+          var parts = String(s.points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean);
+          return '<li><a class="u-course" href="/course/' + encodeURIComponent(c.titleId) + '">' +
+            '<span class="u-course-media">' + (pic ? '<img src="' + esc(pic) + '" alt="" loading="lazy" decoding="async">' : '') + '</span>' +
+            '<span class="u-course-body"><span class="u-course-title">' + esc(c.title) + '</span>' +
+            '<span class="u-course-meta">' + (c.access === 'soon' ? '<span class="u-soon">Coming soon</span>'
+              : parts[0] ? '<img src="' + ICONS.clock + '" width="14" height="14" alt="">' + esc(parts.join(' · ')) : '') + '</span></span></a></li>';
         }).join('') + '</ul>' +
-        '<a class="u-all" href="/courses?institution=' + encodeURIComponent(u.name) + '">View all ' +
-          (u.courses.length === 1 ? 'courses' : u.courses.length + ' courses') +
-          '<span class="u-visually-hidden"> from ' + esc(u.name) + '</span> <img src="' + ICONS.arrow + '" width="16" height="16" alt=""></a>' +
       '</article>';
     }).join('');
 

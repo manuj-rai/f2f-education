@@ -257,17 +257,10 @@ html[data-theme="dark"] .w-article-tag { color: var(--w-link); }
   .w-grid, .w-grid--n2, .w-articles, .w-topic-grid { grid-template-columns: 1fr; }
   .w-card-title, .w-article-title, .w-article-text { min-height: 0; }
   .w-partners-logos { gap: 32px; }
-<<<<<<< HEAD
   .w-partners-logos img { height: 32px; }
  
   .w-impact-title, .w-enterprise-title { font-size:28px; }
    .w-stats {align-items: baseline;text-align: left;margin: 30px 0 0;padding-top: 30px;}
-=======
-  .w-partners-logos img { height: 40px; }
-  .w-impact, .w-enterprise { padding: 56px 0; }
-  .w-impact-title, .w-enterprise-title { font-size: 30px; }
-   .w-stats {align-items: baseline;text-align: center;}
->>>>>>> 7f0f7b7403b67452cf07d131a9d06c560315d1b4
   .lw-hello-bar .learnworlds-section-content, .sticky-topbar .learnworlds-section-content.wide{padding:0px;}
   .w-stats dd { font-size: 44px; }
   .w-team { height: 300px; }

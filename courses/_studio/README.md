@@ -26,7 +26,7 @@ For most new courses, use text lessons instead of videos. One article becomes a 
    The label is "N min · Reading". The author is the institution shown on University Partners (`/universities`; course settings →
    Author's name and avatar). The script's default is **Fibre2Fashion Education** with `courses/_universities/fibre2fashion-education.png`.
    For another institution pass its name and avatar after the slug: `"AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png`
-   or `"Sustainable Fashion School" courses/_universities/sustainable-fashion-academy.png`. Categories: see
+   or `"Sustainable Fashion School" courses/_universities/sustainable-fashion-school.png`. Categories: see
    READING_SCHEMA.md (Sourcing and Merchandising are usually a course's second category, after Apparel Manufacturing).
 
 ## Video courses

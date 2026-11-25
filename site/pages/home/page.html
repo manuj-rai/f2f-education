@@ -29,7 +29,8 @@
     ["trend|forecast", "assets/topic-trend-forecasting.svg"]
   ],
   "topicDefault": "assets/topic-manufacturing.svg",
-  "partnerLogos": { "amfi-amsterdam-fashion-institute": "assets/partner-amfi.png" } }
+  "partnerLogos": {},
+  "categoryFirst": ["sourcing", "merchandising"] }
 </script>
 
 <section class="w-hero" aria-labelledby="w-hero-title">
@@ -52,7 +53,7 @@
   <div class="w-wrap">
     <h2 id="w-partners-title" class="w-partners-label">LEARN FROM THE WORLD’S MOST RESPECTED INSTITUTIONS</h2>
     <ul class="w-partners-logos" data-w-partner-list></ul>
-    <a class="w-partners-all" href="/universities">View all universities <img src="assets/icon-arrow-right-blue-16.svg" width="16" height="16" alt=""></a>
+    <a class="w-partners-all" href="/universities">View all university partners <img src="assets/icon-arrow-right-blue-16.svg" width="16" height="16" alt=""></a>
   </div>
 </section>
 
@@ -269,6 +270,13 @@
         byTag[t].push(c);
       });
       if (tags[0]) { (home[tags[0]] = home[tags[0]] || []).push(c); where[i] = tags[0]; }
+    });
+    // Categories in categoryFirst (top of this file) lead the category bar, sections, Trending filters and topics (the
+    // user's request); the rest keep catalogue order.
+    var firstCats = ICONS.categoryFirst || [], seenOrder = order.slice();
+    order.sort(function (a, b) {
+      var ia = firstCats.indexOf(a), ib = firstCats.indexOf(b);
+      return (ia < 0 ? firstCats.length : ia) - (ib < 0 ? firstCats.length : ib) || seenOrder.indexOf(a) - seenOrder.indexOf(b);
     });
     order.forEach(function (t) {
       if (home[t]) return;

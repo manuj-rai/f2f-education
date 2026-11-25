@@ -98,6 +98,8 @@ One layout for every course, current and future, drawn by `body.html` ("Course p
 
 **Left out (no LearnWorlds data):** What you'll learn, Level, Language, enquiry copy, certificate card, help band, due dates.
 
+A course with no lessons yet (Coming soon) shows "Coming soon" instead of the module and lesson counts, and a short note in Course content.
+
 If the course can't be read within 15 s, LearnWorlds' own (hidden) sections come back.
 
 ## Signed-in pages
@@ -145,8 +147,8 @@ How a page works on the live site:
 
 * **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
-  * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order; then every category that would have no section takes one of its courses from a section that keeps another, so each category shows. A section's "View all courses" opens `/courses?subject=<category>`.
-  * Partner strip: the institutions set as course authors, as logos only (no names; the name is the alt text), on one line that scrolls sideways. The logo is the author's avatar, or a wider one from `partnerLogos` at the top of `pages/home/page.html` (AMFI). Shown from one institution.
+  * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order; then every category that would have no section takes one of its courses from a section that keeps another, so each category shows. A section's "View all courses" opens `/courses?subject=<category>`. Categories listed in `categoryFirst` (top of `pages/home/page.html`, now sourcing and merchandising) come first everywhere on home.
+  * Partner strip: the institutions set as course authors, as logos only (no names; the name is the alt text), on one line that scrolls sideways. The logo is the author's avatar (upload wide logos uncropped; LearnWorlds keeps their shape), unless `partnerLogos` at the top of `pages/home/page.html` names another picture for that institution (empty now). Shown from one institution.
   * Course order everywhere: courses in `SITE.featured` (`body.html`, read by the pages as `window.F2FSite.featured`) come first, then LearnWorlds' order, which is A–Z by title (LearnWorlds has no course-order setting).
   * Figures: counted from the courses.
   * No prices on home (no "Free" on cards or headings); the course page shows free or paid.
@@ -156,7 +158,7 @@ How a page works on the live site:
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
   * Results: sort, 6 courses per page.
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
-* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar), each with its first 5 courses (`TOP` in `pages/universities/page.html`) and "View all N courses", which opens `/courses?institution=<author name>`. Institutions now: Fibre2Fashion Education (6 courses), AMFI (Amsterdam Fashion Institute) (5) and Sustainable Fashion School (5). To add a partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
+* **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar), one row each: logo with the name below and "View all N courses" (opens `/courses?institution=<author name>`) on the left, its first 5 courses (`TOP` in `pages/universities/page.html`) as picture cards on the right (no prices; "Coming soon" for a course with that access). Institutions now: Fibre2Fashion Education (15 courses), AMFI (Amsterdam Fashion Institute) (1) and Sustainable Fashion School (1, the Coming-soon "Fashion Policy Masterclass Series"). To add a partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
 * **Categories** are LearnWorlds course Categories. Rename or add one in Courses → Manage categories (`/author/categories-manager`), which also picks its courses. On home a course appears under its first category, unless another of its categories would otherwise have no section.
 * Contact details (fibre2fashion.com/aboutus/contact): +91-2717-429555, inquiry@fibre2fashion.com, B-3 Abhishree Corporate Park, Iskcon-Ambli Road, Bopal, Ahmedabad 380058, India.
 
