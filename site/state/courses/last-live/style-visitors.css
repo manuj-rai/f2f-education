@@ -95,7 +95,7 @@
 .e-sort img { position: absolute; right: 14px; top: 13px; pointer-events: none; }
 .e-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .e-card { position: relative; display: flex; flex-direction: column; background: #ffffff; border: 1px solid var(--e-line); border-radius: 8px; overflow: hidden; }
-.e-card-media { position: relative; height: 192px; background: var(--e-soft); }
+.e-card-media { position: relative; aspect-ratio: 16 / 9; background: var(--e-soft); } /* course images are 16:9: no cropping */
 .e-card-media img { width: 100%; height: 100%; object-fit: cover; }
 .e-chip { position: absolute; left: 16px; top: 16px; padding: 6px 10px; border-radius: 4px; background: #ffffff; font-size: 10px; font-weight: 600; line-height: 1.45; color: var(--e-blue); }
 .e-card-body { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 22px; }
@@ -205,7 +205,7 @@
 .f2f-member .e-facet:last-of-type { border-bottom: 0; padding-bottom: 0; }
 .f2f-member .e-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .e-card--m { border-color: #dce3ed; }
-.e-card--m .e-card-media { display: block; height: 168px; }
+.e-card--m .e-card-media { display: block; aspect-ratio: 16 / 9; }
 .e-card--m .e-card-body { gap: 12px; padding: 20px; line-height: 1.4; }
 .e-mstatus { font-size: 10px; font-weight: 600; color: #26715b; }
 .e-card-inst--m { min-height: 28px; color: var(--e-muted); }

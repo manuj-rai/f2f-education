@@ -55,6 +55,11 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 * Don't write the body tag's name in angle brackets anywhere in `body.html`. LearnWorlds replaces that text with the page's own body tag, so the live code would no longer match the file.
 * Each file starts with a banner comment, and head and body end with an end marker (`<!-- /F2F Education · Site custom code · … -->`). `npm run dev` finds the live code by these, so keep them.
 
+## Images and anchors (every page)
+
+* Course pictures are 1280 × 720 (16:9). Every box that shows one uses `aspect-ratio: 16 / 9` with `object-fit: cover`, so nothing is cropped. Don't give these boxes a fixed height.
+* `style.css` gives every element with an `id` `scroll-margin-top` = the sticky header bar (72px; 56px from 990px down) through `:where()`, so a page's own `scroll-margin-top` still wins.
+
 ## Header and footer
 
 Drawn by `body.html` ("Header and footer" script) on every site page and styled by `style.css` section 6. They follow the Figma "Public navigation", "Student header" and "Public footer" designs. LearnWorlds' own top bar and footer stay in the page, hidden.

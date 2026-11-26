@@ -219,7 +219,7 @@ html.f2f-search-open, html.f2f-search-open body { overflow: hidden !important; }
   color: inherit !important; text-decoration: none !important;
 }
 .f2f-sr[aria-selected="true"] { background: var(--f2f-soft); }
-.f2f-sr img, .f2f-sr-ph { width: 72px; height: 45px; flex: none; border-radius: 6px; object-fit: cover; background: var(--f2f-soft); }
+.f2f-sr img, .f2f-sr-ph { width: 72px; height: auto; aspect-ratio: 16 / 9; flex: none; border-radius: 6px; object-fit: cover; background: var(--f2f-soft); }
 .f2f-sr-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .f2f-sr-title {
   font-size: 15px; font-weight: 600; line-height: 1.35;
@@ -282,6 +282,10 @@ html.f2f-chrome body.lw-page section.lw-topbar,
 html.f2f-chrome body.lw-page section.lw-footer { display: none !important; }
 /* Room for the header until body.html adds it, so the page doesn't jump (signed-out height) */
 html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: ""; display: block; height: 104px; }
+/* Jumps to a section (#…) stop just below the sticky header bar (72px; 56px on tablets and phones). Zero specificity, so
+   the pages' own scroll-margin values (course page, profile, partners) still win. */
+:where(html.f2f-chrome) :where([id]) { scroll-margin-top: 72px; }
+@media (max-width: 990px) { :where(html.f2f-chrome) :where([id]) { scroll-margin-top: 56px; } }
 
 .f2f-header, .f2f-footer { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 .f2f-header :is(p, nav), .f2f-footer :is(p, nav) { margin: 0; }
@@ -411,7 +415,7 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
 .c-title { font-size: 40px; font-weight: 600; line-height: 1.45; color: #ffffff; }
 .c-lede { font-size: 16px; color: #cedaee; }
 .c-attrs { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 13px; font-weight: 500; color: #ffffff; }
-.c-hero-photo { flex: none; width: 456px; height: 286px; border-radius: 8px; object-fit: cover; background: #1a2b52; }
+.c-hero-photo { flex: none; width: 456px; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; object-fit: cover; background: #1a2b52; } /* course images are 16:9 */
 
 /* Loading state */
 .c-skel { background: linear-gradient(90deg, #1a2b52 25%, #23365f 50%, #1a2b52 75%) 0 0 / 200% 100%; animation: c-shimmer 1.2s linear infinite; border-radius: 4px; }
@@ -486,12 +490,12 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
 @media (max-width: 1280px) {
   .c-wrap { padding: 0 48px; }
   .c-hero-row { gap: 40px; }
-  .c-hero-photo { width: 380px; height: 238px; }
+  .c-hero-photo { width: 380px; }
   .c-side { width: 340px; }
 }
 @media (max-width: 1023px) {
   .c-hero-row { flex-direction: column; align-items: stretch; gap: 28px; }
-  .c-hero-photo { width: 100%; height: auto; aspect-ratio: 456 / 286; }
+  .c-hero-photo { width: 100%; }
   .c-work-in { flex-direction: column-reverse; align-items: stretch; gap: 32px; } /* enrol card first */
   .c-side { width: 100%; }
 }
@@ -662,7 +666,7 @@ body.slug-about #sectionsWrapper > main > section:is([data-section-id="tpl60"], 
 .p-search input::placeholder { color: #5b687c; opacity: 1; }
 .p-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .p-card { display: flex; flex-direction: column; background: #ffffff; border: 1px solid #dce3ed; border-radius: 8px; overflow: hidden; }
-.p-card-media { display: block; height: 150px; background: #eaf0fb; }
+.p-card-media { display: block; aspect-ratio: 16 / 9; background: #eaf0fb; }
 .p-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .p-card-body { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 18px 20px 20px; }
 .p-status { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #5b687c; }

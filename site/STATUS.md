@@ -86,6 +86,8 @@ The user's final split: one course each for Sustainable Fashion School and AMFI,
 - The page scrolls as one page (LearnWorlds scrolled the account inside a fixed-height box).
 
 **Every page.**
+- Course pictures are never cropped (26 Nov 2026): every course image box (home, Online Courses, My learning, Profile, course page hero, search results, University Partners) has the pictures' 16:9 shape.
+- Jumps to a section ("Find your next step", Explore by topic, other #links) stop just below the sticky header (72px, 56px on phones), so the section label and heading show.
 - Search boxes show focus on the whole box (blue border and soft ring), not a partial outline around the text field.
 - E-mail links (footer "Help center", "Talk to an adviser", "About Enterprise") also open a small "Email us" window with the address, Copy address, Gmail and Outlook, for computers with no e-mail app set up.
 
