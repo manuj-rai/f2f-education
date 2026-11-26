@@ -13,7 +13,7 @@ The F2F Education website on LearnWorlds (https://f2fedtech.learnworlds.com, adm
    - LearnWorlds' **sign-in window** stays unstyled.
    - The "My learning / My certificates / Account settings" bar under the header is **removed**.
    - **Resources** (header) and **Privacy policy / Terms of use** (footer) are shown but disabled. An empty address in `SITE` does that.
-   - Header height is 72px (56px on phones): the top strip ("World-class education…") was removed on 26 Nov 2026.
+   - Header height is 60px (56px on phones): Manish lowered it from 72px on 26 Nov 2026; the top strip ("World-class education…") was removed the same day.
    - Profile lists **only earned** certificates.
    - Each page has its own custom code.
    - The home page design is left as is unless asked.

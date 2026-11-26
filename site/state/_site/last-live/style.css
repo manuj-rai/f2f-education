@@ -281,10 +281,10 @@ html.f2f-chrome body.lw-page section.lw-hello-bar,
 html.f2f-chrome body.lw-page section.lw-topbar,
 html.f2f-chrome body.lw-page section.lw-footer { display: none !important; }
 /* Room for the header until body.html adds it, so the page doesn't jump (signed-out height) */
-html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: ""; display: block; height: 72px; }
-/* Jumps to a section (#…) stop just below the sticky header bar (72px; 56px on tablets and phones). Zero specificity, so
+html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: ""; display: block; height: 60px; }
+/* Jumps to a section (#…) stop just below the sticky header bar (60px; 56px on tablets and phones). Zero specificity, so
    the pages' own scroll-margin values (course page, profile, partners) still win. */
-:where(html.f2f-chrome) :where([id]) { scroll-margin-top: 72px; }
+:where(html.f2f-chrome) :where([id]) { scroll-margin-top: 60px; }
 @media (max-width: 990px) { :where(html.f2f-chrome) :where([id]) { scroll-margin-top: 56px; } }
 
 .f2f-header, .f2f-footer { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
@@ -292,7 +292,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 .f2f-header a, .f2f-footer a { text-decoration: none !important; }
 .f2f-header button { font: inherit; margin: 0; border: 0; background: none; padding: 0; cursor: pointer; color: inherit; }
 .f2f-header :focus-visible, .f2f-footer :focus-visible { outline: 2px solid var(--f2f-blue); outline-offset: 2px; border-radius: 2px; }
-/* Sticky: the white bar stays at the top (72px; 56px on phones). Below LearnWorlds' windows (sign-in is z-index 199),
+/* Sticky: the white bar stays at the top (60px; 56px on phones). Below LearnWorlds' windows (sign-in is z-index 199),
    so their close buttons at the top stay clickable. */
 .f2f-header { position: sticky; top: 0; z-index: 150; } /* the top strip was removed (the user's request, 26 Nov 2026) */
 
@@ -435,7 +435,7 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
 .c-rel-meta { font-size: 12px; color: #5b687c; }
 .c-rel-cta { margin-top: auto; font-size: 14px; font-weight: 600; color: #1b5fa8; }
 
-.c-work { background: #f7f9fc; padding: 40px 0 48px; scroll-margin-top: 72px; }
+.c-work { background: #f7f9fc; padding: 40px 0 48px; scroll-margin-top: 60px; }
 .c-work-in { display: flex; align-items: flex-start; gap: 40px; }
 .c-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 36px; }
 .c-side { flex: none; width: 400px; display: flex; flex-direction: column; gap: 24px; }
@@ -501,6 +501,10 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
   .c-hero-photo { width: 100%; }
   .c-work-in { flex-direction: column-reverse; align-items: stretch; gap: 32px; } /* enrol card first */
   .c-side { width: 100%; }
+  .c-related{padding:40px 0 40px;}
+  .c-hero-copy, .c-glance {gap:5px;}
+  .c-card{gap:10px;}
+  .c-price{font-size:18px;text-align:center;}
 }
 @media (max-width: 1024px) and (min-width: 721px) { .c-rel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {

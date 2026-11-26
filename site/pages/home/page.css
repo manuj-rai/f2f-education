@@ -71,8 +71,7 @@ a.w-btn--line:hover { background: rgba(255, 255, 255, .1); border-color: #ffffff
 /* ---------- University partners ---------- */
 .w-partners { background: var(--w-bg); padding: 36px 0 40px; text-align: center; }
 .w-partners-label { font-size: 12px; font-weight: 600; line-height: normal; color: var(--w-muted); letter-spacing: 0; }
-/* One line; scrolls sideways when the institutions don't fit (the user's request). The auto margins centre the row when it
-   fits; justify-content: center would make the start of an overflowing row unreachable. */
+/* Centred; wraps onto more lines when the logos don't fit (Manish, 26 Nov 2026), so no logo is hidden on phones. */
 .w-partners-logos { display: flex; align-items: center; gap: 35px; margin-top: 30px !important; padding: 2px 2px 8px;flex-wrap:wrap;justify-content:center;}
 .w-partners-logos > li { flex: none; }
 

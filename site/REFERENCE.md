@@ -58,7 +58,7 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 ## Images and anchors (every page)
 
 * Course pictures are 1280 × 720 (16:9). Every box that shows one uses `aspect-ratio: 16 / 9` with `object-fit: cover`, so nothing is cropped. Don't give these boxes a fixed height.
-* `style.css` gives every element with an `id` `scroll-margin-top` = the sticky header bar (72px; 56px from 990px down) through `:where()`, so a page's own `scroll-margin-top` still wins.
+* `style.css` gives every element with an `id` `scroll-margin-top` = the sticky header bar (60px; 56px from 990px down) through `:where()`, so a page's own `scroll-margin-top` still wins.
 
 ## Header and footer
 
@@ -68,7 +68,7 @@ Drawn by `body.html` ("Header and footer" script) on every site page and styled 
 * Signed out: logo, Online Courses (`/courses`) / Residential Courses / University Partners (`/universities`) / Resources, search, **Log in**. Log in clicks LearnWorlds' own hidden Sign in link, so keep that item in the Site Builder's Topbar navigation.
 * Signed in: the same with an account button showing the learner's name (from `/api/user_stats`). Its menu has My learning, Profile, Inbox, Account settings and Sign out.
 * Who is signed in: LearnWorlds' hidden header has a Sign in link only for visitors.
-* Size: a sticky 72px bar, 56px on phones (the top strip was removed on 26 Nov 2026). Phones and tablets (990px and narrower) get a menu button. From 991px to 1180px the menu gaps are tighter, and the signed-in name is cut with "…" (at 160px, and at 120px from 1100px down). The full name is in its tooltip.
+* Size: a sticky 60px bar, 56px on phones (72px until Manish lowered it on 26 Nov 2026; the top strip was removed the same day). `style.css` keeps the same height for the space reserved while the header loads (`#sectionsWrapper::before`) and for `scroll-margin-top`; change them together. Phones and tablets (990px and narrower) get a menu button. From 991px to 1180px the menu gaps are tighter, and the signed-in name is cut with "…" (at 160px, and at 120px from 1100px down). The full name is in its tooltip.
 * Page side margins: 80px, then 48px from 1280px down (header, footer and every page), then 20px on phones. In page CSS, set only `padding-left` / `padding-right` in those media rules: some wrappers also carry their own top and bottom padding, and a `padding: 0 48px` shorthand wipes it. The bar sits below LearnWorlds' own windows (z-index 199).
 * Footer: "F2F EDUCATION", © year Fibre2Fashion, Help center (e-mail), Privacy policy and Terms of use (both disabled for now). LearnWorlds adds "Created with LearnWorlds" below it; only the Learning Center plan removes it.
 * **E-mail links:** every `mailto:` link also opens a small "Email us" window with the address, Copy address, Gmail and Outlook. On a computer with no e-mail app set up, the link alone does nothing visible.
@@ -121,7 +121,7 @@ If the course can't be read within 15 s, LearnWorlds' own (hidden) sections come
   * Layout: a navy title band, a sticky sidebar card, and one white card per section.
   * Buttons and values: outline Edit / Save / Cancel, "Not added" for empty values, framed tables, and the payment status as a tag.
   * Scrolling: the account scrolls as one page; LearnWorlds scrolled it inside a fixed-height box. So the page marks the sidebar item in view itself (`is-current`). `#security` / `#payments` open at that section; `#personal-details` opens at the top.
-* **Inbox, Community, apps** (`/inbox`, `/social` …): the site header, footer and fields via `builtin.css`.
+* **Inbox, Community, apps** (`/inbox`, `/social` …): the site header and fields via `builtin.css`. `/inbox` and `/social` are full-window apps that scroll inside, so they have no site footer and their app box fills the window below the header (a footer under them gave the page a second scrollbar). On `/inbox` LearnWorlds sizes the inner boxes to `100vh`; `builtin.css` sets them to 100% of the app.
 * **404 page:** `body.html` draws it on `body.slug-error`: a message, a course search, and links back in.
 * **Privacy and Terms** (`/privacy`, `/terms`): the title band and a readable column (`style.css` section 11). The text is still LearnWorlds' template, so the footer links are disabled until real policies exist.
 * **About** (`/about`): LearnWorlds' invented instructors, figures and testimonials are hidden (`style.css` section 12). A real page is drafted in [pages/about/](pages/about/), not published.

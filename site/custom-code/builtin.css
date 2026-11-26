@@ -16,9 +16,17 @@ body:is(.slug-account, .slug-inbox, .slug-social, .slug-people, .slug-dailynews,
 
 /* The apps were sized for LearnWorlds' 55px header; fit them under the site header instead
    (body.html sets --f2f-header-h to the header's height) */
-.app-container, .social-app-page { height: calc(100vh - var(--f2f-header-h, 72px)) !important; min-height: 520px; }
+.app-container, .social-app-page { height: calc(100vh - var(--f2f-header-h, 60px)) !important; min-height: 520px; }
+/* /inbox and /social are full-window apps that scroll inside. The site footer below them made the page scroll too, so two
+   scrollbars showed (26 Nov 2026): no footer there, and on /social the header sits inside the app box, so that box takes
+   the whole window. */
+body.slug-inbox .f2f-footer, body.slug-social .f2f-footer { display: none !important; }
+body.slug-social .social-app-page { height: 100vh !important; }
+/* /inbox: LearnWorlds sizes the box inside the app to the full window (100vh), which ran a header's height past the bottom */
+body.slug-inbox .app-container > .app-wrapper > div, body.slug-inbox .app-container > .app-wrapper > div > .lw-cols { height: 100% !important; }
+body.slug-inbox .app-wrapper > div > .lw-cols > *, body.slug-inbox .app-wrapper > div > .lw-cols > * > .lw-body-bg { height: 100% !important; box-sizing: border-box !important; }
 .account-app-page .personal-details-values { min-width: 0 !important; }
-.account-app-page { height: auto !important; min-height: calc(100vh - var(--f2f-header-h, 72px)); overflow: visible !important; padding-bottom: 56px; }
+.account-app-page { height: auto !important; min-height: calc(100vh - var(--f2f-header-h, 60px)); overflow: visible !important; padding-bottom: 56px; }
 
 /* Headings */
 .account-app-page .learnworlds-subheading { font-size: 28px !important; font-weight: 600 !important; line-height: 1.4 !important; color: #0d1b3e !important; letter-spacing: 0 !important; }
