@@ -1,6 +1,9 @@
 """Writes the Playwright scripts that put a built *readable* course into LearnWorlds (f2fedtech.learnworlds.com).
 
-  python courses/_studio/lw_publish_js.py <slug> ["Author name" <avatar.png>]
+  python courses/_studio/lw_publish_js.py <slug> ["Author name" [<avatar.png>]] [--existing]
+
+  --existing: the course is already in LearnWorlds (e.g. a Coming-soon course with no lessons). Script 1 skips the
+  create-course wizard and opens that course's outline instead. Leave out the avatar to keep the one it has.
 
   With no author given, the course gets "Fibre2Fashion Education" with
   courses/_universities/fibre2fashion-education.png. AMFI: "AMFI (Amsterdam Fashion Institute)" courses/_universities/amfi.png.
@@ -30,6 +33,7 @@ const log = [];
 P1 = r"""async (page) => {
 const C = __C__;
 __H__
+//<wizard>
 await page.goto('https://f2fedtech.learnworlds.com/author/courses', { waitUntil: 'domcontentloaded' });
 await wait(6000);
 await cw().getByTestId('course-manager--topbar-create-course').click(); await wait(2000);
@@ -45,6 +49,7 @@ await page.getByTestId('course-wizard--page-template--page').locator('select').s
 await page.getByRole('button', { name: 'Finish' }).click();
 await page.waitForURL(u => String(u).includes('courseid=' + C.slug), { timeout: 60000 }); await wait(7000);
 log.push('created ' + page.url());
+//</wizard>
 let fr = cw();
 await fr.getByText('Upload & convert', { exact: true }).click(); await wait(2000);
 await fr.locator('[role=dialog] input[type=file]').first().setInputFiles(C.files); await wait(2500);
@@ -139,7 +144,8 @@ const desc = fr.getByText('Description', { exact: true }).locator('xpath=followi
 await desc.click(); await page.keyboard.press('Control+A'); await page.keyboard.type(C.card_description);
 await fr.getByText('Add a label', { exact: true }).locator('xpath=following::input[1]').fill(C.label);
 await fr.getByText("Author's name", { exact: true }).locator('xpath=following::input[1]').fill(C.author);
-const cat = fr.getByRole('textbox', { name: 'Enter category name' });
+// the box loses its 'Enter category name' label once a category is in, so fall back to its class
+const cat = fr.getByRole('textbox', { name: 'Enter category name' }).or(fr.locator('input.authoring-multiselect__input')).first();
 // Category tags save as soon as they are added, so skip ones already there (keeps a re-run from adding duplicates).
 const haveCats = await fr.getByText('Categories', { exact: true }).locator('xpath=..').evaluate(e => e.parentElement.innerText);
 for (const c of C.categories) { if (haveCats.split(/\s+/).includes(c)) continue; await cat.click(); await cat.fill(c); await wait(800); await cat.press('Enter'); await wait(800); }
@@ -204,9 +210,11 @@ return log.join('\n');
 
 
 def main():
-    slug = sys.argv[1]
-    author = sys.argv[2] if len(sys.argv) > 2 else 'Fibre2Fashion Education'
-    avatar = sys.argv[3] if len(sys.argv) > 3 else (STUDIO.parent / '_universities' / 'fibre2fashion-education.png' if author == 'Fibre2Fashion Education' else None)
+    existing = '--existing' in sys.argv
+    argv = [a for a in sys.argv if a != '--existing']
+    slug = argv[1]
+    author = argv[2] if len(argv) > 2 else 'Fibre2Fashion Education'
+    avatar = argv[3] if len(argv) > 3 else (STUDIO.parent / '_universities' / 'fibre2fashion-education.png' if author == 'Fibre2Fashion Education' else None)
     avatar = str(Path(avatar).resolve()).replace('\\', '/') if avatar else None
     c = reading.load(slug)
     d = (STUDIO.parent / slug).resolve()
@@ -222,7 +230,12 @@ def main():
         if not Path(f).exists(): sys.exit(f'missing {f}; build the course first')
     out = ROOT / '.scratch' / 'lw'; out.mkdir(parents=True, exist_ok=True)
     cj = json.dumps(C, ensure_ascii=False, indent=1)
-    for name, tpl in (('1-create', P1), ('2-quiz', P2), ('3-settings', P3)):
+    p1 = P1
+    if existing:   # course already exists: open its outline instead of running the wizard
+        a, b = p1.index('//<wizard>'), p1.index('//</wizard>') + len('//</wizard>')
+        p1 = p1[:a] + ("await page.goto('https://f2fedtech.learnworlds.com/author/course?courseid=' + C.slug + '&tab=contents', { waitUntil: 'domcontentloaded' });\n"
+                       "await wait(8000);\nlog.push('opened existing course ' + page.url());") + p1[b:]
+    for name, tpl in (('1-create', p1), ('2-quiz', P2), ('3-settings', P3)):
         p = out / f'{slug}-{name}.js'
         p.write_text(tpl.replace('__C__', cj).replace('__H__', HELPERS), encoding='utf-8')
         print(p.relative_to(ROOT).as_posix())

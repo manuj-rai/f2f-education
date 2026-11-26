@@ -14,6 +14,7 @@ For most new courses, use text lessons instead of videos. One article becomes a 
    `upload/Lesson N - <title>.docx`, `assessments/knowledge-check.xlsx`, `course-card.jpg` and `learnworlds-setup.md`.
 4. Put it into LearnWorlds with scripts (about 6 minutes a course):
    `python courses/_studio/lw_publish_js.py <slug>` writes three Playwright scripts to
+   (add `--existing` when the course is already in LearnWorlds without lessons: script 1 then opens its outline instead of the create wizard)
    `.scratch/lw/`. Run them in order in the signed-in admin browser (Playwright MCP `browser_run_code_unsafe` with `filename`):
    * `<slug>-1-create.js`: Create-course wizard (copies Staple Yarn's clean page), Upload & convert of the `.docx` lessons
      (each becomes an Ebook activity), activities renamed "Lesson N: Title", the "Lessons" section set to Public, and a second

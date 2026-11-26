@@ -189,7 +189,11 @@ def lesson_docx(c, l, out):
         add_runs(doc.add_paragraph(), 'Take the short **knowledge check** in the next section. Score 70% or more to earn your certificate of completion.')
     s, s2 = c['source'], c.get('source2')
     p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(20)
-    if s2:
+    if s2 and s2.get('authors', s['authors']) != s['authors']:
+        # two articles by different authors: credit each one
+        add_runs(p, f"Source: this lesson is based on the Fibre2Fashion articles “{s['title']}” by {s['authors']} ({s['published']}) and “{s2['title']}” by {s2['authors']} ({s2['published']}). ", size=9, color=MUTED, italic=True)
+        add_link(p, s['url'], 'Read article 1'); add_runs(p, '  ·  ', size=9, color=MUTED); add_link(p, s2['url'], 'Read article 2')
+    elif s2:
         add_runs(p, f"Source: this lesson is based on the Fibre2Fashion articles “{s['title']}” ({s['published']}) and “{s2['title']}” ({s2['published']}) by {s['authors']}. ", size=9, color=MUTED, italic=True)
         add_link(p, s['url'], 'Read article 1'); add_runs(p, '  ·  ', size=9, color=MUTED); add_link(p, s2['url'], 'Read article 2')
     else:
@@ -215,7 +219,9 @@ def setup_md(c):
          '## Course page', '', f"**{c['subtitle']}**", '', c['about'], '', f"**Who it is for:** {c['audience']}", '', '**You will learn to:**']
     L += [f'- {o}' for o in c['outcomes']]
     s2 = c.get('source2')
-    src = (f"**Source:** this course is based on the Fibre2Fashion articles [{s['title']}]({s['url']}) ({s['published']}) and "
+    src = (f"**Source:** this course is based on the Fibre2Fashion articles [{s['title']}]({s['url']}) by {s['authors']} ({s['published']}) and "
+           f"[{s2['title']}]({s2['url']}) by {s2['authors']} ({s2['published']})." if s2 and s2.get('authors', s['authors']) != s['authors'] else
+           f"**Source:** this course is based on the Fibre2Fashion articles [{s['title']}]({s['url']}) ({s['published']}) and "
            f"[{s2['title']}]({s2['url']}) ({s2['published']}) by {s['authors']}." if s2 else
            f"**Source:** this course is based on the Fibre2Fashion article [{s['title']}]({s['url']}) by {s['authors']} ({s['published']}).")
     L += ['', src, '',

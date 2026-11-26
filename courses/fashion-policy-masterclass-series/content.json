@@ -1,0 +1,163 @@
+{
+  "format": "reading",
+  "slug": "fashion-policy-masterclass-series",
+  "title": "Fashion Policy Masterclass Series",
+  "subtitle": "How EU green policy and producer responsibility laws are reshaping fashion, from design to sourcing.",
+  "card_description": "Understand the EU Green Deal, circular textile policy and EPR laws for fashion, and what they mean for product design, recycling, suppliers and compliance.",
+  "seo_description": "Free course on fashion policy: the EU Green Deal, circular textiles, EPR laws in France, the EU and California, and how brands can prepare.",
+  "level": "Beginner",
+  "categories": ["sustainable-textiles", "sourcing"],
+  "card_icon": "scale",
+  "card_topic": "Fashion policy",
+  "author_name": "Sustainable Fashion School",
+  "source": {
+    "title": "EPR Laws: Fashion’s Next Challenge",
+    "url": "https://www.fibre2fashion.com/industry-article/10430/epr-laws-fashion-s-next-challenge",
+    "authors": "Arisekola Muritala",
+    "published": "May 2025"
+  },
+  "source2": {
+    "title": "Green Policies in the EU: Advancements and Impacts",
+    "url": "https://www.fibre2fashion.com/industry-article/10162/green-policies-in-the-eu-advancements-and-impacts",
+    "authors": "Fibre2Fashion",
+    "published": "Oct 2024"
+  },
+  "outcomes": [
+    "Explain why EU green policy targets textile waste and fast fashion.",
+    "Describe how Extended Producer Responsibility shifts end-of-life costs to brands.",
+    "Compare textile EPR schemes in France, the Netherlands, the EU and California.",
+    "Apply eco-modulation thinking to material and product design choices.",
+    "Identify practical steps brands and suppliers can take to prepare."
+  ],
+  "audience": "Brand, product and sourcing teams, suppliers exporting to Europe, and sustainability students who want a clear introduction to fashion and textile policy.",
+  "about": "Fashion is moving from voluntary pledges to binding rules. This free masterclass series, based on the Fibre2Fashion articles by Arisekola Muritala and the Fibre2Fashion team, explains the policies now reshaping the industry. You will see how the EU Green Deal and Circular Economy Action Plan target textile waste, how Extended Producer Responsibility makes brands pay for the end of their products’ lives, and how EPR laws differ in France, the Netherlands, the EU and California. The final lessons turn policy into practice: designing for recycling, take-back programmes, the energy gap in producer countries, and the steps brands and suppliers can take now.",
+  "lessons": [
+    { "title": "Why Fashion Needs Policy", "file": "01-why-policy.md" },
+    { "title": "How Extended Producer Responsibility Works", "file": "02-how-epr-works.md" },
+    { "title": "EPR Laws Around the World", "file": "03-epr-around-the-world.md" },
+    { "title": "Designing and Recycling for Circularity", "file": "04-designing-for-circularity.md" },
+    { "title": "Producer Countries and Getting Ready", "file": "05-getting-ready.md" }
+  ],
+  "quiz": [
+    {
+      "type": "mc",
+      "q": "What emissions target does the European Green Deal set for 2030?",
+      "options": [
+        "A 55 per cent cut in emissions",
+        "Net zero emissions across all industries",
+        "A 25 per cent cut for textiles only",
+        "A freeze at 2020 levels"
+      ],
+      "answer": 0,
+      "feedback": "The Green Deal aims to cut emissions by 55 per cent by 2030, on the way to a green EU by 2050."
+    },
+    {
+      "type": "mc",
+      "q": "What is the central idea of Extended Producer Responsibility (EPR)?",
+      "options": [
+        "Consumers pay a deposit when they buy clothing",
+        "Producers become financially and legally responsible for their products after use",
+        "Governments run all textile recycling with tax money",
+        "Retailers must sell only second-hand clothing"
+      ],
+      "answer": 1,
+      "feedback": "EPR shifts responsibility for collection, reuse, recycling and disposal from the public onto the producers who put products on the market."
+    },
+    {
+      "type": "mc",
+      "q": "Under eco-modulation, which product would most likely carry the highest EPR fee?",
+      "options": [
+        "A garment made from a single recyclable fibre",
+        "A repairable jacket with replaceable parts",
+        "A garment in a hard-to-recycle fibre blend",
+        "A garment with recycled content"
+      ],
+      "answer": 2,
+      "feedback": "Eco-modulation charges more for products with a higher environmental impact, such as blends that are hard to separate and recycle."
+    },
+    {
+      "type": "mc",
+      "q": "Which body collects textile EPR fees from brands selling in France?",
+      "options": [
+        "CalRecycle",
+        "The Natural Resource Tax office",
+        "The European Commission",
+        "Refashion"
+      ],
+      "answer": 3,
+      "feedback": "Refashion is France’s national EPR body. Fees depend on the volume and nature of the products a business sells."
+    },
+    {
+      "type": "mc",
+      "q": "What collection and recycling goal does the Dutch textile EPR scheme set for 2030?",
+      "options": [
+        "Prepare 75 per cent of textiles placed on the market for reuse or recycling",
+        "Recycle every garment sold in the country",
+        "Ban the import of synthetic clothing",
+        "Collect 12 kg of clothing per person"
+      ],
+      "answer": 0,
+      "feedback": "The Netherlands aims for at least 50 per cent by 2025, rising to 75 per cent by 2030."
+    },
+    {
+      "type": "mc",
+      "q": "Why are mono-material fabrics expected to gain ground under EPR?",
+      "options": [
+        "They are always cheaper to produce",
+        "They are easier to recycle, so they attract lower fees",
+        "EPR laws ban all blended fabrics",
+        "They need no take-back scheme"
+      ],
+      "answer": 1,
+      "feedback": "Separating fibres in a blend takes energy-intensive processes. Single-fibre fabrics are easier to recycle and so cost less under eco-modulation."
+    },
+    {
+      "type": "mc",
+      "q": "According to the course, which fibre type is the only one with a successful closed-loop recycling pilot so far?",
+      "options": [
+        "Cotton",
+        "Wool",
+        "Polyester",
+        "Elastane"
+      ],
+      "answer": 2,
+      "feedback": "Polyester, the most widely used fibre, is the only type with a successful closed-loop pilot. No one yet has a foolproof solution for fully recycled garments."
+    },
+    {
+      "type": "tf",
+      "q": "In a closed-loop system, a recycled garment only needs to be usable; its quality can be lower than the original.",
+      "answer": false,
+      "feedback": "False. A key requirement of closed-loop recycling is that the new garment is of comparable quality to the original."
+    },
+    {
+      "type": "tf",
+      "q": "In textile production, dyeing and finishing use far more energy per 100 kg than spinning or weaving.",
+      "answer": true,
+      "feedback": "True. Dyeing and finishing take about 200-300 kWh per 100 kg of fabric, against about 25-30 kWh for spinning or weaving."
+    },
+    {
+      "type": "ma",
+      "q": "Which of these are core components of EPR schemes for fashion? (select all that apply)",
+      "options": [
+        "Mandatory take-back schemes",
+        "Eco-modulation fees",
+        "Transparency and reporting",
+        "Fixed minimum retail prices",
+        "A ban on online sales"
+      ],
+      "answers": [0, 1, 2],
+      "feedback": "EPR in fashion combines take-back schemes, eco-modulation fees, waste reduction targets and reporting. It does not fix prices or ban online sales."
+    }
+  ],
+  "glossary": [
+    { "term": "European Green Deal", "def": "The EU’s plan to become green by 2050, including a 55 per cent emissions cut by 2030." },
+    { "term": "Circular Economy Action Plan (CEAP)", "def": "The Green Deal plan that promotes recycling, reuse, better product design and less waste, including in textiles." },
+    { "term": "Extended Producer Responsibility (EPR)", "def": "A policy that makes producers financially and legally responsible for their products after use." },
+    { "term": "Eco-modulation fee", "def": "An EPR fee that rises with a product’s environmental impact, rewarding recyclable and lower-impact designs." },
+    { "term": "Producer responsibility organisation (PRO)", "def": "A collective body that runs EPR obligations, such as collection and reporting, on behalf of member producers." },
+    { "term": "Mono-material", "def": "A fabric or product made from a single fibre type, which makes it easier to recycle." },
+    { "term": "Closed-loop recycling", "def": "Turning used garments back into new garments of comparable quality, using recycled or taken-back materials." },
+    { "term": "Downcycling", "def": "Recycling a material into a product of lower value or quality, such as turning clothing into rags or insulation." },
+    { "term": "Digital Product Passport", "def": "An EU system in development to record product information and track textile recycling across a product’s life." }
+  ]
+}
