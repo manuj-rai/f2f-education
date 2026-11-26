@@ -1,0 +1,68 @@
+{
+ "unit2": {
+  "title": "Unit 2 knowledge check",
+  "questions": [
+   { "type": "mc", "q": "In the cotton route, which step removes the short fibres and makes the rest parallel?",
+     "options": ["Carding", "Drawing", "Combing", "Roving"], "answer": 2,
+     "feedback": "Combing removes the short fibres (noil) and lines up the rest. It is used only for combed yarn." },
+   { "type": "mc", "q": "Which step is needed for ring spinning but not for rotor spinning?",
+     "options": ["Opening and cleaning", "Carding", "Drawing", "Roving"], "answer": 3,
+     "feedback": "The rotor takes sliver directly, so rotor spinning needs no roving. Ring spinning needs roving." },
+   { "type": "mc", "q": "What does compact spinning add to ring spinning?",
+     "options": ["A rotor instead of a ring", "Suction that gathers the fibres into a tight bundle before twisting", "A swirling air jet that twists the yarn", "An extra combing stage"], "answer": 1,
+     "feedback": "Suction condenses the fibres just before the twist goes in, so compact yarn is less hairy, stronger and more lustrous." },
+   { "type": "mc", "q": "In ring spinning, what puts the twist into the yarn?",
+     "options": ["The traveller running round the ring as the bobbin turns", "A jet of swirling air", "The groove inside a fast-spinning rotor", "The leather tapes on the card"], "answer": 0,
+     "feedback": "The yarn runs through the traveller, which runs round the ring as the bobbin turns; each turn adds twist." },
+   { "type": "mc", "q": "Which extra step does the wool route add at the very start?",
+     "options": ["Roving", "Scouring", "Plying", "Winding"], "answer": 1,
+     "feedback": "Scouring washes the grease, dirt and sweat out of the fleece before carding." },
+   { "type": "tf", "q": "Most single yarns are spun with S twist and then plied with Z twist.", "answer": false,
+     "feedback": "False. Most singles are Z twist, and plying usually uses the opposite S twist to balance the yarn." }
+  ]
+ },
+ "unit3": {
+  "title": "Unit 3 knowledge check",
+  "questions": [
+   { "type": "mc", "q": "In the English cotton count (Ne), what does a higher number mean?",
+     "options": ["A coarser yarn", "A finer yarn", "More twist", "More plies"], "answer": 1,
+     "feedback": "Ne counts 840-yard hanks per pound, so a higher number means a finer yarn." },
+   { "type": "mc", "q": "A yarn is written as 2/40s Ne. What is it?",
+     "options": ["Two Ne 40 singles plied, roughly as thick as Ne 20", "An Ne 40 yarn with two turns per inch", "A two-fibre blend spun at Ne 40", "An Ne 20 single spun twice"], "answer": 0,
+     "feedback": "The number before the slash is the number of plies: two Ne 40 singles give a yarn about as thick as Ne 20." },
+   { "type": "mc", "q": "What happens when a yarn gets more twist than its optimum?",
+     "options": ["It keeps getting stronger", "It becomes softer and bulkier", "The fibres shear, so it weakens and feels harsh", "Its count gets finer"], "answer": 2,
+     "feedback": "Past the optimum, fibres shear against each other: the yarn weakens and becomes harsh and lively." },
+   { "type": "mc", "q": "A yarn test report shows a high CV%. What is a buyer most likely to see in the fabric?",
+     "options": ["Better lustre", "Streaks and an uneven appearance", "More stretch", "Lower shrinkage"], "answer": 1,
+     "feedback": "CV% measures variation in thickness along the yarn; high variation shows up as streaks." },
+   { "type": "mc", "q": "What is usually the biggest single cost in a yarn?",
+     "options": ["Energy", "Labour", "Packaging", "The fibre"], "answer": 3,
+     "feedback": "Fibre is usually the biggest single cost, which is why expensive fibres are often blended with cheaper ones." },
+   { "type": "tf", "q": "Tex is a direct system: a higher tex number means a heavier, coarser yarn.", "answer": true,
+     "feedback": "True. Tex is grams per 1,000 metres, so a higher number means a coarser yarn, unlike Ne and Nm." }
+  ]
+ },
+ "unit4": {
+  "title": "Unit 4 knowledge check",
+  "questions": [
+   { "type": "mc", "q": "What is an intimate blend?",
+     "options": ["Fibres mixed before spinning, so each loses its identity in the yarn", "Yarns of different fibres woven or knitted together", "A yarn dyed in two colours", "A fabric with a cotton face and a polyester back"], "answer": 0,
+     "feedback": "In an intimate blend the fibres are mixed before spinning, as in a 90/10 merino-nylon sock yarn." },
+   { "type": "mc", "q": "Why is cashmere often blended with wool?",
+     "options": ["To add stretch", "To bring down the cost", "To make it flame-retardant", "To make recycling easier"], "answer": 1,
+     "feedback": "A cheaper fibre such as wool brings down the price of an expensive one such as cashmere." },
+   { "type": "mc", "q": "How does a grey marl (mélange) sweatshirt get its speckled look?",
+     "options": ["It is printed after knitting", "The yarn is dyed in sections", "Fibres dyed different shades are blended before spinning", "A coating is applied to the fabric"], "answer": 2,
+     "feedback": "Mélange comes from blending fibres of different shades before spinning." },
+   { "type": "mc", "q": "For most yarns, where is the largest environmental footprint?",
+     "options": ["In the spinning machines' motors", "In winding the yarn onto cones", "In the yarn packaging", "Upstream, in growing or making the fibre"], "answer": 3,
+     "feedback": "Spinning mainly uses electricity; for most yarns the bigger footprint lies in growing or making the fibre." },
+   { "type": "ma", "q": "Which of these schemes certify recycled content? (Select all that apply.)",
+     "options": ["GRS", "RCS", "RWS", "GOTS"], "answers": [0, 1],
+     "feedback": "GRS and RCS cover recycled content. RWS covers wool welfare, and GOTS covers organic textiles." },
+   { "type": "tf", "q": "Blended yarns are easier to recycle fibre-to-fibre than pure yarns.", "answer": false,
+     "feedback": "False. The fibres in a blend must be separated again, so blends are harder to recycle." }
+  ]
+ }
+}
