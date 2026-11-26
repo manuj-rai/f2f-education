@@ -278,16 +278,28 @@
       var ia = firstCats.indexOf(a), ib = firstCats.indexOf(b);
       return (ia < 0 ? firstCats.length : ia) - (ib < 0 ? firstCats.length : ib) || seenOrder.indexOf(a) - seenOrder.indexOf(b);
     });
-    order.forEach(function (t) {
-      if (home[t]) return;
-      for (var k = 0; k < byTag[t].length; k++) {
-        var c = byTag[t][k], i = courses.indexOf(c), from = where[i];
-        if (!from || home[from].length < 2) continue;
-        home[from].splice(home[from].indexOf(c), 1);
-        home[t] = [c]; where[i] = t;
-        return;
-      }
-    });
+    // Fill sections: first every category gets one course, then each gets at least two (the user's request), taking a
+    // course that carries the category from the biggest other section, which keeps at least as many as it gives.
+    function fill(target, keep) {
+      order.forEach(function (t) {
+        var have = home[t] || [];
+        while (have.length < target) {
+          var best = null;
+          byTag[t].forEach(function (c) {
+            var i = courses.indexOf(c), from = where[i];
+            if (!from || from === t || home[from].length <= keep) return;
+            if (!best || home[from].length > home[best.from].length) best = { c: c, i: i, from: from };
+          });
+          if (!best) break;
+          home[best.from].splice(home[best.from].indexOf(best.c), 1);
+          have.push(best.c); where[best.i] = t;
+        }
+        if (have.length) home[t] = have;
+      });
+    }
+    fill(1, 1);
+    fill(2, 2);
+    Object.keys(home).forEach(function (t) { home[t].sort(function (a, b) { return courses.indexOf(a) - courses.indexOf(b); }); });
     var cats = order.map(category);
     var sections = cats.filter(function (c) { return home[c.tag]; });
 
