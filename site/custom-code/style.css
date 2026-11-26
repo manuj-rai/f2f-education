@@ -281,7 +281,7 @@ html.f2f-chrome body.lw-page section.lw-hello-bar,
 html.f2f-chrome body.lw-page section.lw-topbar,
 html.f2f-chrome body.lw-page section.lw-footer { display: none !important; }
 /* Room for the header until body.html adds it, so the page doesn't jump (signed-out height) */
-html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: ""; display: block; height: 104px; }
+html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: ""; display: block; height: 72px; }
 /* Jumps to a section (#…) stop just below the sticky header bar (72px; 56px on tablets and phones). Zero specificity, so
    the pages' own scroll-margin values (course page, profile, partners) still win. */
 :where(html.f2f-chrome) :where([id]) { scroll-margin-top: 72px; }
@@ -292,15 +292,10 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 .f2f-header a, .f2f-footer a { text-decoration: none !important; }
 .f2f-header button { font: inherit; margin: 0; border: 0; background: none; padding: 0; cursor: pointer; color: inherit; }
 .f2f-header :focus-visible, .f2f-footer :focus-visible { outline: 2px solid var(--f2f-blue); outline-offset: 2px; border-radius: 2px; }
-/* Sticky: the top strip scrolls away, the white bar stays. Below LearnWorlds' windows (sign-in is z-index 199),
+/* Sticky: the white bar stays at the top (72px; 56px on phones). Below LearnWorlds' windows (sign-in is z-index 199),
    so their close buttons at the top stay clickable. */
-.f2f-header { position: sticky; top: -32px; z-index: 150; }
+.f2f-header { position: sticky; top: 0; z-index: 150; } /* the top strip was removed (the user's request, 26 Nov 2026) */
 
-.f2f-strip { height: 32px; background: #0d1b3e; color: #ffffff; font-size: 11px; line-height: normal; }
-.f2f-strip-in { height: 100%; max-width: 1440px; margin: 0 auto; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; white-space: nowrap; }
-.f2f-strip-links { display: flex; gap: 26px; }
-.f2f-strip a { color: #ffffff !important; }
-.f2f-strip a:hover { text-decoration: underline !important; }
 
 .f2f-bar { position: relative; background: #ffffff; }
 .f2f-bar-in { height: 72px; max-width: 1440px; margin: 0 auto; padding: 0 80px; display: flex; align-items: center; gap: 32px; }
@@ -353,7 +348,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 .f2f-footer-link.is-disabled { font-size: 12px; color: rgba(255, 255, 255, .5) !important; white-space: nowrap; cursor: default; }
 
 @media (max-width: 1280px) {
-  .f2f-strip-in, .f2f-bar-in, .f2f-learning-in, .f2f-footer-in { padding-left: 48px; padding-right: 48px; }
+  .f2f-bar-in, .f2f-learning-in, .f2f-footer-in { padding-left: 48px; padding-right: 48px; }
   .f2f-logo { width: auto; padding-left: 0; }
 }
 /* Four menu items next to a signed-in name: tighter gaps on narrow desktops so they don't run into the account button */
@@ -368,7 +363,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 }
 /* Tablet and phone: links and account go into the menu button */
 @media (max-width: 990px) {
-  html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { height: 88px; }
+  html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { height: 56px; }
   .f2f-bar-in { height: 56px; gap: 16px; }
   .f2f-logo img { width: 150px; }
   .f2f-nav, .f2f-acct, .f2f-actions > .f2f-login { display: none; }
@@ -376,7 +371,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
   .f2f-menu-btn { display: flex !important; width: 24px; height: 24px; position: relative; }
   .f2f-menu-btn::after { content: ""; position: absolute; inset: -10px; }
   .f2f-mobile:not([hidden]) { display: flex; flex-direction: column; padding: 8px 0 16px; border-top: 1px solid #dfe6ef; background: #ffffff;
-    box-shadow: 0 16px 24px rgba(13, 27, 62, .08); max-height: calc(100vh - 88px); overflow-y: auto; }
+    box-shadow: 0 16px 24px rgba(13, 27, 62, .08); max-height: calc(100vh - 56px); overflow-y: auto; }
   .f2f-mobile-link { padding: 12px 48px; font-size: 16px; font-weight: 500; line-height: 1.4; color: #0d1b3e !important; }
   .f2f-mobile-link.is-current { color: #1b5fa8 !important; font-weight: 600; }
   .f2f-mobile-link--sub { font-size: 14px; color: #5b687c !important; }
@@ -384,9 +379,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
   .f2f-mobile-link--login { color: #1b5fa8 !important; font-weight: 600; }
 }
 @media (max-width: 720px) {
-  .f2f-strip-in, .f2f-bar-in, .f2f-learning-in, .f2f-footer-in { padding-left: 20px; padding-right: 20px; }
-  .f2f-strip-in { justify-content: center; }
-  .f2f-strip-links { display: none; }
+  .f2f-bar-in, .f2f-learning-in, .f2f-footer-in { padding-left: 20px; padding-right: 20px; }
   .f2f-mobile-link { padding-left: 20px; padding-right: 20px; }
   .f2f-learning-in { gap: 24px; }
   .f2f-footer-in { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
@@ -426,11 +419,21 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
 @keyframes c-shimmer { to { background-position: -200% 0; } }
 @media (prefers-reduced-motion: reduce) { .c-skel { animation: none; } }
 
-.c-tabs { background: #ffffff; border-top: 1px solid #dfe6ef; border-bottom: 1px solid #dfe6ef; }
-.c-tabs-in { display: flex; gap: 36px; overflow-x: auto; scrollbar-width: none; }
-.c-tab { flex: none; padding: 22px 0 19px; border-bottom: 3px solid transparent; font-size: 14px; font-weight: 500; color: #5b687c !important; white-space: nowrap; }
-.c-tab:hover { color: #0d1b3e !important; }
-.c-tab.is-current { border-bottom-color: #1b5fa8; font-weight: 600; color: #1b5fa8 !important; }
+/* Related courses (below the course content; the Overview / Course content tab bar was removed, the user's request) */
+.c-related { background: #ffffff; padding: 48px 0 56px; border-top: 1px solid #dfe6ef; }
+.c-related[hidden] { display: none; }
+.c-related .c-h2 { margin: 0 0 24px; }
+.c-rel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.c-rel { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #dfe6ef; border-radius: 8px; background: #ffffff; color: #0d1b3e !important; text-decoration: none !important; }
+.c-rel:hover { border-color: #1b5fa8; box-shadow: 0 6px 18px rgba(13, 27, 62, .08); }
+.c-rel-media { display: block; aspect-ratio: 16 / 9; background: #f0f4fa; }
+.c-rel-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.c-rel-body { display: flex; flex: 1; flex-direction: column; gap: 10px; padding: 18px 20px 20px; }
+.c-rel-inst { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #1b5fa8; }
+.c-rel-title { font-size: 16px; font-weight: 600; line-height: 1.35; }
+.c-rel:hover .c-rel-title { color: #1b5fa8; text-decoration: underline; }
+.c-rel-meta { font-size: 12px; color: #5b687c; }
+.c-rel-cta { margin-top: auto; font-size: 14px; font-weight: 600; color: #1b5fa8; }
 
 .c-work { background: #f7f9fc; padding: 40px 0 48px; scroll-margin-top: 72px; }
 .c-work-in { display: flex; align-items: flex-start; gap: 40px; }
@@ -499,11 +502,12 @@ html.f2f-coursepage #sectionsWrapper > main > .learnworlds-section { display: no
   .c-work-in { flex-direction: column-reverse; align-items: stretch; gap: 32px; } /* enrol card first */
   .c-side { width: 100%; }
 }
+@media (max-width: 1024px) and (min-width: 721px) { .c-rel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) {
   .c-wrap { padding: 0 20px; }
   .c-hero { padding: 20px 0 32px; }
   .c-title { font-size: 30px; }
-  .c-tabs-in { gap: 24px; }
+  .c-rel-grid { grid-template-columns: minmax(0, 1fr); }
   .c-work { padding: 28px 0 40px; }
   .c-h2 { font-size: 22px; }
   .c-content-head { flex-direction: column; gap: 2px; }

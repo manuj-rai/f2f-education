@@ -40,7 +40,6 @@
     <img class="w-hero-art" src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/ea263f2c1bce0a5e1668790631d2f45f.png" width="537" height="442" alt="">
     <div class="w-hero-copy">
       <h1 id="w-hero-title" class="w-hero-title">Practical industry-led <br class="w-br">courses for the textiles, <br class="w-br">apparel &amp; fashion industry.</h1>
-      <hr class="w-hero-rule">
       <!-- Same two links as the header (SITE.nav in site/custom-code/body.html). Residential Courses has no address yet:
            LearnWorlds has no residential courses. When there's a page, make it <a class="w-btn w-btn--line" href="…">. -->
       <div class="w-hero-actions">
@@ -69,20 +68,6 @@
 <div data-w-categories>
   <section class="w-section w-cat"><div class="w-wrap"><div class="w-grid w-grid--n3" data-w-skeleton="3"></div></div></section>
 </div>
-
-<section class="w-section w-trending" id="w-trending" aria-labelledby="w-trending-title">
-  <div class="w-wrap">
-    <div class="w-intro">
-      <div class="w-intro-text">
-        <p class="w-eyebrow">Skills for textile and fashion</p>
-        <h2 id="w-trending-title" class="w-h2">Trending Textile &amp; Fashion Courses</h2>
-      </div>
-      <a class="w-more" href="/courses">View all textile courses <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik00LjE2NiAxMEgxNS44MzRNMTAgMTUuODM0TDE1LjgzNCAxMEwxMCA0LjE2NiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K" width="20" height="20" alt=""></a>
-    </div>
-    <div class="w-pills" role="tablist" aria-label="Filter by topic" data-w-pills></div>
-    <div class="w-grid w-grid--n3" data-w-trending data-w-skeleton="3"></div>
-  </div>
-</section>
 
 <section class="w-section w-topics" aria-labelledby="w-topics-title">
   <div class="w-wrap">
@@ -314,35 +299,20 @@
     root.querySelector('[data-w-categories]').innerHTML = sections.map(function (c, i) {
       return '<section class="w-section w-cat' + (i % 2 ? ' w-section--soft' : '') + '" id="' + c.id + '" aria-labelledby="' + c.id + '-title">' +
         '<div class="w-wrap"><div class="w-intro"><div class="w-intro-text">' +
-          '<p class="w-eyebrow">' + plural(byTag[c.tag].length, 'course', 'courses') + '</p>' +
           '<h2 class="w-h2" id="' + c.id + '-title">' + esc(c.name) + '</h2>' +
         '</div><a class="w-more" href="/courses?subject=' + encodeURIComponent(c.tag) + '">View all courses <img src="' + ICONS.arrow + '" width="20" height="20" alt=""></a></div>' +
         '<div class="w-grid" data-w-cat-grid="' + c.id + '"></div></div></section>';
     }).join('');
     sections.forEach(function (c) { grid(root.querySelector('[data-w-cat-grid="' + c.id + '"]'), home[c.tag], 3); });
 
-    // Trending: all courses in catalogue order, with a filter per category
-    var pills = root.querySelector('[data-w-pills]'), trend = root.querySelector('[data-w-trending]');
-    pills.innerHTML = [{ tag: '', name: 'All topics' }].concat(cats).map(function (c, i) {
-      return '<button type="button" role="tab" class="w-pill" aria-selected="' + (i === 0) + '" data-tag="' + esc(c.tag) + '">' + esc(c.name) + '</button>';
-    }).join('');
-    function showTrend(tag) {
-      [].forEach.call(pills.children, function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-tag') === tag)); });
-      grid(trend, tag ? byTag[tag] : courses, 3);
-    }
-    pills.addEventListener('click', function (e) { var b = e.target.closest('.w-pill'); if (b) showTrend(b.getAttribute('data-tag')); });
-    showTrend('');
-
-    // Explore by topic: jumps to the category's section, or (if all its courses sit under another category)
-    // to Trending, filtered to it
+    // Explore by topic: jumps to the category's section, or (if it has none) opens Online Courses filtered to it
     var topics = root.querySelector('[data-w-topics]');
     topics.innerHTML = cats.map(function (c) {
-      var href = home[c.tag] ? '#' + c.id : '#w-trending" data-filter="' + esc(c.tag);
+      var href = home[c.tag] ? '#' + c.id : '/courses?subject=' + encodeURIComponent(c.tag);
       return '<li><a class="w-topic" href="' + href + '"><img src="' + c.icon + '" width="24" height="24" alt="">' +
         '<span class="w-topic-name">' + esc(c.name) + '</span><span class="w-topic-count">' + plural(byTag[c.tag].length, 'course', 'courses') + '</span>' +
         '<img src="' + ICONS.arrowUpRight + '" width="16" height="16" alt=""></a></li>';
     }).join('');
-    topics.addEventListener('click', function (e) { var a = e.target.closest('[data-filter]'); if (a) showTrend(a.getAttribute('data-filter')); });
 
     // Partner strip: the institutions set as course authors, shown once there is one. Logos only, no names (the user's
     // request); the name is the logo's alt text. The logo is the author's avatar, unless partnerLogos (top of this file)
@@ -373,7 +343,6 @@
   function fail() {
     var msg = '<p class="w-error">Courses couldn’t load just now. <a href="/courses">Browse all courses</a></p>';
     root.querySelector('[data-w-categories]').innerHTML = '<section class="w-section"><div class="w-wrap">' + msg + '</div></section>';
-    root.querySelector('[data-w-trending]').innerHTML = msg;
     root.querySelector('[data-w-topics]').innerHTML = '';
   }
 

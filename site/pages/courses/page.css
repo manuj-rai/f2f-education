@@ -72,9 +72,6 @@
 .e-check:hover .e-check-name { color: var(--e-ink); }
 .e-check:has(input:disabled) { opacity: .45; cursor: default; }
 .e-check:has(input:disabled):hover .e-check-name { color: var(--e-muted); }
-.e-note { display: flex; flex-direction: column; gap: 10px; padding: 20px 18px; border-radius: 8px; background: var(--e-soft); }
-.e-note-title { font-size: 16px; font-weight: 600; }
-.e-note-text { font-size: 13px; color: var(--e-muted); }
 
 /* Results */
 .e-results { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
@@ -87,18 +84,23 @@
   background: #ffffff; font: 500 12px/1.45 inherit; color: var(--e-ink); cursor: pointer; }
 .e-sort img { position: absolute; right: 14px; top: 13px; pointer-events: none; }
 .e-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.e-card { position: relative; display: flex; flex-direction: column; background: #ffffff; border: 1px solid var(--e-line); border-radius: 8px; overflow: hidden; }
+.e-card { position: relative; display: flex; flex-direction: column; background: #ffffff; border: 1px solid var(--e-line); border-radius: 8px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.e-card:not(.e-card--skel):hover { border-color: var(--e-blue); box-shadow: 0 8px 24px rgba(13, 27, 62, .08); }
 .e-card-media { position: relative; aspect-ratio: 16 / 9; background: var(--e-soft); } /* course images are 16:9: no cropping */
 .e-card-media img { width: 100%; height: 100%; object-fit: cover; }
-.e-chip { position: absolute; left: 16px; top: 16px; padding: 6px 10px; border-radius: 4px; background: #ffffff; font-size: 10px; font-weight: 600; line-height: 1.45; color: var(--e-blue); }
-.e-card-body { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 22px; }
-.e-card-inst { font-size: 10px; font-weight: 700; color: var(--e-blue); text-transform: uppercase; }
-.e-card-title { font-size: 20px; font-weight: 600; line-height: 1.45; min-height: 58px; }
+.e-chip { padding: 4px 9px; border-radius: 4px; background: var(--e-soft); font-size: 11px; font-weight: 600; line-height: 1.45; color: var(--e-blue); } /* category label, in the card (not over the picture) */
+.e-card-body { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 18px; }
+.e-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.e-card-inst { font-size: 10px; font-weight: 700; letter-spacing: .02em; color: var(--e-muted); text-transform: uppercase; }
+.e-card-title { font-size: 18px; font-weight: 600; line-height: 1.4; min-height: 50px; }
 .e-card-title a { color: var(--e-ink) !important; text-decoration: none; }
 .e-card-title a::after { content: ""; position: absolute; inset: 0; } /* the whole card opens the course */
 .e-card:hover .e-card-title a { text-decoration: underline; }
-.e-card-meta { font-size: 13px; color: var(--e-muted); }
-.e-card-cta { margin-top: auto; padding-top: 6px; font-size: 13px; font-weight: 600; color: var(--e-blue); }
+.e-card-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--e-muted); }
+.e-card-meta svg { flex: none; }
+.e-card-cta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--e-line); font-size: 13px; font-weight: 600; color: var(--e-blue); }
+.e-card-arrow { transition: transform .15s; }
+.e-card:hover .e-card-arrow { transform: translateX(3px); }
 .e-card--skel .e-card-media, .e-card--skel .e-card-body span {
   background: linear-gradient(90deg, #eef2f8 25%, #f6f8fc 50%, #eef2f8 75%) 0 0 / 200% 100%; animation: e-shimmer 1.2s linear infinite; }
 .e-card--skel .e-card-body span { display: block; height: 14px; border-radius: 4px; }
@@ -147,7 +149,6 @@
   .e-filters-panel[open] > .e-facet:first-of-type { margin-top: 20px; }
   .e-filters-panel > .e-facet + .e-facet { margin-top: 20px; }
   .e-facet:last-of-type { border-bottom: 0; padding-bottom: 0; }
-  .e-note { display: none; }
   .e-hero-row { flex-direction: column; align-items: stretch; gap: 28px; }
   .e-hero-photo { width: 100%; height: auto; aspect-ratio: 424 / 258; }
   .e-help-row { flex-direction: column; align-items: flex-start; gap: 20px; }

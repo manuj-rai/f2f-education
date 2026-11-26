@@ -66,10 +66,6 @@
           <fieldset class="e-facet" data-e-facet="institution"><legend>Institution</legend><div class="e-facet-list"></div></fieldset>
           <fieldset class="e-facet" data-e-facet="status" data-show="members"><legend>Learning status</legend><div class="e-facet-list"></div></fieldset>
         </details>
-        <div class="e-note" data-show="visitors">
-          <p class="e-note-title">Start with curiosity.</p>
-          <p class="e-note-text">Explore every course without an account. Sign up when you’re ready to take the next step.</p>
-        </div>
       </aside>
 
       <div class="e-results">
@@ -112,7 +108,8 @@
   var root = document.querySelector('.f2f-page--courses') || document;
   var FILES = 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/';
   var SMALL = { and: 1, of: 1, in: 1, for: 1, the: 1, to: 1, on: 1 };
-  var PER_PAGE = 6; // courses per page (the design's 2 x 3)
+  var CLOCK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+  var PER_PAGE = 10; // courses per page (the user's choice, 26 Nov 2026)
   // Signed-in learners get the "Explore courses" design (frame 184:219): hero counts and search, topic pills,
   // a Learning status filter and their enrolment on each card (from LearnWorlds' user_stats and course progress).
   var member = root.classList ? root.classList.contains('f2f-member') : false;
@@ -224,13 +221,14 @@
         '</div></article>';
     }
     return '<article class="e-card">' +
-      '<div class="e-card-media">' + (c.image ? '<img src="' + esc(c.image) + '" alt="" loading="lazy" decoding="async">' : '') +
-        (c.subjectNames[0] ? '<span class="e-chip">' + esc(c.subjectNames[0]) + '</span>' : '') + '</div>' +
+      '<div class="e-card-media">' + (c.image ? '<img src="' + esc(c.image) + '" alt="" loading="lazy" decoding="async">' : '') + '</div>' +
       '<div class="e-card-body">' +
-        (c.institutions[0] ? '<p class="e-card-inst">' + esc(c.institutions[0]) + '</p>' : '') +
+        // Category and institution on one line, then the title, the duration and format, and "View course" as the footer
+        ((c.subjectNames[0] || c.institutions[0]) ? '<p class="e-card-top">' + (c.subjectNames[0] ? '<span class="e-chip">' + esc(c.subjectNames[0]) + '</span>' : '') +
+          (c.institutions[0] ? '<span class="e-card-inst">' + esc(c.institutions[0]) + '</span>' : '') + '</p>' : '') +
         '<h3 class="e-card-title"><a href="' + c.url + '">' + esc(c.title) + '</a></h3>' +
-        (c.label ? '<p class="e-card-meta">' + esc(c.label) + '</p>' : '') +
-        '<p class="e-card-cta">View course →</p>' +
+        (c.label ? '<p class="e-card-meta">' + CLOCK + '<span>' + esc(c.label) + '</span></p>' : '') +
+        '<p class="e-card-cta"><span>View course</span><span class="e-card-arrow" aria-hidden="true">→</span></p>' +
       '</div></article>';
   }
 

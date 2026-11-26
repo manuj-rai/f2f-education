@@ -25,8 +25,6 @@
 (function () {
   'use strict';
   var SITE = {
-    strip: 'WORLD-CLASS EDUCATION. REAL-WORLD IMPACT.',
-    stripLinks: [['For organizations', '/#w-enterprise-title'], ['Global / English', '']],
     logo: 'https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/bdfd3459584429eb633dc5fead3fa06d.webp',
     // An item with an empty address is drawn as greyed-out text with a "Coming soon" hint. "Residential Courses" is like
     // that until LearnWorlds has residential courses or a page for them (put its address here); "Resources" until there's
@@ -83,10 +81,6 @@
   header.className = 'f2f-header' + (member ? ' f2f-header--member' : '');
   header.innerHTML =
     '<a class="f2f-skip" href="#f2f-content">Skip to content</a>' +
-    '<div class="f2f-strip"><div class="f2f-strip-in">' +
-      '<p class="f2f-strip-text">' + esc(SITE.strip) + '</p>' +
-      '<p class="f2f-strip-links">' + SITE.stripLinks.map(function (l) { return l[1] ? '<a href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>' : '<span>' + esc(l[0]) + '</span>'; }).join('') + '</p>' +
-    '</div></div>' +
     '<div class="f2f-bar"><div class="f2f-bar-in">' +
       '<a class="f2f-logo" href="/" aria-label="F2F Education home"><img src="' + esc(SITE.logo) + '" width="222" height="38" alt="Fibre2Fashion Education"></a>' +
       '<nav class="f2f-nav" aria-label="Main">' + SITE.nav.map(function (l) { return link(l, 'f2f-nav-link'); }).join('') + '</nav>' +
@@ -105,7 +99,6 @@
       '<div class="f2f-mobile-group">' +
         (member ? SITE.account.map(function (l) { return link(l, 'f2f-mobile-link f2f-mobile-link--sub'); }).join('')
           : '<a class="f2f-mobile-link f2f-mobile-link--login" href="/?msg=not-logged-in" data-f2f-signin>Log in</a>') +
-        SITE.stripLinks.filter(function (l) { return l[1]; }).map(function (l) { return link(l, 'f2f-mobile-link f2f-mobile-link--sub'); }).join('') +
     '</div></div></div>';
 
   var nativeFooter = document.querySelector('section.lw-footer');
@@ -294,6 +287,40 @@
     render(c, cohort, enrolled ? c.progress : null);
   }).catch(giveUp);
 
+  // Related courses: other courses sharing a category with this one (most shared first, then SITE.featured, then the same
+  // institution, then catalogue order), at most 3. The section stays hidden when there are none.
+  function loadRelated(c, tags, author) {
+    var box = page.querySelector('.c-related');
+    if (!box || !tags.length) return;
+    var meta = document.querySelector('meta[name="csrf-token"]');
+    fetch('/api/learner/products', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'content-type': 'application/json', accept: 'application/json', 'csrf-token': meta ? meta.content : '' },
+      body: JSON.stringify({ type: 'course', access: 'public,private-enroll,soon,view-locked', excludeNotEnrolledPrivateProductsForAdmin: 'true',
+        hideProductsWithoutVisibleOptions: 'true', fields: 'title,titleId,access,cohorts.authors,settings',
+        sortFields: [{ sortField: 'learnerAccessPriority', direction: 'asc' }, { sortField: 'order', direction: 'desc' }],
+        offset: '0', itemsPerPage: '200', paginationType: 'offset' })
+    }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+      var featured = (window.F2FSite && window.F2FSite.featured) || [], me = author && author.name;
+      var picks = ((j && j.data) || []).filter(function (x) { return x && x.titleId && x.titleId !== c.titleId; }).map(function (x, i) {
+        var t = ((x.settings || {}).tags || []), a = ((((x.cohorts || [])[0]) || {}).authors || [])[0], f = featured.indexOf(x.titleId);
+        return { x: x, a: a, i: i, shared: t.filter(function (y) { return tags.indexOf(y) >= 0; }).length, f: f < 0 ? featured.length : f, same: me && a && a.name === me ? 1 : 0 };
+      }).filter(function (p) { return p.shared > 0; }).sort(function (p, q) {
+        return q.shared - p.shared || p.f - q.f || q.same - p.same || p.i - q.i;
+      }).slice(0, 3);
+      if (!picks.length) return;
+      box.querySelector('[data-c-related]').innerHTML = picks.map(function (p) {
+        var xs = p.x.settings || {}, pic = imageUrl(xs.image);
+        var label = p.x.access === 'soon' ? 'Coming soon' : String(xs.points || '').split('·').map(function (t) { return t.trim(); }).filter(Boolean).join(' · ');
+        return '<a class="c-rel" href="/course/' + encodeURIComponent(p.x.titleId) + '"><span class="c-rel-media">' + (pic ? '<img src="' + esc(pic) + '" alt="" loading="lazy" decoding="async">' : '') + '</span>' +
+          '<span class="c-rel-body">' + (p.a && p.a.name ? '<span class="c-rel-inst">' + esc(p.a.name) + '</span>' : '') +
+          '<span class="c-rel-title">' + esc(p.x.title) + '</span>' + (label ? '<span class="c-rel-meta">' + esc(label) + '</span>' : '') +
+          '<span class="c-rel-cta">View course →</span></span></a>';
+      }).join('');
+      box.hidden = false;
+    }).catch(function () { /* keep it hidden */ });
+  }
+
   function render(c, cohort, progress) {
     var s = c.settings || {}, md = s.metadata || {};
     var description = md.description || s.description || '';
@@ -367,10 +394,6 @@
           '<p class="c-attrs">' + attrs.map(function (a) { return '<span>' + esc(a) + '</span>'; }).join('') + '</p>' +
         '</div>' + (image ? '<img class="c-hero-photo" src="' + esc(image) + '" width="456" height="286" alt="">' : '') + '</div>' +
       '</div></section>' +
-      '<nav class="c-tabs" aria-label="On this page"><div class="c-wrap c-tabs-in">' +
-        '<a href="#c-overview" class="c-tab is-current">Overview</a><a href="#c-content" class="c-tab">Course content</a>' +
-        (attachments.length ? '<a href="#c-resources" class="c-tab">Resources</a>' : '') +
-      '</div></nav>' +
       '<section class="c-work" id="c-overview"><div class="c-wrap c-work-in">' +
         '<div class="c-main">' +
           '<section class="c-content" id="c-content" aria-labelledby="c-content-title">' +
@@ -419,7 +442,11 @@
           (glance.length ? '<div class="c-card"><h2 class="c-card-title">Course at a glance</h2><dl class="c-glance">' +
             glance.map(function (g) { return '<div><dt>' + esc(g[0]) + '</dt><dd>' + esc(g[1]) + '</dd></div>'; }).join('') + '</dl></div>' : '') +
         '</aside>' +
+      '</div></section>' +
+      '<section class="c-related" aria-labelledby="c-related-title" hidden><div class="c-wrap">' +
+        '<h2 id="c-related-title" class="c-h2">Related courses</h2><div class="c-rel-grid" data-c-related></div>' +
       '</div></section>';
+    loadRelated(c, tags, author);
 
     // Modules open and close; "Explore the curriculum" opens that module
     function setOpen(mod, open) {
@@ -431,12 +458,6 @@
       if (head) { var mod = head.parentNode; setOpen(mod, !mod.classList.contains('is-open')); return; }
       var go = e.target.closest('[data-c-open]');
       if (go) { e.preventDefault(); var t = document.getElementById('c-module-' + go.getAttribute('data-c-open')); if (t) { setOpen(t, true); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } return; }
-      var tab = e.target.closest('.c-tab');
-      if (tab) {
-        e.preventDefault();
-        [].forEach.call(page.querySelectorAll('.c-tab'), function (x) { x.classList.toggle('is-current', x === tab); });
-        var target = document.querySelector(tab.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     });
 
     // The enrol button mirrors LearnWorlds' own (its label changes with the visitor: register, buy, continue…)

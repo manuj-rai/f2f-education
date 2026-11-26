@@ -16,9 +16,9 @@ body:is(.slug-account, .slug-inbox, .slug-social, .slug-people, .slug-dailynews,
 
 /* The apps were sized for LearnWorlds' 55px header; fit them under the site header instead
    (body.html sets --f2f-header-h to the header's height) */
-.app-container, .social-app-page { height: calc(100vh - var(--f2f-header-h, 104px)) !important; min-height: 520px; }
+.app-container, .social-app-page { height: calc(100vh - var(--f2f-header-h, 72px)) !important; min-height: 520px; }
 .account-app-page .personal-details-values { min-width: 0 !important; }
-.account-app-page { height: auto !important; min-height: calc(100vh - var(--f2f-header-h, 104px)); overflow: visible !important; padding-bottom: 56px; }
+.account-app-page { height: auto !important; min-height: calc(100vh - var(--f2f-header-h, 72px)); overflow: visible !important; padding-bottom: 56px; }
 
 /* Headings */
 .account-app-page .learnworlds-subheading { font-size: 28px !important; font-weight: 600 !important; line-height: 1.4 !important; color: #0d1b3e !important; letter-spacing: 0 !important; }

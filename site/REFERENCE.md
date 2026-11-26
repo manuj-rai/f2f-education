@@ -64,11 +64,11 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 
 Drawn by `body.html` ("Header and footer" script) on every site page and styled by `style.css` section 6. They follow the Figma "Public navigation", "Student header" and "Public footer" designs. LearnWorlds' own top bar and footer stay in the page, hidden.
 
-* **Change links and wording in `SITE`** at the top of that script: strip text, logo, menu, account menu and footer links. An item with an empty address is shown greyed out and not clickable ("Coming soon"). That's how **Residential Courses** and **Resources** (menu) and **Privacy policy** / **Terms of use** (footer) are shown for now. To enable one, give it its address (`/privacy`, `/terms`).
-* Signed out: strip, logo, Online Courses (`/courses`) / Residential Courses / University Partners (`/universities`) / Resources, search, **Log in**. Log in clicks LearnWorlds' own hidden Sign in link, so keep that item in the Site Builder's Topbar navigation.
+* **Change links and wording in `SITE`** at the top of that script: logo, menu, account menu and footer links. An item with an empty address is shown greyed out and not clickable ("Coming soon"). That's how **Residential Courses** and **Resources** (menu) and **Privacy policy** / **Terms of use** (footer) are shown for now. To enable one, give it its address (`/privacy`, `/terms`).
+* Signed out: logo, Online Courses (`/courses`) / Residential Courses / University Partners (`/universities`) / Resources, search, **Log in**. Log in clicks LearnWorlds' own hidden Sign in link, so keep that item in the Site Builder's Topbar navigation.
 * Signed in: the same with an account button showing the learner's name (from `/api/user_stats`). Its menu has My learning, Profile, Inbox, Account settings and Sign out.
 * Who is signed in: LearnWorlds' hidden header has a Sign in link only for visitors.
-* Size: 104px (a 32px strip that scrolls away, then a sticky 72px bar), 88px on phones. Phones and tablets (990px and narrower) get a menu button. From 991px to 1180px the menu gaps are tighter, and the signed-in name is cut with "…" (at 160px, and at 120px from 1100px down). The full name is in its tooltip.
+* Size: a sticky 72px bar, 56px on phones (the top strip was removed on 26 Nov 2026). Phones and tablets (990px and narrower) get a menu button. From 991px to 1180px the menu gaps are tighter, and the signed-in name is cut with "…" (at 160px, and at 120px from 1100px down). The full name is in its tooltip.
 * Page side margins: 80px, then 48px from 1280px down (header, footer and every page), then 20px on phones. In page CSS, set only `padding-left` / `padding-right` in those media rules: some wrappers also carry their own top and bottom padding, and a `padding: 0 48px` shorthand wipes it. The bar sits below LearnWorlds' own windows (z-index 199).
 * Footer: "F2F EDUCATION", © year Fibre2Fashion, Help center (e-mail), Privacy policy and Terms of use (both disabled for now). LearnWorlds adds "Created with LearnWorlds" below it; only the Learning Center plan removes it.
 * **E-mail links:** every `mailto:` link also opens a small "Email us" window with the address, Copy address, Gmail and Outlook. On a computer with no e-mail app set up, the link alone does nothing visible.
@@ -104,6 +104,8 @@ One layout for every course, current and future, drawn by `body.html` ("Course p
 **Left out (no LearnWorlds data):** What you'll learn, Level, Language, enquiry copy, certificate card, help band, due dates.
 
 A course with no lessons yet (Coming soon) shows "Coming soon" instead of the module and lesson counts, and a short note in Course content.
+
+**Related courses** (below the content): up to 3 courses that share a category with this one, most shared first, then `SITE.featured`, then the same institution. Hidden when there are none. There is no tab bar.
 
 If the course can't be read within 15 s, LearnWorlds' own (hidden) sections come back.
 
@@ -152,7 +154,7 @@ How a page works on the live site:
 
 * **Home hero:** title, plus two buttons that match the menu: Online Courses (`/courses`), and Residential Courses, which is greyed out until it has an address. There's no search box in the hero; the header search covers it. The button wording and addresses are typed in `pages/home/page.html`. Keep them the same as `SITE.nav`.
 * **Home** (`/`, Figma 36:2) reads everything about courses live:
-  * Category sections, the category bar, Trending filters and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order; then sections are filled to at least two courses each (first one each, then two), taking a course that carries the category from the biggest other section, which keeps at least as many. A section's "View all courses" opens `/courses?subject=<category>`. Categories listed in `categoryFirst` (top of `pages/home/page.html`, now sourcing and merchandising) come first everywhere on home.
+  * Category sections, the category bar and "Explore by topic" come from each course's **Categories**. Each course appears once, under its first category, in catalogue order; then sections are filled to at least two courses each (first one each, then two), taking a course that carries the category from the biggest other section, which keeps at least as many. A section's "View all courses" opens `/courses?subject=<category>`. Categories listed in `categoryFirst` (top of `pages/home/page.html`, now sourcing and merchandising) come first everywhere on home.
   * Partner strip: the institutions set as course authors, as logos only (no names; the name is the alt text), on one line that scrolls sideways. The logo is the author's avatar (upload wide logos uncropped; LearnWorlds keeps their shape), unless `partnerLogos` at the top of `pages/home/page.html` names another picture for that institution (empty now). Shown from one institution.
   * Course order everywhere: courses in `SITE.featured` (`body.html`, read by the pages as `window.F2FSite.featured`) come first, then LearnWorlds' order, which is A–Z by title (LearnWorlds has no course-order setting).
   * Figures: counted from the courses.
@@ -161,7 +163,7 @@ How a page works on the live site:
   * Photos are hosted on LearnWorlds and listed in `pages/home/assets.json`.
 * **Explore courses** (`/courses`, "Online Courses" in the header): the visitor design (199:2) and the signed-in design (184:219).
   * Filters: search, Subject and Institution filters with live counts, and Learning status (signed in).
-  * Results: sort, 6 courses per page.
+  * Results: sort, 10 courses per page. Card: category label and institution, title, duration and format, "View course →".
   * The address keeps the filters (e.g. `/courses?subject=fibre-fundamentals&page=2`).
 * **Universities** (`/universities`, "University Partners" in the header): every institution live (a course's author name and avatar), one row each: logo with the name below and "View all N courses" (opens `/courses?institution=<author name>`) on the left, its first 3 courses (`TOP` in `pages/universities/page.html`, one row) as picture cards on the right (no prices; "Coming soon" for a course with that access). Institutions now: Fibre2Fashion Education (15 courses), AMFI (Amsterdam Fashion Institute) (1) and Sustainable Fashion School (1, the Coming-soon "Fashion Policy Masterclass Series"). To add a partner, set it as Author's name and avatar in that course's settings; it then appears here, on home and in the Online Courses filter.
 * **Categories** are LearnWorlds course Categories. Rename or add one in Courses → Manage categories (`/author/categories-manager`), which also picks its courses. On home a course appears under its first category, unless another of its categories would otherwise have no section.
