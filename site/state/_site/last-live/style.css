@@ -285,6 +285,11 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 /* Jumps to a section (#…) stop just below the sticky header bar (60px; 56px on tablets and phones). Zero specificity, so
    the pages' own scroll-margin values (course page, profile, partners) still win. */
 :where(html.f2f-chrome) :where([id]) { scroll-margin-top: 60px; }
+/* LearnWorlds scrolls the page inside #sectionsWrapper, not the window. An absolutely positioned element with no positioned
+   parent is placed against the body instead, outside that scroll box; when it sits below the window the window scrolls
+   too and two scrollbars show (a hidden label on /universities did this, 26 Nov 2026). Making the scroll box the
+   containing block keeps every such element, ours or LearnWorlds', inside it. */
+html.f2f-chrome #sectionsWrapper { position: relative; }
 @media (max-width: 990px) { :where(html.f2f-chrome) :where([id]) { scroll-margin-top: 56px; } }
 
 .f2f-header, .f2f-footer { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; }

@@ -38,7 +38,9 @@ html[data-theme="dark"] .f2f-page--universities {
 .u-all { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 44px; margin-top: 4px; border: 1px solid var(--u-link);
   border-radius: 4px; font-size: 14px; font-weight: 600; color: var(--u-link) !important; }
 .u-all:hover { background: rgba(27, 95, 168, .08); }
-.u-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* top/left: its containing block is the body, outside the scrolling #sectionsWrapper; left at its place in the text it hung
+   below the window and gave the page a second scrollbar (26 Nov 2026) */
+.u-visually-hidden { position: absolute; top: 0; left: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .u-card.is-target { border-color: var(--u-blue); box-shadow: 0 0 0 2px var(--u-blue); }
 /* Logo centred, name below it (the user's request); no course count, the "View all N courses" button gives it */
 .u-card-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }

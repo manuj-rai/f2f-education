@@ -72,6 +72,7 @@ Typical change, as Claude:
 - Built-in pages (`/account`, `/inbox`, `/social`) run body code but NOT the Dynamic CSS; they get the built-in slot only. The course player (`/path-player`) and its lesson frames (`/ebook`, `/videoplayer`, `/pdfplayer`, `/assessmentplayer`) DO load the site CSS now; the user wants the player in LearnWorlds' original style, so `head.html` switches the site stylesheets off there (also inside the frames) and `body.html` draws no header or footer there. The header script also draws only when the CSS var `--f2f-blue` is set.
 - `/account` is a Vue app inside a fixed-height `#account-app` box. `builtin.css` makes it scroll with the page, so `body.html` marks the sidebar section itself (`is-current`).
 - Body classes: `slug-error`, `slug-about`, `slug-privacy`, `slug-terms`, `slug-profile`, `slug-account`, `slug-inbox`, `slug-social`. Built-in pages lack `lw-page`.
+- LearnWorlds scrolls site pages inside `#sectionsWrapper`, not the window. `style.css` makes it `position: relative` so absolutely positioned elements (visually-hidden labels, badges) stay inside it; anything that escapes it makes the window scroll too, and two scrollbars show.
 - Page custom code lands at the end of `<body>`; the RUNTIME in `site/tools/lib.js` moves `#f2f-page` before `<main>`. LearnWorlds widgets (course cards) only start while their section sits untouched in `<main>`, so slots fill after `load`, and whole sections move (`data-lw-section`).
 
 **Behaviour of LearnWorlds' own UI**

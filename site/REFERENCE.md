@@ -58,6 +58,7 @@ Rule for every page: content comes **live from LearnWorlds**. Anything LearnWorl
 ## Images and anchors (every page)
 
 * Course pictures are 1280 × 720 (16:9). Every box that shows one uses `aspect-ratio: 16 / 9` with `object-fit: cover`, so nothing is cropped. Don't give these boxes a fixed height.
+* `style.css` makes `#sectionsWrapper` (the box LearnWorlds scrolls the page in) `position: relative`, so absolutely positioned elements inside it can't stretch the window and add a second scrollbar.
 * `style.css` gives every element with an `id` `scroll-margin-top` = the sticky header bar (60px; 56px from 990px down) through `:where()`, so a page's own `scroll-margin-top` still wins.
 
 ## Header and footer
