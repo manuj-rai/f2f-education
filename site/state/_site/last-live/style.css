@@ -641,7 +641,7 @@ body.slug-about #sectionsWrapper > main > section:is([data-section-id="tpl60"], 
 
 /* ---------- 14) Profile: "My courses" and "My certificates" (drawn by body.html), like My learning ---------- */
 #sectionsWrapper:has(#p-courses) > main > section:is(.lw-course-cards, .lw-certificates-cards) { display: none !important; }
-.p-sec { background: #f7f9fc; padding: 40px 0; color: #0d1b3e; line-height: 1.4; scroll-margin-top: 88px;
+.p-sec { background: #f7f9fc; padding:0px 0px 40px 0px; color: #0d1b3e; line-height: 1.4; scroll-margin-top: 88px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 .p-sec--white { background: #ffffff; }
 .p-sec[hidden] { display: none; }

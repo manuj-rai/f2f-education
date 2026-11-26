@@ -1,10 +1,10 @@
 {
   "note": "Slots confirmed in the Site Builder by npm run push (hash of the code each slot held). push re-opens a page whose local code differs from this.",
-  "at": "2026-11-25T13:14:23.331Z",
+  "at": "2026-11-26T06:04:53.832Z",
   "slots": {
     "<body> logged in (html)": "81b0e7936aacd525",
-    "<style> logged in (css)": "14b4cc7c523c7fd1",
+    "<style> logged in (css)": "da2b4ddad710cd41",
     "<body> logged out (html)": "55bc9cc49575769b",
-    "<style> logged out (css)": "14b4cc7c523c7fd1"
+    "<style> logged out (css)": "da2b4ddad710cd41"
   }
 }
