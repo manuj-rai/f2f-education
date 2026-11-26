@@ -298,7 +298,7 @@ html.f2f-chrome #sectionsWrapper:not(:has(> .f2f-header))::before { content: "";
 
 
 .f2f-bar { position: relative; background: #ffffff; }
-.f2f-bar-in { height: 72px; max-width: 1440px; margin: 0 auto; padding: 0 80px; display: flex; align-items: center; gap: 32px; }
+.f2f-bar-in { height:60px; max-width: 1440px; margin: 0 auto; padding: 0 80px; display: flex; align-items: center; gap: 32px; }
 .f2f-logo { flex: none; width: 222px; padding-left: 16px; display: flex; align-items: center; }
 .f2f-logo img { display: block; width: 190px; height: auto; }
 .f2f-nav { flex: 1; min-width: 0; display: flex; justify-content: center; gap: 28px; white-space: nowrap; }

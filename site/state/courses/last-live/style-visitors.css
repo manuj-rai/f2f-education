@@ -163,7 +163,7 @@
 @media (max-width: 720px) {
   .e-wrap { padding: 0 20px; }
   .e-hero { padding: 20px 0 32px; }
-  .e-hero-title { font-size: 30px; }
+  .e-hero-title { font-size: 30px;line-height: 1.2; }
   .e-hero-title br, .e-hero-text br { display: none; }
   .e-catalogue { padding: 24px 0 40px; }
   .e-search { flex-direction: column; gap: 12px; margin-bottom: 24px; }

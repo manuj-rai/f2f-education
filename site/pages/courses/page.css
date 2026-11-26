@@ -152,24 +152,28 @@
   .e-hero-row { flex-direction: column; align-items: stretch; gap: 28px; }
   .e-hero-photo { width: 100%; height: auto; aspect-ratio: 424 / 258; }
   .e-help-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .e-hero-title{line-height: 1.2;}
+  .e-hero-title br, .e-hero-text br { display: none; }
 }
 @media (max-width: 720px) {
   .e-wrap { padding: 0 20px; }
   .e-hero { padding: 20px 0 32px; }
-  .e-hero-title { font-size: 30px; }
+  .e-hero-title { font-size: 30px;line-height: 1.2; }
   .e-hero-title br, .e-hero-text br { display: none; }
   .e-catalogue { padding: 24px 0 40px; }
   .e-search { flex-direction: column; gap: 12px; margin-bottom: 24px; }
   .e-search-box input { height: 52px; }
   .e-search .e-btn { width: 100%; }
   .e-results-head { flex-wrap: wrap; }
-  .e-results-title { font-size: 22px; }
+  .e-results-title { font-size: 22px;line-height: 1.2;  }
   .e-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .e-card-title { min-height: 0; font-size: 18px; }
   .e-help { padding: 32px 0; }
   .e-help-title { font-size: 24px; }
   .e-pager { flex-wrap: wrap; gap: 8px; }
   .e-pager-text { flex-basis: 100%; }
+  .e-results{gap: 10px;}
+  .e-help-copy{gap:0px;}
 }
 
 /* ---------- Signed-in learners ("Explore courses", frame 184:219) ---------- */
