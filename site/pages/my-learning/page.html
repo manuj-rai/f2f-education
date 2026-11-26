@@ -130,7 +130,7 @@
       page: '/course/' + encodeURIComponent(c.titleId) };
   }
 
-  var list = [], tab = 'active', resumeId = null;
+  var list = [], tab = 'active';
   function done(stats, courses) {
     list = courses.map(summarise);
     var active = list.filter(function (x) { return x.status !== 'completed'; }), completed = list.filter(function (x) { return x.status === 'completed'; });
@@ -147,7 +147,6 @@
     // Continue learning: the course worked on most recently that isn't finished
     var resume = active.slice().sort(function (a, b) { return b.latest - a.latest; })[0];
     if (resume) {
-      resumeId = resume.c.id;
       q('[data-l-resume]').innerHTML = '<article class="l-resume">' +
         '<a class="l-resume-media" href="' + esc(resume.page) + '" tabindex="-1" aria-hidden="true">' + (resume.image ? '<img src="' + esc(resume.image) + '" alt="" loading="lazy">' : '') + '</a>' +
         '<div class="l-resume-body">' +
@@ -195,13 +194,11 @@
     var shown = list.filter(function (x) {
       if (tab === 'active' && x.status === 'completed') return false;
       if (tab === 'completed' && x.status !== 'completed') return false;
-      // The course in "Continue learning" isn't repeated in the Active list
-      if (tab === 'active' && !words.length && x.c.id === resumeId) return false;
       var hay = (x.title + ' ' + x.author).toLowerCase();
       return words.every(function (w) { return hay.indexOf(w) >= 0; });
     });
     q('[data-l-grid]').innerHTML = shown.length ? shown.map(programCard).join('')
-      : '<p class="l-none">' + (words.length ? 'No courses match your search.' : tab === 'completed' ? 'No completed courses yet.' : tab === 'active' && counts.active ? 'Your other active courses will show here.' : 'Nothing here yet.') + '</p>';
+      : '<p class="l-none">' + (words.length ? 'No courses match your search.' : tab === 'completed' ? 'No completed courses yet.' : 'Nothing here yet.') + '</p>';
   }
   tabs.addEventListener('click', function (e) { var b = e.target.closest('[data-l-tab]'); if (b) { tab = b.getAttribute('data-l-tab'); renderPrograms(); } });
   var typing; search.addEventListener('input', function () { clearTimeout(typing); typing = setTimeout(renderPrograms, 150); });

@@ -74,7 +74,7 @@ The user's final split: one course each for Sustainable Fashion School and AMFI,
 - Done for enrolled learners: progress card with "Resume learning" to the next lesson, module status (Completed / Up next / Not started), next lesson.
 - Left out (no LearnWorlds data): What you'll learn, Level, Language, a separate About text, enquiry copy, certificate card, help band, assignment due dates ("Coming up next").
 
-**My learning.** Done: active / completed / certificate counts, Continue learning (most recent course, resumes at the next lesson), My courses with Active / Completed / All tabs and search, achievements, recommended courses.
+**My learning.** Done: active / completed / certificate counts, Continue learning (most recent course, resumes at the next lesson), My courses with Active / Completed / All tabs and search (each tab lists every course its count includes, the Continue learning course too: 26 Nov 2026 fix, the Active list used to skip it so "Active (2)" showed one card), achievements, recommended courses.
 - Left out (no LearnWorlds data): weekly goal, assignment due dates, saved courses, support panel.
 
 **Log in (skipped).** The user decided to keep LearnWorlds' own sign-in window. The header's "Log in" opens it.
