@@ -86,11 +86,6 @@ a.w-btn--line:hover { background: rgba(255, 255, 255, .1); border-color: #ffffff
 .w-partners-logos > li:first-child { margin-left: auto; }
 .w-partners-logos > li:last-child { margin-right: auto; }
 .w-partners-logos img { display: block; height: 48px; width: auto; max-width: 200px; object-fit: contain; }
-.w-partner { display: flex; align-items: center; gap: 12px; color: var(--w-ink) !important; }
-.w-partner-name { font-size: 16px; font-weight: 700; line-height: 1.2; color: var(--w-ink); white-space: nowrap; }
-.w-partner:hover .w-partner-name { text-decoration: underline; }
-.w-partners-all { display: inline-flex; align-items: center; gap: 8px; margin-top: 30px; font-size: 13px; font-weight: 600; color: var(--w-link) !important; }
-.w-partners-all:hover { text-decoration: underline !important; }
 html[data-theme="dark"] .w-partners-logos img { background: #ffffff; padding: 4px 8px; border-radius: 4px; box-sizing: content-box; }
 
 /* ---------- "Find your next step" ---------- */

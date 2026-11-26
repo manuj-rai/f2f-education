@@ -45,7 +45,7 @@ The user's final split: one course each for Sustainable Fashion School and AMFI,
 - **AMFI (Amsterdam Fashion Institute)** (1): How Fashion Trends Rise, Spread and Return. Logo: the wide AMFI logo the user sent, `courses/_universities/amfi.png`.
 - **Sustainable Fashion School** (1): **Fashion Policy Masterclass Series**, a **Coming soon** course created for it (no lessons yet; card image made with the studio's card.py, see `courses/fashion-policy-masterclass-series/README.md`). Logo: the wide black logo the user sent, `courses/_universities/sustainable-fashion-school.png`. It has no category yet, so it is not on home (Online Courses lists it).
 - Logos are uploaded uncropped, so wide logos stay wide (LearnWorlds keeps the avatar's shape).
-- Home band: logos only, no names (the name is the alt text), on one line that scrolls sideways when needed. Shown from one institution. All three logos come from LearnWorlds (`partnerLogos` is empty).
+- Home university band: **static** (the user's request, 26 Nov 2026): three logos typed into `pages/home/page.html` (Fibre2Fashion Education, AMFI, Sustainable Fashion School), no links and no "View all"; the user will add more logos. It shows at once, with the logos' sizes reserved, so the category bar below no longer jumps down when the page loads. The "Partner institutions" figure still counts the course authors.
 - University Partners: one row per institution. Left: logo, name below it, "View all N courses" (opens Online Courses filtered to it, `/courses?institution=<name>`); no course count. Right: its first 3 courses as picture cards, one row (image, title, duration and format, or "Coming soon"), no prices. Stacks on tablets and phones.
 - Course pages: a course with no lessons yet shows "Coming soon" instead of "0 modules · 0 lessons", and a short note in Course content.
 - New courses get Fibre2Fashion Education by default (`lw_publish_js.py`, `content.json` "author_name").
@@ -58,6 +58,7 @@ The user's final split: one course each for Sustainable Fashion School and AMFI,
 **Course order.** LearnWorlds lists courses A–Z by title and has no order setting. `SITE.featured` in `body.html` (now `staple-yarn-spinning`) puts courses first on home, Online Courses ("Featured") and University Partners.
 
 **Home.** Hero changed at the user's request (25 Nov 2026):
+- Explore Courses by Topic: each topic opens Online Courses filtered to it (`/courses?subject=<category>`).
 - 26 Nov 2026 (the user's requests): the thin line in the hero is gone; the "Trending Textile & Fashion Courses" section is removed (a topic without a section now opens Online Courses filtered to it); the figures (courses, topics, partner institutions) are centred; the "N courses" counts above the category sections are removed.
 - Title: "Practical industry-led courses for the textiles, apparel & fashion industry."
 - Two buttons, the same as the menu: Online Courses (`/courses`) and Residential Courses. Residential Courses is greyed out until it has an address (see below).

@@ -7,7 +7,7 @@
     categories        = each course's Categories (Course settings). A section per category, in catalogue order;
                         each course shows once, under its first category. Name = the category text
                         ("fibre-fundamentals" shows as "Fibre Fundamentals"; a category typed with spaces shows as typed).
-    partner strip     = the institutions set as course authors, logos only (the avatar, or a wider logo from partnerLogos); shown from 1 institution.
+    partner band      = static logos typed into the band below (the user's request, 26 Nov 2026): no links, no "View all".
     stats             = counted from the courses.
     blog              = the JSON feed in data-feed on the blog section; hidden while there is none.
   Topic icons are picked by keywords in the category name (rules below), with a default.
@@ -31,7 +31,6 @@
     ["trend|forecast", "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUcmVuZCBGb3JlY2FzdGluZyAmIzIyNjsmIzEyODsmIzE0ODsgdHJlbmRpbmcgY2hhcnQiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMyAzVjIxSDIxTTYgMTZMMTEgMTFMMTUgMTRMMjEgNk0yMSAxMVY2SDE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZT0iIzFCNUZBOCIvPgo8L2c+Cjwvc3ZnPgo="]
   ],
   "topicDefault": "data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJUZXh0aWxlIE1hbnVmYWN0dXJpbmcgJiMyMjY7JiMxMjg7JiMxNDg7IGZhY3RvcnkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNiAxOEg3TTExIDE4SDEyTTE2IDE4SDE3TTE1IDdIMTlNMyAyMVYxMEw5IDE0VjlMMTUgMTNWM0gxOUwyMSAyMUgzWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2U9IiMxQjVGQTgiLz4KPC9nPgo8L3N2Zz4K",
-  "partnerLogos": {},
   "categoryFirst": ["sourcing", "merchandising"] }
 </script>
 
@@ -50,11 +49,16 @@
   </div>
 </section>
 
-<section class="w-partners" aria-labelledby="w-partners-title" data-w-partners hidden>
+<section class="w-partners" aria-labelledby="w-partners-title">
   <div class="w-wrap">
     <h2 id="w-partners-title" class="w-partners-label">LEARN FROM THE WORLD’S MOST RESPECTED INSTITUTIONS</h2>
-    <ul class="w-partners-logos" data-w-partner-list></ul>
-    <a class="w-partners-all" href="/universities">View all university partners <img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJhcnJvdy1yaWdodCI+CjxwYXRoIGlkPSJWZWN0b3IiIGQ9Ik0zLjMzMjggOEgxMi42NjcyTTggMTIuNjY3MkwxMi42NjcyIDhMOCAzLjMzMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSIjMUI1RkE4Ii8+CjwvZz4KPC9zdmc+Cg==" width="16" height="16" alt=""></a>
+    <!-- Static logos, no links (the user's request, 26 Nov 2026). To add one, copy an <li> and set the logo's address, its width at
+         48px high (a square logo is 48, a 250 x 100 logo is 120) and the institution's name (alt). Use a picture uploaded to LearnWorlds, or put the file in assets/ and list it in assets.json. -->
+    <ul class="w-partners-logos">
+      <li><img src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/e0f227fe05041dce504a7232c433ab0b.png" width="48" height="48" alt="Fibre2Fashion Education"></li>
+      <li><img src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/029c80ee672e070be2f7bbbfd27f926a.png" width="120" height="48" alt="AMFI (Amsterdam Fashion Institute)"></li>
+      <li><img src="https://lwfiles.mycourse.app/6afaa7bf8bf68da1fa81b933-public/3b9cb8f160cc270066e387f27444bde1.png" width="120" height="48" alt="Sustainable Fashion School"></li>
+    </ul>
   </div>
 </section>
 
@@ -305,32 +309,18 @@
     }).join('');
     sections.forEach(function (c) { grid(root.querySelector('[data-w-cat-grid="' + c.id + '"]'), home[c.tag], 3); });
 
-    // Explore by topic: jumps to the category's section, or (if it has none) opens Online Courses filtered to it
+    // Explore by topic: opens Online Courses filtered to the category (the user's request, 26 Nov 2026)
     var topics = root.querySelector('[data-w-topics]');
     topics.innerHTML = cats.map(function (c) {
-      var href = home[c.tag] ? '#' + c.id : '/courses?subject=' + encodeURIComponent(c.tag);
+      var href = '/courses?subject=' + encodeURIComponent(c.tag);
       return '<li><a class="w-topic" href="' + href + '"><img src="' + c.icon + '" width="24" height="24" alt="">' +
         '<span class="w-topic-name">' + esc(c.name) + '</span><span class="w-topic-count">' + plural(byTag[c.tag].length, 'course', 'courses') + '</span>' +
         '<img src="' + ICONS.arrowUpRight + '" width="16" height="16" alt=""></a></li>';
     }).join('');
 
-    // Partner strip: the institutions set as course authors, shown once there is one. Logos only, no names (the user's
-    // request); the name is the logo's alt text. The logo is the author's avatar, unless partnerLogos (top of this file)
-    // has a wider logo for that institution. With no picture at all, the name is shown instead.
+    // Institutions (course authors), for the "Partner institutions" figure. The logo band above is static.
     var seen = {}, institutions = [];
     courses.forEach(function (c) { authors(c).forEach(function (a) { if (!seen[a.name]) { seen[a.name] = 1; institutions.push(a); } }); });
-    var partners = root.querySelector('[data-w-partners]');
-    if (institutions.length >= 1) {
-      var list = partners.querySelector('[data-w-partner-list]'), logos = ICONS.partnerLogos || {};
-      list.innerHTML = institutions.map(function (a) {
-        var key = a.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-        var img = logos[key] || imageUrl(a.image);
-        return '<li><a class="w-partner" href="/universities#uni-' + key + '" title="' + esc(a.name) + '">' +
-          (img ? '<img src="' + esc(img) + '" height="48" alt="' + esc(a.name) + '" loading="lazy">' : '<span class="w-partner-name">' + esc(a.name) + '</span>') +
-          '</a></li>';
-      }).join('');
-      partners.hidden = false;
-    }
 
     // Figures, counted from the catalogue
     var stats = [[courses.length, courses.length === 1 ? 'Course available' : 'Courses available'], [cats.length, cats.length === 1 ? 'Topic' : 'Topics']];
